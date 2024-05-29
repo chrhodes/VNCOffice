@@ -1,0 +1,74 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.TextBlockFormat"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d"
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="LeftMargin">
+                <dxe:TextEdit Text="{Binding LeftMargin}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="TopMargin">
+                <dxe:TextEdit Text="{Binding TopMargin}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="RightMargin">
+                <dxe:TextEdit Text="{Binding RightMargin}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="BottomMargin">
+                <dxe:TextEdit Text="{Binding BottomMargin}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="TextBkgnd">
+                <dxe:TextEdit Text="{Binding TextBkgnd}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="TextBkgndTrans">
+                <dxe:TextEdit Text="{Binding TextBkgndTrans}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="TextDirection">
+                <dxe:TextEdit Text="{Binding TextDirection}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="VerticalAlign">
+                <dxe:TextEdit Text="{Binding VerticalAlign}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DefaultTabStop">
+                <dxe:TextEdit Text="{Binding DefaultTabStop}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+                        
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

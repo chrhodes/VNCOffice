@@ -1,0 +1,47 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.GlueInfo"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="BegTrigger">
+                <dxe:TextEdit Text="{Binding BegTrigger}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="EndTrigger">
+                <dxe:TextEdit Text="{Binding EndTrigger}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="GlueType">
+                <dxe:TextEdit Text="{Binding GlueType}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="WalkPreference">
+                <dxe:TextEdit Text="{Binding WalkPreference}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+</UserControl>

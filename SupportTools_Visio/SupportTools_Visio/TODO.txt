@@ -1,0 +1,13 @@
+﻿SupportTools_Visio TODO and Ideas
+
+Last Updated:	2016.01.03
+By:				crhodes
+
+Implement Layer Manager form
+Double click on dropdown displays file picker to load new layers file
+or layers could come from a sheet in the File and have a load from sheet option
+
+Implement ShapeEditor form
+
+Implement a Layers TOC
+Would be like TOC but would show which layers are on what pages

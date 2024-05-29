@@ -1,0 +1,98 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.AdditionalEffectProperties"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="ReflectionTrans">
+                <dxe:TextEdit Text="{Binding ReflectionTrans}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ReflectionSize">
+                <dxe:TextEdit Text="{Binding ReflectionSize}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ReflectionDist">
+                <dxe:TextEdit Text="{Binding ReflectionDist}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ReflectionBlur">
+                <dxe:TextEdit Text="{Binding ReflectionBlur}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="SketchEnabled">
+                <dxe:TextEdit Text="{Binding SketchEnabled}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="SketchSeed">
+                <dxe:TextEdit Text="{Binding SketchSeed}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="SketchAmount">
+                <dxe:TextEdit Text="{Binding SketchAmount}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="SketchLineWeight">
+                <dxe:TextEdit Text="{Binding SketchLineWeight}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="SketchLineChange">
+                <dxe:TextEdit Text="{Binding SketchLineChange}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="SketchFillChange">
+                <dxe:TextEdit Text="{Binding SketchFillChange}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="GlowColor">
+                <dxe:TextEdit Text="{Binding GlowColor}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="GlowColorTrans">
+                <dxe:TextEdit Text="{Binding GlowColorTrans}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="GlowSize">
+                <dxe:TextEdit Text="{Binding GlowSize}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="SoftEdgesSize">
+                <dxe:TextEdit Text="{Binding SoftEdgesSize}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+</UserControl>

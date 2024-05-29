@@ -1,0 +1,167 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.PageLayout"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="PlaceStyle">
+                <dxe:TextEdit Text="{Binding PlaceStyle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PlaceDepth">
+                <dxe:TextEdit Text="{Binding PlaceDepth}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PlowCode">
+                <dxe:TextEdit Text="{Binding PlowCode}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ResizePage">
+                <dxe:TextEdit Text="{Binding ResizePage}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DynamicsOff">
+                <dxe:TextEdit Text="{Binding DynamicsOff}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="EnableGrid">
+                <dxe:TextEdit Text="{Binding EnableGrid}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="CtrlAsInput">
+                <dxe:TextEdit Text="{Binding CtrlAsInput}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineAdjustFrom">
+                <dxe:TextEdit Text="{Binding LineAdjustFrom}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PlaceFlip">
+                <dxe:TextEdit Text="{Binding PlaceFlip}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="AvoidPageBreaks">
+                <dxe:TextEdit Text="{Binding AvoidPageBreaks}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="BlockSizeX">
+                <dxe:TextEdit Text="{Binding BlockSizeX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="BlockSizeY">
+                <dxe:TextEdit Text="{Binding BlockSizeY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="AvenueSizeX">
+                <dxe:TextEdit Text="{Binding AvenueSizeX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="AvenueSizeY">
+                <dxe:TextEdit Text="{Binding AvenueSizeY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="RouteStyle">
+                <dxe:TextEdit Text="{Binding RouteStyle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PageLineJumpDirX">
+                <dxe:TextEdit Text="{Binding PageLineJumpDirX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PageLineJumpDirY">
+                <dxe:TextEdit Text="{Binding PageLineJumpDirY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineAdjustTo">
+                <dxe:TextEdit Text="{Binding LineAdjustTo}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineRouteExt">
+                <dxe:TextEdit Text="{Binding LineRouteExt}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineToNodeX">
+                <dxe:TextEdit Text="{Binding LineToNodeX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineToNodeY">
+                <dxe:TextEdit Text="{Binding LineToNodeY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineToLineX">
+                <dxe:TextEdit Text="{Binding LineToLineX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineToLineY">
+                <dxe:TextEdit Text="{Binding LineToLineY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineJumpFactorX">
+                <dxe:TextEdit Text="{Binding LineJumpFactorX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineJumpFactorY">
+                <dxe:TextEdit Text="{Binding LineJumpFactorY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineJumpCode">
+                <dxe:TextEdit Text="{Binding LineJumpCode}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LineJumpStyle">
+                <dxe:TextEdit Text="{Binding LineJumpStyle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PageShapeSplit">
+                <dxe:TextEdit Text="{Binding PageShapeSplit}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

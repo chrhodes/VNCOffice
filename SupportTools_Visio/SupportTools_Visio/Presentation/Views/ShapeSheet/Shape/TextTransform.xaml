@@ -1,0 +1,66 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.TextTransform"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    
+    xmlns:local="clr-namespace:SupportTools_Visio.Presentation.Views"
+    mc:Ignorable="d" 
+
+    d:DesignHeight="400" d:DesignWidth="300" >
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="TxtWidth">
+                <dxe:TextEdit Text="{Binding TextTransform.TxtWidth}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="txtHeight">
+                <dxe:TextEdit Text="{Binding TextTransform.TxtHeight}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="TxtAngle">
+                <dxe:TextEdit Text="{Binding TextTransform.TxtAngle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="TxtPinX">
+                <dxe:TextEdit Text="{Binding TxtPinX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="TxtPinY">
+                <dxe:TextEdit Text="{Binding TxtPinY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="TxtLocPinX">
+                <dxe:TextEdit Text="{Binding TxtLocPinX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="TxtLocPinY">
+                <dxe:TextEdit Text="{Binding TxtLocPinY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

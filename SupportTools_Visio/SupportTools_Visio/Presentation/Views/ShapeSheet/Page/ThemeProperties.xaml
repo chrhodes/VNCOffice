@@ -1,0 +1,68 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.ThemeProperties"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="ConnectorSchemeIndex">
+                <dxe:TextEdit Text="{Binding ConnectorSchemeIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="EffectSchemeIndex">
+                <dxe:TextEdit Text="{Binding EffectSchemeIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ColorSchemeIndex">
+                <dxe:TextEdit Text="{Binding ColorSchemeIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="FontSchemeIndex">
+                <dxe:TextEdit Text="{Binding FontSchemeIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ThemeIndex">
+                <dxe:TextEdit Text="{Binding ThemeIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="VariationColorIndex">
+                <dxe:TextEdit Text="{Binding VariationColorIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="VariationStyleIndex">
+                <dxe:TextEdit Text="{Binding VariationStyleIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="EmbellishmentIndex">
+                <dxe:TextEdit Text="{Binding EmbellishmentIndex}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

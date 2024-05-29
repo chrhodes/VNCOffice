@@ -1,0 +1,1670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+    This section defines project-level properties.
+
+    AssemblyName
+      Name of the output assembly.
+    Configuration
+      Specifies a default value for debug.
+    OutputType
+      Must be "Library" for VSTO.
+    Platform
+      Specifies what CPU the output of this project can run on.
+    NoStandardLibraries
+      Set to "false" for VSTO.
+    RootNamespace
+      In C#, this specifies the namespace given to new files. In VB, all objects are
+      wrapped in this namespace at runtime.
+  -->
+  <Import Project="..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.props" Condition="Exists('..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <ProjectTypeGuids>{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3C3897DE-F23C-435B-ACB2-242D72A1E74F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>SupportTools_Visio</RootNamespace>
+    <AssemblyName>SupportTools_Visio</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <DefineConstants>VSTO40</DefineConstants>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
+    <IsWebBootstrapper>False</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <PublishUrl>C:\Users\crhodes\OneDrive\OfficeCloud\SupportTools\Visio\</PublishUrl>
+    <InstallUrl />
+    <TargetCulture>en</TargetCulture>
+    <ApplicationVersion>1.0.0.46</ApplicationVersion>
+    <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>days</UpdateIntervalUnits>
+    <ProductName>SupportTools_Visio</ProductName>
+    <PublisherName>VNC</PublisherName>
+    <SupportUrl />
+    <FriendlyName>SupportTools_Visio</FriendlyName>
+    <OfficeApplicationDescription />
+    <LoadBehavior>3</LoadBehavior>
+  </PropertyGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <!--
+      OfficeApplication
+        Add-in host application
+    -->
+    <OfficeApplication>Visio</OfficeApplication>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Debug" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Release" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <!--
+    This section enables pre- and post-build steps. However, in VSTO use
+    MSBuild tasks instead of these properties.       
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!--
+    This section specifies references for the project.
+  -->
+  <ItemGroup>
+    <Reference Include="CalcBinding, Version=2.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CalcBinding.2.5.2\lib\net45\CalcBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.7\lib\net48\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.CodeParser.21.2.7\lib\net452\DevExpress.CodeParser.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Data.Desktop.21.2.7\lib\net452\DevExpress.Data.Desktop.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Data.21.2.7\lib\net452\DevExpress.Data.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.DataAccess.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.DataAccess.21.2.7\lib\net452\DevExpress.DataAccess.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Images.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Images.21.2.7\lib\net452\DevExpress.Images.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Mvvm.21.2.7\lib\net452\DevExpress.Mvvm.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Office.Core.21.2.7\lib\net452\DevExpress.Office.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Pdf.Core.21.2.7\lib\net452\DevExpress.Pdf.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v21.2.Drawing, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Pdf.Drawing.21.2.7\lib\net452\DevExpress.Pdf.v21.2.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Printing.Core.21.2.7\lib\net452\DevExpress.Printing.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.RichEdit.Core.21.2.7\lib\net452\DevExpress.RichEdit.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.RichEdit.Export.21.2.7\lib\net452\DevExpress.RichEdit.v21.2.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.CodeView.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Core.21.2.7\lib\net452\DevExpress.Xpf.Core.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v21.2.Extensions, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Core.Extensions.21.2.7\lib\net452\DevExpress.Xpf.Core.v21.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Docking.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Docking.21.2.7\lib\net452\DevExpress.Xpf.Docking.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.DocumentViewer.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.DocumentViewer.Core.21.2.7\lib\net452\DevExpress.Xpf.DocumentViewer.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.ExpressionEditor.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.ExpressionEditor.21.2.7\lib\net452\DevExpress.Xpf.ExpressionEditor.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Grid.Core.21.2.7\lib\net452\DevExpress.Xpf.Grid.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Grid.Core.21.2.7\lib\net452\DevExpress.Xpf.Grid.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v21.2.Extensions, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Grid.Core.21.2.7\lib\net452\DevExpress.Xpf.Grid.v21.2.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Layout.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Docking.21.2.7\lib\net452\DevExpress.Xpf.Layout.v21.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.LayoutControl.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.LayoutControl.21.2.7\lib\net452\DevExpress.Xpf.LayoutControl.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Office.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Office.21.2.7\lib\net452\DevExpress.Xpf.Office.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Printing.21.2.7\lib\net452\DevExpress.Xpf.Printing.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Ribbon.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Ribbon.21.2.7\lib\net452\DevExpress.Xpf.Ribbon.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.RichEdit.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.RichEdit.21.2.7\lib\net452\DevExpress.Xpf.RichEdit.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.Office2019Colorful.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Wpf.Themes.Office2019Colorful.21.2.7\lib\net452\DevExpress.Xpf.Themes.Office2019Colorful.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpo.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpress.Xpo.21.2.7\lib\net452\DevExpress.Xpo.v21.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DynamicExpresso.Core, Version=2.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.2.13.0\lib\netstandard2.0\DynamicExpresso.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Modules\Explore\bin\Debug\net4.8\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\Modules\Explore\bin\Debug\net4.8\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Humanizer, Version=2.14.0.0, Culture=neutral, PublicKeyToken=979442b78dfc278e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Humanizer.Core.2.14.1\lib\netstandard2.0\Humanizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.4.1.12, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.4.1\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqToExcel, Version=1.11.0.0, Culture=neutral, PublicKeyToken=9c8ea65a58f03f1f, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\LinqToExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.10.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.3\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.DevOps.Comments.WebApi, Version=18.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.Azure.DevOps.Comments.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.17.2.0\lib\net472\Microsoft.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.Framework.17.4.0\lib\net472\Microsoft.Build.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Locator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9dff12846e04bfbd, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.Locator.1.4.1\lib\net46\Microsoft.Build.Locator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.Tasks.Core.17.2.0\lib\net472\Microsoft.Build.Tasks.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Utilities.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Build.Utilities.Core.17.2.0\lib\net472\Microsoft.Build.Utilities.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Common.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Features, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Features.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.CSharp.Workspaces.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Elfie, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Elfie.1.0.0\lib\net45\Microsoft.CodeAnalysis.Elfie.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Features, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Features.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Scripting, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Scripting.Common.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Scripting.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.VisualBasic.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Features, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.VisualBasic.Features.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.VisualBasic.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.VisualBasic.Workspaces.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Workspaces.Common.4.4.0\lib\netstandard2.0\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild, Version=4.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeAnalysis.Workspaces.MSBuild.4.4.0\lib\net472\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.DiaSymReader, Version=1.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DiaSymReader.1.4.0\lib\net20\Microsoft.DiaSymReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=6.25.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.6.25.1\lib\net472\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=6.25.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.6.25.1\lib\net472\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=6.25.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.6.25.1\lib\net472\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=6.25.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.6.25.1\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.Redist, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.Redist.6.0.0\lib\net472\Microsoft.IO.Redist.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.NET.StringTools, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.NET.StringTools.1.0.0\lib\net472\Microsoft.NET.StringTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Visio, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.4.2.2\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=d702d1a3426498a0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Common.NetCore.6.3.0\lib\net47\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=d702d1a3426498a0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.Logging.NetCore.6.3.2\lib\net47\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Build.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Build.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build2.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Build2.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Services.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Core.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Core.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Dashboards.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Dashboards.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.DeleteTeamProject, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.DeleteTeamProject.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Diff, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Diff.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Discussion.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Discussion.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.DistributedTask.Common.Contracts, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.16.170.0\lib\net462\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Git.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Git.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Lab.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Lab.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.TestIntegration.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Policy.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Policy.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.ProjectManagement, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.ProjectManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.SharePointReporting.Integration, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.SharePointReporting.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.SourceControl.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.SourceControl.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Test.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Test.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestImpact.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.TestImpact.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.TestManagement.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.TestManagement.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.TestManagement.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.VersionControl.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.VersionControl.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Common.Integration, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.VersionControl.Common.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Wiki.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Wiki.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Work.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.Work.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.WorkItemTracking.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.WorkItemTracking.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Process.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.WorkItemTracking.Process.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Proxy, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\lib\net462\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.RemoteControl, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.RemoteControl.16.3.44\lib\net45\Microsoft.VisualStudio.RemoteControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Services.Client.16.170.0\lib\net462\Microsoft.VisualStudio.Services.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.TestManagement.TestPlanning.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.VisualStudio.Services.TestManagement.TestPlanning.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.TestResults.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.TeamFoundationServer.Client.16.170.0\lib\net462\Microsoft.VisualStudio.Services.TestResults.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Services.Client.16.170.0\lib\net462\Microsoft.VisualStudio.Services.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Utilities.Internal, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Utilities.Internal.16.3.38\lib\net45\Microsoft.VisualStudio.Utilities.Internal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry.AccessControl, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.AccessControl.7.0.0\lib\net462\Microsoft.Win32.Registry.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.SystemEvents, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.SystemEvents.7.0.0\lib\net462\Microsoft.Win32.SystemEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Prism, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.8.1.97\lib\net47\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Unity.8.1.97\lib\net47\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=8.1.97.5141, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.8.1.97\lib\net47\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Data.Linq, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Data.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Interfaces, Version=1.13.52.2, Culture=neutral, PublicKeyToken=0669cf0452175907, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqToExcel.1.11.0\lib\Remotion.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.1.3.1795, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.1.3\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.1.3.1795, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.1.3\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.1.3.1795, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.1.3\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.CodeDom, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.CodeDom.7.0.0\lib\net462\System.CodeDom.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.AttributedModel.7.0.0\lib\net462\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Convention, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Convention.7.0.0\lib\net462\System.Composition.Convention.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Hosting, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Hosting.7.0.0\lib\net462\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Runtime, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.Runtime.7.0.0\lib\net462\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Composition.TypedParts.7.0.0\lib\net462\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.7.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Odbc, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Odbc.7.0.0\lib\net462\System.Data.Odbc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OleDb, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.OleDb.7.0.0\lib\net462\System.Data.OleDb.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.EventLog, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.EventLog.7.0.0\lib\net462\System.Diagnostics.EventLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.7.0.0\lib\net462\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.7.0.0\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=6.25.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.6.25.1\lib\net472\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.7.0.0\lib\net462\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.7.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Ports, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Ports.7.0.0\lib\net462\System.IO.Ports.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Metadata, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.Metadata.7.0.0\lib\net462\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Resources.Extensions.4.6.0\lib\netstandard2.0\System.Resources.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.7.0.0\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.ProtectedData, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.ProtectedData.7.0.0\lib\net462\System.Security.Cryptography.ProtectedData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.7.0.0\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.7.0.0\lib\net462\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Duplex, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Duplex.4.10.0\lib\net461\System.ServiceModel.Duplex.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Http, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Http.4.10.0\lib\net461\System.ServiceModel.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.NetTcp, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.NetTcp.4.10.0\lib\net461\System.ServiceModel.NetTcp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Primitives, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Primitives.4.10.0\lib\net461\System.ServiceModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Security, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Security.4.10.0\lib\net461\System.ServiceModel.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Syndication, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceModel.Syndication.7.0.0\lib\net462\System.ServiceModel.Syndication.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess.ServiceController, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ServiceProcess.ServiceController.7.0.0\lib\net462\System.ServiceProcess.ServiceController.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.7.0.0\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.1\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.AccessControl, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.AccessControl.7.0.0\lib\net462\System.Threading.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Dataflow.6.0.0\lib\net461\System.Threading.Tasks.Dataflow.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Cors, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.3.0\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services.Description, Version=4.10.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Services.Description.4.10.0\lib\net461\System.Web.Services.Description.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UIAutomationProvider">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationTypes">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.7\lib\net48\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.11.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.11\lib\net48\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.AssemblyHelper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.AssemblyHelper.2.0.0\lib\net48\VNC.AssemblyHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.AZDO, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.AZDO.2.0.0\lib\net48\VNC.AZDO.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.CodeAnalysis, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.CodeAnalysis.2.0.0\lib\net48\VNC.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.Core, Version=2.1.4.0, Culture=neutral, PublicKeyToken=6621de8a79b51ca3, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.Core.2.1.4\lib\net48\VNC.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.Logging, Version=2.1.0.0, Culture=neutral, PublicKeyToken=6621de8a79b51ca3, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.Logging.2.1.0\lib\net48\VNC.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.Logging.TraceListeners.SignalRListener, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6621de8a79b51ca3, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.Logging.TraceListeners.SignalRListener.1.0.0\lib\net48\VNC.Logging.TraceListeners.SignalRListener.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.WPF.Presentation, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.WPF.Presentation.2.0.0\lib\net48\VNC.WPF.Presentation.dll</HintPath>
+    </Reference>
+    <Reference Include="VNC.WPF.Presentation.Dx, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\VNC.WPF.Presentation.Dx.2.0.0\lib\net48\VNC.WPF.Presentation.Dx.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Tools.Common.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <!--
+    This section defines the user source files that are part of the project.
+     
+    A "Compile" element specifies a source file to compile.
+    An "EmbeddedResource" element specifies an .resx file for embedded resources.
+    A "None" element specifies a file that is not to be passed to the compiler (for instance, 
+    a text file or XML file).
+    The "AppDesigner" element specifies the directory where the application properties files
+    can be found.
+  -->
+  <ItemGroup>
+    <Compile Include="Actions\PageLayout.cs" />
+    <Compile Include="Domain\OffsetDirection.cs" />
+    <Compile Include="Domain\QueryWorkItemInfoShape.cs" />
+    <Compile Include="Domain\ShapeInfo.cs" />
+    <Compile Include="Domain\WorkItemOffset.cs" />
+    <Compile Include="Domain\WorkItemOffsets.cs" />
+    <Compile Include="Domain\ShapeSheet\PageProperties.cs" />
+    <Compile Include="Domain\ShapeType.cs" />
+    <Compile Include="Domain\WorkItemQueryShapeInfo.cs" />
+    <Compile Include="Domain\WorkItemShapeInfo.cs" />
+    <Compile Include="Domain\FileInfoShape.cs" />
+    <Compile Include="Domain\MethodInfoShape.cs" />
+    <Compile Include="Domain\ClassInfoShape.cs" />
+    <Compile Include="Actions\AZDOActions.cs" />
+    <Compile Include="Actions\RoslynActions.cs" />
+    <Compile Include="Actions\Visio_Application.cs" />
+    <Compile Include="Actions\Visio_Document.cs" />
+    <Compile Include="Actions\Visio_Page.cs" />
+    <Compile Include="Actions\Visio_Shape.cs" />
+    <Compile Include="Actions\Visio_Stencil.cs" />
+    <Compile Include="Actions\Visio_Window.cs" />
+    <Compile Include="Application\Bootstrapper.cs" />
+    <Compile Include="Application\PrismApp.cs" />
+    <Compile Include="Domain\ShapeSheet\DocumentProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\FillFormat.cs" />
+    <Compile Include="Domain\ShapeSheet\FillGradientStopRow.cs" />
+    <Compile Include="Domain\ShapeSheet\GeometryRow.cs" />
+    <Compile Include="Domain\ShapeSheet\GradientProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\GlueInfo.cs" />
+    <Compile Include="Domain\ShapeSheet\GroupProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\HyperlinkRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ImageProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\LayerRow.cs" />
+    <Compile Include="Domain\ShapeSheet\LayerMembership.cs" />
+    <Compile Include="Domain\ShapeSheet\LineFormat.cs" />
+    <Compile Include="Domain\ShapeSheet\LineGradientStopRow.cs" />
+    <Compile Include="Domain\ShapeSheet\Miscellaneous.cs" />
+    <Compile Include="Domain\ShapeSheet\PageLayout.cs" />
+    <Compile Include="Domain\ShapeSheet\PrintProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\Protection.cs" />
+    <Compile Include="Domain\ShapeSheet\QuickStyle.cs" />
+    <Compile Include="Domain\ShapeSheet\RulerAndGrid.cs" />
+    <Compile Include="Domain\ShapeSheet\ScratchRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ShapeDataRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ShapeLayout.cs" />
+    <Compile Include="Domain\ShapeSheet\StyleProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\TabRow.cs" />
+    <Compile Include="Domain\ShapeSheet\TextFieldRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ThemeProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\ShapeTransform.cs" />
+    <Compile Include="Domain\ShapeSheet\OneDEndPoints.cs" />
+    <Compile Include="Domain\ShapeSheet\UserDefinedCellRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ThreeDRotationProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\ActionTagRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ActionRow.cs" />
+    <Compile Include="Domain\ShapeSheet\AdditionalEffectProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\BevelProperties.cs" />
+    <Compile Include="Domain\ShapeSheet\CharacterRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ChangeShapeBehavior.cs" />
+    <Compile Include="Domain\ShapeSheet\Events.cs" />
+    <Compile Include="Domain\ShapeSheet\ConnectionPointRow.cs" />
+    <Compile Include="Data\ApplicationDS.cs">
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ApplicationDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Config.cs" />
+    <Compile Include="Domain\ShapeSheet\ControlsRow.cs" />
+    <Compile Include="Domain\ShapeSheet\ParagraphRow.cs" />
+    <Compile Include="Domain\ShapeSheet\TextBlockFormat.cs" />
+    <Compile Include="Domain\ShapeSheet\TextTransform.cs" />
+    <Compile Include="ErrorNumbers.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="IAddStuffViewModel.cs" />
+    <Compile Include="Modules\SupportTools_VisioModule.cs" />
+    <Compile Include="Modules\EditTextModule.cs" />
+    <Compile Include="Domain\Cat.cs" />
+    <Compile Include="Domain\ShapeSheet\NewButton.cs" />
+    <Compile Include="Presentation\Converters\XElementToStringConverter.cs" />
+    <Compile Include="Presentation\Converters\SelectedItemsConverter.cs" />
+    <Compile Include="Presentation\Converters\SelectedItemsToListOfStringConverter.cs" />
+    <Compile Include="Presentation\Converters\SelectedItemsToVisioCommandWrapperConverter.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\ILinqToExcelViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\IViewCViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ViewCViewModel.cs" />
+    <Compile Include="Presentation\Views\LinqToExcel.xaml.cs" />
+    <Compile Include="Presentation\ViewModels\LinqToExcelViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\IViewBViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\ICommandCockpitViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ViewBViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\CommandCockpitViewModel.cs" />
+    <Compile Include="Presentation\Views\ViewC2.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewC1.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewB.xaml.cs" />
+    <Compile Include="Presentation\Views\CommandCockpit.xaml.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\IMovePageViewModel.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\Page\PagePropertiesWrapper.cs" />
+    <Compile Include="Presentation\Views\MovePage.xaml.cs" />
+    <Compile Include="Presentation\ViewModels\MovePageViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\ObjectViewModel.cs" />
+    <Compile Include="Presentation\ModelWrappers\CatWrapper.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\IViewAViewModel.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ActionRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ActionTagRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\AdditionalEffectPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\BevelPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ChangeShapeBehaviorWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\CharacterRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ConnectionPointRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ControlsRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\Document\DocumentPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\EventsWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\FillFormatWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\FillGradientStopRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\GeometryRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\GlueInfoWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\GradientPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\GroupPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\HyperlinkRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ImagePropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\LayerMembershipWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\LayerRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\LineFormatWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\LineGradientStopRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\MiscellaneousWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\OneDEndPointsWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\PageLayoutWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ParagraphWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\PrintPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ProtectionWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\QuickStyleWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\RulerAndGridWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ScratchRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ShapeDataRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ShapeLayoutWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ShapeTransformWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\StylePropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\TabRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\TextBlockFormatWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\TextFieldRowWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\TextTransformWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ThemePropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\ThreeDRotationPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\UserDefinedCellRowWrapper.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\CharacterRowViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\ConnectionPointsViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\ControlsViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\EditControlRowsViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\EditParagraphViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\EditTextViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\FillGradientStopRowViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\GeometryRowViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\IEditTextViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\LineGradientStopRowViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\RowsViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\ShapeSheetSectionBase.cs" />
+    <Compile Include="Presentation\ViewModels\ViewAViewModel.cs" />
+    <Compile Include="Presentation\Views\EditText.xaml.cs" />
+    <Compile Include="Presentation\Views\IRenamePageViewModel.cs" />
+    <Compile Include="Presentation\Views\PrismRegionTest.xaml.cs" />
+    <Compile Include="Domain\DuplicatePage.cs" />
+    <Compile Include="Presentation\Views\DuplicatePage.xaml.cs">
+      <DependentUpon>DuplicatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\DuplicatePageViewModel.cs" />
+    <Compile Include="Presentation\ModelWrappers\DuplicatePageWrapper.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Actions.xaml.cs">
+      <DependentUpon>Actions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\ActionTags.xaml.cs">
+      <DependentUpon>ActionTags.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Character.xaml.cs">
+      <DependentUpon>Character.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Hyperlinks.xaml.cs">
+      <DependentUpon>Hyperlinks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\ConnectionPoints.xaml.cs">
+      <DependentUpon>ConnectionPoints.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Controls.xaml.cs">
+      <DependentUpon>Controls.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\Interfaces\IDuplicatePageViewModel.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Layers.xaml.cs">
+      <DependentUpon>Layers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Page\PageLayout.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Page\PageProperties.xaml.cs">
+      <DependentUpon>PageProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Page\ThemeProperties.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Page\PrintProperties.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Page\RuleAndGrid.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\ShapeData.xaml.cs">
+      <DependentUpon>ShapeData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\ShapeSheetSection.xaml.cs">
+      <DependentUpon>ShapeSheetSection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\AdditionalEffectProperties.xaml.cs">
+      <DependentUpon>AdditionalEffectProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\BevelProperties.xaml.cs">
+      <DependentUpon>BevelProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\ChangeShapeBehavior.xaml.cs">
+      <DependentUpon>ChangeShapeBehavior.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\Events.xaml.cs">
+      <DependentUpon>Events.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\FillFormat.xaml.cs">
+      <DependentUpon>FillFormat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\GlueInfo.xaml.cs">
+      <DependentUpon>GlueInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\GradientProperties.xaml.cs">
+      <DependentUpon>GradientProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\GroupProperties.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\ImageProperties.xaml.cs">
+      <DependentUpon>ImageProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\LayerMembership.xaml.cs">
+      <DependentUpon>LayerMembership.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\LineFormat.xaml.cs">
+      <DependentUpon>LineFormat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\Miscellaneous.xaml.cs">
+      <DependentUpon>Miscellaneous.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\OneDEndPoints.xaml.cs">
+      <DependentUpon>OneDEndPoints.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\Protection.xaml.cs">
+      <DependentUpon>Protection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\QuickStyle.xaml.cs">
+      <DependentUpon>QuickStyle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\ShapeTransform.xaml.cs">
+      <DependentUpon>ShapeTransform.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\TextBlockFormat.xaml.cs">
+      <DependentUpon>TextBlockFormat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\TextTransform.xaml.cs">
+      <DependentUpon>TextTransform.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\TextTransformContent.xaml.cs">
+      <DependentUpon>TextTransformContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\ThreeDRotationProperties.xaml.cs">
+      <DependentUpon>ThreeDRotationProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Document\DocumentProperties.xaml.cs">
+      <DependentUpon>DocumentProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\EditControlRows.xaml.cs">
+      <DependentUpon>EditControlRows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\EditParagraph.xaml.cs">
+      <DependentUpon>EditParagraph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\ShapeSheet\FillFormatViewModel.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\GeometryRow.xaml.cs">
+      <DependentUpon>GeometryRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\EditControlPoints.xaml.cs">
+      <DependentUpon>EditControlPoints.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Scratch.xaml.cs">
+      <DependentUpon>Scratch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\SelectedShapesInfo.xaml.cs">
+      <DependentUpon>SelectedShapesInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\ShapeLayout.xaml.cs">
+      <DependentUpon>ShapeLayout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\ShapeSheet\ShapeLayoutViewModel.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\StyleProperties.xaml.cs">
+      <DependentUpon>StyleProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\ShapeSheet\StylePropertiesViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\TabRowViewModel.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\TextFieldRow.xaml.cs">
+      <DependentUpon>TextFieldRow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\ShapeSheet\TextFieldRowViewModel.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\UserDefinedCells.xaml.cs">
+      <DependentUpon>UserDefinedCells.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\RenamePage.xaml.cs" />
+    <Compile Include="Presentation\ViewModels\RenamePageViewModel.cs" />
+    <Compile Include="Presentation\Views\ViewA.xaml.cs" />
+    <Compile Include="Actions\Class1.cs" />
+    <Compile Include="Actions\Visio_PageFormatting.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Events\VisioAppEvents.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="User Interface\CustomFormat.cs" />
+    <Compile Include="User Interface\DisplayOptions.cs" />
+    <Compile Include="User Interface\Help.cs" />
+    <Compile Include="User Interface\PreserveColumnOrderBehavior.cs" />
+    <Compile Include="User Interface\Ribbon\Ribbon_ShapeSheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon_UILauchApproaches.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon_CustomUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon_SupportTools.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon.designer.cs">
+      <DependentUpon>Ribbon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\IRefresh.cs" />
+    <Compile Include="User Interface\ToolBoxResources.cs" />
+    <Compile Include="User Interface\UnboundColumns.cs" />
+    <Compile Include="User Interface\User Controls\RowDetailContainerControl.cs" />
+    <Compile Include="Presentation\Views\wucVisioCommand_Picker.xaml.cs">
+      <DependentUpon>wucVisioCommand_Picker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucVisioCommands.cs">
+      <DependentUpon>wucVisioCommands.xaml</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="User Interface\Ribbon\Ribbon.resx">
+      <DependentUpon>Ribbon.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\ApplicationDS.xsc">
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+    </None>
+    <None Include="Data\ApplicationDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\ApplicationDS.xss">
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+    </None>
+    <None Include="Office2010Addin_Template_Visio_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ThisAddIn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="Resources\Images\FilterEditor.max" />
+    <None Include="Resources\Images\IconLights.max" />
+    <None Include="Resources\Images\QuestionMark.max" />
+    <None Include="SupportTools_Visio_1_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_2_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_3_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_4_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_5_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_6_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_7_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_8_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_9_TemporaryKey.pfx" />
+    <None Include="SupportTools_Visio_TemporaryKey.pfx" />
+    <None Include="ThisAddIn.Designer.xml">
+      <DependentUpon>ThisAddIn.cs</DependentUpon>
+    </None>
+    <Compile Include="ThisAddIn.Designer.cs">
+      <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TODO.txt" />
+    <None Include="Resources\Images\Application Info 64x64.gif" />
+    <None Include="Resources\Images\Auto-Debug-System_icon.gif" />
+    <None Include="Resources\Images\Document Info 64x64.gif" />
+    <None Include="Resources\Images\Navigation Links 32x32.gif" />
+    <None Include="Resources\Images\Update Name Shapes 32x32.gif" />
+    <None Include="Data\SupportTools_Config.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\Images\Update Name Shapes64x64.gif" />
+    <None Include="Resources\Images\Navigation Links 64x64.gif" />
+    <None Include="Resources\Images\Page Info 64x64.gif" />
+    <None Include="Resources\Images\Shape Info 64x64.gif" />
+    <None Include="Resources\Images\Stencil Info 64x64.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Presentation\Views\LinqToExcel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ViewC2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ViewC1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ViewB.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\CommandCockpit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\MovePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\EditText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\PrismRegionTest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\ActionTags.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Actions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\DuplicatePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Character.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Hyperlinks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\ConnectionPoints.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Layers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Page\PageLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Page\PageProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Page\ThemeProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Page\PrintProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Page\RulerAndGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\ShapeData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\ShapeSheetSection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\AdditionalEffectProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\BevelProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\ChangeShapeBehavior.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\Events.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\FillFormat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\GlueInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\GradientProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\GroupProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\ImageProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\LayerMembership.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\LineFormat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\Miscellaneous.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\OneDEndPoints.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\Protection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\QuickStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\ShapeTransform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\TextBlockFormat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\TextTransform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\TextTransformContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Shape\ThreeDRotationProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Document\DocumentProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\EditControlRows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\EditParagraph.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\GeometryRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\EditControlPoints.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Scratch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\SelectedShapesInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\ShapeLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\StyleProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\TextFieldRow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\UserDefinedCells.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\RenamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ViewA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\AutoHideGroup_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\BrandingVisuals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\ButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Button_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\ColumnHeader_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\DatabaseListStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Display_StylesAndTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\InstanceListStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Layout_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\MasterListStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\ServerListStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\StoryboardAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\ToolBoxResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="User Interface\User Controls\wucVisioCommands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\wucVisioCommand_Picker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fakes\" />
+    <Folder Include="Presentation\ModelWrappers\ShapeSheet\Shape\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\cut-16x16.png" />
+    <Resource Include="Resources\Icons\cut-32x32.png" />
+    <Resource Include="Resources\Icons\EyeOnLife.bmp" />
+    <Resource Include="Resources\Icons\EyeOnLife.ico" />
+    <Resource Include="Resources\Icons\EyeOnLife.png" />
+    <Resource Include="Resources\Icons\save-16x16.png" />
+    <Resource Include="Resources\Icons\save-32x32.png" />
+    <Resource Include="Resources\Icons\save-as-16x16.png" />
+    <Resource Include="Resources\Icons\save-as-32x32.png" />
+    <Resource Include="Resources\Icons\SupportTools_Visio.ico" />
+    <Resource Include="Resources\Icons\VNCDeveloperMotivation.ico" />
+    <Resource Include="Resources\Images\300px-IBM_Blue_Gene_P_supercomputer.jpg" />
+    <Resource Include="Resources\Images\Data-Transfer-Rate.jpg" />
+    <Resource Include="Resources\Images\databasetop.png" />
+    <Resource Include="Resources\Images\DB_Instance-icon.png" />
+    <Resource Include="Resources\Images\DB_Instance.png" />
+    <Resource Include="Resources\Images\edata_128.png" />
+    <Resource Include="Resources\Images\EyeOnLife.png" />
+    <Resource Include="Resources\Images\FilterEditor.png" />
+    <Resource Include="Resources\Images\GreenBall.png" />
+    <Resource Include="Resources\Images\GroupByPanel.png" />
+    <Resource Include="Resources\Images\Images_QuestionMark.png" />
+    <Resource Include="Resources\Images\Instance Hierarchy.png" />
+    <Resource Include="Resources\Images\Media_PatientProtal.png" />
+    <Resource Include="Resources\Images\Media_UltrasoundPortal.png" />
+    <Resource Include="Resources\Images\multi-server-icon.png" />
+    <Resource Include="Resources\Images\OrangeBall.png" />
+    <Resource Include="Resources\Images\QuestionMark.png" />
+    <Resource Include="Resources\Images\RedBall.png" />
+    <Resource Include="Resources\Images\RowDetails.png" />
+    <Resource Include="Resources\Images\Server Hierarchy.png" />
+    <Resource Include="Resources\Images\server-icon.png" />
+    <Resource Include="Resources\Images\server-room.jpg" />
+    <Resource Include="Resources\Images\SnapShotCamera.png" />
+    <Resource Include="Resources\Images\ToolBox.png" />
+    <Resource Include="Resources\Images\VNCDeveloper.bmp" />
+    <Resource Include="Resources\Images\VNCDeveloperMotivation.jpg" />
+    <Resource Include="Resources\Images\VNCDeveloperMotivation.png" />
+    <Resource Include="Resources\Images\WatchWindow.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\VNC.AddinHelper\VNC.AddinHelper.csproj">
+      <Project>{61a7b25c-3a50-4ee9-8d74-25d1440541f7}</Project>
+      <Name>VNC.AddinHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Explore\Explore.csproj">
+      <Project>{2c063f33-f4f1-40df-b485-a7dc21154300}</Project>
+      <Name>Explore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ModuleA\ModuleA.csproj">
+      <Project>{3d9a8549-a7a8-4df9-829e-aeae7ecacaca}</Project>
+      <Name>ModuleA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupportTools_Visio.Infrastructure\SupportTools_Visio.Core.csproj">
+      <Project>{bb1193ec-4836-4850-a4c4-0cd639ec39f5}</Project>
+      <Name>SupportTools_Visio.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.11.0\analyzers\dotnet\cs\Microsoft.DependencyValidation.Analyzers.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.DependencyValidation.Analyzers.0.11.0\analyzers\dotnet\Microsoft.DependencyValidation.Analyzers.dll" />
+  </ItemGroup>
+  <!-- Include the build rules for a C# project. -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>VSTO40;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>VSTO40;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>VSTO40;DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>VSTO40;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>B775C02AA783749899B56074E2DF3B00C77A9BCD</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SupportTools_Visio_9_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Include additional build rules for an Office application add-in. -->
+  <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- This section defines VSTO properties that describe the host-changeable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
+        <ProjectProperties HostName="Visio" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Visio" Language="cs" TemplatesPath="VSTOTemplates" DebugInfoExeName="#Software\Microsoft\Office\16.0\Visio\InstallRoot\Path#visio.exe" AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
+        <Host Name="Visio" GeneratedCodeNamespace="Office2010Addin_Template_Visio" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="FB585D7B9F127020DF6F19BEDEC5A16E99B67ED2" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
+        </Host>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.targets" Condition="Exists('..\packages\Microsoft.Build.Locator.1.4.1\build\Microsoft.Build.Locator.targets')" />
+  <Import Project="..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets" Condition="Exists('..\packages\Microsoft.TeamFoundationServer.ExtendedClient.16.170.0\build\Microsoft.TeamFoundationServer.ExtendedClient.targets')" />
+</Project>

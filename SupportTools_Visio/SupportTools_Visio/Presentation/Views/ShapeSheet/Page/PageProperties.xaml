@@ -1,0 +1,83 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.PageProperties"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="PageWidth">
+                <dxe:TextEdit Text="{Binding PageWidth}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PageHeight">
+                <dxe:TextEdit Text="{Binding PageHeight}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PageScale">
+                <dxe:TextEdit Text="{Binding PageScale}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DrawingScale">
+                <dxe:TextEdit Text="{Binding DrawingScale}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DrawingSizeType">
+                <dxe:TextEdit Text="{Binding DrawingSizeType}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DrawingScaleType">
+                <dxe:TextEdit Text="{Binding DrawingScaleType}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DrawingResizeType">
+                <dxe:TextEdit Text="{Binding DrawingResizeType}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="InhibitSnap">
+                <dxe:TextEdit Text="{Binding InhibitSnap}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="UIVisibility">
+                <dxe:TextEdit Text="{Binding UIVisibility}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PageLockReplace">
+                <dxe:TextEdit Text="{Binding PageLockReplace}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PageLockDuplicate">
+                <dxe:TextEdit Text="{Binding PageLockDuplicate}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+</UserControl>

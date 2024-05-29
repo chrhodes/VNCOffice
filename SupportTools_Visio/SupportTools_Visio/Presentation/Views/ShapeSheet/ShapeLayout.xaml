@@ -1,0 +1,113 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.ShapeLayout"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="ShapePermeableX">
+                <dxe:TextEdit Text="{Binding ShapePermeableX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapePermeableY">
+                <dxe:TextEdit Text="{Binding ShapePermeableY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeFixedCode">
+                <dxe:TextEdit Text="{Binding ShapeFixedCode}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ConLineJumpDirX">
+                <dxe:TextEdit Text="{Binding ConLineJumpDirX}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ConLineJumpDirY">
+                <dxe:TextEdit Text="{Binding ConLineJumpDirY}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ConLineJumpCode">
+                <dxe:TextEdit Text="{Binding ConLineJumpCode}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapePlaceFlip">
+                <dxe:TextEdit Text="{Binding ShapePlaceFlip}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapePlaceStyle">
+                <dxe:TextEdit Text="{Binding ShapePlaceStyle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapePlowCode">
+                <dxe:TextEdit Text="{Binding ShapePlowCode}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="ConLineJumpStyle">
+                <dxe:TextEdit Text="{Binding ConLineJumpStyle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ConLineRouteExt">
+                <dxe:TextEdit Text="{Binding ConLineRouteExt}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DisplayLevel">
+                <dxe:TextEdit Text="{Binding DisplayLevel}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeRouteStyle">
+                <dxe:TextEdit Text="{Binding ShapeRouteStyle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ConFixedCode">
+                <dxe:TextEdit Text="{Binding ConFixedCode}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeSplit">
+                <dxe:TextEdit Text="{Binding ShapeSplit}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeSplittable">
+                <dxe:TextEdit Text="{Binding ShapeSplittable}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Relationships">
+                <dxe:TextEdit Text="{Binding Relationships}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

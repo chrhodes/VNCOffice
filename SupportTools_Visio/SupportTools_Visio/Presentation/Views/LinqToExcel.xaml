@@ -1,0 +1,100 @@
+﻿<vncmvvm:ViewBase
+    x:Class="SupportTools_Visio.Presentation.Views.LinqToExcel"
+    x:Name="thisLinqToExcel"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:local="clr-namespace:SupportTools_Visio.Presentation.Views"
+    
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+          
+    
+    xmlns:views="clr-namespace:SupportTools_Visio.Presentation.Views"
+    xmlns:viewModels="clr-namespace:SupportTools_Visio.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:SupportTools_Visio.Core;assembly=SupportTools_Visio.Core"
+    
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d"
+    
+    d:DesignHeight="100" d:DesignWidth="200"
+    d:DesignStyle="{StaticResource vncDesignStyle}"
+>
+    <!--xmlns:core="clr-namespace:SupportTools_Visio.Core;assembly=SupportTools_Visio.Core"-->
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+    
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+
+    <dxlc:LayoutControl x:Name="layoutItems" 
+                        Orientation="Vertical" >
+
+        <dxlc:LayoutItem>
+            <Button 
+        		Command="{Binding UseLinqToExcelCommand }"
+        		Content="{Binding UseLinqToExcelContent, FallbackValue='UseLinqToExcel' }"
+        		ToolTip="{Binding UseLinqToExcelToolTip, FallbackValue='UseLinqToExcel ToolTip' }" />
+        </dxlc:LayoutItem>
+        
+        <dxlc:LayoutItem>
+            <Button 
+        		Command="{Binding LoadExcelTableCommand }"
+        		Content="{Binding LoadExcelTableContent, FallbackValue='LoadExcelTable' }"
+        		ToolTip="{Binding LoadExcelTableToolTip, FallbackValue='LoadExcelTable ToolTip' }" />
+        </dxlc:LayoutItem>
+        
+        <dxlc:LayoutItem>
+            <Button 
+		        Command="{Binding UseExcelDataReaderCommand }"
+		        Content="{Binding UseExcelDataReaderContent, FallbackValue='UseExcelDataReader' }"
+		        ToolTip="{Binding UseExcelDataReaderToolTip, FallbackValue='UseExcelDataReader ToolTip' }" />
+        </dxlc:LayoutItem>
+
+        <dxlc:LayoutItem>
+            <Button 
+		        Command="{Binding LoadExcelFileCommand }"
+		        Content="{Binding LoadExcelFileContent, FallbackValue='LoadExcelFile' }"
+		        ToolTip="{Binding LoadExcelFileToolTip, FallbackValue='LoadExcelFile ToolTip' }" />
+        </dxlc:LayoutItem>
+      
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="LinqToExcel" />
+                <TextBlock Text="{Binding Message}" />
+                <Button Content="Say Hello"
+                        Command="{Binding SayHelloCommand}" />
+            </StackPanel>
+        
+            <!-- This is useful for debugging V VM constructor issues -->
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisLinqToExcel, Path=InstanceCountV}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="VM:" />
+                    <Label Content="{Binding InstanceCountVM}" />
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+        
+    </dxlc:LayoutControl>
+    
+</vncmvvm:ViewBase>
