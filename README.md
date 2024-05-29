@@ -1,6 +1,7 @@
 <p>
-    <img src="vnc.png">
+    <img src="VNC.png">
 </p>
+
 ## VNCOffice
 
 VSTO Addins for the common MS Office Applications
