@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Support_Tools>
+	<Visio_Config>
+		<DefaultPages>
+		  <PageGroup Name="Background Only">
+			<Page Name="Naviagation Links" />
+			<BackgroundPage Name="Naviagation Links" />
+			<BackgroundPage Name="Page Base" />
+			<BackgroundPage Name="Default Layers" />
+		  </PageGroup>
+		  <PageGroup Name="CHR Notes">
+			<Page Name="Page 1" />
+			<Page Name="Notes" />
+			<Page Name="Terminology" />
+			<BackgroundPage Name="Naviagation Links" />
+			<BackgroundPage Name="Page Base" />
+			<BackgroundPage Name="Default Layers" />        
+		  </PageGroup>
+		  <PageGroup Name="CHR Notes - New Subject">
+			<Page Name="Overview" />
+			<Page Name="Bock TOCs" />
+			<Page Name="Notes" />
+			<Page Name="Terminology" />
+			<BackgroundPage Name="Naviagation Links" />
+			<BackgroundPage Name="Page Base" />
+			<BackgroundPage Name="Default Layers" />        
+		  </PageGroup>
+		</DefaultPages>
+		
+		<ShapeEditorDialog>
+		  <Command Name="CreateDocument">
+			<Documents>
+			  <Add Name="NewDocument" />
+			  <Add Name="C:\temp\NewDocument" />
+			</Documents>          
+		  </Command>
+		  
+		  <Command Name="CreateDefaultLayers1">
+			<Documents>
+			  <ActiveDocument>
+				<Layers>
+				  <!--<DeleteAll />-->
+				  <Add Name="Layer1" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Layer2" IsVisible="1" IsPrint="0" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Temporary" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Background" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>				  
+				</Layers>            
+			  </ActiveDocument>
+			</Documents>
+		  </Command>
+
+		  <Command Name="CreateDefaultLayers2">
+			<Documents>
+			  <Document Name="NewDocument">
+				<Layers>
+				  <!--<DeleteAll />-->
+				  <Add Name="Layer1" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Layer2" IsVisible="1" IsPrint="0" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Temporary" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				</Layers>            
+			  </Document>
+			</Documents>
+		  </Command>
+			
+		  <Command Name="DeleteLayer">
+			<Documents>
+			  <ActiveDocument>
+				<Layers>
+				  <!--<DeleteAll />-->
+				  <Delete Name="Temporary" DeleteShapes="0"/>
+				  <Add Name="LayerIsVisible" IsVisible="1" IsPrint="1" IsActive="1" IsLock="1" IsSnap="1" IsGlue="1" Color=""/>
+				  <Layer Name="Layer2" IsVisible="0" />
+				</Layers>
+			  </ActiveDocument>
+			</Documents>
+		  </Command>
+		  
+		  <Command Name="LockBackgroundLayers">
+			<Documents>
+				<Layers>
+					<Layer Name="Background" IsVisible="" IsPrint="" IsActive="" IsLock="1" IsSnap="" IsGlue="" Color="" />
+				</Layers>
+			</Documents>
+		  </Command>
+		  
+		  <Command Name="RenameLayer">
+			<Documents>
+				<Layers>
+					<Layer Name="Background" NewName="Background2" IsVisible="" IsPrint="" IsActive="" IsLock="1" IsSnap="" IsGlue="" Color="" />
+				</Layers>
+			</Documents>
+		  </Command>		  
+		  
+		  <Command Name="CreatePages">
+			<Pages>
+				<!-- <DeleteAll /> -->
+				<Add Name="PageOneIsBg" IsBackground="1" />
+				<Add Name="PageOne" IsBackground="0" />
+				<Add Name="PageTwo" IsBackground="0" />
+				<Add Name="PageThree" />
+				<Add Name="BackgroundPage1" />
+				<Add Name="BackgroundPage2" />
+				<Page Name="BackgroundPage2" IsBackground="1">
+					<!-- <Layers /> -->
+
+					<!--<ShapeSheet />-->
+				</Page>
+			</Pages>
+			  <Layers />
+	      <DocumentShapeSheet />
+	    </Command>
+      
+      <Command Name="CreateBackgroundPages">
+        <Pages>
+          <Page Name="BackgroundPage1" IsBackground="1" />
+          <Page Name="BackgroundPage2" BackgroundPageName="BackgroundPage1" IsBackground="1" />
+        </Pages>
+			</Command>
+		  
+		
+      <Command Name="DeletePage" Category="Pages">
+			<Pages>
+				<Delete Name="Page1" />
+			</Pages>
+		</Command>  
+		  
+		  <!-- Since each section on the shapesheet has different rows and cells, 
+			   make it easier to interact with each section by carrying specfics into XML for some sections.
+			   
+			   Can always specify specifics using <SRC /> element.  Section, Row, Cell -->
+		  <Command Name="AddColorSupport1" Description="Add Color Support 1 Description">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <AddUserRow Row="colorNames" ValueQuoted="Red; Green; Blue" Prompt=""/>
+				  <AddUserRow Row="colorValues" ValueQuoted="RGB(255, 0, 0); RGB(0, 255, 0); RGB(0, 0, 255)" Prompt=""/>
+				  <AddPropRow Row="Color" Label="Color" Prompt="Color" Type="VisCellVals.visPropTypeListFix" Format="User.colorNames" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddUserRow Row="Color" Value="INDEX(LOOKUP(Prop.Color,User.colorNames),User.colorValues)" Prompt=""/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>          
+		  </Command>
+		  
+		  <Command Name="AddHyperLinkSupport" Description="Add HyperLinkSupport">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <AddPropRow Row="PageName" Label="PageName" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="HyperLink" Label="HyperLink" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="ReturnLink" Label="ReturnLink" Prompt="" Type="VisCellVals.visPropTypeString" Format="" ValueQuoted="Page Shapes.vssx,PageLink Arrow Left" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="ExternalLink" Label="ExternalLink" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="HyperLinkPrefix" Label="HyperLink Prefix" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddHyperlinksRow 
+					Name="HL1" 
+					Description="" 
+					Address="GUARD(Prop.ExternalLink)" 
+					SubAddress="GUARD(Prop.HyperLink)" />
+					<!-- ExtraInfo=""  -->
+					<!-- Frame="2.0" -->
+					<!-- SortKey="2.0" -->
+					<!-- NewWindow="2.0" -->
+					<!-- Default="" -->
+					<!-- Invisible="0" -->						
+				  <AddActionsRow Name="CreatePageForShape"
+								Action="RUNADDONWARGS(&quot;QueueMarkerEvent&quot;,&quot;CreatePageForShape,,,Page%20Base&quot;)"
+								Menu="Create Page for Shape"
+								TagName=""
+								ButtonFace=""
+								SortKey=""
+								Checked=""
+								Disabled=""
+								ReadOnly=""
+								Invisible=""
+								BeginGroup=""
+								FlyoutChild="" />							  
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>          
+		  </Command>
+		  
+		  <Command Name="AddHasColorTags" Description="Add HasColorTags flag to shape">
+			<Shapes>
+				<Shape>
+					<ShapeSheet>
+						<AddUserRow Row="HasColorTags" Value="1" />
+					</ShapeSheet>
+				</Shape>
+			</Shapes>          
+		  </Command>	  
+		  
+		  <Command Name="AddTextTransformControl" Description="Add Text Transform Control to Shape">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <AddPropRow Row="TextTransformWidth" Label="TextTransformWidth" Prompt="" Type="VisCellVals.visPropTypeNumber" FormatQuoted="0.0" Value="2.0" />
+				  <AddControlsRow Name="TextTransform1" X="Width*0.5" Y="Height*0.5"
+								  XDynamics="Controls.TextTransform1" YDynamics="Controls.TextTransform1.Y" 
+								  XBehavior="0" YBehavior="0" CanGlue="TRUE" Tip="Drag to Repostion Text" />
+				  <SetTextTransform Width="GUARD(Width*Prop.TextTransformWidth)" Height="" 
+									PinX="GUARD(Controls.TextTransform1)" PinY="GUARD(Controls.TextTransform1.Y)" 
+									LocPinX="TxtWidth*0.5" LocPinY="TxtHeight*0.5" Angle="0 deg" />
+				  <SetTextBlockFormat LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0"
+									  TextDirection="0" VerticalAlign="1" TextBkgnd="0" TextBkgndTrans="0%" DefaultTabStop="0.5 in"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetShapes1" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="1.0" Height="2.0"
+									 PinX="1.5" PinY="8.0"
+									 FlipX="FALSE" FlipY="FALSE" 
+									 LocPinX="Width*0.5" LocPinY="Height*0.5" Angle="0 deg" ResizeMode="0" />
+									 LocPinX="TxtWidth*0.5" LocPinY="TxtHeight*0.5" Angle="0 deg" ResizeMode="0" />
+				  <SetFillFormat FillForegnd="RGB(255,0,0)" FillForegndTrans="0%" FillBkgnd="0" FillBkgndTrans="0%" FillPattern="1"
+								 ShdwForegnd="0" ShdwForegndTrans="0%" ShdwPattern="0"
+								 ShapeShdwOffsetX="0 in" ShapeShdwOffsetY="0 in"
+								 ShapeShdwType="0" ShapeShdwObliqueAngle="0 deg" ShapeShdwScaleFactor="100%"
+								 ShapeShdwBlur="0 pt" ShapeShdwShow="0"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetShapes2" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="rgb(255,0,0)" FillForegndTrans="0%" 
+								FillBkgnd="RGB(0,255,0)" FillBkgndTrans="0%" FillPattern="5"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetAML" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="MSOTINT(THEMEVAL(&quot;AccentColor5&quot;),-25)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetGD" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="RGB(0,176,80)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetJuno" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="RGB(0,176,240)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetCummins62" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="MSOTINT(THEMEVAL(&quot;AccentColor&quot;),40)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetCummins77" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+			<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="MSOTINT(THEMEVAL(&quot;AccentColor&quot;),-25)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+			 
+			</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetWuxiShapes" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="rgb(112,48,160)" FillForegndTrans="0%"
+											   FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+			</Command>
+			
+		</ShapeEditorDialog>
+		
+	</Visio_Config>
+</Support_Tools>

@@ -1,7 +1,7 @@
 <p>
-    <img src="vnc.png">
+  <img src="vnc.png">
 </p>
-## VNCOffice
+# VNCOffice
 
 VSTO Addins for the common MS Office Applications
 
@@ -60,7 +60,11 @@ Very little is here.  Not planing on future work.
 
 ### SupportTools_Visio
 
-SupportTools_Visio is reflective of the latest thinking.  Visio did not support TaskPanes and I moved to WPF windows to host commands along with the Ribbon.  If you like Visio there is some cool stuff here.
+SupportTools_Visio is reflective of the latest thinking.  Visio did not support TaskPanes and I moved to WPF windows to host commands along with the Ribbon.  If you like Visio there is some cool stuff here.  Along the way I learned Prism so you will see a lot of Prism WPF in the UI along with module support.
+
+#### Interesting Things
+
+When I get some time I will call out things that turned out well or at least I learned a lot from implementing.
 
 ### VisioTemplates
 

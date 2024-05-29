@@ -1,0 +1,100 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.Hyperlinks"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"    
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:local="clr-namespace:SupportTools_Visio.Presentation.Views"
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+    	View="Group" Orientation="Horizontal" >
+    
+        <dxlc:LayoutGroup 
+        	View="Group" Orientation="Vertical" >
+            
+                <dxg:GridControl x:Name="dgW" AutoGenerateColumns="AddNew" 
+                         EnableSmartColumnsGeneration="True" 
+                         ItemsSource="{Binding Rows}"
+                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                         Height="200">
+                    <dxg:GridControl.View>
+                        <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+
+                <dxlc:LayoutGroup 
+                    View="Group" Orientation="Horizontal"
+                    DataContext="{Binding SelectedItem}">
+
+                    <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+                        <dxlc:LayoutItem Label="Name">
+                            <dxe:TextEdit Text="{Binding Name}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="Description">
+                            <dxe:TextEdit Text="{Binding Description}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="Address">
+                            <dxe:TextEdit Text="{Binding Address}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="SubAddress">
+                            <dxe:TextEdit Text="{Binding SubAddress}"
+    	                              ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="ExtraInfo">
+                            <dxe:TextEdit Text="{Binding ExtraInfo}"
+    	                                  ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                    </dxlc:LayoutGroup>
+
+                    <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+                        <dxlc:LayoutItem Label="Frame">
+                            <dxe:TextEdit Text="{Binding Frame}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="SortKey">
+                            <dxe:TextEdit Text="{Binding SortKey}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="NewWindow">
+                            <dxe:TextEdit Text="{Binding NewWindow}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="Default">
+                            <dxe:TextEdit Text="{Binding Default}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="Invisible">
+                            <dxe:TextEdit Text="{Binding Invisible}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                    </dxlc:LayoutGroup>
+
+                </dxlc:LayoutGroup>
+            
+            </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutControl>
+
+</UserControl>

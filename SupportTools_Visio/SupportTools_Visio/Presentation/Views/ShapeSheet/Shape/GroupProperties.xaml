@@ -1,0 +1,57 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.GroupProperties"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="SelectMode">
+                <dxe:TextEdit Text="{Binding SelectMode}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+
+            <dxlc:LayoutItem Label="IsTextEditTarget">
+                <dxe:TextEdit Text="{Binding IsTextEditTarget}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="IsDropTarget">
+                <dxe:TextEdit Text="{Binding IsDropTarget}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DisplayMode">
+                <dxe:TextEdit Text="{Binding DisplayMode}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="IsSnapTarget">
+                <dxe:TextEdit Text="{Binding IsSnapTarget}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DontMoveChildren">
+                <dxe:TextEdit Text="{Binding DontMoveChildren}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+        </dxlc:LayoutGroup>
+    </dxlc:LayoutControl>
+</UserControl>

@@ -1,0 +1,64 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.ThreeDRotationProperties"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="RotationXAngle">
+                <dxe:TextEdit Text="{Binding RotationXAngle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="RotationYAngle">
+                <dxe:TextEdit Text="{Binding RotationYAngle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="RotationZAngle">
+                <dxe:TextEdit Text="{Binding RotationZAngle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="RotationType">
+                <dxe:TextEdit Text="{Binding RotationType}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="Perspective">
+                <dxe:TextEdit Text="{Binding Perspective}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DistanceFromGround">
+                <dxe:TextEdit Text="{Binding DistanceFromGround}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="KeepTextFlat">
+                <dxe:TextEdit Text="{Binding KeepTextFlat}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+                        
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

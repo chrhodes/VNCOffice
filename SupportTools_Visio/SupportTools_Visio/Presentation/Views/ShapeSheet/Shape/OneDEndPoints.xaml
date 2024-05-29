@@ -1,0 +1,52 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.OneDEndPoints"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+        
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Horizontal" >
+
+            <dxlc:LayoutGroup 
+                View="Group" Orientation="Vertical" >
+
+                <dxlc:LayoutItem Label="BeginX">
+                    <dxe:TextEdit Text="{Binding BeginX}"
+    	                    ToolTip="tooltip" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="BeginY">
+                    <dxe:TextEdit Text="{Binding BeginY}"
+    	                    ToolTip="tooltip" />
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup 
+                View="Group" Orientation="Vertical" >
+
+                <dxlc:LayoutItem Label="EndX">
+                    <dxe:TextEdit Text="{Binding EndX}"
+    	                    ToolTip="tooltip" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="EndY">
+                    <dxe:TextEdit Text="{Binding EndY}"
+    	                    ToolTip="tooltip" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutControl>        
+
+</UserControl>

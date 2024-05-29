@@ -1,0 +1,156 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.Protection"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+	        View="Group" Orientation="Vertical">
+            <dxlc:LayoutItem Label="LockWidth">
+                <dxe:TextEdit Text="{Binding LockWidth}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockHeight">
+                <dxe:TextEdit Text="{Binding LockHeight}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockAspect">
+                <dxe:TextEdit Text="{Binding LockAspect}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockMoveX">
+                <dxe:TextEdit Text="{Binding LockMoveX}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockMoveY">
+                <dxe:TextEdit Text="{Binding LockMoveY}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockRotate">
+                <dxe:TextEdit Text="{Binding LockRotate}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockBegin">
+                <dxe:TextEdit Text="{Binding LockBegin}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockReplace">
+                <dxe:TextEdit Text="{Binding LockReplace}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockEnd">
+                <dxe:TextEdit Text="{Binding LockEnd}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockDelete">
+                <dxe:TextEdit Text="{Binding LockDelete}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+                
+        <dxlc:LayoutGroup 
+	        View="Group" Orientation="Vertical">
+
+            <dxlc:LayoutItem Label="LockSelect">
+                <dxe:TextEdit Text="{Binding LockSelect}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockFormat">
+                <dxe:TextEdit Text="{Binding LockFormat}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockCustProp">
+                <dxe:TextEdit Text="{Binding LockCustProp}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockTextEdit">
+                <dxe:TextEdit Text="{Binding LockTextEdit}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockVtxEdit">
+                <dxe:TextEdit Text="{Binding LockVtxEdit}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockThemeIndex">
+                <dxe:TextEdit Text="{Binding LockThemeIndex}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockCrop">
+                <dxe:TextEdit Text="{Binding LockCrop}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Lockgroup">
+                <dxe:TextEdit Text="{Binding LockGroup}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockCalcWH">
+                <dxe:TextEdit Text="{Binding LockCalcWH}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockFromGroupFormat">
+                <dxe:TextEdit Text="{Binding LockFromGroupFormat}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical">
+
+            <dxlc:LayoutItem Label="LockThemeColors">
+                <dxe:TextEdit Text="{Binding LockThemeColors}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockThemeEffects">
+                <dxe:TextEdit Text="{Binding LockThemeEffects}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockThemeConnectors">
+                <dxe:TextEdit Text="{Binding LockThemeConnectors}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockThemeFonts">
+                <dxe:TextEdit Text="{Binding LockThemeFonts}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockVariation">
+                <dxe:TextEdit Text="{Binding LockVariation}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+                  
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

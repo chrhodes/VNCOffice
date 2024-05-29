@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="SupportTools_Visio.Presentation.Views.SelectedShapesInfo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50" d:DesignWidth="300">
+    <dxlc:LayoutGroup
+                	View="Group" Orientation="Horizontal">
+        <dxe:TextEdit Text="{Binding SelectedShapeCount}"
+                              HorizontalAlignment="Left"
+    	                      ToolTip="# Shapes Selected" />
+
+        <dxe:TextEdit Text="{Binding Message}"
+    	              ToolTip="What you need to do to get good selection" />
+    </dxlc:LayoutGroup>
+</UserControl>
