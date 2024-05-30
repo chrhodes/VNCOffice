@@ -13,8 +13,8 @@
         <PackageVersion>2.0.0</PackageVersion>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <PackageProjectUrl>https://github.com/chrhodes/vnc</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/chrhodes/vnc</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/chrhodes/vncoffice</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/chrhodes/vncoffice</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
         <PackageTags>vsto;mvvm</PackageTags>
         <!--<PackageIcon>VNC.png</PackageIcon>-->
