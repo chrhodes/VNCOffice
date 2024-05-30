@@ -1623,10 +1623,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>B775C02AA783749899B56074E2DF3B00C77A9BCD</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>C2BD8C52217ECF6CAE0DADAE1A939246680C67F8</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>SupportTools_Visio_9_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>SupportTools_Visio_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- Include additional build rules for an Office application add-in. -->
