@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="SupportTools_Excel.User_Interface.User_Controls_WPF.TFSProvider_Picker"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:debug="clr-namespace:System.Diagnostics;assembly=WindowsBase"             
+        mc:Ignorable="d"
+        >
+    <!--d:DesignHeight="300" d:DesignWidth="300"-->
+    <UserControl.Resources>
+        <DataTemplate x:Key="comboBoxTemplate">
+            <StackPanel>
+                <Label Content="{Binding XPath=@Name}" />
+                <Label Content="{Binding XPath=@Uri}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.DataContext>
+            <XmlDataProvider x:Name="comboBox"
+                             XPath="//TFSProviders/Provider" 
+                             IsAsynchronous="False"
+                             IsInitialLoadEnabled="True" />
+            <!--<XmlDataProvider x:Name="ActiveDirectories" 
+                             XPath="//ActiveDirectories/ADDomain" 
+                             IsAsynchronous="False"
+                             IsInitialLoadEnabled="True"
+                             debug:PresentationTraceSources.TraceLevel="High" />-->            
+        </Grid.DataContext>
+        <StackPanel>
+            <Label Content="Select TFS Server"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="15" />
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Column="0" HorizontalAlignment="Stretch"
+                      ItemsSource="{Binding}" 
+                      ItemTemplate="{StaticResource comboBoxTemplate}" 
+                      SelectionChanged="ComboBox_SelectionChanged" />
+                <Button Grid.Column="1" Click="Reload_Click" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,1043 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Support_Tools>
+	<Excel_Config>
+		<ActiveDirectories>
+			<ADDomain Name="VNC.LOCAL" DNSHostName="vncdc1.vnc.local" DefaultNamingContext="DC=vnc,DC=local"/>
+			<ADDomain Name="VNCDEV.LOCAL" DNSHostName="vncdevc1.vnc.local" DefaultNamingContext="DC=vncdev,DC=local"/>
+			<ADDomain Name="CORP" DNSHostName="corp.firstam.com" DefaultNamingContext="DC=corp,DC=firstam,DC=com"/>
+			<ADDomain Name="BDX" DNSHostName="bdx.com" DefaultNamingContext="DC=bdx,DC=com"/>
+		</ActiveDirectories>
+		<DBInstanceList>
+			<!-- <Environment Name="Production">
+				<Instance Server="LIFEDBA01C" IPv4Address="10.3.1.147" Instance="" Port="1433" />
+				<Instance Server="LIFEDBA02A" IPv4Address="" Instance="" Port="1436" />
+				<Instance Server="LIFEDBB01A" IPv4Address="10.3.1.118" Instance="MiscDB" Port="1436" />
+				<Instance Server="LIFEDBB01A" IPv4Address="10.3.1.118" Instance="" Port="1436" />
+				<Instance Server="A097912X0P" IPv4Address="" Instance="sqlexpress" Port="" />
+				<Instance Server="A097912X0P" IPv4Address="" Instance="SQL2008" Port="" />
+				<Instance Server="LIFESQL99VM " IPv4Address="10.1.4.79 " Instance="" Port="1433" />
+			</Environment>
+			<Environment Name="Production-DMZ">
+
+			</Environment>
+			<Environment Name="Staging">
+				<Instance Server="LIFEDBA201C" IPv4Address="10.5.32.90" Instance="" Port="1433" />
+				<Instance Server="LIFEDBB201A" IPv4Address="10.5.32.83" Instance="" Port="1436" />
+				<Instance Server="LSSQLC05C2" IPv4Address="10.254.102.36" Instance="" Port="1530"  />
+				<Instance Server="LSSQLI17CV1" IPv4Address="10.254.102.112" Instance="SQL2K8INST01" Port="1630" />
+			</Environment>
+			<Environment Name="Staging-DMZ">
+			</Environment>
+			<Environment Name="iTest">
+			</Environment>
+			<Environment Name="iTest-DMZ">
+			</Environment>
+			<Environment Name="iDev">
+				<Instance Server="LDSQLI01v" IPv4Address="172.20.136.104" Instance="SQL2KPDEV01" Port="1430" />
+				<Instance Server="LDSQLI02v" IPv4Address="172.20.136.106" Instance="" Port="1530" />
+				<Instance Server="LDSQLI04v" IPv4Address="172.20.136.112" Instance="" Port="1530" />
+				<Instance Server="LDSQLI05v" IPv4Address="172.20.136.113" Instance="" Port="1431" />
+				<Instance Server="LDSQLI06v" IPv4Address="172.20.136.124" Instance="" Port="1530" />
+				<Instance Server="LDSQLI07v" IPv4Address="172.20.136.138" Instance="" Port="1532" />
+				<Instance Server="LDSQLI07v" IPv4Address="172.20.136.138" Instance="" Port="1430" />
+				<Instance Server="LDSQLI08v" IPv4Address="172.20.136.145" Instance="" Port="1530" />
+				<Instance Server="LDSQLI09v" IPv4Address="172.20.136.149" Instance="" Port="1530" />
+			</Environment>
+			<Environment Name="iDev-DMZ">
+				<Instance Server="LDSQLZ07v" IPv4Address="172.20.135.97" Instance="" Port="" />
+				<Instance Server="LDSQLZ08v" IPv4Address="172.20.135.89" Instance="" Port="" />
+			</Environment> -->
+			
+			<!-- Be careful with database names.  Case matters. -->
+			<Environment Name="EASE">
+				<Instance Server="CRHODES-PC" IPv4Address="" Instance="" Port="" />
+				<Instance Server="CRHODES-DEV" IPv4Address="" Instance="" Port="">
+					<!-- <Database Name="AML" /> -->
+					<Database Name="easedb7" />
+				</Instance>
+				<Instance Server="EASEWORKS-ENG.EASEINC.COM" IPv4Address="" Instance="" Port="">
+					<!-- <Database Name="AML" /> -->
+					<!-- <Database Name="AML_Prod" /> -->
+					<!-- <Database Name="AML_tom" /> -->
+				</Instance>
+				<Instance Server="EASEUATSQL.CLOUDAPP.NET" IPv4Address="" Instance="" Port="" />
+			</Environment>	
+			<Environment Name="VNC">
+				<Instance Server="VNCSQL" IPv4Address=""  Instance="" Port="" />
+				<Instance Server="VNCSQL" IPv4Address="10.0.100.21"  Instance="" Port="" />
+				<Instance Server="" IPv4Address="10.0.100.21"  Instance="SQL2014" Port="" />
+				<Instance Server="VNCSQL" IPv4Address="10.0.100.21"  Instance="SQL2016" Port="" />
+				<Instance Server="" IPv4Address="10.0.100.21"  Instance="" Port="1514" />					
+				<Instance Server="" IPv4Address="10.0.100.21"  Instance="" Port="1516" />				
+			</Environment>
+		</DBInstanceList>
+		<EnvironmentList>
+			<Environment Name="Production"	Path="\\LifeNas115\DataServices\Production\M_Treaty_Reporting" />
+			<Environment Name="Staging"		Path="\\LifeNas215\DataServices\QA_Staging\M_Treaty_Reporting" />
+			<Environment Name="Test"		Path="\\LifeNas215\DataServices\ITEST\M_Treaty_Reporting" />
+			<Environment Name="Dev"			Path="\\LifeNas215\DataServices\IDEV\M_Treaty_Reporting" />
+		</EnvironmentList>
+		<FileTypeList>
+			<FileType Name="FundServiceFees" 			Frequency="Weekly"		RelativePath="CorporateFinance_FundServiceFees" />
+			<FileType Name="FundAdvisoryFees" 			Frequency="Monthly"		RelativePath="CorporateFinance_FundAdvisoryFees" />
+			<FileType Name="CashManagementFees" 		Frequency="Monthly"		RelativePath="LifeFinancialReporting_CashManagementFees" />
+			<FileType Name="VITsFees" 					Frequency="Quarterly"	RelativePath="LifeReinsurance_VITSFees" />
+			<FileType Name="ExcludedPolicies" 			Frequency="Yearly"		RelativePath="LifeReinsurance_ExcludedPolicies" />
+			<FileType Name="PolicyValueAdjustments" 	Frequency=""			RelativePath="LifeReinsurance_ManualPolicyValueAdjustments" />
+			<FileType Name="SettlementFinancialValues" 	Frequency=""			RelativePath="LifeReinsurance_SettlementFinancialValues" />
+		</FileTypeList>
+		<SharePointSiteCollections>
+			<SiteCollection Name="ITMP"        Uri="http://communities.na.firstam.net/sites/ITMP" />
+			<SiteCollection Name="FAISDF"      Uri="http://communities.na.firstam.net/sites/FAISDF" />
+			<SiteCollection Name="AppDevMgmt"  Uri="http://communities.na.firstam.net/sites/AppDevMgmt" />
+			<SiteCollection Name="TechnologyServices"  Uri="http://communities.na.firstam.net/sites/TechnologyServices" />
+			<SiteCollection Name="VNCSP2010"   Uri="http://vncsp2010" />
+			<SiteCollection Name="HHSPOC"		Uri="http://myteam.onecallmedical.com/hhspoc" />
+		</SharePointSiteCollections>
+    <SalesforceProviders>
+      <Provider Name="Production" Uri=""/>      
+      <Provider Name="Sandbox" Uri=""/>
+    </SalesforceProviders>
+		<TFSProviders>
+			<!-- <Provider Name="FA TFS ALM" Uri=""/> -->
+			<!-- <Provider Name="FA TFS DefaultCollection" Uri="http://tfs.corp.firstam.com:8080/tfs"/> -->
+			<!-- <Provider Name="InfinityRhodes DefaultCollection" Uri="https://infinityrhodes.visualstudio.com"/> -->
+			<!-- <Provider Name="VNCDev DefaultCollection" Uri="https://vncdev.visualstudio.com"/> -->
+			<!-- <Provider Name="VNCTfs DefaultCollection" Uri="http://vnctfs:8080/tfs"/> -->
+			<Provider Name="BD TFS 2013" Uri="https://tfs.carefusion.com/tfs"/>
+			<!-- <Provider Name="BD DryRun11" Uri="https://dev.azure.com/TS-dryrun11-dryrun/"/>		 -->
+			<!-- <Provider Name="BD DryRun13" Uri="https://dev.azure.com/TS-dryrun13-dryrun/"/> -->
+			<!-- <Provider Name="BD STS QA" Uri="https://dev.azure.com/BD-STS-QA"/> -->
+			<Provider Name="BD STS QA2" Uri="https://dev.azure.com/BD-STS-QA2"/>
+			<Provider Name="BD STS TRAIN" Uri="https://dev.azure.com/BD-STS-TRAIN"/>
+			<!-- <Provider Name="BD DryRun17" Uri="https://dev.azure.com/TS-dryrun17-dryrun/"/> -->
+			<Provider Name="BD STS Prod" Uri="https://dev.azure.com/BD-STS-PROD/"/>
+			<Provider Name="BTechnologySolutions" Uri="https://bdtechnologysolutions.visualstudio.com/"/>				
+		</TFSProviders>
+		<TFSQueries>
+<Query 
+	Name="[Requests] by Month" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints],
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath],
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.TeamProject] = '@project' 
+	and [System.WorkItemType] = 'Request'
+	and [System.CreatedDate] &gt;= '@startDate'
+	and [System.CreatedDate] &lt; '@endDate'
+" />
+<Query 
+	Name="All WorkItems last GoBack Days" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints],
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath],
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.ChangedDate] &gt;= @Today - @goBackDays
+" />
+<Query 
+	Name="Count All WorkItems last GoBack Days" 
+	Query="
+SELECT 
+	[System.Id]
+FROM 
+	WorkItems 
+WHERE 
+	[System.ChangedDate] &gt;= @Today - @goBackDays
+" />
+<Query 
+	Name="All TeamProject WorkItems last GoBack Days" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints],
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath],
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.TeamProject] = '@project' 
+	and [System.ChangedDate] &gt;= @Today - @goBackDays
+" />
+<Query 
+	Name="Excessive Links" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath],
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM WorkItems 
+WHERE [System.RelatedLinkCount] &gt; 900
+" />
+<Query 
+	Name="Excessive Links (Not Closed)" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath],
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM WorkItems 
+WHERE [System.RelatedLinkCount] &gt; 900
+and [System.State] &lt;&gt; 'Closed'
+" />
+<Query 
+	Name="All User Needs WI" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.WorkItemType] = 'User Needs'
+and [System.CreatedDate] &gt;= '@startDate'
+and [System.CreatedDate] &lt; '@endDate'
+" />
+<Query 
+	Name="All Feature WI" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.WorkItemType] = 'Feature'
+and [System.CreatedDate] &gt;= '@startDate'
+and [System.CreatedDate] &lt; '@endDate'
+" />
+<Query 
+	Name="All Release WI" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.WorkItemType] = 'Release'
+and [System.CreatedDate] &gt;= '@startDate'
+and [System.CreatedDate] &lt; '@endDate'
+" />
+
+<Query 
+	Name="All Request WI" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.WorkItemType] = 'Request'
+and [System.CreatedDate] &gt;= '@startDate'
+and [System.CreatedDate] &lt; '@endDate'
+" />
+
+<Query 
+	Name="All Issue WI" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.WorkItemType] = 'Issue'
+and [System.CreatedDate] &gt;= '@startDate'
+and [System.CreatedDate] &lt; '@endDate'
+" />
+
+<Query 
+	Name="All Production Issue WI" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.WorkItemType] = 'Production Issue'
+and [System.CreatedDate] &gt;= '@startDate'
+and [System.CreatedDate] &lt; '@endDate'
+" />
+
+<Query 
+	Name="TP Releases" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM 
+	WorkItems 
+WHERE 
+	[System.TeamProject] = '@project' 
+and [System.WorkItemType] = 'Release'
+and [System.CreatedDate] &gt;= '@startDate'
+and [System.CreatedDate] &lt; '@endDate'
+" />
+<Query 
+	Name="User Stories" 
+	Query="
+SELECT 
+	[System.Id], 
+	[System.WorkItemType], 
+	[Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.Title], 
+	[System.AssignedTo],
+	[System.State], 
+	[System.Tags], 
+	[System.AreaPath], 
+	[System.IterationPath], 
+	[System.RelatedLinkCount], 
+	[System.ExternalLinkCount], 
+	[System.HyperLinkCount] 
+FROM WorkItems 
+WHERE [System.TeamProject] = '@project' 
+and [System.WorkItemType] = 'User Story'
+" />
+<Query 
+	Name="User Stories No Points 0608" 
+	Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags], [Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM
+	WorkItems 
+WHERE 
+	[System.TeamProject] = '@project' 
+	and [System.WorkItemType] = 'User Story' 
+	and [Microsoft.VSTS.Scheduling.StoryPoints] &lt; 0 
+	and [System.AreaPath] under '@project' 
+	and [System.IterationPath] under '@project' 
+ORDER BY 
+	[System.Id]
+" />
+			<Query 
+				Name="User Stories No Points 0720" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags], [Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM
+	WorkItems 
+WHERE 
+	[System.TeamProject] = '@project' 
+	AND  [System.WorkItemType] = 'User Story'  
+	AND  [System.AreaPath] &lt;&gt; 'Agile Training\Help Desk'  
+	AND  [System.AreaPath] &lt;&gt; 'Agile Training\Trash Can'  
+	AND  [System.State] IN ('New', 'Active', 'Resolved')  
+	AND  [Microsoft.VSTS.Scheduling.StoryPoints] = '' 
+ORDER BY 
+	[System.Id]
+" />
+			<Query 
+				Name="User Stories No Test Cases 0608" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags], [Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM
+	WorkItemLinks
+WHERE 
+	(
+		Source.[System.TeamProject] = '@project' 
+		and Source.[System.WorkItemType] = 'User Story' 
+		and Source.[System.State] in ('Closed', 'Resolved') 
+		and Source.[System.IterationPath] &lt;&gt; '@project\Migrated Items'
+	) 
+	and ([System.Links.LinkType] = 'Microsoft.VSTS.Common.TestedBy-Forward') 
+	and (Target.[System.WorkItemType] = 'Test Case') 
+ORDER BY 
+	[System.Id]
+" />	
+			<Query 
+				Name="User Stories No Test Cases 0720" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags], [Microsoft.VSTS.Scheduling.StoryPoints], 
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM
+	WorkItemLinks
+WHERE 
+	(
+		Source.[System.TeamProject] = '@project' 
+		AND Source.[System.WorkItemType] = 'User Story' 
+		AND Source.[System.State] in ('Active', 'Resolved') 
+		AND  [Source].[System.AreaPath] &lt;&gt; 'Agile Training\Help Desk'  
+		AND  [Source].[System.AreaPath] &lt;&gt; 'Agile Training\Trash Can'
+	) 
+	and ([System.Links.LinkType] = 'Microsoft.VSTS.Common.TestedBy-Forward') 
+	and
+	(
+		Target.[System.WorkItemType] = 'Test Case'
+		AND  [Target].[System.State] &lt;&gt; 'Closed'
+	) 
+ORDER BY 
+	[System.Id] mode (DoesNotContain)
+" />				
+			<Query 
+				Name="Tasks without Estimates 0608" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags],
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItems
+WHERE 
+	(
+		[System.TeamProject] = '@project' 
+		and [System.WorkItemType] = 'Task'
+		and 
+		(
+			[System.State] &lt;&gt; 'Removed'
+			or [System.State] &lt;&gt; 'Closed'
+		)
+		and [System.IterationPath] &lt;&gt; '@project\Trash Can' 
+		and [System.IterationPath] &lt;&gt; '@project\Migrated Items' 
+		and
+		(
+			[Microsoft.VSTS.Scheduling.OriginalEstimate] = ''						
+		)
+	) 
+ORDER BY
+	[System.Id] 
+mode(DoesNotContain)				
+" />		
+			<Query 
+				Name="Tasks without Estimates 0720" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags],
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItems
+WHERE 
+	[System.TeamProject] = '@project' 
+	AND  [System.WorkItemType] = 'Task'  
+	AND  [System.AreaPath] NOT UNDER 'Agile Training\Help Desk'  	 
+	AND  [System.AreaPath] &lt;&gt; 'Agile Training\Trash Can'  
+	AND 
+	( 
+	[Microsoft.VSTS.Scheduling.OriginalEstimate] = ''  
+	OR  [Microsoft.VSTS.Scheduling.RemainingWork] = ''  
+	OR  [Microsoft.VSTS.Scheduling.CompletedWork] = '' 
+	) 
+	AND  
+	[System.State] IN ('New', 'Active', 'Resolved')
+ORDER BY
+	[System.Id]				
+" />			
+			<Query 
+				Name="Oversized Tasks 0608" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags],
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItems
+WHERE 
+	(
+		[System.TeamProject] = '@project' 
+		and [System.WorkItemType] = 'Task'
+		and 
+		(
+			[System.State] &lt;&gt; 'Removed'
+			or [System.State] &lt;&gt; 'Closed'
+		)
+		and [System.IterationPath] &lt;&gt; '@project\Trash Can' 
+		and [System.IterationPath] &lt;&gt; '@project\Migrated Items' 
+		and
+		(
+			[Microsoft.VSTS.Scheduling.OriginalEstimate] &gt; 16 
+			or [Microsoft.VSTS.Scheduling.RemainingWork] &gt; 16						
+		)
+	) 
+	and (Target.[System.WorkItemType] in ('User Story', 'Test Case')) 
+ORDER BY
+	[System.Id]				
+" />	
+						<Query 
+				Name="Oversized Tasks 0720" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags],
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItems
+WHERE 
+	[System.TeamProject] = '@project'  
+	AND  [System.WorkItemType] = 'Task'  
+	AND  [System.AreaPath] NOT UNDER 'Agile Training\Help Desk'  
+	AND  [System.AreaPath] &lt;&gt; 'Agile Training\Trash Can'  
+	AND  [System.State] IN ('New', 'Active', 'Resolved')  
+	AND 
+	( 
+		[Microsoft.VSTS.Scheduling.OriginalEstimate] &gt; 16  
+		OR  [Microsoft.VSTS.Scheduling.RemainingWork] &gt; 16 
+	) 
+ORDER BY 
+	[System.Id]			
+" />
+			<Query 
+				Name="Orphaned Bugs 0608" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags],
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItemLinks
+WHERE 
+	(
+		[System.TeamProject] = '@project' 
+		and [System.WorkItemType] = 'Bug'
+		and Source.[System.State] &lt;&gt; 'Removed' 				
+		and Source.[System.IterationPath] &lt;&gt; '@project\Trash Can' 
+		and Source.[System.IterationPath] &lt;&gt; '@project\Migrated Items' 
+		and Source.[System.WorkItemType] = ''
+	) 
+	and (Target.[System.WorkItemType] in ('User Story', 'Test Case')) 
+ORDER BY
+	[System.Id] 
+mode(DoesNotContain)				
+" />
+			<Query 
+				Name="Orphaned Bugs 0720" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags],
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItemLinks
+WHERE 
+	(
+		[System.TeamProject] = '@project' 
+		AND  [Source].[System.WorkItemType] = 'Bug'  
+		AND  [Source].[System.AreaPath] &lt;&gt; 'Agile Training\Trash Can'  
+		AND  [Source].[System.AreaPath] NOT UNDER 'Agile Training\Help Desk'
+		AND  [Source].[System.State] &lt;&gt; 'Closed'
+	) 
+	And ([System.Links.LinkType] &lt;&gt; '') 
+	And ([Target].[System.WorkItemType] IN ('User Story', 'Test Case')) 
+ORDER BY 
+	[System.Id] mode(DoesNotContain)				
+" />
+			<Query 
+				Name="Orphaned Tasks 0608" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags], 
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItemLinks
+WHERE 
+	(
+		[System.TeamProject] = '@project' 
+		and [System.WorkItemType] = 'Task'
+		and Source.[System.State] &lt;&gt; 'Removed' 				
+		and Source.[System.IterationPath] &lt;&gt; '@project\Trash Can' 
+		and Source.[System.IterationPath] &lt;&gt; '@project\Migrated Items' 
+		and Source.[System.WorkItemType] = ''
+	) 
+	and ([System.Links.LinkType] &lt;&gt; '')
+	and (Target.[System.WorkItemType] in ('User Story')) 
+ORDER BY 
+	[System.Id] 
+mode(DoesNotContain)				
+" />
+			<Query 
+				Name="Orphaned Tasks 0720" 
+				Query="
+SELECT 
+	[System.Id], [System.WorkItemType], [System.Title], 
+	[System.State], [System.Tags], 
+	[System.AreaPath], [System.IterationPath], 
+	[System.RelatedLinkCount], [System.ExternalLinkCount], [System.HyperLinkCount] 
+FROM 
+	WorkItemLinks
+WHERE 
+	(
+		[System.TeamProject] = '@project' 
+		AND  [Source].[System.WorkItemType] = 'Task'  
+		AND  [Source].[System.AreaPath] &lt;&gt; 'Agile Training\Trash Can'  
+		AND  [Source].[System.AreaPath] NOT UNDER 'Agile Training\Help Desk'  
+		AND  [Source].[System.State] IN ('New', 'Active', 'Resolved')
+	) 
+	and ([System.Links.LinkType] &lt;&gt; '')
+	and (Target.[System.WorkItemType] = ('User Story')) 
+ORDER BY 
+	[System.Id] 
+mode(DoesNotContain)				
+" />
+		</TFSQueries>
+    <XXX>
+      <yyy Name="Foo" Uri="http://foo"/>
+      <yyy Name="Bar" Uri="http://bar"/>
+    </XXX>
+	</Excel_Config>
+	<PowerPoint_Config>
+		
+	</PowerPoint_Config>
+	<Word_Config>
+		
+	</Word_Config>
+		<DefaultPages>
+		  <PageGroup Name="Background Only">
+			<Page Name="Naviagation Links" />
+			<BackgroundPage Name="Naviagation Links" />
+			<BackgroundPage Name="Page Base" />
+			<BackgroundPage Name="Default Layers" />
+		  </PageGroup>
+		  <PageGroup Name="CHR Notes">
+			<Page Name="Page 1" />
+			<Page Name="Notes" />
+			<Page Name="Terminology" />
+			<BackgroundPage Name="Naviagation Links" />
+			<BackgroundPage Name="Page Base" />
+			<BackgroundPage Name="Default Layers" />        
+		  </PageGroup>
+		  <PageGroup Name="CHR Notes - New Subject">
+			<Page Name="Overview" />
+			<Page Name="Bock TOCs" />
+			<Page Name="Notes" />
+			<Page Name="Terminology" />
+			<BackgroundPage Name="Naviagation Links" />
+			<BackgroundPage Name="Page Base" />
+			<BackgroundPage Name="Default Layers" />        
+		  </PageGroup>
+		</DefaultPages>
+		
+		<ShapeEditorDialog>
+		  <Command Name="CreateDocument">
+			<Documents>
+			  <Add Name="NewDocument" />
+			  <Add Name="C:\temp\NewDocument" />
+			</Documents>          
+		  </Command>
+		  
+		  <Command Name="CreateDefaultLayers1">
+			<Documents>
+			  <ActiveDocument>
+				<Layers>
+				  <!--<DeleteAll />-->
+				  <Add Name="Layer1" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Layer2" IsVisible="1" IsPrint="0" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Temporary" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Background" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>				  
+				</Layers>            
+			  </ActiveDocument>
+			</Documents>
+		  </Command>
+
+		  <Command Name="CreateDefaultLayers2">
+			<Documents>
+			  <Document Name="NewDocument">
+				<Layers>
+				  <!--<DeleteAll />-->
+				  <Add Name="Layer1" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Layer2" IsVisible="1" IsPrint="0" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				  <Add Name="Temporary" IsVisible="1" IsPrint="1" IsActive="1" IsLock="0" IsSnap="1" IsGlue="1" Color=""/>
+				</Layers>            
+			  </Document>
+			</Documents>
+		  </Command>
+			
+		  <Command Name="DeleteLayer">
+			<Documents>
+			  <ActiveDocument>
+				<Layers>
+				  <!--<DeleteAll />-->
+				  <Delete Name="Temporary" DeleteShapes="0"/>
+				  <Add Name="LayerIsVisible" IsVisible="1" IsPrint="1" IsActive="1" IsLock="1" IsSnap="1" IsGlue="1" Color=""/>
+				  <Layer Name="Layer2" IsVisible="0" />
+				</Layers>
+			  </ActiveDocument>
+			</Documents>
+		  </Command>
+		  
+		  <Command Name="LockBackgroundLayers">
+			<Documents>
+				<Layers>
+					<Layer Name="Background" IsVisible="" IsPrint="" IsActive="" IsLock="1" IsSnap="" IsGlue="" Color="" />
+				</Layers>
+			</Documents>
+		  </Command>
+		  
+		  <Command Name="RenameLayer">
+			<Documents>
+				<Layers>
+					<Layer Name="Background" NewName="Background2" IsVisible="" IsPrint="" IsActive="" IsLock="1" IsSnap="" IsGlue="" Color="" />
+				</Layers>
+			</Documents>
+		  </Command>		  
+		  
+		  <Command Name="CreatePages">
+			<Pages>
+				<!-- <DeleteAll /> -->
+				<Add Name="PageOneIsBg" IsBackground="1" />
+				<Add Name="PageOne" IsBackground="0" />
+				<Add Name="PageTwo" IsBackground="0" />
+				<Add Name="PageThree" />
+				<Add Name="BackgroundPage1" />
+				<Add Name="BackgroundPage2" />
+				<Page Name="BackgroundPage2" IsBackground="1">
+					<!-- <Layers /> -->
+
+					<!--<ShapeSheet />-->
+				</Page>
+			</Pages>
+			  <Layers />
+	      <DocumentShapeSheet />
+	    </Command>
+      
+      <Command Name="CreateBackgroundPages">
+        <Pages>
+          <Page Name="BackgroundPage1" IsBackground="1" />
+          <Page Name="BackgroundPage2" BackgroundPageName="BackgroundPage1" IsBackground="1" />
+        </Pages>
+			</Command>
+		  
+		
+      <Command Name="DeletePage" Category="Pages">
+			<Pages>
+				<Delete Name="Page1" />
+			</Pages>
+		</Command>  
+		  
+		  <!-- Since each section on the shapesheet has different rows and cells, 
+			   make it easier to interact with each section by carrying specfics into XML for some sections.
+			   
+			   Can always specify specifics using <SRC /> element.  Section, Row, Cell -->
+		  <Command Name="AddColorSupport1" Description="Add Color Support 1 Description">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <AddUserRow Row="colorNames" ValueQuoted="Red; Green; Blue" Prompt=""/>
+				  <AddUserRow Row="colorValues" ValueQuoted="RGB(255, 0, 0); RGB(0, 255, 0); RGB(0, 0, 255)" Prompt=""/>
+				  <AddPropRow Row="Color" Label="Color" Prompt="Color" Type="VisCellVals.visPropTypeListFix" Format="User.colorNames" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddUserRow Row="Color" Value="INDEX(LOOKUP(Prop.Color,User.colorNames),User.colorValues)" Prompt=""/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>          
+		  </Command>
+		  
+		  <Command Name="AddHyperLinkSupport" Description="Add HyperLinkSupport">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <AddPropRow Row="PageName" Label="PageName" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="HyperLink" Label="HyperLink" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="ReturnLink" Label="ReturnLink" Prompt="" Type="VisCellVals.visPropTypeString" Format="" ValueQuoted="Page Shapes.vssx,PageLink Arrow Left" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="ExternalLink" Label="ExternalLink" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddPropRow Row="HyperLinkPrefix" Label="HyperLink Prefix" Prompt="" Type="VisCellVals.visPropTypeString" Format="" Value="" 
+							  SortKey="" Invisible="" Ask="" LangID="" Calendar=""/>
+				  <AddHyperlinksRow 
+					Name="HL1" 
+					Description="" 
+					Address="GUARD(Prop.ExternalLink)" 
+					SubAddress="GUARD(Prop.HyperLink)" />
+					<!-- ExtraInfo=""  -->
+					<!-- Frame="2.0" -->
+					<!-- SortKey="2.0" -->
+					<!-- NewWindow="2.0" -->
+					<!-- Default="" -->
+					<!-- Invisible="0" -->						
+				  <AddActionsRow Name="CreatePageForShape"
+								Action="RUNADDONWARGS(&quot;QueueMarkerEvent&quot;,&quot;CreatePageForShape,,,Page%20Base&quot;)"
+								Menu="Create Page for Shape"
+								TagName=""
+								ButtonFace=""
+								SortKey=""
+								Checked=""
+								Disabled=""
+								ReadOnly=""
+								Invisible=""
+								BeginGroup=""
+								FlyoutChild="" />							  
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>          
+		  </Command>
+		  
+		  <Command Name="AddHasColorTags" Description="Add HasColorTags flag to shape">
+			<Shapes>
+				<Shape>
+					<ShapeSheet>
+						<AddUserRow Row="HasColorTags" Value="1" />
+					</ShapeSheet>
+				</Shape>
+			</Shapes>          
+		  </Command>	  
+		  
+		  <Command Name="AddTextTransformControl" Description="Add Text Transform Control to Shape">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <AddPropRow Row="TextTransformWidth" Label="TextTransformWidth" Prompt="" Type="VisCellVals.visPropTypeNumber" FormatQuoted="0.0" Value="2.0" />
+				  <AddControlsRow Name="TextTransform1" X="Width*0.5" Y="Height*0.5"
+								  XDynamics="Controls.TextTransform1" YDynamics="Controls.TextTransform1.Y" 
+								  XBehavior="0" YBehavior="0" CanGlue="TRUE" Tip="Drag to Repostion Text" />
+				  <SetTextTransform Width="GUARD(Width*Prop.TextTransformWidth)" Height="" 
+									PinX="GUARD(Controls.TextTransform1)" PinY="GUARD(Controls.TextTransform1.Y)" 
+									LocPinX="TxtWidth*0.5" LocPinY="TxtHeight*0.5" Angle="0 deg" />
+				  <SetTextBlockFormat LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0"
+									  TextDirection="0" VerticalAlign="1" TextBkgnd="0" TextBkgndTrans="0%" DefaultTabStop="0.5 in"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetShapes1" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="1.0" Height="2.0"
+									 PinX="1.5" PinY="8.0"
+									 FlipX="FALSE" FlipY="FALSE" 
+									 LocPinX="Width*0.5" LocPinY="Height*0.5" Angle="0 deg" ResizeMode="0" />
+									 LocPinX="TxtWidth*0.5" LocPinY="TxtHeight*0.5" Angle="0 deg" ResizeMode="0" />
+				  <SetFillFormat FillForegnd="RGB(255,0,0)" FillForegndTrans="0%" FillBkgnd="0" FillBkgndTrans="0%" FillPattern="1"
+								 ShdwForegnd="0" ShdwForegndTrans="0%" ShdwPattern="0"
+								 ShapeShdwOffsetX="0 in" ShapeShdwOffsetY="0 in"
+								 ShapeShdwType="0" ShapeShdwObliqueAngle="0 deg" ShapeShdwScaleFactor="100%"
+								 ShapeShdwBlur="0 pt" ShapeShdwShow="0"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetShapes2" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="rgb(255,0,0)" FillForegndTrans="0%" 
+								FillBkgnd="RGB(0,255,0)" FillBkgndTrans="0%" FillPattern="5"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetAML" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="MSOTINT(THEMEVAL(&quot;AccentColor5&quot;),-25)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetGD" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="RGB(0,176,80)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetJuno" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="RGB(0,176,240)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetCummins62" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="MSOTINT(THEMEVAL(&quot;AccentColor&quot;),40)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetCummins77" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+			<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="MSOTINT(THEMEVAL(&quot;AccentColor&quot;),-25)" FillForegndTrans="0%"
+								 FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+			 
+			</ShapeSheet>
+			  </Shape>
+			</Shapes>
+		  </Command>
+		  
+		  <Command Name="SetWuxiShapes" Description="Set Size and Fill for Shapes">
+			<Shapes>
+			  <Shape>
+				<ShapeSheet>
+				  <SetShapeTransform Width="0.1" Height="0.1" />
+				  <SetFillFormat FillForegnd="rgb(112,48,160)" FillForegndTrans="0%"
+											   FillBkgnd="" FillBkgndTrans="0%" FillPattern="1"/>
+				</ShapeSheet>
+			  </Shape>
+			</Shapes>
+			</Command>
+			
+		</ShapeEditorDialog>
+		
+	</Visio_Config>
+</Support_Tools>

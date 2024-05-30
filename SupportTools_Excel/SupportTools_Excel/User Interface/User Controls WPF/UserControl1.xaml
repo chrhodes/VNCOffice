@@ -1,0 +1,33 @@
+﻿<UserControl xmlns:User_Controls_WPF="clr-namespace:SupportTools_Excel.User_Interface.User_Controls_WPF"  x:Class="SupportTools_Excel.User_Interface.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:debug="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+             mc:Ignorable="d" d:DesignWidth="298" Height="314">
+    <UserControl.Resources>
+        <DataTemplate x:Key="tfsProviderItemTemplate">
+            <StackPanel>
+                <Label Content="{Binding XPath=@Name}" />
+                <Label Content="{Binding XPath=@Uri}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+
+        <Grid.DataContext>
+            <XmlDataProvider x:Name="TFSProviders" 
+                             Source="C:\temp\SupportTools_Config.xml" 
+                             XPath="/Support_Tools/Excel_Config/TFSProviders/Provider" 
+                             IsAsynchronous="False"
+                             IsInitialLoadEnabled="True"
+                             debug:PresentationTraceSources.TraceLevel="High" />
+        </Grid.DataContext>
+        <StackPanel>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <User_Controls_WPF:TFSProvider_Picker x:Name="tfsPicker"/>
+            <User_Controls_WPF:AD_Picker/>
+        </StackPanel>
+    </Grid>
+</UserControl>

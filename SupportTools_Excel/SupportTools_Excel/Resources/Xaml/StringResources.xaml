@@ -1,0 +1,60 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- String resource that can be localized -->
+    
+    <!--AZDOOrganizationActions View-->
+    <system:String x:Key="AZDOOrganizationActions_GetTPCInfoContent">Get Team Project Collection Info(localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCInfoToolTip">Get Team Project Collection Info Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCAreasContent">Get TPC Areas(localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCAreasToolTip">Get TPC Areas Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetBranchesContent">Get Branches (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetBranchesToolTip">Get Branches Tooltip (localized) This is a long expensive operation.</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetAllTPDevelopersContent">Get All TP Developers (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetAllTPDevelopersToolTip">All recent (Go Back Days)\r\nDeveloper Activty (Counts)\r\nfor All Team Projects (TP)&quot; \r\nNB. This is a long, expensive query.</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCMembersContent">GetTPCMembers (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCMembersToolTip">Get all Members from all Team Projects\r\nNB. This is a long, expensive query.</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCShelfsetsContent">GetTPCShelfsets (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCShelfsetsToolTip">GetTPCShelfsets Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCBuildDefinitionsContent">GetTPCBuildDefinitions (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCBuildDefinitionsToolTip">GetTPCBuildDefinitions Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTeamsContent">GetTPCTeams (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTeamsToolTip">GetTPCTeams Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkItemTypesContent">GetTPCWorkItemTypes (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkItemTypesToolTip">GetTPCWorkItemTypes Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkItemFieldsContent">GetTPCWorkItemFields (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkItemFieldsToolTip">GetTPCWorkItemFields Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkItemDetailsContent">GetTPCWorkItemDetails (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkItemDetailsToolTip">GetTPCWorkItemDetails Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkspacesContent">GetTPCWorkspaces (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCWorkspacesToolTip">GetTPCWorkspaces Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCLastChangesetContent">GetTPCLastChangeset (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCLastChangesetToolTip">GetTPCLastChangeset Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCLastWorkItemContent">GetTPCLastWorkItem (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCLastWorkItemToolTip">GetTPCLastWorkItemTooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTestPlansContent">GetTPCTestPlans (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTestPlansToolTip">GetTPCTestPlans Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTestSuitesContent">GetTPCTestSuites (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTestSuitesToolTip">GetTPCTestSuites Tooltip (localized)</system:String>
+
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTestCasesContent">GetTPCTestCases (localized)</system:String>
+    <system:String x:Key="AZDOOrganizationActions_GetTPCTestCasesToolTip">GetTPCTestCases Tooltip (localized)</system:String>
+
+</ResourceDictionary>

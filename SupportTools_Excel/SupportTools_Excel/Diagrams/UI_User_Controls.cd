@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS">
+    <Position X="0.5" Y="2" Width="8" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ProcessCreateWorksheetCommand" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\ProcessWorkSheetHandlers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ProcessCreateWorksheetCommandSections" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\ProcessWorkSheetHandlers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ProcessCreateWorksheetCommandTeamProjectCollection" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\ProcessWorkSheetHandlers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ProcessAddBodyCommand_BS" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\AddSections_BuildServer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Struct Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ControlFieldMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\AddBody.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.Transition" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\AddBody.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.FieldMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\AddBody.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Delegate Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ProcessAddBodyCommand_TM" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\AddSections_TestManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ProcessAddHeaderCommand" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\ProcessWorkSheetHandlers.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Struct Name="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS.ControlMap" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>User Interface\User Controls\AddBody.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>yzciOyfm3LmqWkPNnWawLfMoW5kZRra4t/7Cfx2HPBY=</HashCode>
+      <FileName>User Interface\User Controls\AddHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,413 @@
+﻿<UserControl
+    x:Class="SupportTools_Excel.ActiveDirectoryExplorer.Presentation.Views.ActiveDirectoryExplorer"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d" 
+	
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:prism="http://prismlibrary.com/"
+
+	xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding" 	
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"    
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    
+    xmlns:local="clr-namespace:SupportTools_Excel.Presentation.Views"
+	
+	xmlns:localc="clr-namespace:SupportTools_Excel.Presentation.Converters"
+    xmlns:localv="clr-namespace:SupportTools_Excel.ActiveDirectoryExplorer.Presentation.Views"
+    xmlns:localvm="clr-namespace:SupportTools_Excel.ActiveDirectoryExplorer.Presentation.ViewModels"
+    
+    xmlns:vncADuiuc="clr-namespace:VNC.AD.User_Interface.User_Controls;assembly=VNC.ActiveDirectoryHelper"
+    
+    xmlns:vncWPF="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"  
+        
+
+    d:DesignHeight="800" 
+    d:DesignWidth="400"
+>
+    <UserControl.Resources>
+        <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsConverter" />
+    </UserControl.Resources>
+<!-- 
+	Can Declare ViewModel here
+	or pass in to constructor.  
+	See ActiveDirectoryMain.xaml.cs
+-->
+		
+<!--<UserControl.DataContext>
+	<localvm:ActiveDirectoryExplorerViewModel />
+</UserControl.DataContext>-->
+
+    <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" >
+        <dxlc:LayoutItem>
+            <Button
+				Command="{ Binding DoSomethingCommand }"
+				Content="{ Binding DoSomethingContent, FallbackValue='DoSomething' }"
+				ToolTip="{ Binding DoSomethingToolTip }"/>
+        </dxlc:LayoutItem>
+
+        <dxe:TextEdit Text="{ Binding Message }" VerticalAlignment="Top">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <prism:InvokeCommandAction Command="{Binding Path=Message_DoubleClick_Command}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </dxe:TextEdit>
+
+        <dxlc:LayoutGroup>
+            <dxlc:LayoutItem MinWidth="30" VerticalAlignment="Top" >
+                <vncWPF:CylonEyeBall />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutItem
+            Label="Select AD"
+            LabelPosition="Top">
+            <vncADuiuc:wucAD_Picker x:Name="wucActiveDirectory_Picker" />
+        </dxlc:LayoutItem>
+
+        <dxlc:LayoutGroup Header="Some Group of things"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutItem Label="Search Pattern">
+                <dxe:TextEdit x:Name="teSearchPattern"
+               	ToolTip="Enter Search Pattern" />
+            </dxlc:LayoutItem>
+            
+<dxlc:LayoutItem Label="SearchPattern">
+<!-- Hopefully we don't use the first one anymore! 
+    <dxe:TextEdit x:Name="teSearchPattern"
+		Text="{Binding SearchPattern}"
+    	ToolTip="tooltip"
+     	MouseDoubleClick="teSearchPattern_MouseDoubleClick" />
+-->
+    <dxe:TextEdit
+		Text="{Binding SearchPattern }"
+    	ToolTip="{Binding SearchPatternToolTip }">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseDoubleClick">
+                <i:InvokeCommandAction Command="{Binding Path=SearchPattern_DoubleClick}"/>
+             </i:EventTrigger>
+        </i:Interaction.Triggers>
+    </dxe:TextEdit>
+</dxlc:LayoutItem>
+
+
+            <dxlc:LayoutItem>
+                <Button 
+		            Command="{Binding AddUserCommand }"
+		            Content="{Binding AddUserContent, FallbackValue='AddUser' }"
+		            ToolTip="{Binding AddUserToolTip, FallbackValue='«Link(XXX) ToolTip»' }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+            		Command="{Binding FindUserCommand }"
+            		Content="{Binding FindUserContent, FallbackValue='FindUser' }"
+            		ToolTip="{Binding FindUserToolTip, FallbackValue='«Link(XXX) ToolTip»' }" />
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutItem 
+            	Label="Find Count"
+             	LabelPosition="Top">
+                <dxe:ListBoxEdit x:Name="lbeFindCount"
+                    ValueMember="Content"
+                    SelectedIndex="0"
+                    ShowBorder="False"
+                    Background="{x:Null}">
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <!--<dxe:ListBoxEditStyleSettings/>-->
+                        <!--<dxe:CheckedListBoxEditStyleSettings/>-->
+                        <dxe:RadioListBoxEditStyleSettings/>
+                    </dxe:ListBoxEdit.StyleSettings>
+                    <dxe:ListBoxEdit.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </dxe:ListBoxEdit.ItemsPanel>
+                    <dxe:ListBoxEdit.Items>
+                        <dxe:ListBoxEditItem Content="FindOne" />
+                        <dxe:ListBoxEditItem Content="FindAll" />
+                    </dxe:ListBoxEdit.Items>
+                </dxe:ListBoxEdit>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem 
+            	Label="Search By"
+             	LabelPosition="Top">
+                <dxe:ListBoxEdit x:Name="lbeSearchBy"
+                    ValueMember="Content"
+                    SelectedIndex="0"
+                    ShowBorder="False"
+                    Background="{x:Null}"
+                    >
+                    <!--SelectedIndexChanged="lbeXXX_SelectedIndexChanged"-->
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <!--<dxe:ListBoxEditStyleSettings/>-->
+                        <!--<dxe:CheckedListBoxEditStyleSettings/>-->
+                        <dxe:RadioListBoxEditStyleSettings/>
+                    </dxe:ListBoxEdit.StyleSettings>
+                    <dxe:ListBoxEdit.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </dxe:ListBoxEdit.ItemsPanel>
+                    <dxe:ListBoxEdit.Items>
+                        <dxe:ListBoxEditItem>DisplayName</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>employeeID</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>GivenName</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>division</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>givenName</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>mail</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>MiddleName</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>Name</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>SAMAccountName</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>Surname</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>uid</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem>UserPrincipalName</dxe:ListBoxEditItem>
+                    </dxe:ListBoxEdit.Items>
+                </dxe:ListBoxEdit>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFindUser2"
+                IsEnabled="True"
+            	Content="Find User 2" 
+                ToolTip="Find USer"
+            	 />
+                <!--Click="btnFindUser2_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem 
+            	Label="Select Attributes"
+             	LabelPosition="Top">
+                <dxe:ComboBoxEdit x:Name="cbeAttributes">
+                    <dxe:ComboBoxEdit.StyleSettings>
+                        <dxe:CheckedComboBoxStyleSettings />
+                    </dxe:ComboBoxEdit.StyleSettings>
+                    <dxe:ComboBoxEditItem Content="adspath" />
+                    <dxe:ComboBoxEditItem Content="cn" />
+                    <dxe:ComboBoxEditItem Content="description" />
+                    <dxe:ComboBoxEditItem Content="displayname" />
+                    <dxe:ComboBoxEditItem Content="distinguishedname" />
+                    <dxe:ComboBoxEditItem Content="division" />
+                    <dxe:ComboBoxEditItem Content="employeeID" />
+                    <dxe:ComboBoxEditItem Content="givenname" />
+                    <dxe:ComboBoxEditItem Content="mail" />
+                    <dxe:ComboBoxEditItem Content="manager" />
+                    <dxe:ComboBoxEditItem Content="memberof" />
+                    <dxe:ComboBoxEditItem Content="name" />
+                    <dxe:ComboBoxEditItem Content="objectcategory" />
+                    <dxe:ComboBoxEditItem Content="objectclass" />
+                    <dxe:ComboBoxEditItem Content="samaccountname" />
+                    <dxe:ComboBoxEditItem Content="whenchanged" />
+                    <dxe:ComboBoxEditItem Content="whencreated" />
+                </dxe:ComboBoxEdit>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFindUserProperties"
+                IsEnabled="True"
+            	Content="Find User - Selected Attributes" 
+                ToolTip="Find USer"
+            	 />
+                <!--Click="btnFindUserProperties_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFindName"
+                    IsEnabled="True"
+            		Content="Find Name" 
+                    ToolTip=""
+            		/>
+                <!--Click="btnFindName_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnCheckUserExists"
+                    IsEnabled="True"
+            		Content="Check User Exists" 
+                    ToolTip=""
+            		 />
+                <!--Click="btnCheckUserExists_Click"-->
+
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Output">
+                <dxe:TextEdit x:Name="teOutput"
+                	ToolTip="" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnGetAllUsers"
+                    IsEnabled="True"
+            		Content="Get All Users" 
+                    ToolTip=""
+            		/>
+                <!--Click="btnGetAllUsers_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnGetAllGroups"
+                    IsEnabled="True"
+            		Content="Get All Groups" 
+                    ToolTip=""
+            		 />
+                <!--Click="btnGetAllGroups_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Path">
+                <dxe:TextEdit x:Name="tePath"
+                	ToolTip="" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnGetAllUsersPath"
+                    IsEnabled="True"
+            		Content="Get All Users Path" 
+                    ToolTip=""
+            		/>
+                <!--Click="btnGetAllUsersPath_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnGetDomainControllers"
+                    IsEnabled="True"
+            		Content="Get Domain Controllers" 
+                    ToolTip=""
+            		 />
+                <!--Click="btnGetDomainControllers_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnGetDomains"
+                    IsEnabled="True"
+            		Content="Get Domains" 
+                    ToolTip=""
+            		 />
+                <!--Click="btnGetDomains_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnGetGlobalCatalogs"
+                    IsEnabled="True"
+            		Content="Get Global Catalogs" 
+                    ToolTip=""
+            		 />
+                <!--Click="btnGetGlobalCatalogs_Click"-->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem VerticalAlignment="Stretch" >
+                <dxe:TextEdit x:Name="lbeResults"
+                                 FontFamily="Courier New"
+                                 ScrollViewer.CanContentScroll="True"/>
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="Configuration"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="True">
+
+            <dxlc:LayoutItem HorizontalAlignment="Left">
+                <!--Put things that are used to configure this Task Pane -->
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <dxe:CheckEdit x:Name="ceOrientOutputVertically"
+                        Content="Orient Output Vertically"
+                        IsChecked="True" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+    <!--<dxlc:LayoutControl>
+	
+        <dxlc:LayoutGroup x:Name="lgMain" Header="Group Name"
+            View="GroupBox" Orientation="Vertical" 
+            GroupBoxStyle="{StaticResource dxlcGroupBox}"                                  
+            IsCollapsible="True"  IsCollapsed="False"
+            ToolTip="Say something about this Layout Group">
+        	
+		<dxlc:LayoutGroup 
+			View="Group" Orientation="Horizontal" >
+		
+			<dxlc:LayoutGroup 
+				View="Group" Orientation="Vertical" >
+				
+					<dxg:GridControl AutoGenerateColumns="AddNew" 
+							 EnableSmartColumnsGeneration="True" 
+							 ItemsSource="{ Binding Rows }"
+							 SelectedItem="{ Binding SelectedItem, Mode=TwoWay }"
+							 Height="200">
+						<dxg:GridControl.View>
+							<dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+						</dxg:GridControl.View>
+					</dxg:GridControl>
+					
+                <dxlc:LayoutItem Label="Select a Color" LabelPosition="Top">
+                    <dxe:ComboBoxEdit 
+                            EditValue="{ Binding
+                                Path=SelectedFruits,
+                                Mode=TwoWay,
+                                UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource SelectedItemsConverter} }" > 
+                        <dxe:ComboBoxEdit.StyleSettings>
+                            <dxe:CheckedComboBoxStyleSettings />
+                        </dxe:ComboBoxEdit.StyleSettings>
+                        <dxe:ComboBoxEditItem Content="Red" IsSelected="True"/>
+                        <dxe:ComboBoxEditItem Content="Yellow" IsSelected="False"/>
+                        <dxe:ComboBoxEditItem Content="Green" IsSelected="False"/>
+                        <dxe:ComboBoxEditItem Content="Blue" IsSelected="False"/>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>					
+			   
+				<dxlc:LayoutGroup 
+						View="Group" Orientation="Vertical"
+						DataContext="{Binding SelectedItem}">
+
+						<dxlc:LayoutItem Label="StringProperty">
+							<dxe:TextEdit Text="{ Binding StringProperty }"
+									ToolTip="tooltip" />
+						</dxlc:LayoutItem>
+
+						<dxlc:LayoutItem Label="IntProperty">
+							<dxe:TextEdit Text="{Binding IntProperty}"
+									ToolTip="tooltip" />
+						</dxlc:LayoutItem>
+						
+				</dxlc:LayoutGroup>
+
+				<dxlc:LayoutItem>
+					<Button
+						Command="{ Binding DoSomethingCommand }"
+						Content="{ Binding DoSomethingContent, FallbackValue='DoSomething' }"
+						ToolTip="{ Binding DoSomethingToolTip }"/>
+				</dxlc:LayoutItem>
+
+				<dxe:TextEdit Text="{ Binding Message }">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="MouseDoubleClick">
+								<prism:InvokeCommandAction Command="{Binding Path=Message_DoubleClick_Command}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>				
+				</dxe:TextEdit>
+
+			</dxlc:LayoutGroup>
+			
+		</dxlc:LayoutGroup>
+		
+		</dxlc:LayoutGroup>
+	
+	</dxlc:LayoutControl>-->
+
+</UserControl>

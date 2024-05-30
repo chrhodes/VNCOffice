@@ -1,0 +1,187 @@
+﻿<UserControl x:Class="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_Utilities"
+    xmlns:User_Controls="clr-namespace:SupportTools_Excel.User_Interface.User_Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    mc:Ignorable="d" Loaded="UserControl_Loaded" 
+    d:DesignHeight="900" d:DesignWidth="400">
+    <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" Background="#FFFFFF">
+        <!--<dxlc:LayoutItem 
+            Label="Excel Utilities" 
+            LabelPosition="Top">
+            <User_Controls:wucSQLInstance_Picker x:Name="wucSQLInstance_Picker1"/>
+        </dxlc:LayoutItem>-->
+        
+        <dxlc:LayoutGroup  Header="Folder Map" Background="#FFE4E1"
+            View="GroupBox" Orientation="Horizontal" 
+            VerticalAlignment="Top" 
+            IsCollapsible="True" IsCollapsed="False">
+            
+            <!--<dxlc:LayoutGroup 
+                View="Group"
+                MinWidth="75"
+                Orientation="Vertical" VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                IsCollapsible="True"  IsCollapsed="False">
+
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnLogon" 
+				    Content="Logon" Click="btnLogon_Click" 
+                    ToolTip="Logon ToolTip" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnLogoff" 
+				    Content="Logoff" Click="btnLogoff_Click" 
+                    ToolTip="Logoff ToolTip" />
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+            
+            <dxlc:LayoutGroup 
+                View="Group"
+                Orientation="Vertical" VerticalAlignment="Center"
+                IsCollapsible="True"  IsCollapsed="False" Margin="5,0,0,0">
+
+                <dxlc:LayoutItem>
+                    <dxe:CheckEdit x:Name="ceIntegratedSecurity"
+                    Content="Use Integrated Security" 
+                    IsChecked="True"/>
+                </dxlc:LayoutItem>
+                
+                <dxlc:LayoutItem Label="UserName">
+                    <dxe:TextEdit x:Name="teUserName" 
+                              ToolTip="UserName Tooltip." />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Password">
+                    <dxe:TextEdit x:Name="tePassword" 
+                              ToolTip="Password Tooltip." />
+                </dxlc:LayoutItem>
+                
+            </dxlc:LayoutGroup>-->
+
+        </dxlc:LayoutGroup>
+        
+        <dxlc:LayoutGroup Header="WorkSheet Operations"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" 
+            IsCollapsible="True"  IsCollapsed="False" >
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnCreateTableOfContents" 
+				        Content="Create Table of Contents" 
+                        ToolTip="Create Table of Contents (Uses Row 1)"
+                        Click="btnCreateTableOfContents_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnAddHeader" 
+				        Content="Add Header" 
+                        ToolTip="Add Header to All Worksheets"
+                        Click="btnAddHeader_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnAddFooter" 
+				        Content="Add Footer" 
+                        ToolTip="Add Footer to All Worksheets"
+                        Click="btnAddFooter_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFormatPortrait" 
+				        Content="Format Portrait" 
+                        ToolTip="Format Portrait All Worksheets"
+                        Click="btnFormatPortrait_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFormatLandscape" 
+				        Content="Format Landscape" 
+                        ToolTip="Format Landscape All Worksheets"
+                        Click="btnFormatLandscape_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFormatMargins" 
+				        Content="Format Margins" 
+                        ToolTip="Format Margins All Worksheets"
+                        Click="btnFormatMargins_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFormatFitColumns" 
+				        Content="Fit Columns" 
+                        ToolTip="Fit Columns All Worksheets"
+                        Click="btnFormatFitColumns_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFormatFitRows" 
+				        Content="Fit Rows" 
+                        ToolTip="Fit Rows All Worksheets"
+                        Click="btnFormatFitRows_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFitToPages" 
+				        Content="Fit To Pages" 
+                        ToolTip="Fit To Pages"
+                        Click="btnFitToPages_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Select Fit Option" 
+                                 LabelPosition="Top">
+                <dxe:ComboBoxEdit x:Name="cbeFitToPages">
+                    <!--<dxe:ComboBoxEdit.StyleSettings>
+                        <dxe:CheckedComboBoxStyleSettings />
+                    </dxe:ComboBoxEdit.StyleSettings>-->
+                    <dxe:ComboBoxEditItem Content="No Scaling" Tag="0,0" />
+                    <dxe:ComboBoxEditItem Content="Fit Columns" Tag="0,1" />
+                    <dxe:ComboBoxEditItem Content="Fit Rows" Tag="1,0"/>
+                    <dxe:ComboBoxEditItem Content="Fit Sheet" Tag="1,1"/>
+                </dxe:ComboBoxEdit>
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="Table Operations"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top"
+            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnCreateDataValidationTable" 
+				        Content="Create DataValidation Table" 
+                        ToolTip="Create DataValidation Table from selected cells"
+                        Click="btnCreateDataValidationTable_Click" />
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutItem>
+                <Button x:Name="btnAddIDColumn" 
+				        Content="Add ID Column" 
+                        ToolTip="Add ID Column to left of selected cells"
+                        Click="btnAddIDColumn_Click" />
+            </dxlc:LayoutItem>            
+        </dxlc:LayoutGroup>
+
+        <!--<dxlc:LayoutGroup Header="Configuration"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutItem HorizontalAlignment="Left">
+                <dxe:CheckEdit x:Name="ceOrientOutputVertically"
+                    Content="Orient Output Vertically" 
+                    IsChecked="True"/>
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>-->
+        
+    </dxlc:LayoutControl>
+    
+</UserControl>

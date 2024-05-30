@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_TFS"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Serialization="clr-namespace:DevExpress.Xpf.LayoutControl.Serialization;assembly=DevExpress.Xpf.LayoutControl.v21.2"
+    xmlns:localpv="clr-namespace:SupportTools_Excel.AzureDevOpsExplorer.Presentation.Views"
+    xmlns:vncWPF="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+    mc:Ignorable="d"
+
+    Background="White"
+    d:DesignWidth="900"
+    d:DesignHeight="800"
+ >
+
+    <dxlc:LayoutControl x:Name="layoutItems">
+
+        <dxlc:LayoutGroup dx:ScrollViewerTouchBehavior.IsEnabled="True" 
+                          Orientation="Vertical" VerticalAlignment="Top"
+                          Serialization:SerializableItem.TypeName="LayoutGroup"
+                          Style="{StaticResource dxlcGroup}">
+            <vncWPF:CylonEyeBall />
+
+            <localpv:Server x:Name="Server" Background="White" />
+            
+            <dxlc:LayoutGroup x:Name="lgMainGroup"
+                View="Group" Visibility="Visible"
+                Orientation="Horizontal"
+                GroupBoxStyle="{StaticResource dxlcGroupBox}">
+
+                <localpv:Options x:Name="azdoOptions" Background="LightBlue" />
+
+                <dxlc:LayoutGroup 
+                	View="Group" Orientation="Vertical" >
+
+                    <!--<localpv:Queries x:Name="azdoQueries" Background="LightGoldenrodYellow"/>-->
+
+                    <localpv:WorkItems x:Name="azdoWorkItems" Background="LightSteelBlue"/>
+
+                    <localpv:OrganizationActions x:Name="azdoOrganizationtActions" Background="LightSalmon"/>
+
+                    <localpv:TeamProjectActions x:Name="azdoTeamProjectActions" Background="LightGreen"/>
+
+                    <localpv:TestManagementActions x:Name="azdoTestManagementActions" Background="LightCoral"/>
+
+                    <localpv:Misc x:Name="azdoMisc" Background="White"/>
+
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutControl>
+
+</UserControl>

@@ -1,0 +1,123 @@
+﻿<UserControl
+    x:Class="SupportTools_Excel.ActiveDirectoryExplorer.Presentation.Views.ADPicker"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d" 
+	
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:prism="http://prismlibrary.com/"
+
+	xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding" 	
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"    
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    
+    xmlns:local="clr-namespace:SupportTools_Excel.ActiveDirectoryExplorer.Presentation.Views"
+	
+	xmlns:localc="clr-namespace:SupportTools_Excel.Presentation.Converters"
+    xmlns:localv="clr-namespace:SupportTools_Excel.ActiveDirectoryExplorer.Presentation.Views"
+    xmlns:localvm="clr-namespace:SupportTools_Excel.ActiveDirectoryExplorer.Presentation.ViewModels"
+        
+
+    Background="WhiteSmoke"
+    d:DesignHeight="300" d:DesignWidth="200"
+>
+    <UserControl.Resources>
+        <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsConverter" />
+    </UserControl.Resources>
+<!-- 
+	Can Declare ViewModel here
+	or pass in to constructor.  
+	See ADPicker.xaml.cs
+-->
+<!-- Wire up in Constructor -->
+<!--		
+<UserControl.DataContext>
+
+	<localvm:ADPickerViewModel />
+</UserControl.DataContext>
+-->
+	<dxlc:LayoutControl>
+	
+        <dxlc:LayoutGroup x:Name="lgMain" Header="Group Name"
+            View="GroupBox" Orientation="Vertical" 
+            GroupBoxStyle="{StaticResource dxlcGroupBox}"                                  
+            IsCollapsible="True"  IsCollapsed="False"
+            ToolTip="Say something about this Layout Group">
+        	
+		<dxlc:LayoutGroup 
+			View="Group" Orientation="Horizontal" >
+		
+			<dxlc:LayoutGroup 
+				View="Group" Orientation="Vertical" >
+				
+					<dxg:GridControl AutoGenerateColumns="AddNew" 
+							 EnableSmartColumnsGeneration="True" 
+							 ItemsSource="{ Binding Rows }"
+							 SelectedItem="{ Binding SelectedItem, Mode=TwoWay }"
+							 Height="200">
+						<dxg:GridControl.View>
+							<dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+						</dxg:GridControl.View>
+					</dxg:GridControl>
+					
+                <dxlc:LayoutItem Label="Select a Color" LabelPosition="Top">
+                    <dxe:ComboBoxEdit 
+                            EditValue="{ Binding
+                                Path=SelectedFruits,
+                                Mode=TwoWay,
+                                UpdateSourceTrigger=PropertyChanged,
+                                Converter={StaticResource SelectedItemsConverter} }" > 
+                        <dxe:ComboBoxEdit.StyleSettings>
+                            <dxe:CheckedComboBoxStyleSettings />
+                        </dxe:ComboBoxEdit.StyleSettings>
+                        <dxe:ComboBoxEditItem Content="Red" IsSelected="True"/>
+                        <dxe:ComboBoxEditItem Content="Yellow" IsSelected="False"/>
+                        <dxe:ComboBoxEditItem Content="Green" IsSelected="False"/>
+                        <dxe:ComboBoxEditItem Content="Blue" IsSelected="False"/>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>					
+			   
+				<dxlc:LayoutGroup 
+						View="Group" Orientation="Vertical"
+						DataContext="{Binding SelectedItem}">
+
+						<dxlc:LayoutItem Label="StringProperty">
+							<dxe:TextEdit Text="{ Binding StringProperty }"
+									ToolTip="tooltip" />
+						</dxlc:LayoutItem>
+
+						<dxlc:LayoutItem Label="IntProperty">
+							<dxe:TextEdit Text="{Binding IntProperty}"
+									ToolTip="tooltip" />
+						</dxlc:LayoutItem>
+						
+				</dxlc:LayoutGroup>
+
+				<dxlc:LayoutItem>
+					<Button
+						Command="{ Binding DoSomethingCommand }"
+						Content="{ Binding DoSomethingContent, FallbackValue='DoSomething' }"
+						ToolTip="{ Binding DoSomethingToolTip }"/>
+				</dxlc:LayoutItem>
+
+				<dxe:TextEdit Text="{ Binding Message }">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="MouseDoubleClick">
+								<prism:InvokeCommandAction Command="{Binding Path=Message_DoubleClick_Command}"/>
+							</i:EventTrigger>
+						</i:Interaction.Triggers>				
+				</dxe:TextEdit>
+
+			</dxlc:LayoutGroup>
+			
+		</dxlc:LayoutGroup>
+		
+		</dxlc:LayoutGroup>
+	
+	</dxlc:LayoutControl>
+
+</UserControl>

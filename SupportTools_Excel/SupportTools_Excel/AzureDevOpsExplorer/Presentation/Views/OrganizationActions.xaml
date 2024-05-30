@@ -1,0 +1,226 @@
+﻿<UserControl 
+    x:Class="SupportTools_Excel.AzureDevOpsExplorer.Presentation.Views.OrganizationActions"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d" 
+    
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:prism="http://prismlibrary.com/"    
+
+    xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding"
+    
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"              
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+     
+    xmlns:localc="clr-namespace:SupportTools_Excel.Presentation.Converters"
+    xmlns:localv="clr-namespace:SupportTools_Excel.AzureDevOpsExplorer.Presentation.Views"
+    xmlns:localvm="clr-namespace:SupportTools_Excel.AzureDevOpsExplorer.Presentation.ViewModels"
+    
+    Background="WhiteSmoke"
+    d:DesignWidth="300"
+>
+    <UserControl.Resources>
+        <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsConverter" />
+    </UserControl.Resources>
+    
+    <UserControl.DataContext>
+        <localvm:OrganizationActionsViewModel />
+    </UserControl.DataContext>
+    
+    <dxlc:LayoutControl>
+        
+        <dxlc:LayoutGroup x:Name="lgMain" Header="Organization/Collection Actions"
+            GroupBoxStyle="{StaticResource dxlcGroupBox}"  
+            View="GroupBox"  Orientation="Vertical" 
+            IsCollapsible="True"  IsCollapsed="False"                      
+            ToolTip="These produce one WorkSheet for all (selected) Team Projects">
+
+            <!--<dxlc:LayoutItem>
+                <Button x:Name="btnGet_TPC_Info"
+                                    Style="{StaticResource TPCLoopButton}"
+                                    Click="btnGet_TPC_Info_Click"
+                                    Content="Get TPC Info" />
+            </dxlc:LayoutItem>-->
+
+            <!-- 
+            TODO(crhodes)
+            Decide if what to use binding or literal text -->
+        
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCInfoCommand }"
+        		    Content="{Binding GetTPCInfoContent, FallbackValue='Get TPC Info' }"
+        		    ToolTip="{Binding GetTPCInfoToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCAreasCommand }"
+        		    Content="{Binding GetTPCAreasContent, FallbackValue='Get TPC Areas' }"
+        		    ToolTip="{Binding GetTPCAreasToolTip }" />
+            </dxlc:LayoutItem>
+        
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetBranchesCommand }"
+        		    Content="{Binding GetBranchesContent, FallbackValue ='Get Branches' }"
+        		    ToolTip="{Binding GetBranchesToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+
+                <Button 
+        		    Command="{Binding GetAllTPDevelopersCommand }"
+        		    Content="{Binding GetAllTPDevelopersContent, FallbackValue ='Get All TP Developers' }"
+        		    ToolTip="{Binding GetAllTPDevelopersToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCMembersCommand }"
+        		    Content="{Binding GetTPCMembersContent, FallbackValue ='Get TPC Members' }"
+        		    ToolTip="{Binding GetTPCMembersToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCShelfsetsCommand }"
+        		    Content="{Binding GetTPCShelfsetsContent, FallbackValue ='Get TPC Shelfsets' }"
+        		    ToolTip="{Binding GetTPCShelfsetsToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCBuildDefinitionsCommand }"
+        		    Content="{Binding GetTPCBuildDefinitionsContent, FallbackValue ='Get TPC Build Definitions' }"
+        		    ToolTip="{Binding GetTPCBuildDefinitionsToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCTeamsCommand }"
+        		    Content="{Binding GetTPCTeamsContent, FallbackValue ='Get TPC Teams' }"
+        		    ToolTip="{Binding GetTPCTeamsToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCWorkItemTypesCommand }"
+        		    Content="{Binding GetTPCWorkItemTypesContent, FallbackValue ='Get TPC WorkItem Types' }"
+        		    ToolTip="{Binding GetTPCWorkItemTypesToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCWorkItemFieldsCommand }"
+        		    Content="{Binding GetTPCWorkItemFieldsContent, FallbackValue ='Get TPC WorkItem Fields' }"
+        		    ToolTip="{Binding GetTPCWorkItemFieldsToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCWorkItemDetailsCommand }"
+        		    Content="{Binding GetTPCWorkItemDetailsContent, FallbackValue ='Get TPC WorkItem Details' }"
+        		    ToolTip="{Binding GetTPCWorkItemDetailsToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCWorkspacesCommand }"
+        		    Content="{Binding GetTPCWorkspacesContent, FallbackValue ='Get TPC Workspaces' }"
+        		    ToolTip="{Binding GetTPCWorkspacesToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCLastChangesetCommand }"
+        		    Content="{Binding GetTPCLastChangesetContent, FallbackValue ='Get TPC LastChangeSet' }"
+        		    ToolTip="{Binding GetTPCLastChangesetToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCWorkItemActivityCommand }"
+        		    Content="{Binding GetTPCWorkItemActivityContent, FallbackValue ='Get TPC WorkItem Activity' }"
+        		    ToolTip="{Binding GetTPCWorkItemActivityToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCTestPlansCommand }"
+        		    Content="{Binding GetTPCTestPlansContent, FallbackValue ='Get TPC TestPlans' }"
+        		    ToolTip="{Binding GetTPCTestPlansToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCTestSuitesCommand }"
+        		    Content="{Binding GetTPCTestSuitesContent, FallbackValue ='Get TPC TestSuites' }"
+        		    ToolTip="{Binding GetTPCTestSuitesToolTip }" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding GetTPCTestCasesCommand }"
+        		    Content="{Binding GetTPCTestCasesContent, FallbackValue ='Get TPC TestCases' }"
+        		    ToolTip="{Binding GetTPCTestCasesToolTip }" />
+            </dxlc:LayoutItem>
+
+            <!--<dxlc:LayoutItem>
+                <Button 
+            		Command="{Binding GetTPCReleasesCommand }"
+            		Content="{Binding GetTPCReleasesContent, FallbackValue='GetTPCReleases' }"
+            		ToolTip="{Binding GetTPCReleasesToolTip, FallbackValue='«Link(XXX) ToolTip»' }" />
+            </dxlc:LayoutItem>-->
+
+            <dxlc:LayoutGroup Header="Changeset Details"
+                                Orientation="Vertical"
+                                View="GroupBox"
+                                 GroupBoxStyle="{StaticResource dxlcGroupBox}">
+
+                <dxlc:LayoutItem Label="Select ChangeSet Sections" LabelPosition="Top">
+                    <dxe:ComboBoxEdit x:Name="cbeChangeSetSections">
+                        <dxe:ComboBoxEdit.StyleSettings>
+                            <dxe:CheckedComboBoxStyleSettings />
+                        </dxe:ComboBoxEdit.StyleSettings>
+                        <dxe:ComboBoxEditItem Content="Info" />
+                        <dxe:ComboBoxEditItem Content="Changes" />
+                        <dxe:ComboBoxEditItem Content="Associated WorkItems" />
+                        <dxe:ComboBoxEditItem Content="WorkItems" />
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>
+
+                <!--<dxlc:LayoutItem>
+                    <Button x:Name="btnGet_ChangeSetInfo"
+                                        Click="btnGet_ChangeSetInfo_Click"
+                                        Content="Get ChangeSet_Info" />
+                </dxlc:LayoutItem>-->
+            </dxlc:LayoutGroup>
+
+            <!--<dxlc:LayoutItem>
+                <Button x:Name="btnGet_TemplateType"
+                                    Click="btnGet_TemplateType_Click"
+                                    Content="Get Template Type" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnGet_All_TP_AreaPathCheck"
+                                    Click="btnGet_All_TP_AreaPathCheck_Click"
+                                    Content="All TP AreaPath Check"
+                                    ToolTip="Display Work Item Store (WIS) Info for all Team Projects (TP)" />
+            </dxlc:LayoutItem>-->
+
+            <dxlc:LayoutItem Label="Select AreaPaths to Check" LabelPosition="Top">
+                <dxe:ComboBoxEdit x:Name="cbeAreas">
+                    <dxe:ComboBoxEdit.StyleSettings>
+                        <dxe:CheckedComboBoxStyleSettings />
+                    </dxe:ComboBoxEdit.StyleSettings>
+                </dxe:ComboBoxEdit>
+            </dxlc:LayoutItem>
+        
+        </dxlc:LayoutGroup>
+    </dxlc:LayoutControl>
+</UserControl>

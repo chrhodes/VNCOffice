@@ -1,0 +1,316 @@
+﻿<UserControl x:Class="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_Developer"
+    xmlns:User_Controls="clr-namespace:SupportTools_Excel.User_Interface.User_Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"         
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+             
+    xmlns:local="clr-namespace:SupportTools_Excel" 
+    xmlns:localData="clr-namespace:SupportTools_Excel.Data"
+    
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    
+    xmlns:ui="clr-namespace:SupportTools_Excel.User_Interface"
+    xmlns:uiuc="clr-namespace:SupportTools_Excel.User_Interface.User_Controls"
+             
+    xmlns:vncWPF="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+             
+    dx:ThemeManager.ThemeName="MetropolisLight"
+    mc:Ignorable="d" Loaded="UserControl_Loaded" 
+    xmlns:debug="clr-namespace:System.Diagnostics;assembly=WindowsBase"
+    d:DesignHeight="900" d:DesignWidth="400" >
+
+    <UserControl.Resources>
+        <ControlTemplate x:Key="comboBoxDetailTemplate" TargetType="{x:Type ContentControl}">
+            <Border BorderThickness="1" BorderBrush="Crimson" HorizontalAlignment="Stretch">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding XPath=@SourceName}" />
+                        <Label Content="{Binding XPath=@ApplicationName}" />
+                    </StackPanel>
+
+                    <Label Content="{Binding XPath=@FileName}" />
+                </StackPanel>
+            </Border>
+        </ControlTemplate>
+
+        <DataTemplate x:Key="comboBoxItemTemplate">
+            <Border BorderThickness="1" BorderBrush="Crimson" HorizontalAlignment="Stretch">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="{Binding XPath=@SourceName}" />
+                        <Label Content="{Binding XPath=@ApplicationName}" />
+                    </StackPanel>
+
+                    <Label Content="{Binding XPath=@FileName}" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+
+        <Style x:Key="TypeInfoButton" TargetType="Button">
+            <Setter Property="dx:ThemeManager.ThemeName" Value="None"/>
+            <Setter Property="Background" Value="#FF85F585" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+
+        <Style x:Key="TypeMethodInfoButton" TargetType="Button">
+            <Setter Property="dx:ThemeManager.ThemeName" Value="None"/>            
+            <Setter Property="Background" Value="#48F7E4" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+        </Style>
+    </UserControl.Resources>
+
+    <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" Background="#FFFFFF"
+                        Padding="0" >
+        <dxlc:LayoutGroup>
+            <dxlc:LayoutItem MinWidth="30" VerticalAlignment="Top" >
+                <vncWPF:CylonEyeBall />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="Assembly Operations"
+            View="GroupBox"
+            Orientation="Vertical" VerticalAlignment="Top"
+            IsCollapsible="True"  IsCollapsed="False" >
+
+            <dxlc:LayoutGroup Header="Select Assemblies" 
+                View="GroupBox" Orientation="Horizontal" >
+
+                <dxlc:LayoutGroup.DataContext>
+                    <!--<XmlDataProvider x:Name="comboBox" 
+                             XPath="//XXX/yyy"
+                             IsAsynchronous="False"
+                             IsInitialLoadEnabled="True"
+                             debug:PresentationTraceSources.TraceLevel="High" />-->
+
+                    <XmlDataProvider x:Name="assemblyList"
+                             XPath="//AssemblyList/Assembly"
+                             IsAsynchronous="False"
+                             IsInitialLoadEnabled="True" />
+                </dxlc:LayoutGroup.DataContext>
+
+                <dxlc:LayoutItem>
+                    <dxe:ComboBoxEdit x:Name="cbeAssemblies"
+                        HorizontalAlignment="Stretch"
+                        ItemsSource="{Binding}" 
+                        ItemTemplate="{StaticResource comboBoxItemTemplate}" 
+                                      ApplyItemTemplateToSelectedItem="True"
+                        IsTextEditable="False"
+                        DefaultButtonClick="cbeAssemblies_DefaultButtonClick" 
+                        EditValueChanged="cbeAssemblies_EditValueChanged" 
+                        EditorActivated="cbeAssemblies_EditorActivated" 
+                        PopupClosed="cbeAssemblies_PopupClosed" 
+                        PopupOpened="cbeAssemblies_PopupOpened" 
+                        SelectedIndexChanged="cbeAssemblies_SelectedIndexChanged" 
+                        SourceUpdated="cbeAssemblies_SourceUpdated">
+                        <!--<dxe:ComboBoxEdit.EditNonEditableTemplate>
+                            <ControlTemplate>
+                                <TextBlock Text="{Binding XPath=@FileName}" />
+                            </ControlTemplate>
+                        </dxe:ComboBoxEdit.EditNonEditableTemplate>-->
+                        <!--<dxe:ComboBoxEdit.ItemContainerStyle>
+                            <Style TargetType="{x:Type ComboBoxItem}">
+                                <Setter Property="Template" Value="{StaticResource comboBoxDetailTemplate}" />
+                            </Style>
+                        </dxe:ComboBoxEdit.ItemContainerStyle>-->
+                        <!--<dxe:ComboBoxEdit.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Label Content="{Binding XPath=@SourceName}" />
+                                    <Label Content="{Binding XPath=@ApplicationName}" />
+                                    <Label Content="{Binding XPath=@FileName}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </dxe:ComboBoxEdit.ItemTemplate>-->
+                        <dxe:ComboBoxEdit.StyleSettings>
+                            <dxe:CheckedComboBoxStyleSettings />
+                        </dxe:ComboBoxEdit.StyleSettings>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem HorizontalAlignment="Right" >
+                    <Button Click="Reload_Click" ToolTip="Load New Config File" Content="..."/>
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Header="For All Selected Assemblies" 
+                              View="GroupBox" Orientation="Vertical">
+
+                <dxlc:LayoutItem>
+                        <Button x:Name="btnCreateWS_AssemblyInfo" 
+				                Content="Create WS(s): Assembly Info (AI>)" 
+                                ToolTip="For Each selected Assembly, create a Worksheet with Assembly Info"
+                                Style="{StaticResource TypeInfoButton}"
+                                Click="btnCreateWS_Assembly_Info_Click" />
+                    </dxlc:LayoutItem>
+                
+                <dxlc:LayoutItem >
+                    <dxe:CheckEdit x:Name="ceAllTypes"
+                                Content="AllTypes"
+                                IsChecked="True"/>
+                </dxlc:LayoutItem>
+                
+                <dxlc:LayoutGroup Header="For Only Selected Type(s)"
+                    View="GroupBox" Orientation="Vertical" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                    IsCollapsible="True"  IsCollapsed="{Binding ElementName=ceAllTypes, Path=IsChecked}">
+
+                    <dxlc:LayoutItem Label="Select Types" LabelPosition="Top">
+                        <dxe:ComboBoxEdit x:Name="cbeSelectedTypes" >
+                            <dxe:ComboBoxEdit.StyleSettings>
+                                <dxe:CheckedComboBoxStyleSettings />
+                            </dxe:ComboBoxEdit.StyleSettings>
+                        </dxe:ComboBoxEdit>
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+                
+                <dxlc:LayoutItem>
+                        <Button x:Name="btnCreateWS_Master_AssemblyTypeInfo" 
+				                Content="Create Master WS: Assembly Type Info (MATI>)" 
+                                ToolTip="Assembly Info ToolTip"
+                                Style="{StaticResource TypeInfoButton}"
+                                Click="btnCreateWS_Master_Assembly_TypeInfo_Click" />
+                    </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnCreateWS_Master_AssemblyTypeMethodInfo" 
+				                Content="Create Master WS: Assembly Type-Method Info (MATMI>)" 
+                                ToolTip="For Each selected Assembly, create a Worksheet with Method Info for all types."
+                                Style="{StaticResource TypeMethodInfoButton}"
+                                Click="btnCreateWS_Master_Assembly_TypeMethodInfo_Click"  />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnCreateWS_Master_AssemblyValueTypeInfo" 
+				                Content="Create Master WS: Assembly ValueType Info (MAVTI>)" 
+                                ToolTip="For Each selected Assembly, create a Worksheet with Info for all value types."
+                                Style="{StaticResource TypeMethodInfoButton}"
+                                Click="btnCreateWS_Master_Assembly_ValueTypeInfo_Click"  />
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+            
+            <dxlc:LayoutGroup Header="For Each Selected Assembly"
+                              View="GroupBox" Orientation="Vertical">
+                    <!--<dxlc:LayoutItem>
+                        <Button x:Name="btnCreateWS_AssemblyInfo" 
+				                Content="Create WS(s): Assembly Info (ATI>)" 
+                                ToolTip="For Each selected Assembly, create a Worksheet with Assembly Info"
+                                Style="{StaticResource TypeInfoButton}"
+                                Click="btnCreateWS_Assembly_TypeInfo_Click" />
+                    </dxlc:LayoutItem>-->
+
+                <!--<dxlc:LayoutItem>
+                        <Button x:Name="btnCreateWS_TypeMethodInfo" 
+				                Content="Create WS(s): Assembly Type-Method Info (ATMI>)" 
+                                ToolTip="For Each selected Assembly, create a Worksheet with Method Info for all types."
+                                Style="{StaticResource TypeMethodInfoButton}"
+                                Click="btnCreateWS_Assembly_TypeMethodInfo_Click"  />
+                    </dxlc:LayoutItem>-->
+
+                <!--<dxlc:LayoutItem>
+                    <Button x:Name="btnCreateWS_ValueTypeInfo" 
+				                Content="Create WS(s): Assembly ValueType Info (AVTI>)" 
+                                ToolTip="For Each selected Assembly, create a Worksheet with Info for all Value types."
+                                Style="{StaticResource TypeMethodInfoButton}"
+                                Click="btnCreateWS_Assembly_ValueTypeInfo_Click"  />
+                </dxlc:LayoutItem>-->
+
+                <dxlc:LayoutGroup Header="For Each Selected Type"
+                    View="GroupBox" Orientation="Vertical" 
+                    HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                    IsCollapsible="True"  IsCollapsed="False">
+
+                    <dxlc:LayoutItem Label="Select Types" LabelPosition="Top">
+                        <dxe:ComboBoxEdit x:Name="cbeTypes" >
+                            <dxe:ComboBoxEdit.StyleSettings>
+                                <dxe:CheckedComboBoxStyleSettings />
+                            </dxe:ComboBoxEdit.StyleSettings>
+                        </dxe:ComboBoxEdit>
+                    </dxlc:LayoutItem>
+                    
+                    <!--<dxlc:LayoutItem>
+                        <Button x:Name="btnCreateWS_TypeInfo" 
+				            Content="Create Worksheet: Type Info" 
+                            ToolTip="Type Info ToolTip" 
+                                HorizontalContentAlignment="Left"
+                            Click="btnCreateWS_TypeInfo_Click" Background="#FF03FFEB" />
+                    </dxlc:LayoutItem>-->
+
+                    <dxlc:LayoutGroup Orientation="Horizontal"
+                                      HorizontalAlignment="Center">
+
+                        <dxlc:LayoutItem >
+                            <dxe:CheckEdit x:Name="ceType1"
+                                Content="Type1"
+                                IsChecked="True"/>
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit x:Name="ceType2"
+                                Content="Type2"
+                                IsChecked="True"/>
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem>
+                            <dxe:CheckEdit x:Name="ceType3"
+                                Content="Type3"
+                                IsChecked="True"/>
+                        </dxlc:LayoutItem>
+
+                    </dxlc:LayoutGroup>
+
+                    <!--<dxlc:LayoutItem>
+                        <Button x:Name="btnCreateTypeInfo_WorkSheet" 
+				                    Content="Type Info WS" 
+                                    ToolTip="Type Info ToolTip"
+                                    Click="btnCreateWS_TypeInfo_Click" />
+                    </dxlc:LayoutItem>-->
+
+                    <dxlc:LayoutGroup Header="Method Operations"
+                        View="GroupBox" Orientation="Vertical" 
+                        HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                        IsCollapsible="True"  IsCollapsed="False">
+
+                    </dxlc:LayoutGroup>
+
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+            
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="Configuration"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutItem HorizontalAlignment="Left">
+                <dxe:CheckEdit x:Name="ceOrientOutputVertically"
+                    Content="Orient Output Vertically" 
+                    IsChecked="True"/>
+            </dxlc:LayoutItem>
+
+            <!--<dxlc:LayoutItem Label="Assembly Load Approach">
+                <dxe:ListBoxEdit Name="lbeAssemblyLoad" SelectedIndex="0" SelectedIndexChanged="lbeAssemblyLoad_SelectedIndexChanged">
+                    <dxe:ListBoxEdit.StyleSettings>
+                        <dxe:RadioListBoxEditStyleSettings />
+                    </dxe:ListBoxEdit.StyleSettings>
+                    <dxe:ListBoxEdit.Items>
+                        <dxe:ListBoxEditItem ToolTip="Load into Caller Context.  Uses Path to resolve Dependencies">LoadFrom</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem ToolTip="Load into ??? Context.  Does not use Path to resolve Dependencies">LoadFile</dxe:ListBoxEditItem>
+                        <dxe:ListBoxEditItem ToolTip="Load into Reflection Context.  Does not use Path to resolve Dependencies">ReflectionOnlyLoadFrom</dxe:ListBoxEditItem>
+                    </dxe:ListBoxEdit.Items>
+                </dxe:ListBoxEdit>
+            </dxlc:LayoutItem>-->
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

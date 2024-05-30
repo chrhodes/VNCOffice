@@ -1,0 +1,302 @@
+﻿<UserControl 
+    x:Class="SupportTools_Excel.AzureDevOpsExplorer.Presentation.Views.Options"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:prism="http://prismlibrary.com/"
+    
+    xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding"    
+      
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"              
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    
+    xmlns:localc="clr-namespace:SupportTools_Excel.Presentation.Converters"
+    xmlns:localv="clr-namespace:SupportTools_Excel.AzureDevOpsExplorer.Presentation.Views"
+    xmlns:localvm="clr-namespace:SupportTools_Excel.AzureDevOpsExplorer.Presentation.ViewModels"
+    
+    mc:Ignorable="d"
+    Background="WhiteSmoke"
+    d:DesignWidth="500"
+>
+    <UserControl.Resources>
+        <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsToListOfStringConverter" />
+    </UserControl.Resources>
+    
+    <UserControl.DataContext>
+        <localvm:OptionsViewModel />
+    </UserControl.DataContext>
+    
+    <dxlc:LayoutControl>
+        <dxlc:LayoutGroup x:Name="lgMain" Header="Options"
+                    View="GroupBox" Orientation="Vertical" 
+                    GroupBoxStyle="{StaticResource dxlcGroupBox}"                                  
+                    IsCollapsible="True"  
+                    IsCollapsed="False" >
+
+            <dxlc:LayoutGroup Orientation="Vertical"
+                Style="{StaticResource dxlcGroup}">
+
+                <dxlc:LayoutItem Label="Select Team Project(s)" LabelPosition="Top">
+                    <dxe:ComboBoxEdit
+                        ItemsSource="{ Binding TeamProjects }"
+                        EditValue="{ Binding 
+                            Path=Options.TeamProjects,
+                            Mode=TwoWay,
+                            UpdateSourceTrigger=PropertyChanged,
+                            Converter={StaticResource SelectedItemsToListOfStringConverter} }" >
+                        <dxe:ComboBoxEdit.StyleSettings>
+                            <dxe:CheckedComboBoxStyleSettings />
+                        </dxe:ComboBoxEdit.StyleSettings>
+                    </dxe:ComboBoxEdit>
+                </dxlc:LayoutItem>
+                
+                <dxlc:LayoutGroup Header="WorkItem Queries"
+                	View="GroupBox" Orientation="Vertical" 
+                	VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                	IsCollapsible="True"  IsCollapsed="False">
+                
+                    <dxlc:LayoutItem Label="Select Query" LabelPosition="Top">
+
+                        <localv:Queries x:Name="ucQueries" Background="LightGoldenrodYellow"/>
+
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Select Work Item Type(s)" LabelPosition="Top">
+                        <dxe:ComboBoxEdit
+                                EditValue="{ Binding 
+                                    Path=Options.WorkItemTypes,
+                                    Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged,
+                                    Converter={StaticResource SelectedItemsToListOfStringConverter} }" >
+                            <dxe:ComboBoxEdit.StyleSettings>
+                                <dxe:CheckedComboBoxStyleSettings />
+                            </dxe:ComboBoxEdit.StyleSettings>
+                            <dxe:ComboBoxEditItem Content="Bug" />
+                            <dxe:ComboBoxEditItem Content="Change Request" />
+                            <dxe:ComboBoxEditItem Content="Code Review Request" />
+                            <dxe:ComboBoxEditItem Content="Code Review Response" />
+                            <dxe:ComboBoxEditItem Content="Design Review Request" />
+                            <dxe:ComboBoxEditItem Content="Design Review Response" />
+                            <dxe:ComboBoxEditItem Content="Epic" />
+                            <dxe:ComboBoxEditItem Content="Feature" />
+                            <dxe:ComboBoxEditItem Content="Feedback Request" />
+                            <dxe:ComboBoxEditItem Content="Feedback Response" />
+                            <dxe:ComboBoxEditItem Content="Hazard" />
+                            <dxe:ComboBoxEditItem Content="Issue" />
+                            <dxe:ComboBoxEditItem Content="Meeting Minutes" />
+                            <dxe:ComboBoxEditItem Content="Production Isue" />
+                            <dxe:ComboBoxEditItem Content="Release" />
+                            <dxe:ComboBoxEditItem Content="Request" />
+                            <dxe:ComboBoxEditItem Content="Requirement" />
+                            <dxe:ComboBoxEditItem Content="Review" />
+                            <dxe:ComboBoxEditItem Content="Review Request" />
+                            <dxe:ComboBoxEditItem Content="Shared Steps" />
+                            <dxe:ComboBoxEditItem Content="Shared Parameter" />
+                            <dxe:ComboBoxEditItem Content="Specification" />
+                            <dxe:ComboBoxEditItem Content="Task" />
+                            <dxe:ComboBoxEditItem Content="Test Case" />
+                            <dxe:ComboBoxEditItem Content="Test Plan" />
+                            <dxe:ComboBoxEditItem Content="Test Suite" />
+                            <dxe:ComboBoxEditItem Content="User Needs" />
+                            <dxe:ComboBoxEditItem Content="User Story" />
+                        </dxe:ComboBoxEdit>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutGroup Header="Date Range" x:Name="dateRange"
+                                    View="GroupBox" Orientation="Vertical"  
+                                    GroupBoxStyle="{StaticResource dxlcGroupBoxOptions}"
+                                    IsCollapsible="True"  IsCollapsed="False">
+
+                        <dxlc:LayoutGroup 
+                            View="Group" Orientation="Vertical" 
+                            Style="{StaticResource dxlcGroup}">
+
+                            <dxlc:LayoutItem HorizontalAlignment="Left" Label="Start Date">
+                                <dxe:DateEdit Text="{ Binding Options.StartDate }" Mask="yyyy-MM-dd" MaskType="Simple" />
+                            </dxlc:LayoutItem>
+
+                            <dxlc:LayoutItem HorizontalAlignment="Left" Label="End Date">
+                                <dxe:DateEdit Text="{ Binding Options.EndDate }" Mask="yyyy-MM-dd" />
+                            </dxlc:LayoutItem>
+         
+                            <dxlc:LayoutItem HorizontalAlignment="Right" Label="Go Back Days">
+                                <dxe:TextEdit Text="{ Binding Options.GoBackDays}" />
+                            </dxlc:LayoutItem>
+
+                         </dxlc:LayoutGroup>
+
+                        <dxlc:LayoutGroup 
+                             View="Group" Orientation="Horizontal" >
+
+                            <dxlc:LayoutItem Label="Get Last Activity Dates">
+                                <dxe:CheckEdit IsChecked="{Binding Options.GetLastActivityDates}"
+                                                ToolTip="Get LastCreated, LastChanged, LastRevised Dates"/>
+                            </dxlc:LayoutItem>
+
+                            <dxlc:LayoutItem Label="Skip if No Activity">
+                                <dxe:CheckEdit IsChecked="{Binding Options.SkipIfNoActivity}"
+                                                ToolTip="Skip entry if no activity in date range"/>
+                            </dxlc:LayoutItem>
+
+                        </dxlc:LayoutGroup>
+
+                    </dxlc:LayoutGroup>
+
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="WorkItem Options" x:Name="workItemOptions"
+                    View="GroupBox" Orientation="Vertical" 
+                    GroupBoxStyle="{StaticResource dxlcGroupBoxOptions}"
+                    IsCollapsible="True"  IsCollapsed="False">
+
+                    <dxlc:LayoutGroup 
+                             View="Group" Orientation="Horizontal" >
+                        <dxlc:LayoutItem >
+                            <dxe:CheckEdit Content="Retrieve Revisions"
+                                           IsChecked="{ Binding Options.RetrieveRevisions }"/>
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem >
+                            <dxe:CheckEdit Content="Retrieve Field Changes"
+                                           IsChecked="{ Binding Options.RetrieveFieldChanges }"/>
+                        </dxlc:LayoutItem>
+                    </dxlc:LayoutGroup>
+
+                    <dxlc:LayoutItem HorizontalAlignment="Left">
+                        <dxe:CheckEdit Content="Show All Node Levels"
+                                       IsChecked="{Binding Options.ShowAllNodeLevels}"
+                                       ToolTip="Show all Area and Iteration Nodes.  Unchecked is top level only"/>
+                    </dxlc:LayoutItem>
+                    
+                    <dxlc:LayoutGroup 
+            	        View="Group" Orientation="Horizontal" >
+                        <!--<dxlc:LayoutItem Label="Show Work Item Field Data">
+                                <dxe:CheckEdit IsChecked="{Binding Options.ShowWorkItemFieldData}" />
+                        </dxlc:LayoutItem>-->
+
+                        <dxlc:LayoutItem HorizontalAlignment="Left" Label="Recursion Level">
+                                <dxe:SpinEdit Value="{Binding Options.RecursionLevel}"
+                                        MinValue="0" MaxValue="3"
+                                        IsFloatValue="False"/>
+                        </dxlc:LayoutItem>          
+                    </dxlc:LayoutGroup>
+         
+                    <dxlc:LayoutGroup Header="Export Template Options"
+            	        View="GroupBox" Orientation="Vertical" 
+            	        GroupBoxStyle="{StaticResource dxlcGroupBoxOptions}"
+            	        IsCollapsible="True"  IsCollapsed="False">
+            
+                        <dxlc:LayoutItem Label="Export XML Template">
+                            <dxe:CheckEdit x:Name="ceExportXMLTemplate"  IsChecked="{Binding Options.ExportXMLTemplate}"/>
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutGroup 
+                	        View="Group" Orientation="Vertical"
+                            Visibility="{cb:Binding ElementName=ceExportXMLTemplate, Path=IsChecked}">
+                             <dxlc:LayoutItem Label="Include Global Lists">
+                                <dxe:CheckEdit IsChecked="{Binding Options.IncludeGlobalLists}"/>
+                            </dxlc:LayoutItem>
+
+                            <dxlc:LayoutItem Label="XML Template FilePath">
+                                <dxe:TextEdit Text="{Binding Options.XMLTemplateFilePath}"
+                    	            ToolTip="tooltip"/>
+                            </dxlc:LayoutItem>               
+                        </dxlc:LayoutGroup>
+
+                    </dxlc:LayoutGroup>
+
+                </dxlc:LayoutGroup>
+        
+                <dxlc:LayoutGroup Header="Looping Delays" x:Name="loopingDelays"
+                    View="GroupBox" Orientation="Horizontal"
+                    GroupBoxStyle="{StaticResource dxlcGroupBoxOptions}"
+                    IsCollapsible="True"  IsCollapsed="False">
+
+                    <dxlc:LayoutItem Label="EnableDelays"
+                                    HorizontalAlignment="Left" LabelHorizontalAlignment="Left"
+                                    HorizontalContentAlignment="Left">
+                        <dxe:CheckEdit x:Name="ceEnableDelays" 
+                                        IsChecked="{Binding Options.EnableDelays}"/>
+                    </dxlc:LayoutItem>
+            
+                    <dxlc:LayoutItem Label="Loop Delay (secs)" 
+                                HorizontalAlignment="Right"
+                                IsEnabled="{cb:Binding ElementName=ceEnableDelays, Mode=TwoWay, Path=IsChecked}">
+                        <dxe:TextEdit Text="{ Binding Options.LoopDelaySeconds }"
+                                    ToolTip="Loop Delay in Seconds.  Use to slow the the requests to Azure" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Item Delay (secs)" 
+                                HorizontalAlignment="Right"
+                                IsEnabled="{cb:Binding ElementName=ceEnableDelays, Mode=TwoWay, Path=IsChecked}">
+                        <dxe:TextEdit Text="{ Binding Options.ItemDelaySeconds }"
+                                    Mask="#.#" MaskType="None"
+                                    ToolTip="Item Delay in Seconds.  Use to slow the the requests to Azure" />
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+        
+                <dxlc:LayoutGroup Header="Debug Options" x:Name="debugOptions"
+                    View="GroupBox" Orientation="Horizontal" 
+                    GroupBoxStyle="{StaticResource dxlcGroupBoxOptions}"
+                    IsCollapsible="True"  IsCollapsed="False">
+
+                    <dxlc:LayoutItem Label="Loop Update Interval" HorizontalAlignment="Left">
+                        <dxe:TextEdit
+                            Text="{Binding Options.LoopUpdateInterval}"
+                            ToolTip="Loop Update Interval in item count.  Use to show progress in Developer Window" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Show Individual Items" HorizontalAlignment="Right" >
+                        <dxe:CheckEdit IsChecked="{Binding Options.ShowIndividualItems}"/>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="Misc Options" x:Name="miscOptions"
+        	        View="GroupBox" Orientation="Vertical" 
+        	        GroupBoxStyle="{StaticResource dxlcGroupBoxOptions}"
+        	        IsCollapsible="True"  IsCollapsed="False">
+                    <dxlc:LayoutItem>
+                        <dxe:CheckEdit Content="List Changeset Changes"
+                                       IsChecked="{Binding Options.ListChangeSetChanges}"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="List Changset WorkItems">
+                            <dxe:CheckEdit IsChecked="{Binding Options.ListChangeSetWorkItems}" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Header="Excel Output Options" x:Name="excelOutputOptions"
+                    View="GroupBox" Orientation="Horizontal" 
+                    GroupBoxStyle="{StaticResource dxlcGroupBoxOptions}"
+                    IsCollapsible="True"  IsCollapsed="False">
+
+                    <dxlc:LayoutItem HorizontalAlignment="Left" Label="Starting Row">
+                            <dxe:SpinEdit Value="{ Binding OptionsExcel.StartingRow}"
+                                          MinValue="1" MaxValue="10"
+                                          IsFloatValue="False"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem HorizontalAlignment="Left" Label="Starting Column">
+                            <dxe:SpinEdit  Value="{ Binding OptionsExcel.StartingColumn }"
+                                           MinValue="1" MaxValue="10"
+                                        IsFloatValue="False"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Orient Output Vertically">
+                        <dxe:CheckEdit IsChecked="{ Binding OptionsExcel.OrientOutputVertically }" />
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+        
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

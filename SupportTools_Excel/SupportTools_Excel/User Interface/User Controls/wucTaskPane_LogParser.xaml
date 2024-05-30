@@ -1,0 +1,274 @@
+﻿<UserControl x:Class="SupportTools_Excel.User_Interface.User_Controls.wucTaskPane_LogParser"
+    xmlns:User_Controls="clr-namespace:SupportTools_Excel.User_Interface.User_Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:CalcBinding;assembly=CalcBinding"             
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    mc:Ignorable="d" Loaded="UserControl_Loaded" 
+    d:DesignHeight="900" d:DesignWidth="400" >
+    
+    <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" Background="#FFFFFF">
+        <dxlc:LayoutItem 
+            Label="Logging Utilities" 
+            LabelPosition="Top">
+        </dxlc:LayoutItem>
+
+        <dxlc:LayoutGroup Header="Processing Commands"
+                          View="GroupBox" Orientation="Horizontal"
+                          VerticalAlignment="Top"
+                          IsCollapsible="True" IsCollapsed="False">
+            <dxlc:LayoutItem>
+                <Button x:Name="btnLoadLogFile" 
+				        Content="Load Log File"  
+                        ToolTip="Load Log File for Processing."
+                        Click="btnLoadLogFile_Click"/>
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup  Header="Finding and Grouping Commands"
+            View="GroupBox" 
+            Orientation="Vertical"
+            VerticalAlignment="Top"
+            IsCollapsible="True" IsCollapsed="False">
+
+            <dxlc:LayoutGroup Orientation="Horizontal">
+
+                <dxlc:LayoutGroup  Header="Find Matching ..." Background="#00FF00"
+                    View="GroupBox" Orientation="Vertical" 
+                    VerticalAlignment="Top"
+                    IsCollapsible="True" IsCollapsed="False">
+
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnFindMatchingEnter" 
+				            Content="Enter:"
+                            ToolTip="Search Backward and Find Matching Enter"
+                            Click="btnFindMatchingEnter_Click" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnFindMatchBackward" 
+				            Content="Backward"  
+                            ToolTip="Search Backward and Find Previous Matching" 
+                            Click="btnFindMatchBackward_Click"/>
+                </dxlc:LayoutItem>
+                
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnFindMatchForward" 
+				            Content="Forward"  
+                            ToolTip="Search Forward and Find Next Matching" 
+                            Click="btnFindMatchForward_Click"/>
+                </dxlc:LayoutItem>
+                
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnFindMatchingExit" 
+				            Content="Exit:"  
+                            ToolTip="Search Forward and Find Matching Exit"
+                            Click="btnFindMatchingExit_Click"/>
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+            
+                <dxlc:LayoutGroup  Header="Group Matching ..." Background="#00FFFF"
+                    View="GroupBox" Orientation="Vertical" 
+                    VerticalAlignment="Top"
+                    IsCollapsible="True" IsCollapsed="False">
+ 
+                    <dxlc:LayoutItem>
+                        <Button x:Name="btnGroupMatchingEnter" 
+				                Content="Enter:" 
+                                ToolTip="Search Backward and Group Matching Enter" 
+                                Click="btnGroupMatchingEnter_Click" />
+                    </dxlc:LayoutItem>
+                   
+                    <dxlc:LayoutItem>
+                        <Button x:Name="btnGroupMatchingExit" 
+				                Content="Exit:"  
+                                ToolTip="Search Forward and Group Matching Exit" 
+                                Click="btnGroupMatchingExit_Click"/>
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+            
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup  Header="Find Stuff"
+                    View="GroupBox" Orientation="Vertical" 
+                    VerticalAlignment="Top"
+                    IsCollapsible="True" IsCollapsed="False">
+                
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnFindLongestTimeBackward" 
+				            Content="Find Longest Time Backward" 
+                            ToolTip="Find Longest Time Backward"
+                            Click="btnFindLongestTimeBackward_Click" />
+                </dxlc:LayoutItem>
+                
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnFindLongestTimeForward" 
+				            Content="Find Longest Time Forward" 
+                            ToolTip="Find Longest Time Forward"
+                            Click="btnFindLongestTimeForward_Click" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutGroup Orientation="Vertical" >
+                    
+                    <dxlc:LayoutItem Label="Total Time: " LabelPosition="Left">
+                        <dxlc:LayoutItemLabel x:Name="lilTotalTime" Content="Value" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Largest Sub Time: " LabelPosition="Left">
+                        <dxlc:LayoutItemLabel x:Name="lilSubTime"  Content="Value" />
+                    </dxlc:LayoutItem>
+                    
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup  Header="HiLight Information"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top"
+            IsCollapsible="True" IsCollapsed="True">
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnFilterBySelectedFields" 
+				        Content="FilterBySelectedFields"
+                        ToolTip="Filter by selected fields"
+                        Click="btnFilterBySelectedFields_Click"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnClearTableColumnFilter" 
+				        Content="Clear Table Column Filter"  
+                        ToolTip="Clear Table Filter for Current Column"
+                        Click="btnClearTableColumnFilter_Click"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnClearTableFilter" 
+				        Content="Clear Table Filters"  
+                        ToolTip="Clear Table Filters" 
+                        Click="btnClearTableFilters_Click" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutGroup Orientation="Horizontal">
+                <dxlc:LayoutItem Label="Key Row" LabelPosition="Top">
+                    <dxe:TextEdit x:Name="teKeyRow" ToolTip="Enter"
+                              MouseDoubleClick="teKeyRow_MouseDoubleClick" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem VerticalAlignment="Stretch">
+                    <Button x:Name="btnMoveToKeyRow" 
+				            Content="Move to Key Row" 
+                            ToolTip="Move to Key Row"
+                            Click="btnMoveToKeyRow_Click" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+    
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup  Header="Extract Rows"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top"
+            IsCollapsible="True" IsCollapsed="False">
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnPopulateExtractRowValues" 
+				        Content="Populate Values"  
+                        ToolTip="Populate Extract Row Values based on current cell"
+                        Click="btnPopulateExtractRowValues_Click"/>
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutGroup Orientation="Horizontal">
+
+                <dxlc:LayoutItem Label="StartRow" LabelPosition="Top">
+                    <dxe:TextEdit x:Name="teStartRow" MouseDoubleClick="teStartRow_MouseDoubleClick" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="EndRow" LabelPosition="Top">
+                    <dxe:TextEdit x:Name="teEndRow" MouseDoubleClick="teEndRow_MouseDoubleClick" />
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Orientation="Horizontal">
+                <dxlc:LayoutItem Label="SheetName" LabelPosition="Top" >
+                    <dxe:TextEdit x:Name="teSheetName" 
+                                  IsEnabled="{c:Binding ElementName=ceUseRowNumbers, Path=!IsChecked}" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Use Row #'s" LabelPosition="Top" HorizontalAlignment="Right">
+                    <dxe:CheckEdit x:Name="ceUseRowNumbers" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnExtractRows" 
+				        Content="Extract Rows"  
+                        ToolTip="Extract Rows to new WorkSheet"
+                        Click="btnExtractRows_Click"/>
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup  Header="Extract Named Log Range"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top"
+            IsCollapsible="True" IsCollapsed="False">
+
+            <dxlc:LayoutItem Label="Named Range" LabelPosition="Top">
+                <dxe:TextEdit x:Name="teNamedRange" ToolTip="Enter "
+                              LostFocus="teNamedRange_LostFocus"/>
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutGroup Orientation="Horizontal">
+
+                <dxlc:LayoutItem Label="StartRow" LabelPosition="Top">
+                    <dxe:TextEdit x:Name="teStartRowNamedRange" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="EndRow" LabelPosition="Top">
+                    <dxe:TextEdit x:Name="teEndRowNamedRange" />
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Orientation="Horizontal">
+                <dxlc:LayoutItem Label="SheetName" LabelPosition="Top" >
+                    <dxe:TextEdit x:Name="teSheetNameNamedRange" 
+                                  IsEnabled="{c:Binding ElementName=ceUseRowNumbersNamedRange, Path=!IsChecked}" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Use Row #'s" LabelPosition="Top" HorizontalAlignment="Right">
+                    <dxe:CheckEdit x:Name="ceUseRowNumbersNamedRange" />
+                </dxlc:LayoutItem>
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutItem>
+                <Button x:Name="btnExtracNamedRange" 
+				        Content="Extract Named Range"  
+                        ToolTip="Extract Named Range to new WorkSheet"
+                        Click="btnExtractNamedRange_Click"/>
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+        
+        <dxlc:LayoutGroup Header="Configuration"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutItem HorizontalAlignment="Left">
+                <dxe:CheckEdit x:Name="ceOrientOutputVertically"
+                    Content="Orient Output Vertically" 
+                    IsChecked="True"/>
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutControl>
+    
+</UserControl>

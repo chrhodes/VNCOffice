@@ -1,0 +1,31 @@
+﻿Figure out what consequences of using IViewModel vs. a stronger type
+        public Cat(IViewModel viewModel)
+        {
+            Log.Trace("Enter", Common.LOG_CATEGORY);
+
+            InitializeComponent();
+
+            ViewModel = viewModel;
+
+            InitializeView();
+
+            Log.Trace("Exit", Common.LOG_CATEGORY);
+        }
+
+        public Cat(ICatViewModel viewModel)
+        {
+            Log.Trace("Enter", Common.LOG_CATEGORY);
+
+            InitializeComponent();
+
+            ViewModel = viewModel;
+
+            InitializeView();
+
+            Log.Trace("Exit", Common.LOG_CATEGORY);
+        }
+
+Add Save after each WorkSheet Creation
+
+Add Title to Each Page the is similar to Tab Name
+Add Date Colors to All-TPC Pages

@@ -1,0 +1,106 @@
+﻿<UserControl 
+    x:Class="SupportTools_Excel.AzureDevOpsExplorer.Presentation.Views.Misc"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d" 
+    
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:prism="http://prismlibrary.com/"
+    
+    xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding"    
+    
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"              
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+
+    xmlns:localc="clr-namespace:SupportTools_Excel.Presentation.Converters"
+    xmlns:localv="clr-namespace:SupportTools_Excel.AzureDevOpsExplorer.Presentation.Views"
+    xmlns:localvm="clr-namespace:SupportTools_Excel.AzureDevOpsExplorer.Presentation.ViewModels"
+    
+    xmlns:vncCoreMvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"  
+
+    Background="WhiteSmoke"
+    d:DesignWidth="300"
+    >
+    <UserControl.Resources>
+        <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsConverter" />
+    </UserControl.Resources>
+    
+    <UserControl.DataContext>
+        <localvm:MiscViewModel />
+    </UserControl.DataContext>
+    
+    <dxlc:LayoutControl>
+        
+        <dxlc:LayoutGroup x:Name="lgMain" Header="Misc"
+                        View="GroupBox" Orientation="Vertical" 
+                        GroupBoxStyle="{StaticResource dxlcGroupBox}"                                  
+                        IsCollapsible="True" IsCollapsed="False" >
+
+            <dxlc:LayoutItem Label="TeamProject Path">
+                <dxe:TextEdit
+        		    Text="{Binding TeamProjectPathText }"
+            	    ToolTip="{Binding TeamProjectPathToolTip }">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <prism:InvokeCommandAction Command="{Binding Path=TeamProjectPath_DoubleClick_Command}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </dxe:TextEdit>
+            </dxlc:LayoutItem>
+               
+            <dxlc:LayoutItem Label="TeamProject Collection">
+                <dxe:TextEdit
+        		    Text="{Binding TeamProjectCollectionText }"
+            	    ToolTip="{Binding TeamProjectCollectionToolTip }">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <prism:InvokeCommandAction Command="{Binding Path=TeamProjectCollection_DoubleClick_Command}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </dxe:TextEdit>
+            </dxlc:LayoutItem>
+       
+            <dxlc:LayoutItem Label="File Pattern">
+                <dxe:TextEdit
+        		    Text="{Binding FilePatternText }"
+            	    ToolTip="{Binding FilePatternToolTip }" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <prism:InvokeCommandAction Command="{Binding Path=FilePattern_DoubleClick_Command}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </dxe:TextEdit>
+            </dxlc:LayoutItem>
+         
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding CodeChurnCommand}"
+        		    Content="{Binding CodeChurnContent, FallbackValue='Code Churn' }"
+        		    ToolTip="{Binding CodeChurnToolTip }" />
+            </dxlc:LayoutItem>
+        
+            <dxlc:LayoutItem>
+                <Button 
+        		    Command="{Binding SearchForFilesCommand}"
+        		    Content="{Binding SearchForFilesContent, FallbackValue='Search for Files' }"
+        		    ToolTip="{Binding SearchForFilesToolTip }" />
+            </dxlc:LayoutItem>
+              
+            <dxlc:LayoutItem>
+                <Button
+                    Command="{Binding UnMergedChangesCommand}"
+                    Content="{Binding UnMergedChangesContent, FallbackValue='UmMerged Changes' }"
+                    ToolTip="{Binding UnMergedChangesToolTip}"/>
+
+            </dxlc:LayoutItem>
+
+            <TextBox Text="{Binding Message}" />
+
+        </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutControl>
+
+</UserControl>
