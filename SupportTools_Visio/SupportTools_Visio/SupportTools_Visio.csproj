@@ -55,7 +55,7 @@
     <PublishUrl>C:\Users\crhodes\OneDrive\OfficeCloud\SupportTools\Visio\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.46</ApplicationVersion>
+    <ApplicationVersion>1.0.0.47</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
