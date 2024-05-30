@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="SupportTools_Excel.User_Interface.User_Controls.wucSQLInstance_Picker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:debug="clr-namespaceSystem.Diagnostics;assembly=WindowsBase"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"               
+    mc:Ignorable="d"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}"
+    d:DesignWidth="300" Loaded="UserControl_Loaded" >
+    <!--d:DesignHeight="300"-->
+    <UserControl.Resources>
+        <DataTemplate x:Key="comboBoxTemplate">
+            <StackPanel>
+                <Label Content="{Binding XPath=@Server}" />
+                <Label Content="{Binding XPath=@IPv4Address}" />
+                <Label Content="{Binding XPath=@Instance}" />
+                <Label Content="{Binding XPath=@Port}" />
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+    <!--<UserControl.DataContext>
+        <Binding RelativeSource="{RelativeSource Self}" />
+    </UserControl.DataContext>-->
+    
+    <dxlc:LayoutControl x:Name="layoutItems" 
+        Orientation="Vertical" Background="#FFFFFF" Padding="0" >
+
+        <dxlc:LayoutGroup  Header="Select SQL Instance"
+            View="GroupBox" 
+            Orientation="Vertical" 
+            IsCollapsible="True"  IsCollapsed="False" >
+
+            <dxlc:LayoutGroup Orientation="Horizontal">
+
+                <dxlc:LayoutGroup.DataContext>
+                    <XmlDataProvider x:Name="comboBox"
+                             XPath="//DBInstanceList/Environment/Instance"
+                             IsAsynchronous="False"
+                             IsInitialLoadEnabled="True" />
+                    <!--<XmlDataProvider x:Name="comboBox" 
+                             XPath="//XXX/yyy"
+                             IsAsynchronous="False"
+                             IsInitialLoadEnabled="True"
+                             debug:PresentationTraceSources.TraceLevel="High" />-->
+                </dxlc:LayoutGroup.DataContext>
+                
+                <dxlc:LayoutItem>
+                    <ComboBox HorizontalAlignment="Stretch"
+                      ItemsSource="{Binding}" 
+                      ItemTemplate="{StaticResource comboBoxTemplate}" 
+                      SelectionChanged="ComboBox_SelectionChanged" />
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem HorizontalAlignment="Right" >
+                    <Button Content="..."
+                            ToolTip="Load New Config File" 
+                            Click="Reload_Click" />
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup
+                Header="Details"
+                View="GroupBox" Orientation="Vertical" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                IsCollapsible="True"  IsCollapsed="True">
+
+                <dxlc:LayoutItem Label="Server">
+                    <dxe:TextEdit  Text="{Binding Server}"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="IPv4Address">
+                    <dxe:TextEdit  Text="{Binding IPv4Address}"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Instance">
+                    <dxe:TextEdit  Text="{Binding Instance}"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Port">
+                    <dxe:TextEdit  Text="{Binding Port}"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="ExpandedName">
+                    <dxe:TextEdit x:Name="teExpandedName" Text="{Binding ExpandedName}"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="FullName">
+                    <dxe:TextEdit x:Name="teFullName" Text="{Binding FullName}" />
+                </dxlc:LayoutItem>
+            
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutGroup>
+        
+        <!--<dxlc:LayoutGroup
+                Header="Details"
+                View="GroupBox" Orientation="Vertical" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Top"
+                IsCollapsible="True"  IsCollapsed="True">
+
+            <dxlc:LayoutItem Label="Server">
+                <dxe:TextEdit  Text="{Binding Server}"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="IPv4Address">
+                <dxe:TextEdit  Text="{Binding IPv4Address}"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Instance">
+                <dxe:TextEdit  Text="{Binding Instance}"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Port">
+                <dxe:TextEdit  Text="{Binding Port}"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ExpandedName">
+                <dxe:TextEdit x:Name="teExpandedName" Text="{Binding ExpandedName}"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="FullName">
+                <dxe:TextEdit x:Name="teFullName" Text="{Binding FullName}" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>-->
+    </dxlc:LayoutControl>
+    
+</UserControl>

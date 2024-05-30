@@ -1,0 +1,1451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+    This section defines project-level properties.
+
+    AssemblyName
+      Name of the output assembly.
+    Configuration
+      Specifies a default value for debug.
+    OutputType
+      Must be "Library" for VSTO.
+    Platform
+      Specifies what CPU the output of this project can run on.
+    NoStandardLibraries
+      Set to "false" for VSTO.
+    RootNamespace
+      In C#, this specifies the namespace given to new files. In VB, all objects are
+      wrapped in this namespace at runtime.
+  -->
+  <!-- <Import Project="..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.3.3.2\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.3.3.2\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" /> -->
+  <!-- <Import Project="..\packages\Microsoft.NetFramework.Analyzers.3.3.2\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetFramework.Analyzers.3.3.2\build\Microsoft.NetFramework.Analyzers.props')" /> -->
+  <!-- <Import Project="..\packages\Microsoft.NetCore.Analyzers.3.3.2\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetCore.Analyzers.3.3.2\build\Microsoft.NetCore.Analyzers.props')" /> -->
+  <!-- <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.3.3.2\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.3.3.2\build\Microsoft.CodeQuality.Analyzers.props')" /> -->
+  <!-- <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.3.2\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.3.3.2\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" /> -->
+  <!-- <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.2\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.2\build\Microsoft.CodeAnalysis.Analyzers.props')" /> -->
+  <!-- <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" /> -->
+  <!-- <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" /> -->
+  <!-- <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.2\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.2\build\Microsoft.CodeAnalysis.Analyzers.props')" /> -->
+  <!-- <Import Project="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\build\Microsoft.CodeAnalysis.Analyzers.props')" /> -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90EEA2C1-ACE6-4CBE-91AC-6FE8D69B5BC3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <RootNamespace>SupportTools_Excel</RootNamespace>
+    <AssemblyName>SupportTools_Excel</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <DefineConstants>VSTO40</DefineConstants>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <VSTO_TrustAssembliesLocation>true</VSTO_TrustAssembliesLocation>
+    <IsWebBootstrapper>False</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <PublishUrl>C:\Users\crhodes\OneDrive\OfficeCloud\SupportTools\Excel\</PublishUrl>
+    <InstallUrl />
+    <TargetCulture>en</TargetCulture>
+    <ApplicationVersion>1.0.0.42</ApplicationVersion>
+    <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>days</UpdateIntervalUnits>
+    <ProductName>SupportTools_Excel</ProductName>
+    <PublisherName>VNC</PublisherName>
+    <SupportUrl />
+    <FriendlyName>SupportTools_Excel</FriendlyName>
+    <OfficeApplicationDescription />
+    <LoadBehavior>3</LoadBehavior>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client"> -->
+    <!-- <Visible>False</Visible> -->
+    <!-- <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName> -->
+    <!-- <Install>true</Install> -->
+    <!-- </BootstrapperPackage> -->
+    <!-- <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client,KB2468871"> -->
+    <!-- <Visible>False</Visible> -->
+    <!-- <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName> -->
+    <!-- <Install>true</Install> -->
+    <!-- </BootstrapperPackage> -->
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <!--
+      OfficeApplication
+        Add-in host application
+    -->
+    <OfficeApplication>Excel</OfficeApplication>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Debug" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);DEBUG;TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Microsoft Office\Office14\EXCEL.EXE</StartProgram>
+    <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Release" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>$(DefineConstants);TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <!--
+    This section enables pre- and post-build steps. However, in VSTO use
+    MSBuild tasks instead of these properties.       
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SupportTools_Excel_1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E949C0B34F7CFB03F422CC81F40085136DBEF844</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <!--
+    This section specifies references for the project.
+  -->
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReferences\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Crc32C.NET">
+      <HintPath>..\..\GrrReferences\Crc32C.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Mvvm.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v21.2.Export, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.CodeView.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Core.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Docking.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Grid.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Layout.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.LayoutControl.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Printing.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Ribbon.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisDark.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpf.Themes.MetropolisLight.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReferences\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReferences\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\..\GrrReferences\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.DevOps.Comments.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.Azure.DevOps.Comments.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build">
+      <HintPath>..\..\GrrReferences\Microsoft.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework">
+      <HintPath>..\..\GrrReferences\Microsoft.Build.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Tasks.Core">
+      <HintPath>..\..\GrrReferences\Microsoft.Build.Tasks.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Utilities.Core">
+      <HintPath>..\..\GrrReferences\Microsoft.Build.Utilities.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.AnalyzerUtilities">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.AnalyzerUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Features">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.CSharp.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp.Workspaces">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.CSharp.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Features">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.VisualBasic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Features">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.VisualBasic.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.VisualBasic.Workspaces">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.VisualBasic.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.Workspaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild">
+      <HintPath>..\..\GrrReferences\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Expression.Interactions">
+      <HintPath>..\..\GrrReferences\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=5.2.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GrrReferences\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens">
+      <HintPath>..\..\GrrReferences\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging">
+      <HintPath>..\..\GrrReferences\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols">
+      <HintPath>..\..\GrrReferences\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect">
+      <HintPath>..\..\GrrReferences\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>..\..\GrrReferences\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Excel.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <!-- <Reference Include="Microsoft.Office.SharePoint.Tools"> -->
+    <!-- <HintPath>..\..\GrrReferences\Microsoft.Office.SharePoint.Tools.dll</HintPath> -->
+    <!-- </Reference> -->
+    <!-- <Reference Include="Microsoft.Online.SharePoint.Client.Tenant"> -->
+    <!-- <HintPath>..\..\GrrReferences\Microsoft.Online.SharePoint.Client.Tenant.dll</HintPath> -->
+    <!-- </Reference> -->
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\..\GrrReferences\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors">
+      <HintPath>..\..\GrrReferences\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\..\GrrReferences\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GrrReferences\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GrrReferences\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.DocumentManagement">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.DocumentManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Publishing">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.Publishing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search.Applications">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.Search.Applications.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Taxonomy">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.Taxonomy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.UserProfiles">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.UserProfiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.WorkflowServices">
+      <HintPath>..\..\GrrReferences\Microsoft.SharePoint.Client.WorkflowServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Build.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build.Common">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Build.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Build2.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Build2.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Core.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Core.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Dashboards.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Dashboards.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.DeleteTeamProject">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.DeleteTeamProject.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Diff">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Diff.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Discussion.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Discussion.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.DistributedTask.Common.Contracts">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.DistributedTask.Common.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Git.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Git.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Lab.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.Common">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Lab.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.TestIntegration.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Lab.TestIntegration.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Lab.WorkflowIntegration.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Policy.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Policy.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.ProjectManagement">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.ProjectManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.SourceControl.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.SourceControl.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Test.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Test.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestImpact.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.TestImpact.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.TestManagement.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.TestManagement.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.TestManagement.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.TestManagement.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.VersionControl.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Common">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.VersionControl.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.VersionControl.Common.Integration">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.VersionControl.Common.Integration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Wiki.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Wiki.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Work.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.Work.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.WorkItemTracking.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.WorkItemTracking.Client.DataStoreLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.WorkItemTracking.Client.QueryLanguage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Common">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.WorkItemTracking.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Process.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.WorkItemTracking.Process.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.Proxy">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.WorkItemTracking.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.WorkItemTracking.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.TeamFoundation.WorkItemTracking.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\..\GrrReferences\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Client.Interactive">
+      <HintPath>..\..\GrrReferences\Microsoft.VisualStudio.Services.Client.Interactive.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common">
+      <HintPath>..\..\GrrReferences\Microsoft.VisualStudio.Services.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.TestManagement.TestPlanning.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.VisualStudio.Services.TestManagement.TestPlanning.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.TestResults.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.VisualStudio.Services.TestResults.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.WebApi">
+      <HintPath>..\..\GrrReferences\Microsoft.VisualStudio.Services.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GrrReferences\Microsoft.VisualStudio.Tools.Applications.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors">
+      <HintPath>..\..\GrrReferences\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\..\GrrReferences\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Prism">
+      <HintPath>..\..\GrrReferences\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Wpf">
+      <HintPath>..\..\GrrReferences\Prism.Unity.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf">
+      <HintPath>..\..\GrrReferences\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO.FileSystem.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReferences\System.IO.FileSystem.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Packaging">
+      <HintPath>..\..\GrrReferences\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=6.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GrrReferences\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes.AccessControl, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReferences\System.IO.Pipes.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Ports">
+      <HintPath>..\..\GrrReferences\System.IO.Ports.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Cng, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Security.Cryptography.Cng.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference6\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\GrrReference7\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\..\GrrReferences\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http">
+      <HintPath>..\..\GrrReferences\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\GrrReferences\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Unity.Abstractions">
+      <HintPath>..\..\GrrReferences\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container">
+      <HintPath>..\..\GrrReferences\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception">
+      <HintPath>..\..\GrrReferences\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <!--
+    This section defines the user source files that are part of the project.
+     
+    A "Compile" element specifies a source file to compile.
+    An "EmbeddedResource" element specifies an .resx file for embedded resources.
+    A "None" element specifies a file that is not to be passed to the compiler (for instance, 
+    a text file or XML file).
+    The "AppDesigner" element specifies the directory where the application properties files
+    can be found.
+  -->
+  <ItemGroup>
+    <Compile Include="Actions\Excel_PageFormatting.cs" />
+    <Compile Include="Actions\Excel_TableOfContents.cs" />
+    <Compile Include="ActiveDirectoryExplorer\Domain\ADPicker.cs" />
+    <Compile Include="ActiveDirectoryExplorer\Presentation\ViewModels\ADPickerViewModel.cs" />
+    <Compile Include="ActiveDirectoryExplorer\Presentation\ModelWrappers\ADPickerWrapper.cs" />
+    <Compile Include="ActiveDirectoryExplorer\Presentation\ViewModels\IADPickerViewModel.cs" />
+    <Compile Include="ActiveDirectoryExplorer\Presentation\Views\ADPicker.xaml.cs">
+      <DependentUpon>ADPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Application\Body_BuildServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Body_ConfigurationServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Body_TeamProject.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Body_TeamProjectCollection.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Body_VersionControlServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Body_WorkItemStore.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Header_BuildServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Header_ConfigurationServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Header_TeamProject.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Header_TeamProjectCollection.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Header_VersionControlServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Header_WorkItemStore.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\AZDOHelper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Section_BuildServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Section_ConfigurationServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Section_TeamProject.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Section_TeamProjectCollection.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Section_TestManager.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Section_VersionControlServer.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Section_WorkItemStore.cs" />
+    <Compile Include="Application\Bootstrapper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Worksheet_Output.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Data\ApplicationDS.cs">
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ApplicationDS.Designer.cs">
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Data\Config.cs" />
+    <Compile Include="AzureDevOpsExplorer\Domain\TeamProjectActionRequest.cs" />
+    <Compile Include="AzureDevOpsExplorer\Domain\TestCaseRequest.cs" />
+    <Compile Include="AzureDevOpsExplorer\Domain\TestPlanRequest.cs" />
+    <Compile Include="AzureDevOpsExplorer\Domain\TestSuiteRequest.cs" />
+    <Compile Include="AzureDevOpsExplorer\Domain\WorkItemActionRequest.cs" />
+    <Compile Include="Domain\Cat.cs" />
+    <Compile Include="Domain\FormatSpecifications.cs" />
+    <Compile Include="Domain\Options_Excel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Domain\WorkItemQuery.cs" />
+    <Compile Include="ErrorNumbers.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Modules\SupportTools_ExcelModule.cs" />
+    <Compile Include="Presentation\Converters\SelectedItemsToWorkItemQueryWrapperConverter.cs" />
+    <Compile Include="Presentation\Converters\SelectedItemsConverter2.cs" />
+    <Compile Include="Presentation\Converters\SelectedItemsToListOfStringConverter.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ModelWrappers\TeamProjectActionRequestWrapper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ModelWrappers\TestSuiteRequestWrapper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ModelWrappers\TestPlanRequestWrapper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ModelWrappers\TestCaseRequestWrapper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ModelWrappers\WorkItemActionRequestWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\CatWrapper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ModelWrappers\Options_AZDO_TFSWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\Options_ExcelWrapper.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ModelWrappers\WorkItemQueryWrapper.cs" />
+    <Compile Include="ActiveDirectoryExplorer\Presentation\ViewModels\ActiveDirectoryExplorerViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\MiscViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\OptionsViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\OrganizationActionsViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\QueriesViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\ServerViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\TeamProjectActionsViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\TestManagementActionsViewModel.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\ViewModels\WorkItemsViewModel.cs" />
+    <Compile Include="ActiveDirectoryExplorer\Presentation\Views\ActiveDirectoryExplorer.xaml.cs">
+      <DependentUpon>ActiveDirectoryExplorer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\Misc.xaml.cs">
+      <DependentUpon>Misc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\OrganizationActions.xaml.cs">
+      <DependentUpon>OrganizationActions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\Server.xaml.cs">
+      <DependentUpon>Server.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\TeamProjectActions.xaml.cs">
+      <DependentUpon>TeamProjectActions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\TestManagementActions.xaml.cs">
+      <DependentUpon>TestManagementActions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\WorkItems.xaml.cs">
+      <DependentUpon>WorkItems.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\Interfaces\IViewAViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\IViewBViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\Interfaces\IViewCViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ViewAViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ViewBViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ViewCViewModel.cs" />
+    <Compile Include="Presentation\Views\PrismRegionTest.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewA.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewB.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewC1.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewC2.xaml.cs" />
+    <Compile Include="PrismEvent.cs" />
+    <Compile Include="Events\ExcelAppEvents.cs" />
+    <Compile Include="Actions\Excel_FolderMaps.cs" />
+    <Compile Include="GlobalCommands.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TaskPane_XXX1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TaskPane_XXX1.designer.cs">
+      <DependentUpon>TaskPane_XXX1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UDF.cs" />
+    <Compile Include="User Interface\CustomFormat.cs" />
+    <Compile Include="User Interface\DisplayOptions.cs" />
+    <Compile Include="User Interface\Forms\DXWindow1.xaml.cs">
+      <DependentUpon>DXWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmExcel_FolderMaps.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmExcel_FolderMaps.Designer.cs">
+      <DependentUpon>frmExcel_FolderMaps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmExploreHost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmExploreHost.Designer.cs">
+      <DependentUpon>frmExploreHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmTFSHost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmTFSHost.Designer.cs">
+      <DependentUpon>frmTFSHost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmTaskPaneHost_ActiveDirectory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User Interface\Forms\frmTaskPaneHost_ActiveDirectory.Designer.cs">
+      <DependentUpon>frmTaskPaneHost_ActiveDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Help.cs" />
+    <Compile Include="User Interface\PreserveColumnOrderBehavior.cs" />
+    <Compile Include="User Interface\Ribbon\Ribbon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon.designer.cs">
+      <DependentUpon>Ribbon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon_CustomUI.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon_UILaunchApproaches.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Ribbon\Ribbon_SupportTools.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_ActiveDirectory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_ActiveDirectory.designer.cs">
+      <DependentUpon>TaskPane_ActiveDirectory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Config.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Config.Designer.cs">
+      <DependentUpon>TaskPane_Config.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Developer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Developer.designer.cs">
+      <DependentUpon>TaskPane_Developer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_ExcelUtil.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_ExcelUtil.Designer.cs">
+      <DependentUpon>TaskPane_ExcelUtil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Help.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Help.Designer.cs">
+      <DependentUpon>TaskPane_Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_LogParser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_LogParser.designer.cs">
+      <DependentUpon>TaskPane_LogParser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_NetworkTrace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_NetworkTrace.Designer.cs">
+      <DependentUpon>TaskPane_NetworkTrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_TFS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_TFS.designer.cs">
+      <DependentUpon>TaskPane_TFS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Utilities.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\Task Panes\TaskPane_Utilities.designer.cs">
+      <DependentUpon>TaskPane_Utilities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\ToolBoxResources.cs" />
+    <Compile Include="User Interface\UnboundColumns.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Body_TestManager.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\Header_TestManager.cs" />
+    <Compile Include="User Interface\User Controls\IRefresh.cs" />
+    <Compile Include="AzureDevOpsExplorer\Domain\Options_AZDO_TFS.cs" />
+    <Compile Include="AzureDevOpsExplorer\Application\RequestHandlers.cs" />
+    <Compile Include="User Interface\User Controls\RowDetailContainerControl.cs" />
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AzureDevOpsExplorer\Presentation\Views\Queries.xaml.cs">
+      <DependentUpon>Queries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucAssembly_Picker.xaml.cs">
+      <DependentUpon>wucAssembly_Picker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucDX_Base.cs" />
+    <Compile Include="User Interface\User Controls\wucExcel_FolderMap.xaml.cs">
+      <DependentUpon>wucExcel_FolderMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucExplore.xaml.cs">
+      <DependentUpon>wucExplore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucSQLInstance_Picker.xaml.cs">
+      <DependentUpon>wucSQLInstance_Picker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucTaskPane_Developer.xaml.cs">
+      <DependentUpon>wucTaskPane_Developer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucTaskPane_LogParser.xaml.cs">
+      <DependentUpon>wucTaskPane_LogParser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucTaskPane_Utilities.xaml.cs">
+      <DependentUpon>wucTaskPane_Utilities.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucTaskPane_TFS.xaml.cs">
+      <DependentUpon>wucTaskPane_TFS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\AddSection.cs">
+      <DependentUpon>wucTaskPane_TFS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\CreateWS.cs">
+      <DependentUpon>wucTaskPane_TFS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\ucDBInstanceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\User Controls\ucDBInstanceList.Designer.cs">
+      <DependentUpon>ucDBInstanceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\ucEnvironmentList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\User Controls\ucEnvironmentList.Designer.cs">
+      <DependentUpon>ucEnvironmentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\ucFileTypeList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Interface\User Controls\ucFileTypeList.Designer.cs">
+      <DependentUpon>ucFileTypeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\User Controls\wucTaskPane_ActiveDirectory.xaml.cs">
+      <DependentUpon>wucTaskPane_ActiveDirectory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="User Interface\ViewMode.cs" />
+    <Compile Include="User Interface\ViewModes.cs" />
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaskPane_XXX1.resx">
+      <DependentUpon>TaskPane_XXX1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Forms\frmExcel_FolderMaps.resx">
+      <DependentUpon>frmExcel_FolderMaps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Forms\frmExploreHost.resx">
+      <DependentUpon>frmExploreHost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Forms\frmTFSHost.resx">
+      <DependentUpon>frmTFSHost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Forms\frmTaskPaneHost_ActiveDirectory.resx">
+      <DependentUpon>frmTaskPaneHost_ActiveDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Ribbon\Ribbon.resx">
+      <DependentUpon>Ribbon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_ActiveDirectory.resx">
+      <DependentUpon>TaskPane_ActiveDirectory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_Config.resx">
+      <DependentUpon>TaskPane_Config.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_Developer.resx">
+      <DependentUpon>TaskPane_Developer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_ExcelUtil.resx">
+      <DependentUpon>TaskPane_ExcelUtil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_Help.resx">
+      <DependentUpon>TaskPane_Help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_LogParser.resx">
+      <DependentUpon>TaskPane_LogParser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_NetworkTrace.resx">
+      <DependentUpon>TaskPane_NetworkTrace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_TFS.resx">
+      <DependentUpon>TaskPane_TFS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\Task Panes\TaskPane_Utilities.resx">
+      <DependentUpon>TaskPane_Utilities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\User Controls\ucDBInstanceList.resx">
+      <DependentUpon>ucDBInstanceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\User Controls\ucEnvironmentList.resx">
+      <DependentUpon>ucEnvironmentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Interface\User Controls\ucFileTypeList.resx">
+      <DependentUpon>ucFileTypeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\ApplicationDS.xsc">
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+    </None>
+    <None Include="Data\ApplicationDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ApplicationDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\ApplicationDS.xss">
+      <DependentUpon>ApplicationDS.xsd</DependentUpon>
+    </None>
+    <None Include="Diagrams\Application - Collapsed.cd" />
+    <None Include="Diagrams\Pivot Stuff - Collapsed.cd" />
+    <None Include="Diagrams\Application.cd" />
+    <None Include="Diagrams\Worksheet.cd" />
+    <None Include="Diagrams\WorkBook.cd" />
+    <None Include="Diagrams\Pivot Stuff.cd" />
+    <None Include="Diagrams\Presentation.Views.cd" />
+    <None Include="Diagrams\UI_User_Controls.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ThisAddIn.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="Resources\Images\FilterEditor.max">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Images\IconLights.max">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Images\QuestionMark.max">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="SupportTools_Excel_1_TemporaryKey.pfx" />
+    <None Include="SupportTools_Excel_TemporaryKey.pfx" />
+    <None Include="ThisAddIn.Designer.xml">
+      <DependentUpon>ThisAddIn.cs</DependentUpon>
+    </None>
+    <Compile Include="ThisAddIn.Designer.cs">
+      <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\DbInstanceList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\300px-IBM_Blue_Gene_P_supercomputer.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Data-Transfer-Rate.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\databasetop.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\DB_Instance-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\DB_Instance.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\development-tools.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\edata_128.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\EyeOnLife.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\FilterEditor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GreenBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GroupByPanel.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Images_QuestionMark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Instance Hierarchy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\iStock_000006362032XSmall1-300x225.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Media_PatientProtal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Media_UltrasoundPortal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\multi-server-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\OrangeBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\QuestionMark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\RedBall.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\RowDetails.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Server Hierarchy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\server-icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\server-room.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\SnapShotCamera.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\ToolBox.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\VNCDeveloper.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\VNCDeveloperMotivation.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\VNCDeveloperMotivation.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WatchWindow.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="TODO.txt" />
+    <Content Include="Data\SPSiteProvision.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\add footer.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\add header.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Auto-Debug-System_icon.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Chart.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\folder map.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\format landscape.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\format portrait.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\group down all.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\group down.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\protect sheets.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\search down.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\search left.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\search right.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\search up.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\table of contents.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\ungroup selection.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\unprotect sheets.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\WatchWindow.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="ActiveDirectoryExplorer\Presentation\Views\ActiveDirectoryExplorer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ActiveDirectoryExplorer\Presentation\Views\ADPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\Misc.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\OrganizationActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\Server.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\TeamProjectActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\TestManagementActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\WorkItems.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\PrismRegionTest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ViewA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ViewB.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ViewC1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ViewC2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\AutoHideGroup_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\BrandingVisuals.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\ButtonStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\ColumnHeader_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Display_StylesAndTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Brushes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\Layout_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\StoryboardAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Xaml\StringResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Xaml\ToolBoxResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="User Interface\Forms\DXWindow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AzureDevOpsExplorer\Presentation\Views\Queries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucAssembly_Picker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucExcel_FolderMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucExplore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucSQLInstance_Picker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucTaskPane_Developer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucTaskPane_LogParser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucTaskPane_Utilities.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucTaskPane_TFS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="User Interface\User Controls\wucTaskPane_ActiveDirectory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModuleOptions\ModuleOptions.csproj">
+      <Project>{88bdcdd4-816b-4a4a-8df6-72fe2644714c}</Project>
+      <Name>ModuleOptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ModuleA\ModuleA.csproj">
+      <Project>{3d9a8549-a7a8-4df9-829e-aeae7ecacaca}</Project>
+      <Name>ModuleA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupportTools_Excel.Infrastructure\SupportTools_Excel.Core.csproj">
+      <Project>{bb1193ec-4836-4850-a4c4-0cd639ec39f5}</Project>
+      <Name>SupportTools_Excel.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ActiveDirectoryExplorer\Application\" />
+    <Folder Include="ActiveDirectoryExplorer\Infrastructure\" />
+    <Folder Include="ActiveDirectoryExplorer\Persistence\" />
+    <Folder Include="ActiveDirectoryExplorer\Service\" />
+    <Folder Include="AzureDevOpsExplorer\Infrastructure\" />
+    <Folder Include="AzureDevOpsExplorer\Persistence\Data\" />
+    <Folder Include="AzureDevOpsExplorer\Persistence\LookupData\" />
+    <Folder Include="AzureDevOpsExplorer\Service\" />
+    <Folder Include="User Interface\WIndows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CalcBinding">
+      <Version>2.5.2</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.ActiveDirectoryHelper">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.AddinHelper">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.AssemblyHelper">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.AZDO">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.CodeAnalysis">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.Logging">
+      <Version>2.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.Logging.TraceListeners.SignalRListener">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.SMOHelper">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.TFSHelper">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.WPF.Presentation">
+      <Version>2.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="VNC.WPF.Presentation.Dx">
+      <Version>2.0.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <!-- <ItemGroup> -->
+  <!-- <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" /> -->
+  <!-- <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.3.3.3\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" /> -->
+  <!-- </ItemGroup> -->
+  <!-- Include the build rules for a C# project. -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'All|AnyCPU'">
+    <OutputPath>bin\All\</OutputPath>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- Include additional build rules for an Office application add-in. -->
+  <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- This section defines VSTO properties that describe the host-changeable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
+        <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="cs" TemplatesPath="VSTOTemplates" DebugInfoExeName="#Software\Microsoft\Office\16.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x " AddItemTemplatesGuid="{51063C3A-E220-4D12-8922-BDA915ACD783}" />
+        <Host Name="Excel" GeneratedCodeNamespace="Office2010Addin_Template_Excel" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.cs" CanonicalName="AddIn" PublishedHash="F747B2D98CE3AB0C797FB97202FC82D918126A16" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.cs" />
+        </Host>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

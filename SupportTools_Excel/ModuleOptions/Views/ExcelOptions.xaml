@@ -1,0 +1,36 @@
+﻿<UserControl 
+    x:Class="ModuleOptions.ExcelOptions"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="LightSlateGray" >
+    <dxlc:LayoutGroup Orientation="Vertical">
+
+        <dxlc:LayoutGroup Header="Excel Output Options"
+                        View="GroupBox" Orientation="Horizontal" 
+                        VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                        IsCollapsible="True"  IsCollapsed="True">
+
+            <dxlc:LayoutItem HorizontalAlignment="Left" Label="Starting Row">
+                <dxe:SpinEdit x:Name="spnStartingRow"
+                                MinValue="1" MaxValue="10" Value="5" IsFloatValue="False"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem HorizontalAlignment="Left" Label="Starting Column">
+                <dxe:SpinEdit x:Name="spnStartingColumn"
+                                MinValue="1" MaxValue="10" Value="1" IsFloatValue="False"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Orient Output Vertically">
+                <dxe:CheckEdit x:Name="ceOrientOutputVertically"
+                                IsChecked="True" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutGroup>
+
+</UserControl>

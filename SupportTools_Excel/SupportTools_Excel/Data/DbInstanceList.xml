@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DBInstanceList>
+  <Environment Name="Production">
+    <Instance Server="LIFEDBA01C" IPV4Address="10.3.1.147" Name="" Port="1433" />   
+    <Instance Server="LIFEDBA02A" IPV4Address="" Name="" Port="1436" />  
+    <Instance Server="LIFEDBB01A" IPV4Address="10.3.1.118" Name="MiscDB" Port="1436" />
+	<Instance Server="LIFEDBB01A" IPV4Address="10.3.1.118" Name="" Port="1436" />
+    <Instance Server="A097912X0P" IPV4Address="" Name="sqlexpress" Port="" />
+    <Instance Server="A097912X0P" IPV4Address="" Name="SQL2008" Port="" />		
+    <Instance Server="LIFESQL99VM " IPV4Address="10.1.4.79 " Name="" Port="1433" />
+  </Environment>
+  <Environment Name="Production-DMZ">
+  
+  </Environment>
+  <Environment Name="Staging">
+    <Instance Server="LIFEDBA201C" IPV4Address="10.5.32.90" Name="" Port="1433" />  
+    <Instance Server="LIFEDBB201A" IPV4Address="10.5.32.83" Name="" Port="1436" />
+    <Instance Server="LSSQLC05C2" IPV4Address="10.254.102.36" Name="" Port="1530"  />
+	<Instance Server="LSSQLI17CV1" IPV4Address="10.254.102.112" Name="SQL2K8INST01" Port="1630" />
+  </Environment>
+  <Environment Name="Staging-DMZ">
+  </Environment>
+  <Environment Name="iTest">
+  </Environment>
+  <Environment Name="iTest-DMZ">
+  </Environment>
+  <Environment Name="iDev">
+    <Instance Server="LDSQLI01v" IPV4Address="172.20.136.104" Name="SQL2KPDEV01" Port="1430" />
+    <Instance Server="LDSQLI02v" IPV4Address="172.20.136.106" Name="" Port="1530" />
+    <Instance Server="LDSQLI04v" IPV4Address="172.20.136.112" Name="" Port="1530" />
+    <Instance Server="LDSQLI05v" IPV4Address="172.20.136.113" Name="" Port="1431" />
+    <Instance Server="LDSQLI06v" IPV4Address="172.20.136.124" Name="" Port="1530" />
+    <Instance Server="LDSQLI07v" IPV4Address="172.20.136.138" Name="" Port="1532" />
+    <Instance Server="LDSQLI07v" IPV4Address="172.20.136.138" Name="" Port="1430" />
+    <Instance Server="LDSQLI08v" IPV4Address="172.20.136.145" Name="" Port="1530" />
+    <Instance Server="LDSQLI09v" IPV4Address="172.20.136.149" Name="" Port="1530" />
+  </Environment>
+  <Environment Name="iDev-DMZ">                                           
+    <Instance Server="LDSQLZ07v" IPV4Address="172.20.135.97" Name="" Port="" />
+    <Instance Server="LDSQLZ08v" IPV4Address="172.20.135.89" Name="" Port="" />
+  </Environment>
+  <Environment Name="VNC">
+    <Instance Server="Matrix" IPV4Address="" Name="" Port="" />
+    <Instance Server="Parthenon" IPV4Address=""  Name="" Port="" />
+    <Instance Server="Tron" IPV4Address=""  Name="" Port="" />
+    <Instance Server="" IPV4Address="10.0.0.5"  Name="" Port="" />
+    <Instance Server="" IPV4Address="10.0.0.5"  Name="NNN" Port="" />
+    <Instance Server="" IPV4Address="10.0.0.5"  Name="" Port="PPP" />   
+  </Environment>
+</DBInstanceList>

@@ -1,0 +1,200 @@
+﻿<UserControl x:Class="SupportTools_Excel.User_Interface.User_Controls.wucExcel_FolderMap"
+    xmlns:User_Controls="clr-namespace:SupportTools_Excel.User_Interface.User_Controls" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"  
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    mc:Ignorable="d" Loaded="UserControl_Loaded" 
+    d:DesignHeight="900" d:DesignWidth="400" >
+    <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" Background="#FFFFFF">
+        <dxlc:LayoutItem 
+            Label="SQL Management Objects (SMO) Explorer" 
+            LabelPosition="Top">
+            <User_Controls:wucSQLInstance_Picker x:Name="wucSQLInstance_Picker1"/>
+        </dxlc:LayoutItem>
+ 
+        <dxlc:LayoutGroup Header="File Content Information"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+
+        </dxlc:LayoutGroup>
+
+        
+        <dxlc:LayoutGroup Header="Inclusion Matching Rules"
+            View="GroupBox" Orientation="Horizontal" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+ 
+            <dxlc:LayoutGroup Orientation="Vertical">
+
+                <dxlc:LayoutItem HorizontalAlignment="Left">
+                    <dxe:CheckEdit x:Name="ceRegExFolderHilightMatch"
+                        Content="RegEx Match Folder Hilight" 
+                        IsChecked="False"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Folder Hilight Color">
+                    <Button>
+
+                    </Button>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Folder RexEx Pattern" LabelPosition="Top">
+                    <dxe:TextEdit x:Name="teRegExFolderHilightMatch" 
+                                  ToolTip="Illegal Folder Characters Tooltip." />
+                </dxlc:LayoutItem>
+                
+            </dxlc:LayoutGroup>
+                       
+            <dxlc:LayoutGroup Orientation="Vertical">
+
+                <dxlc:LayoutItem HorizontalAlignment="Left">
+                    <dxe:CheckEdit x:Name="ceRegExFileHilightMatch"
+                    Content="RegEx Match File Hilight" 
+                    IsChecked="False"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="File Hilight Color">
+                    <Button>
+
+                    </Button>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="File RexEx Pattern" LabelPosition="Top">
+                    <dxe:TextEdit x:Name="teRegExFileHilightMatch" 
+                              ToolTip="RegEx File Tooltip." />
+                </dxlc:LayoutItem>
+                
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="File Content Information"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+
+        </dxlc:LayoutGroup>
+        
+        <dxlc:LayoutGroup Header="Date Information"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+            
+            <dxlc:LayoutItem HorizontalAlignment="Left">
+                <dxe:CheckEdit x:Name="ceColorCodeDates"
+                    Content="Color Code Dates" 
+                    IsChecked="False"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Months Since Created">
+                <dxe:SpinEdit Value="1" HorizontalAlignment="Left"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Months Since Written">
+                <dxe:SpinEdit Value="1" HorizontalAlignment="Left"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Months Since Accessed">
+                <dxe:SpinEdit Value="1" HorizontalAlignment="Left"/>
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutItem Label="Default Color">
+                <Button>
+
+                </Button>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Created Color">
+                <Button>
+
+                </Button>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Written Color">
+                <Button>
+
+                </Button>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Accessed Color">
+                <Button>
+
+                </Button>
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="SharePoint Information"
+            View="GroupBox" Orientation="Vertical" 
+            VerticalAlignment="Top" HorizontalAlignment="Stretch"
+            IsCollapsible="True"  IsCollapsed="False">
+
+            <dxlc:LayoutItem HorizontalAlignment="Left">
+                <dxe:CheckEdit x:Name="ceIllegalCharacters"
+                    Content="Check for Illegal Characters" 
+                    IsChecked="False"/>
+            </dxlc:LayoutItem>
+            
+             <dxlc:LayoutItem Label="Illegal Characters Color">
+                <Button>
+
+                </Button>
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutItem Label="Illegal Folder Characters">
+                <dxe:TextEdit x:Name="teIllegalFolderCharacters" 
+                              ToolTip="Illegal Folder Characters Tooltip." />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Illegal File Characters">
+                <dxe:TextEdit x:Name="teIllegalFileCharacters" 
+                              ToolTip="Illegal File Characters Tooltip." />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem HorizontalAlignment="Left">
+                <dxe:CheckEdit x:Name="ceFileNameLength"
+                    Content="Check FileName Length" 
+                    IsChecked="False"/>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Illegal Characters Color">
+                <Button>
+
+                </Button>
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Maximum File Name Length">
+                <dxe:TextEdit x:Name="teMaxFileNameLength" 
+                              Width="50" HorizontalAlignment="Left"
+                              ToolTip="Max FileName Length Tooltip." />
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup HorizontalAlignment="Right">
+            
+            <dxlc:LayoutItem>
+                <Button x:Name="btnCancel" 
+			        Content="Cancel" 
+                    ToolTip="TCancel ToolTip"
+                        HorizontalAlignment="Right"
+                    Click="btnCancel_Click" Background="#FF85F585" />
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutItem>
+                <Button x:Name="btnCreateFolderMap" 
+			        Content="Create Folder Map" 
+                    ToolTip="Table Info ToolTip"
+                    HorizontalAlignment="Right"
+                    Click="btnCreateFolderMap_Click" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutControl>
+    
+</UserControl>

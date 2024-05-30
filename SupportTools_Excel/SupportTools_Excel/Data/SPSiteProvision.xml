@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SharePointProvisioning WebUri="http://vncsp2010" >
+	<Webs>
+		<Web />
+	</Webs>
+	<SiteColumns>
+		<Field Type="Text" DisplayName="VNCSiteCol1" Name="VNCSiteCol1" Group="VNC" ID="{42c2ab58-5621-4d8a-a91e-4e9691803670}" SourceID="{40946667-fdbf-41e1-ac64-537f213c9662}" StaticName="VNCSiteCol1" />
+		<Field />
+		<Field />
+	</SiteColumns>
+	<ContentTypes>
+		<ContentType Name="CT1" >
+			<Field Name="FLD1"/>
+			<Field Name="FLD2"/>
+		</ContentType>
+		<ContentType Name="CT2"/>
+	</ContentTypes>
+</SharePointProvisioning>

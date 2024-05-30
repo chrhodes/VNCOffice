@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotAxis">
+    <Position X="11" Y="1.75" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotCache">
+    <Position X="11" Y="7" Width="3.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotCaches">
+    <Position X="11" Y="3.75" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotCell">
+    <Position X="14.75" Y="7.75" Width="3.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotField">
+    <Position X="21.25" Y="10" Width="3.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotFields">
+    <Position X="13.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotFilter">
+    <Position X="18.75" Y="2.5" Width="2.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotFilters">
+    <Position X="21.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotFormula">
+    <Position X="21.5" Y="6" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotFormulas">
+    <Position X="24.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotItem">
+    <Position X="26.75" Y="2.5" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotItemList">
+    <Position X="24" Y="6.5" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotItems">
+    <Position X="25.5" Y="9.75" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotLayout">
+    <Position X="26.5" Y="13" Width="2" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotLine">
+    <Position X="15.5" Y="16.75" Width="2.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotLineCells">
+    <Position X="12.25" Y="16.75" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotLines">
+    <Position X="29.5" Y="2.25" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotTable">
+    <Position X="0.75" Y="1" Width="3" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotTableChangeList">
+    <Position X="29.5" Y="5.25" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotTables">
+    <Position X="32" Y="2.75" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="Microsoft.Office.Interop.Excel.PivotValueCell">
+    <Position X="15.25" Y="13.25" Width="2.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
