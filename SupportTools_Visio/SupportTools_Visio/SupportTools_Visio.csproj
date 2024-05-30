@@ -1175,7 +1175,6 @@
     <None Include="Data\ApplicationDS.xss">
       <DependentUpon>ApplicationDS.xsd</DependentUpon>
     </None>
-    <None Include="Office2010Addin_Template_Visio_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1192,15 +1191,6 @@
     <None Include="Resources\Images\FilterEditor.max" />
     <None Include="Resources\Images\IconLights.max" />
     <None Include="Resources\Images\QuestionMark.max" />
-    <None Include="SupportTools_Visio_1_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_2_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_3_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_4_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_5_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_6_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_7_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_8_TemporaryKey.pfx" />
-    <None Include="SupportTools_Visio_9_TemporaryKey.pfx" />
     <None Include="SupportTools_Visio_TemporaryKey.pfx" />
     <None Include="ThisAddIn.Designer.xml">
       <DependentUpon>ThisAddIn.cs</DependentUpon>
