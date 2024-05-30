@@ -63,4 +63,4 @@ using System.Runtime.InteropServices;
 //  Version   Date        By
 //  1.0.0.0   mm/dd/yyyy    Developer
 //      Initial Version
-[assembly: AssemblyInformationalVersion("2024.05.29A")]
+[assembly: AssemblyInformationalVersion("2024.05.30A")]
