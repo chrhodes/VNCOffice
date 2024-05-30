@@ -69,7 +69,7 @@ When I get some time I will call out things that turned out well or at least I l
 
 ### VisioTemplates
 
-As I learned more about Visio I started creating my own templates that took advantage of the VSTO code behand.  The NapkinMaking folder has a lot of stuff I use all the time.
+As I learned more about Visio I started creating my own templates and stencils that took advantage of the VSTO code behand.  The NapkinMaking folder has a lot of stuff I use all the time.
 
 ### VNC.AddInHelper
 
