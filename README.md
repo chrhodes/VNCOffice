@@ -34,7 +34,7 @@ VSTO Addins for the common MS Office Applications
 The addins use WPF UI components from DevExpress.  These will need to be replaced with something free.
 All the Addins use VNC.Logging that uses the EnterpriseLibrry logging framework.  If you don't want logging, just comment out the code.
 
-VNC.Logging is available in https://github.com/chrhodes/VNCDevelopment
+VNC.Logging is available in https://github.com/chrhodes/VNCDevelopment which also lists available nuget packages.
 
 ## Links
 
