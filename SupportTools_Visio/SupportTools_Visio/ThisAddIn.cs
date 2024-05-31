@@ -11,13 +11,6 @@ namespace SupportTools_Visio
 {
     public partial class ThisAddIn
     {
-        // HACK(crhodes)
-        // Not sure we ever got CustomTaskPanes to work in Visio.  Went back to using the Ribbon
-
-        // Need to do a bit more work to use CustomTask Panes in Visio.  (Handled by Designer normally)
-
-        //internal Microsoft.Office.Tools.CustomTaskPaneCollection CustomTaskPanes;
-
         private static System.Windows.Application _XamlApp;
 
         private static Prism.Unity.PrismApplication _prismApplication;
@@ -39,10 +32,6 @@ namespace SupportTools_Visio
 
                 Common.VisioHelper.VisioApplication = Globals.ThisAddIn.Application;
 
-                //// Need to do a bit more work to use CustomTask Panes in Visio.  (Handled by Designer normally)
-
-                //CustomTaskPanes = Globals.Factory.CreateCustomTaskPaneCollection(null, null, "CustomTaskPanes", "CustomTaskPanes", this);
-
                 // For the WPF stuff we do
                 InitializeWPFApplication();
             }
@@ -61,11 +50,6 @@ namespace SupportTools_Visio
 
             try
             {
-
-
-                // Need to do a bit more work to use CustomTask Panes in Visio.  (Handled by Designer normally)
-                //CustomTaskPanes.Dispose();
-
                 if (Common.HasAppEvents)
                 {
                     Common.AppEvents = null;
