@@ -1559,9 +1559,13 @@
     <Resource Include="Resources\Images\WatchWindow.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\VNC.AddinHelper\VNC.AddinHelper.csproj">
-      <Project>{61a7b25c-3a50-4ee9-8d74-25d1440541f7}</Project>
-      <Name>VNC.AddinHelper</Name>
+    <ProjectReference Include="..\..\VNC.ExcelHelper\VNC.ExcelHelper.csproj">
+      <Project>{1cf219f0-f24b-4cda-bd68-a0cbfc177f82}</Project>
+      <Name>VNC.ExcelHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VNC.Visio.AddinHelper\VNC.Visio.AddinHelper.csproj">
+      <Project>{0157a4a9-9a7c-477b-9ba4-b2b7bdeb4b32}</Project>
+      <Name>VNC.Visio.AddinHelper</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\Explore\Explore.csproj">
       <Project>{2c063f33-f4f1-40df-b485-a7dc21154300}</Project>

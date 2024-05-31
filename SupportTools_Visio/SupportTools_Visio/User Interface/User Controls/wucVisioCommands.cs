@@ -5,10 +5,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Xml.Linq;
 using SupportTools_Visio.Domain;
-using ExcelHlp = VNC.AddinHelper.Excel;
+using ExcelHlp = VNC.ExcelHelper;
 using LTE = LinqToExcel;
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHlp = VNC.AddinHelper.Visio;
+using VisioHlp = VNC.Visio.AddinHelper.Visio;
 using XL = Microsoft.Office.Interop.Excel;
 
 namespace SupportTools_Visio.User_Interface.User_Controls
@@ -46,7 +46,7 @@ namespace SupportTools_Visio.User_Interface.User_Controls
 
         private void btnThree_Click(object sender, RoutedEventArgs e)
         {
-            UseExcelCataReader();
+            UseExcelDataReader();
         }
 
         private void btnTwo_Click(object sender, RoutedEventArgs e)
@@ -1214,11 +1214,11 @@ namespace SupportTools_Visio.User_Interface.User_Controls
             wb.Close();
         }
 
-        private void UseExcelCataReader()
+        private void UseExcelDataReader()
         {
             string path = @"B:\Publish\SupportTools_Visio\TestData.xlsx";
 
-            var excelData = new ExcelHlp.XlData(path);
+            var excelData = new ExcelHlp.Domain.XlData(path);
             var sheets = excelData.GetWorkSheetNames();
 
             foreach (var sheet in sheets)

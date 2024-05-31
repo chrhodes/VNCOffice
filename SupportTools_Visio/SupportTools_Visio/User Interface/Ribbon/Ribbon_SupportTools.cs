@@ -557,7 +557,7 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.AddinHelper.AddInInfo.DisplayInfo();
+            VNC.Visio.AddinHelper.AddInInfo.DisplayInfo();
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }
@@ -566,7 +566,7 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.AddinHelper.Common.DebugWindow.Visible = !VNC.AddinHelper.Common.DebugWindow.Visible;
+            VNC.Visio.AddinHelper.Common.DebugWindow.Visible = !VNC.Visio.AddinHelper.Common.DebugWindow.Visible;
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }
@@ -575,7 +575,7 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.AddinHelper.Common.WatchWindow.Visible = !VNC.AddinHelper.Common.WatchWindow.Visible;
+            VNC.Visio.AddinHelper.Common.WatchWindow.Visible = !VNC.Visio.AddinHelper.Common.WatchWindow.Visible;
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }
@@ -584,8 +584,8 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.AddinHelper.Common.DeveloperMode = !VNC.AddinHelper.Common.DeveloperMode;
-            Globals.Ribbons.Ribbon.rgDebug.Visible = VNC.AddinHelper.Common.DeveloperMode;
+            VNC.Visio.AddinHelper.Common.DeveloperMode = !VNC.Visio.AddinHelper.Common.DeveloperMode;
+            Globals.Ribbons.Ribbon.rgDebug.Visible = VNC.Visio.AddinHelper.Common.DeveloperMode;
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }
