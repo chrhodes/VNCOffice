@@ -12,9 +12,9 @@ using SupportTools_Visio.Core;
 using VNC;
 using VNC.Core.Mvvm;
 
-using ExcelHlp = VNC.AddinHelper.Excel;
+//using ExcelHlp = VNC.AddinHelper.Excel;
 using LTE = LinqToExcel;
-using VisioHlp = VNC.AddinHelper.Visio;
+using VisioHlp = VNC.Visio.AddinHelper.Visio;
 
 using XL = Microsoft.Office.Interop.Excel;
 
@@ -288,7 +288,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
         {
             string path = @"B:\Publish\SupportTools_Visio\TestData.xlsx";
 
-            var excelData = new ExcelHlp.XlData(path);
+            var excelData = new VNC.ExcelHelper.Domain.XlData(path);
             var sheets = excelData.GetWorkSheetNames();
 
             foreach (var sheet in sheets)

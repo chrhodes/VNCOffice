@@ -8,7 +8,7 @@ using SupportTools_Visio.Domain;
 using VNC.Core;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.AddinHelper.Visio;
+using VisioHelper = VNC.Visio.AddinHelper.Visio;
 
 namespace SupportTools_Visio.Actions
 {

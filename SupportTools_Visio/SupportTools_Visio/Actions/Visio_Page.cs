@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.AddinHelper.Visio;
-using AIH = VNC.AddinHelper;
+using VisioHelper = VNC.Visio.AddinHelper.Visio;
+//using AIH = VNC.AddinHelper;
 using VNC;
 using VNC.Core;
 using System.Text.RegularExpressions;
@@ -1539,8 +1539,8 @@ namespace SupportTools_Visio.Actions
 
         private static string GetPageSaveName(Visio.Page page)
         {
-            string pageName = VNC.AddinHelper.Util.SafeFileName(page.NameU);
-            string documentName = VNC.AddinHelper.Util.SafeFileName(page.Application.ActiveDocument.Name);
+            string pageName = VNC.Visio.AddinHelper.Util.SafeFileName(page.NameU);
+            string documentName = VNC.Visio.AddinHelper.Util.SafeFileName(page.Application.ActiveDocument.Name);
 
             // TODO(crhodes):
             // Do more fancy stuff so it is easier to find the file later

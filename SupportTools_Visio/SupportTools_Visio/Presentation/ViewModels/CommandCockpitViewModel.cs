@@ -20,7 +20,7 @@ using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHlp = VNC.AddinHelper.Visio;
+using VisioHlp = VNC.Visio.AddinHelper.Visio;
 
 namespace SupportTools_Visio.Presentation.ViewModels
 {
