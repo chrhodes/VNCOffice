@@ -8,8 +8,16 @@ VSTO Addins for the common MS Office Applications
 
 ## Table of Contents
 
+### CHR Notes\
+  CHR Notes - Visio.vsdx
+  Lot's of information about Visio as I learned it over the years.
+  
+  CHR Notes - SupportTools_Visio.vsdx
+  Coming soon.  Will try to document some of what is inside SupportTools_Visio  
+  
 ### GrrReferences\
-  Dlls used by the addins
+  Dlls used by the addins - trying to get rid of these.  Relying on packages now.  
+  By the way, I've had no luck moving the AddIns to the new style Project Files.
   
 ### SupportTools_Excel\
   VSTO Addin for Excel
@@ -69,11 +77,11 @@ When I get some time I will call out things that turned out well or at least I l
 
 ### VisioTemplates
 
-As I learned more about Visio I started creating my own templates and stencils that took advantage of the VSTO code behand.  The NapkinMaking folder has a lot of stuff I use all the time.
+As I learned more about Visio I started creating my own templates and stencils that took advantage of the VSTO code behand.  The NapkinMaking folder has a lot of stuff I use all the time.  Look at Drawing Annotations, Page Shapes, Super Shapes and API to start.
 
 ### VNC.AddInHelper
 
-VNC.AddInHelper has code that is common across the SupportTools_X Addins.  Haven't touched this in years.
+VNC.AddInHelper has code that is common across the SupportTools_X Addins.  Haven't touched this in years but will likely move to separate assemblies for each app as I put the code back up on GitHub.
 
 ## Support
 
