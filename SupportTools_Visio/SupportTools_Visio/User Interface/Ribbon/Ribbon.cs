@@ -42,8 +42,8 @@ namespace SupportTools_Visio
 
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
-        }
 
+        }
 
         #endregion
 

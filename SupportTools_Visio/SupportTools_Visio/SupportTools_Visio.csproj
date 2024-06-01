@@ -806,6 +806,7 @@
   -->
   <ItemGroup>
     <Compile Include="Actions\PageLayout.cs" />
+    <Compile Include="Application\PrismApp.cs" />
     <Compile Include="Domain\OffsetDirection.cs" />
     <Compile Include="Domain\QueryWorkItemInfoShape.cs" />
     <Compile Include="Domain\ShapeInfo.cs" />
@@ -827,7 +828,6 @@
     <Compile Include="Actions\Visio_Stencil.cs" />
     <Compile Include="Actions\Visio_Window.cs" />
     <Compile Include="Application\Bootstrapper.cs" />
-    <Compile Include="Application\PrismApp.cs" />
     <Compile Include="Domain\ShapeSheet\DocumentProperties.cs" />
     <Compile Include="Domain\ShapeSheet\FillFormat.cs" />
     <Compile Include="Domain\ShapeSheet\FillGradientStopRow.cs" />

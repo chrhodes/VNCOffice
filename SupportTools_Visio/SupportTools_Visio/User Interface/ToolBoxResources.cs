@@ -467,6 +467,10 @@ namespace SupportTools_Visio.User_Interface
 
             switch (lbe.SelectedItem.ToString())
             {
+                // NOTE(crhodes)
+                // Not sure PrismApp is ever initialized
+                // Maybe use _XamlApp from THisAddin
+
                 case "Tooltip":
                     // This uses the resources from the usercontrol/window.
                     //var  tmplt =  (DataTemplate)vtrootUserControl.Resources["rowTooltipDetailTemplate"];

@@ -62,6 +62,7 @@ namespace SupportTools_Visio
                 Log.Error(ex, Common.LOG_CATEGORY);
                 throw (ex);
             }
+
             Log.APPLICATION_END("Exit", Common.LOG_CATEGORY, startTicks);
         }
 

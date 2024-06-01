@@ -26,6 +26,17 @@ namespace SupportTools_Visio.Application
 {
     public class Bootstrapper : PrismBootstrapperBase
     {
+        // Step 1 - Create the Unity Container
+
+        protected override IContainerExtension CreateContainerExtension()
+        {
+            Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+
+            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+
+            return new UnityContainerExtension();
+        }
+
         // Step 1a - Create the catalog of Modules
 
         protected override IModuleCatalog CreateModuleCatalog()
@@ -126,13 +137,6 @@ namespace SupportTools_Visio.Application
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        protected override IContainerExtension CreateContainerExtension()
-        {
-            Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
-            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-
-            return new UnityContainerExtension();
-        }
     }
 }
