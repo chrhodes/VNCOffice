@@ -7,11 +7,11 @@ using System.Security;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("VNCExcelAddin")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Excel VSTO Addin")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("VNC")]
 [assembly: AssemblyProduct("VNCExcelAddin")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright © VNC 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,4 +35,5 @@ using System.Security;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyInformationalVersion("2024.05.30A")]
 

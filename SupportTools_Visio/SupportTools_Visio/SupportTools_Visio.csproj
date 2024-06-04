@@ -1175,6 +1175,7 @@
     <None Include="Data\ApplicationDS.xss">
       <DependentUpon>ApplicationDS.xsd</DependentUpon>
     </None>
+    <None Include="Diagrams\SupportTools_Visio.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1575,7 +1576,7 @@
       <Project>{3d9a8549-a7a8-4df9-829e-aeae7ecacaca}</Project>
       <Name>ModuleA</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SupportTools_Visio.Infrastructure\SupportTools_Visio.Core.csproj">
+    <ProjectReference Include="..\SupportTools_Visio.Core\SupportTools_Visio.Core.csproj">
       <Project>{bb1193ec-4836-4850-a4c4-0cd639ec39f5}</Project>
       <Name>SupportTools_Visio.Core</Name>
     </ProjectReference>

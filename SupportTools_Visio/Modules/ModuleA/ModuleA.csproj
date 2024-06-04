@@ -136,15 +136,15 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\SupportTools_Visio.Infrastructure\SupportTools_Visio.Core.csproj">
-      <Project>{bb1193ec-4836-4850-a4c4-0cd639ec39f5}</Project>
-      <Name>SupportTools_Visio.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\Icons\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Resources\Xaml\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\SupportTools_Visio.Core\SupportTools_Visio.Core.csproj">
+      <Project>{bb1193ec-4836-4850-a4c4-0cd639ec39f5}</Project>
+      <Name>SupportTools_Visio.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
