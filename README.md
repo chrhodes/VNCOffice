@@ -11,7 +11,7 @@ VSTO Addins for the common MS Office Applications
 ### GrrReferences\
   Dlls used by the addins
   
-### SupportTools_Excel\
+### VNCExcelAddin\
   VSTO Addin for Excel
   
 ### SupportTools_PowerPoint\
@@ -45,11 +45,11 @@ Christopher Rhodes
 I am retired now and don't work on this code base much.
   
 ## History
-I started automating Office applications decades ago using scripts.  That evolved to VB VSTO addins that evolved to C# VSTO addins.  Most of the early work was done in Excel.  Most of the recent work has been in Visio.  Over the years a lot of stuff was added to the SupportTools_Excel addin that related to companies I worked at.  There were things to manage SharePoint and AzureDevOps.  Then tons of stuff was added to SupportTools_Visio to support my love of Visio. 
+I started automating Office applications decades ago using scripts.  That evolved to VB VSTO addins that evolved to C# VSTO addins.  Most of the early work was done in Excel.  Most of the recent work has been in Visio.  Over the years a lot of stuff was added to the VNCExcelAddin addin that related to companies I worked at.  There were things to manage SharePoint and AzureDevOps.  Then tons of stuff was added to SupportTools_Visio to support my love of Visio. 
 
-### SupportTools_Excel
+### VNCExcelAddin
 
-I am in the process of cleaning up the repo and reposting a thined down version of SupportTools_Excel that reflects my current use.  I am extracting the functionality that is not generally used, e.g. SharePoint, AzureDevOps, and will leave what I still use on a regular basis in SupportTools_Excel.  I will move the TaskPane functionality into WPF windows like in SupportTools_Visio.
+I am in the process of cleaning up the repo and reposting a thined down version of VNCExcelAddin that reflects my current use.  I am extracting the functionality that is not generally used, e.g. SharePoint, AzureDevOps, and will leave what I still use on a regular basis in VNCExcelAddin.  I will move the TaskPane functionality into WPF windows like in SupportTools_Visio.
 
 ### SupportTools_PowerPoint
 
@@ -71,9 +71,9 @@ When I get some time I will call out things that turned out well or at least I l
 
 As I learned more about Visio I started creating my own templates and stencils that took advantage of the VSTO code behand.  The NapkinMaking folder has a lot of stuff I use all the time.
 
-### VNC.AddInHelper
+### VNC.Visio.AddinHelper
 
-VNC.AddInHelper has code that is common across the SupportTools_X Addins.  Haven't touched this in years.
+VNC.Visio.AddinHelper has code that is common across the SupportTools_X Addins.  Haven't touched this in years.
 
 ## Support
 
