@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net48</TargetFrameworks>
+        <UseWPF>true</UseWPF>
+        <UseWindowsForms>true</UseWindowsForms>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <AssemblyName>VNC.VSTOAddIn</AssemblyName>
+        <RootNamespace>VNC.VSTOAddIn</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageProjectUrl>https://github.com/chrhodes/vncoffice</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/chrhodes/vncoffice</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
+        <PackageTags>vsto;mvvm</PackageTags>
+        <Authors>Christopher Rhodes</Authors>
+        <Copyright>Copyright © VNC 2024</Copyright>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <Description>VNC VSTO AddIn Helper</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="..\VNC.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="VNC.AssemblyHelper" Version="2.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Presentation\frmDebugWindow.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="Presentation\frmWatchWindow.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
+</Project>
