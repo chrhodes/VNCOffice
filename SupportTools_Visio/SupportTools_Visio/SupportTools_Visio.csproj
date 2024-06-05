@@ -1176,6 +1176,7 @@
       <DependentUpon>ApplicationDS.xsd</DependentUpon>
     </None>
     <None Include="Diagrams\SupportTools_Visio.cd" />
+    <None Include="Diagrams\SupportTools_Visio.Core.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
