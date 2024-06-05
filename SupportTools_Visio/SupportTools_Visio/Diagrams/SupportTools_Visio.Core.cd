@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SupportTools_Visio.Core.ExecuteEvent">
+    <Position X="3.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.GlobalCommands">
+    <Position X="0.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.LoadExcelFileEvent">
+    <Position X="3.5" Y="2.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.LoadExcelTableEvent">
+    <Position X="3.5" Y="3.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.LoadPageEvent">
+    <Position X="3.5" Y="5.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.RegionNames">
+    <Position X="0.5" Y="1.75" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.ReloadXmlEvent">
+    <Position X="5.75" Y="2.25" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.SavePageEvent">
+    <Position X="5.75" Y="3.75" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.SelectionChangedEvent">
+    <Position X="5.75" Y="5.25" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.UseExcelDataReaderEvent">
+    <Position X="5.75" Y="6.75" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="SupportTools_Visio.Core.UseLinqToExcelEvent">
+    <Position X="5.75" Y="8.25" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

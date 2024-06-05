@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNC.Visio.AddinHelper.CellFormatSpecification">
+    <Position X="0.5" Y="0.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAgAQAAAAgAgAAAAAAAAAAAAAAAAACAAAACAAA=</HashCode>
+      <FileName>Excel\CellFormatSpecification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.Visio.AddinHelper.Excel">
+    <Position X="0.75" Y="6.25" Width="15.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="VNC.Visio.AddinHelper.Excel.XlData" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel\XlData.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="VNC.Visio.AddinHelper.Excel.XlLocation">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel\XlLocation.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Enum Name="VNC.Visio.AddinHelper.Excel.WrapText" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="VNC.Visio.AddinHelper.Excel.MakeBold" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="VNC.Visio.AddinHelper.Excel.MarkType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="VNC.Visio.AddinHelper.Excel.SectionLocation" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="VNC.Visio.AddinHelper.Excel.UnderLine" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="VNC.Visio.AddinHelper.Excel.LabelLocation" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Excel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>mSAQAMyROQQCEABAAMAEggiCAEDAIBQAgABcGgIiEDg=</HashCode>
+      <FileName>Excel\XlData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
