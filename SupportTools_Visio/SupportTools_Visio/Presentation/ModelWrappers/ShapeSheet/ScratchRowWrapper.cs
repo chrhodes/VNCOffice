@@ -1,13 +1,15 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ScratchRowWrapper : ModelWrapper<Domain.ScratchRow>
+    public class ScratchRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.ScratchRow>
     {
         public ScratchRowWrapper() { }
 
-        public ScratchRowWrapper(ScratchRow model) : base(model)
+        public ScratchRowWrapper(VNCVisioAddIn.Domain.ScratchRow model) : base(model)
         {
         }
 

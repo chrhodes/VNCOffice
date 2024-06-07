@@ -1,13 +1,15 @@
 ﻿using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class EventsWrapper : ModelWrapper<Domain.Events>
+    public class EventsWrapper : ModelWrapper<VNCVisioAddIn.Domain.Events>
     {
         public EventsWrapper()
         {
         }
-        public EventsWrapper(Domain.Events model) : base(model)
+        public EventsWrapper(VNCVisioAddIn.Domain.Events model) : base(model)
         {
         }
 

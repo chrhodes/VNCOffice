@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class GroupPropertiesWrapper : ModelWrapper<Domain.GroupProperties>
+    public class GroupPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.GroupProperties>
     {
         public GroupPropertiesWrapper()
         {
         }
-        public GroupPropertiesWrapper(GroupProperties model) : base(model)
+        public GroupPropertiesWrapper(VNCVisioAddIn.Domain.GroupProperties model) : base(model)
         {
         }
 

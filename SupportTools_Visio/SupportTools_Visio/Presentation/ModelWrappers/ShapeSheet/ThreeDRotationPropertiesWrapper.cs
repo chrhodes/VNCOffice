@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ThreeDRotationPropertiesWrapper : ModelWrapper<Domain.ThreeDRotationProperties>
+    public class ThreeDRotationPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ThreeDRotationProperties>
     {
         public ThreeDRotationPropertiesWrapper()
         {
         }
-        public ThreeDRotationPropertiesWrapper(ThreeDRotationProperties model) : base(model)
+        public ThreeDRotationPropertiesWrapper(VNCVisioAddIn.Domain.ThreeDRotationProperties model) : base(model)
         {
         }
 

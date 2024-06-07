@@ -1,11 +1,13 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class StylePropertiesWrapper : ModelWrapper<Domain.StyleProperties>
+    public class StylePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.StyleProperties>
     {
-        public StylePropertiesWrapper(StyleProperties model) : base(model)
+        public StylePropertiesWrapper(VNCVisioAddIn.Domain.StyleProperties model) : base(model)
         {
         }
 

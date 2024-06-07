@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ShapeTransformWrapper : ModelWrapper<Domain.ShapeTransform>
+    public class ShapeTransformWrapper : ModelWrapper<VNCVisioAddIn.Domain.ShapeTransform>
     {
         public ShapeTransformWrapper()
         {
         }
-        public ShapeTransformWrapper(ShapeTransform model) : base(model)
+        public ShapeTransformWrapper(VNCVisioAddIn.Domain.ShapeTransform model) : base(model)
         {
         }
 

@@ -7,7 +7,7 @@ using Prism.Events;
 
 namespace SupportTools_Visio
 {
-    public class Common : VNC.Visio.AddinHelper.Common
+    public class Common : VNC.Visio.VSTOAddIn.Common
     {
 
         #region SMARTS
@@ -121,7 +121,10 @@ namespace SupportTools_Visio
 
         public const string cCONFIG_FILE = @"C:\temp\SupportTools_Visio.xml";
 
-        public static VNC.Visio.AddinHelper.Visio VisioHelper = new VNC.Visio.AddinHelper.Visio();
+        // HACK(crhodes)
+        // What is this used for?
+
+        //public static VNC.Visio.VSTOAddIn VNCVisioAddIn = new VNC.Visio.VSTOAddIn();
         public static Events.VisioAppEvents AppEvents;
         public static bool DisplayChattyEvents = false;
 

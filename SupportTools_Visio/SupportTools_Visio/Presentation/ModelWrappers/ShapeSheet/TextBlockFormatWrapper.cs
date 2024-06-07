@@ -1,13 +1,15 @@
 ﻿using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class TextBlockFormatWrapper : ModelWrapper<Domain.TextBlockFormat>
+    public class TextBlockFormatWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextBlockFormat>
     {
         public TextBlockFormatWrapper()
         {
         }
-        public TextBlockFormatWrapper(Domain.TextBlockFormat model) : base(model)
+        public TextBlockFormatWrapper(VNCVisioAddIn.Domain.TextBlockFormat model) : base(model)
         {
         }
 

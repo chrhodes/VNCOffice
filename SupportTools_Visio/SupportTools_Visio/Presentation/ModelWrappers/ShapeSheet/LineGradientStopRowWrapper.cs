@@ -1,11 +1,13 @@
-﻿using SupportTools_Visio.Domain;
+﻿
 using VNC.Core.Mvvm;
+
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class LineGradientStopRowWrapper : ModelWrapper<Domain.LineGradientStopRow>
+    public class LineGradientStopRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.LineGradientStopRow>
     {
-        public LineGradientStopRowWrapper(LineGradientStopRow model) : base(model)
+        public LineGradientStopRowWrapper(VNCVisioAddIn.Domain.LineGradientStopRow model) : base(model)
         {
         }
 

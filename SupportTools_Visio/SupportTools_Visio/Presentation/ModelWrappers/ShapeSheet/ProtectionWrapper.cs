@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 { 
-    public class ProtectionWrapper : ModelWrapper<Protection>
+    public class ProtectionWrapper : ModelWrapper<VNCVisioAddIn.Domain.Protection>
     {
         public ProtectionWrapper()
         {
         }
-        public ProtectionWrapper(Protection model) : base(model)
+        public ProtectionWrapper(VNCVisioAddIn.Domain.Protection model) : base(model)
         {
         }
 

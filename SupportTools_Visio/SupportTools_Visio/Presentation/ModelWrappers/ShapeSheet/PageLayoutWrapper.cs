@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class PageLayoutWrapper : ModelWrapper<Domain.PageLayout>
+    public class PageLayoutWrapper : ModelWrapper<VNCVisioAddIn.Domain.PageLayout>
     {
         public PageLayoutWrapper()
         {
         }
-        public PageLayoutWrapper(PageLayout model) : base(model)
+        public PageLayoutWrapper(VNCVisioAddIn.Domain.PageLayout model) : base(model)
         {
         }
 

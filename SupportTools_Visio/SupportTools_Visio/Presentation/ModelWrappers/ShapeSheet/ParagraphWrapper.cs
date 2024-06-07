@@ -1,10 +1,12 @@
 ﻿using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ParagraphWrapper : ModelWrapper<Domain.ParagraphRow>
+    public class ParagraphWrapper : ModelWrapper<VNCVisioAddIn.Domain.ParagraphRow>
     {
-        public ParagraphWrapper(Domain.ParagraphRow model) : base(model)
+        public ParagraphWrapper(VNCVisioAddIn.Domain.ParagraphRow model) : base(model)
         {
         }
 

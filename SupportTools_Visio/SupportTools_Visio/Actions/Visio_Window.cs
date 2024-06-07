@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Actions
 {

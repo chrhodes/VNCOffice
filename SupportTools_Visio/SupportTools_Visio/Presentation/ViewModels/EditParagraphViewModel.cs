@@ -10,6 +10,7 @@ using VNC;
 using VNC.Core.Mvvm;
 using Microsoft.Office.Interop.Visio;
 using SupportTools_Visio.Actions;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ViewModels
 {
@@ -73,7 +74,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             // TODO(crhodes)
             // Decide if we want defaults
-            Paragraph = new ParagraphWrapper(new Domain.ParagraphRow());
+            Paragraph = new ParagraphWrapper(new VNCVisioAddIn.Domain.ParagraphRow());
         }
 
         public void OnUpdateSettingsExecute()

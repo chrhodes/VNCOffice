@@ -531,9 +531,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            Common.HasAppEvents = chkEnableAppEvents.Checked;
+            Common.EnableAppEvents = chkEnableAppEvents.Checked;
 
-            if (Common.HasAppEvents)
+            if (Common.EnableAppEvents)
             {
                 if (Common.AppEvents == null)
                 {
@@ -557,7 +557,7 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.Visio.AddinHelper.AddInInfo.DisplayInfo();
+            VNC.VSTOAddIn.AddInInfo.DisplayInfo();
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }
@@ -566,7 +566,7 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.Visio.AddinHelper.Common.DebugWindow.Visible = !VNC.Visio.AddinHelper.Common.DebugWindow.Visible;
+            VNC.VSTOAddIn.Common.DebugWindow.Visible = !VNC.VSTOAddIn.Common.DebugWindow.Visible;
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }
@@ -575,7 +575,7 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.Visio.AddinHelper.Common.WatchWindow.Visible = !VNC.Visio.AddinHelper.Common.WatchWindow.Visible;
+            VNC.VSTOAddIn.Common.WatchWindow.Visible = !VNC.VSTOAddIn.Common.WatchWindow.Visible;
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }
@@ -584,8 +584,8 @@ namespace SupportTools_Visio
         {
             long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
 
-            VNC.Visio.AddinHelper.Common.DeveloperMode = !VNC.Visio.AddinHelper.Common.DeveloperMode;
-            Globals.Ribbons.Ribbon.rgDebug.Visible = VNC.Visio.AddinHelper.Common.DeveloperMode;
+            VNC.VSTOAddIn.Common.DeveloperMode = !VNC.VSTOAddIn.Common.DeveloperMode;
+            Globals.Ribbons.Ribbon.rgDebug.Visible = VNC.VSTOAddIn.Common.DeveloperMode;
 
             Log.PRESENTATION("Exit", Common.LOG_CATEGORY);
         }

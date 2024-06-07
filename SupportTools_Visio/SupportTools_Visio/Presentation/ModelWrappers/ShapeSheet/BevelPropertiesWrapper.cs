@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class BevelPropertiesWrapper : ModelWrapper<BevelProperties>
+    public class BevelPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.BevelProperties>
     {
         public BevelPropertiesWrapper()
         {
         }
-        public BevelPropertiesWrapper(BevelProperties model) : base(model)
+        public BevelPropertiesWrapper(VNCVisioAddIn.Domain.BevelProperties model) : base(model)
         {
         }
 

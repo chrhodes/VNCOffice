@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class OneDEndPointsWrapper : ModelWrapper<Domain.OneDEndPoints>
+    public class OneDEndPointsWrapper : ModelWrapper<VNCVisioAddIn.Domain.OneDEndPoints>
     {
         public OneDEndPointsWrapper()
         {
         }
-        public OneDEndPointsWrapper(OneDEndPoints model) : base(model)
+        public OneDEndPointsWrapper(VNCVisioAddIn.Domain.OneDEndPoints model) : base(model)
         {
         }
 

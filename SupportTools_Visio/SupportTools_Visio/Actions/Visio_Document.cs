@@ -11,7 +11,7 @@ using Microsoft.Office.Interop.Visio;
 using VNC;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Actions
 {
@@ -41,7 +41,7 @@ namespace SupportTools_Visio.Actions
 
         public static void AddDefaultLayers()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -65,7 +65,7 @@ namespace SupportTools_Visio.Actions
 
         public static void AddHeader()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -93,7 +93,7 @@ namespace SupportTools_Visio.Actions
 
         public static void AddFooter()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -125,7 +125,7 @@ namespace SupportTools_Visio.Actions
 
         public static void AddNavigationLinks()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             int undoScope = Globals.ThisAddIn.Application.BeginUndoScope("AddNavigationLinks");
 
@@ -143,7 +143,7 @@ namespace SupportTools_Visio.Actions
 
         public static void AutoSizePagesOff()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             int undoScope = Globals.ThisAddIn.Application.BeginUndoScope("AutoSizePagesOff");
 
@@ -161,7 +161,7 @@ namespace SupportTools_Visio.Actions
 
         public static void AutoSizePagesOn()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             int undoScope = Globals.ThisAddIn.Application.BeginUndoScope("AutoSizePagesOn");
 
@@ -179,7 +179,7 @@ namespace SupportTools_Visio.Actions
 
         public static void CreateTableOfContents()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Page pageTOC = CreateTOCPage();
 
@@ -221,7 +221,7 @@ namespace SupportTools_Visio.Actions
 
         public static Visio.Page CreateTOCPage()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Page page = null;
 
@@ -255,7 +255,7 @@ namespace SupportTools_Visio.Actions
 
         public static void DeletePages()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
             Visio.Document doc = app.ActiveDocument;
@@ -263,7 +263,7 @@ namespace SupportTools_Visio.Actions
 
             foreach (Visio.Shape shape in page.Shapes)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
                 try
                 {
                     short renumberPages = 0;    // Do not renumber default named pages
@@ -278,7 +278,7 @@ namespace SupportTools_Visio.Actions
 
         public static void DisplayInfo()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -358,11 +358,11 @@ namespace SupportTools_Visio.Actions
             sb.AppendFormat("{0} - {1}\n", "ActiveDocument.UndoEnabled", doc.UndoEnabled);
             sb.AppendFormat("{0} - {1}\n", "ActiveDocument.Version", doc.Version);
 
-            VisioHelper.DisplayInWatchWindow(sb.ToString());        }
+            VNCVisioAddIn.Common.DisplayInDebugWindow(sb.ToString());        }
 
         public static void DisplayLayer(string layerName, bool show)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}(layer:{1} show:{2})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}(layer:{1} show:{2})",
                 MethodBase.GetCurrentMethod().Name, layerName, show.ToString()));
 
             foreach (Visio.Page page in Globals.ThisAddIn.Application.ActiveDocument.Pages)
@@ -373,7 +373,7 @@ namespace SupportTools_Visio.Actions
 
         public static void DisplayPageNames()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -383,7 +383,7 @@ namespace SupportTools_Visio.Actions
             {
                 foreach (Visio.Page page in doc.Pages)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("Page {0} Name:>{1:30}< NameU:>{2:30}<", 
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Page {0} Name:>{1:30}< NameU:>{2:30}<", 
                         page.Name.Equals(page.NameU) == true ? " " : "?",
                         page.Name, page.NameU));
                 }
@@ -396,7 +396,7 @@ namespace SupportTools_Visio.Actions
 
         public static List<Visio.Shape> GetNavigationLinks()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             List<Visio.Shape> navLinks = new List<Visio.Shape>();
 
@@ -412,7 +412,7 @@ namespace SupportTools_Visio.Actions
 
         public static void MovePages(string targetDocument)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
             Visio.Document doc = app.ActiveDocument;
@@ -420,7 +420,7 @@ namespace SupportTools_Visio.Actions
 
             foreach (Visio.Shape shape in page.Shapes)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
                 try
                 {
                     Visio_Page.MovePage(doc.Pages[shape.Text], targetDocument);
@@ -434,7 +434,7 @@ namespace SupportTools_Visio.Actions
 
         public static void PrintPages()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             try
             {
@@ -444,7 +444,7 @@ namespace SupportTools_Visio.Actions
 
                 foreach (Visio.Shape shape in page.Shapes)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("Name: {0}  Text: >{1}<", shape.Name, shape.Text));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Name: {0}  Text: >{1}<", shape.Name, shape.Text));
 
                     //var bar = shape.Hyperlink;
                     //var hyperLinks = shape.Hyperlinks;
@@ -458,7 +458,7 @@ namespace SupportTools_Visio.Actions
                     {
                         if (shape.Hyperlink.SubAddress.Length > 0)
                         {
-                            VisioHelper.DisplayInWatchWindow(string.Format("Hyperlink: >{0}<", shape.Hyperlink.SubAddress));
+                            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Hyperlink: >{0}<", shape.Hyperlink.SubAddress));
                             doc.Pages[shape.Hyperlink.SubAddress].Print();
                         }
                     }
@@ -472,7 +472,7 @@ namespace SupportTools_Visio.Actions
 
         public static void RemoveLayers()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
             Visio.Document doc = app.ActiveDocument;
@@ -488,7 +488,7 @@ namespace SupportTools_Visio.Actions
         {
             VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
 
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
             Visio.Document doc = app.ActiveDocument;
@@ -498,7 +498,7 @@ namespace SupportTools_Visio.Actions
 
             foreach (Visio.Shape shape in page.Shapes)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
                 try
                 {
                     string newPageName = regex.Replace(doc.Pages[shape.Text].Name, replacementExpression);
@@ -514,7 +514,7 @@ namespace SupportTools_Visio.Actions
 
         public static void SavePages()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
             Visio.Document doc = app.ActiveDocument;
@@ -522,7 +522,7 @@ namespace SupportTools_Visio.Actions
 
             foreach (Visio.Shape shape in page.Shapes)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Name: {0}  Text: {1}", shape.Name, shape.Text));
                 try
                 {
                     Visio_Page.SavePage(doc.Pages[shape.Text]);
@@ -536,7 +536,7 @@ namespace SupportTools_Visio.Actions
 
         public static void SortAllPages()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -547,13 +547,13 @@ namespace SupportTools_Visio.Actions
             int index = 0;
             bool hasTOCPage = false;
 
-            VisioHelper.DisplayInWatchWindow(string.Format("Document({0})", doc.Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Document({0})", doc.Name));
 
             try
             {
                 foreach (Visio.Page page in doc.Pages)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("Page({0} IsBackground{1})", page.NameU, page.Background));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Page({0} IsBackground{1})", page.NameU, page.Background));
 
                     if ( ! page.NameU.Equals("Table of Contents"))
                     {
@@ -577,7 +577,7 @@ namespace SupportTools_Visio.Actions
 
                 for (int i = 0; i < index; i++)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("Moving Page({0})", sortedPages.GetByIndex(i)));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Moving Page({0})", sortedPages.GetByIndex(i)));
                     doc.Pages.ItemU[sortedPages.GetKey(i)].Index = (short)(i + offset);
                     //Application.ActiveDocument.Pages.ItemU("Page-2").Index = 3
                 }
@@ -590,7 +590,7 @@ namespace SupportTools_Visio.Actions
 
         public static void SyncPageNames()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -598,7 +598,7 @@ namespace SupportTools_Visio.Actions
 
             List<Visio.Page> pagesToUpdate = new List<Microsoft.Office.Interop.Visio.Page>();
 
-            VisioHelper.DisplayInWatchWindow(string.Format("Document({0})", doc.Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Document({0})", doc.Name));
 
             foreach (Visio.Page page in doc.Pages)
             {
@@ -616,7 +616,7 @@ namespace SupportTools_Visio.Actions
 
         public static void UpdatePageNameShapes()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -634,7 +634,7 @@ namespace SupportTools_Visio.Actions
 
         private static void AddPageLinkToTOCPage(Visio.Page pageTOC, Visio.Page page, double xLoc, double yLoc)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             int undoScope = Globals.ThisAddIn.Application.BeginUndoScope("AddPageLinkToTOCPage");
 
@@ -655,7 +655,7 @@ namespace SupportTools_Visio.Actions
 
         private static void AddTOCLinkToPage(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             if (page.Background != 0)
             {
@@ -698,7 +698,7 @@ namespace SupportTools_Visio.Actions
 
         private static void ClearPage(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             try
             {
@@ -717,7 +717,7 @@ namespace SupportTools_Visio.Actions
         }
         public static void AddArchitectureBasePages()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 

@@ -1,15 +1,17 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class UserDefinedCellRowWrapper : ModelWrapper<Domain.UserDefinedCellRow>
+    public class UserDefinedCellRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.UserDefinedCellRow>
     {
         public UserDefinedCellRowWrapper()
         {
         }
 
-        public UserDefinedCellRowWrapper(UserDefinedCellRow model) : base(model)
+        public UserDefinedCellRowWrapper(VNCVisioAddIn.Domain.UserDefinedCellRow model) : base(model)
         {
         }
 

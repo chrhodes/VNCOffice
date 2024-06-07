@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class GlueInfoWrapper : ModelWrapper<Domain.GlueInfo>
+    public class GlueInfoWrapper : ModelWrapper<VNCVisioAddIn.Domain.GlueInfo>
     {
         public GlueInfoWrapper()
         {
         }
-        public GlueInfoWrapper(GlueInfo model) : base(model)
+        public GlueInfoWrapper(VNCVisioAddIn.Domain.GlueInfo model) : base(model)
         {
         }
 

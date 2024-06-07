@@ -1,12 +1,14 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ActionTagRowWrapper : ModelWrapper<ActionTagRow>
+    public class ActionTagRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.ActionTagRow>
     {
         public ActionTagRowWrapper() { }
-        public ActionTagRowWrapper(ActionTagRow model) : base(model)
+        public ActionTagRowWrapper(VNCVisioAddIn.Domain.ActionTagRow model) : base(model)
         {
         }
 

@@ -1,11 +1,13 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class GeometryRowWrapper : ModelWrapper<Domain.GeometryRow>
+    public class GeometryRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.GeometryRow>
     {
-        public GeometryRowWrapper(GeometryRow model) : base(model)
+        public GeometryRowWrapper(VNCVisioAddIn.Domain.GeometryRow model) : base(model)
         {
         }
 

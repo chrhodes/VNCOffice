@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 //using AIH = VNC.AddinHelper;
 using VNC;
 using VNC.Core;
@@ -33,7 +33,7 @@ namespace SupportTools_Visio.Actions
         {
             VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -99,7 +99,7 @@ namespace SupportTools_Visio.Actions
         {
             VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -113,7 +113,7 @@ namespace SupportTools_Visio.Actions
         {
             VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -135,7 +135,7 @@ namespace SupportTools_Visio.Actions
 
         public static void LockLayer(string layerName)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Layer layer = Globals.ThisAddIn.Application.ActivePage.Layers[layerName];
@@ -145,7 +145,7 @@ namespace SupportTools_Visio.Actions
 
         public static void UnlockLayer(string layerName)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Layer layer = Globals.ThisAddIn.Application.ActivePage.Layers[layerName];
@@ -155,7 +155,7 @@ namespace SupportTools_Visio.Actions
 
         public static void AddDefaultLayers(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}({1})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 page.NameU));
 
@@ -170,7 +170,7 @@ namespace SupportTools_Visio.Actions
             try
             {
                 Visio.Page layersPage = Globals.ThisAddIn.Application.ActiveDocument.Pages["Default Layers"];
-                //VisioHelper.DisplayInWatchWindow(string.Format("  Copying {0} links", linkPage.Shapes.Count));
+                //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Copying {0} links", linkPage.Shapes.Count));
 
                 List<Visio.Shape> layerNames = GetLayerNameShapes(layersPage, LayerNameType.AddName);
             
@@ -199,13 +199,13 @@ namespace SupportTools_Visio.Actions
 
         public static void AddNavigationLinks(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}({1})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, 
                 page.NameU));
 
             if ((page.Background != 0) || (page.NameU == "Navigation Links"))
             {
-                //VisioHelper.DisplayInWatchWindow("   Skipping");
+                //VNCVisioAddIn.Common.DisplayInDebugWindow("   Skipping");
             	return;
             }
 
@@ -231,7 +231,7 @@ namespace SupportTools_Visio.Actions
                 //Visio.Page linkPage = Globals.ThisAddIn.Application.ActiveDocument.Pages["Navigation Links"];
                 //linkPage.Application.
                 //Globals.ThisAddIn.Application.
-                //VisioHelper.DisplayInWatchWindow(string.Format("  Copying {0} links", linkPage.Shapes.Count));
+                //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Copying {0} links", linkPage.Shapes.Count));
 
                 //foreach (Visio.Shape shape in linkPage.Shapes)
                 //{
@@ -268,7 +268,7 @@ namespace SupportTools_Visio.Actions
 
         public static Visio.Page CreatePage(string pageName, string backgroundPageName, short isBackground = 0)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() Page:{1}  Background:{2}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() Page:{1}  Background:{2}",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 pageName, backgroundPageName));
 
@@ -277,7 +277,7 @@ namespace SupportTools_Visio.Actions
             Visio.Application app = Globals.ThisAddIn.Application;
             int currentPageIndex = app.ActivePage.Index;
 
-            VisioHelper.DisplayInWatchWindow(string.Format("   currentPageIndex:{0}", currentPageIndex));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("   currentPageIndex:{0}", currentPageIndex));
             Visio.Page newPage = app.ActiveDocument.Pages.Add();
 
             // Cleanup page names
@@ -291,7 +291,7 @@ namespace SupportTools_Visio.Actions
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Cannot Find Background Page ({0})", backgroundPageName));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Cannot Find Background Page ({0})", backgroundPageName));
             }
             
             newPage.Index = (short)(currentPageIndex + 1);
@@ -310,7 +310,7 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 2)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
             }
             else
             {
@@ -318,14 +318,14 @@ namespace SupportTools_Visio.Actions
                 backgroundPageName = args[1];
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() PageLevel:{1}  Background:{2}", 
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() PageLevel:{1}  Background:{2}", 
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 pageLevel, backgroundPageName));
 
             // Current shape contains text for new page name.
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
-            VisioHelper.DisplayInWatchWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
 
             //string newPageName = string.Format("{0}-{1}", pageLevel, activeShape.Text);
             string newPageName = string.Format("{0}{1}{2}", pageLevel, "-", activeShape.Text);
@@ -374,7 +374,7 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 2)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
             }
             else
             {
@@ -382,14 +382,14 @@ namespace SupportTools_Visio.Actions
                 backgroundPageName = args[1];
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() PageLevel:{1}  Background:{2}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() PageLevel:{1}  Background:{2}",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 pageLevel, backgroundPageName));
 
             // Current shape contains text for new page name.
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
-            VisioHelper.DisplayInWatchWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
 
             //string newPageName = string.Format("{0}-{1}", pageLevel, activeShape.Text);
             string newPageName = string.Format("{0}{1}{2}", "", "", activeShape.Text);
@@ -416,7 +416,7 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 2)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
             }
             else
             {
@@ -424,14 +424,14 @@ namespace SupportTools_Visio.Actions
                 backgroundPageName = args[1];
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() arg0:{1}  Background:{2}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() arg0:{1}  Background:{2}",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 arg0, backgroundPageName));
 
             // Current shape contains text for new page name.
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
-            VisioHelper.DisplayInWatchWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
 
             string newPageName = string.Format("{0}{1}{2}", "", "", activeShape.Text);
 
@@ -455,7 +455,7 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 3)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 3.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 3.  Check ShapeSheet"));
             }
             else
             {
@@ -464,7 +464,7 @@ namespace SupportTools_Visio.Actions
                 backgroundPageName = args[2];
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() prefix:>{1}< delimiter:>{2}< backgroundPageName:>{3}<",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() prefix:>{1}< delimiter:>{2}< backgroundPageName:>{3}<",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 prefix, delimiter, backgroundPageName));
 
@@ -473,7 +473,7 @@ namespace SupportTools_Visio.Actions
                 // Current shape contains text for new page name.
                 Visio.Page activePage = app.ActivePage;
                 Visio.Shape activeShape = app.ActivePage.Shapes[shape];
-                VisioHelper.DisplayInWatchWindow(string.Format("  Shape(Name:>{0}< Text:>{1}< Characters:>{2}<", activeShape.Name, activeShape.Text, activeShape.Characters.TextAsString));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape(Name:>{0}< Text:>{1}< Characters:>{2}<", activeShape.Name, activeShape.Text, activeShape.Characters.TextAsString));
 
                 string shapePageName = "Error-PageNameNotProvided";
 
@@ -516,7 +516,7 @@ namespace SupportTools_Visio.Actions
                     string stencilName = linkInfo[0];
                     string shapeName = linkInfo[1];
 
-                    VisioHelper.DisplayInWatchWindow(string.Format("  returnLinkProp:>{0}< stencilName:>{1}< shapeName:>{2}< ", returnLinkProp, stencilName, shapeName));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  returnLinkProp:>{0}< stencilName:>{1}< shapeName:>{2}< ", returnLinkProp, stencilName, shapeName));
 
                     try
                     {
@@ -537,19 +537,19 @@ namespace SupportTools_Visio.Actions
                         }
                         catch (Exception ex)
                         {
-                            VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find Master named:>{0}<", shapeName));
+                            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find Master named:>{0}<", shapeName));
                         }
                     }
                     catch (Exception ex)
                     {
-                        VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
+                        VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
                     }
                 }
 
                 // Add a header.  May want to pick the stencil and shape for config file.
                 // Or add a property to Shape.
 
-                VisioHelper.LoadStencil(app, "Page Shapes.vssx");
+                VNCVisioAddIn.Helpers.LoadStencil(app, "Page Shapes.vssx");
                 Visio.Master headerMaster = app.Documents[@"Page Shapes.vssx"].Masters[@"18pt Header"];
 
                 newPage.Drop(headerMaster, 5.5, 8.0625);
@@ -576,7 +576,7 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 2)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
             }
             else
             {
@@ -584,14 +584,14 @@ namespace SupportTools_Visio.Actions
                 backgroundPageName = args[1];
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() PageLevel:{1}  Background:{2}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() PageLevel:{1}  Background:{2}",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 roleSource, backgroundPageName));
 
             // Current shape contains text for new page name.
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
-            VisioHelper.DisplayInWatchWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
 
             string newPageName = string.Format("{0}{1}{2}", "", "", activeShape.Text);
 
@@ -614,7 +614,7 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 2)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 2.  Check ShapeSheet"));
             }
             else
             {
@@ -622,14 +622,14 @@ namespace SupportTools_Visio.Actions
                 backgroundPageName = args[1];
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() arg0:{1}  Background:{2}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() arg0:{1}  Background:{2}",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name,
                 arg0, backgroundPageName));
 
             // Current shape contains text for new page name.
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
-            VisioHelper.DisplayInWatchWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
 
             string newPageName = string.Format("{0}{1}{2}", "", "", activeShape.Text);
 
@@ -646,14 +646,14 @@ namespace SupportTools_Visio.Actions
 
         public static void DisplayLayer(Visio.Page page, string layerName, bool show)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}(layer:{1} show:{2})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}(layer:{1} show:{2})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, layerName, show.ToString()));
 
-            VisioHelper.DisplayInWatchWindow(page.NameU);
+            VNCVisioAddIn.Common.DisplayInDebugWindow(page.NameU);
 
             foreach (Visio.Layer layer in page.Layers)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("  {0} - Visible:{1} Print:{2}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  {0} - Visible:{1} Print:{2}",
                     layer.Name,
                     layer.CellsC[(short)Visio.VisCellIndices.visLayerVisible].FormulaU.ToString(),
                     layer.CellsC[(short)Visio.VisCellIndices.visLayerPrint].FormulaU.ToString()));
@@ -667,7 +667,7 @@ namespace SupportTools_Visio.Actions
 
         public static void GatherInfo(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -718,48 +718,48 @@ namespace SupportTools_Visio.Actions
             //sb.AppendFormat("{0} - {1}\n", "ActivePage.Stat", page.Stat);
             //sb.AppendFormat("{0} - {1}\n", "ActivePage.Type", page.Type.ToString());
 
-            //VisioHelper.DisplayInWatchWindow(sb.ToString());
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(sb.ToString());
 
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Name", page.Name));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.NameU", page.NameU));
-
-            try
-            {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.OriginalPage.Name", page.OriginalPage.Name));
-            }
-            catch (Exception ex)
-            {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.OriginalPage.Name", "<none>"));
-            }
-
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.AutoSize", page.AutoSize));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Background", page.Background));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Comments", page.Comments.ToString()));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Connects", page.Connects.Count));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.ID", page.ID));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Index", page.Index));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Layers", page.Layers.Count));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.LayoutRoutePassive", page.LayoutRoutePassive));
-
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.PageSheet.Name", page.PageSheet.Name));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.PrintTileCount", page.PrintTileCount));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Name", page.Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.NameU", page.NameU));
 
             try
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.ReviewerID", page.ReviewerID));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.OriginalPage.Name", page.OriginalPage.Name));
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.ReviewerID", "<none>"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.OriginalPage.Name", "<none>"));
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.ShapeComments", page.ShapeComments.ToString()));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Shapes", page.Shapes.Count));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Stat", page.Stat));
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} - {1}\n", "ActivePage.Type", page.Type.ToString()));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.AutoSize", page.AutoSize));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Background", page.Background));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Comments", page.Comments.ToString()));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Connects", page.Connects.Count));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.ID", page.ID));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Index", page.Index));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Layers", page.Layers.Count));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.LayoutRoutePassive", page.LayoutRoutePassive));
 
-            //VisioHelper.DisplayInWatchWindow(sb.ToString());
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.PageSheet.Name", page.PageSheet.Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.PrintTileCount", page.PrintTileCount));
+
+            try
+            {
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.ReviewerID", page.ReviewerID));
+            }
+            catch (Exception ex)
+            {
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.ReviewerID", "<none>"));
+            }
+
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.ShapeComments", page.ShapeComments.ToString()));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Shapes", page.Shapes.Count));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Stat", page.Stat));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} - {1}\n", "ActivePage.Type", page.Type.ToString()));
+
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(sb.ToString());
             foreach (Visio.Shape shape in page.Shapes)
             {
                 Actions.Visio_Shape.DisplayInfo(shape);
@@ -769,7 +769,7 @@ namespace SupportTools_Visio.Actions
 
         public static void PageChanged(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.Name, page.NameU));
 
             SyncPageNames(page);
@@ -778,7 +778,7 @@ namespace SupportTools_Visio.Actions
 
         public static void PrintPage()
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -797,7 +797,7 @@ namespace SupportTools_Visio.Actions
 
         public static void RemoveLayers()
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -809,7 +809,7 @@ namespace SupportTools_Visio.Actions
 
         public static void DeleteLayers(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.Name, page.NameU));
 
             try
@@ -868,7 +868,7 @@ namespace SupportTools_Visio.Actions
                 }
                 else
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("Layer >{0}< does not exist", layerName));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Layer >{0}< does not exist", layerName));
                 }
             }
             catch (Exception ex)
@@ -881,7 +881,7 @@ namespace SupportTools_Visio.Actions
 
         public static void MovePage(Visio.Page page, string targetDocument)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
             Visio.Application app = page.Application;
             Visio.Document doc = page.Document;
@@ -922,7 +922,7 @@ namespace SupportTools_Visio.Actions
                 Log.Error(ex, Common.LOG_CATEGORY);
             }
 
-            VisioHelper.DisplayInWatchWindow("Exit");
+            VNCVisioAddIn.Common.DisplayInDebugWindow("Exit");
         }
 
         //Sub MovePageTryTwo()
@@ -985,7 +985,7 @@ namespace SupportTools_Visio.Actions
 
         public static void SavePage(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.Name, page.NameU));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -1045,7 +1045,7 @@ namespace SupportTools_Visio.Actions
 
         public static void SyncPageNames()
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -1057,7 +1057,7 @@ namespace SupportTools_Visio.Actions
 
         public static void SyncPageNames(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.Name, page.NameU));
 
             try
@@ -1078,7 +1078,7 @@ namespace SupportTools_Visio.Actions
 
         public static void ToggleLayerLock(Visio.Application app, string doc, string page, string shape, string shapeu)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
@@ -1087,7 +1087,7 @@ namespace SupportTools_Visio.Actions
             foreach (Visio.Layer layer in app.ActivePage.Layers)
             {
 
-                VisioHelper.DisplayInWatchWindow(layer.Name);
+                VNCVisioAddIn.Common.DisplayInDebugWindow(layer.Name);
 
                 if (layer.Name.ToLower() == layerName.ToLower())
                 {
@@ -1105,7 +1105,7 @@ namespace SupportTools_Visio.Actions
 
         public static void ToggleLayerPrint(Visio.Application app, string doc, string page, string shape, string shapeu)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
@@ -1114,7 +1114,7 @@ namespace SupportTools_Visio.Actions
             foreach (Visio.Layer layer in app.ActivePage.Layers)
             {
 
-                VisioHelper.DisplayInWatchWindow(layer.Name);
+                VNCVisioAddIn.Common.DisplayInDebugWindow(layer.Name);
 
                 if (layer.Name.ToLower() == layerName.ToLower())
                 {
@@ -1132,7 +1132,7 @@ namespace SupportTools_Visio.Actions
 
         public static void ToggleLayerVisibility(Visio.Application app, string doc, string page, string shape, string shapeu)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
@@ -1141,7 +1141,7 @@ namespace SupportTools_Visio.Actions
             foreach (Visio.Layer layer in app.ActivePage.Layers)
             {
 
-                VisioHelper.DisplayInWatchWindow(layer.Name);
+                VNCVisioAddIn.Common.DisplayInDebugWindow(layer.Name);
 
                 if (layer.Name.ToLower() == layerName.ToLower())
                 {
@@ -1174,14 +1174,14 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 1)
             {
-                //VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 3.  Check ShapeSheet"));
+                //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 3.  Check ShapeSheet"));
             }
             else
             {
                 mode = args[0];
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}({1})  mode:{2}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1})  mode:{2}",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page,
                 mode));
 
@@ -1195,7 +1195,7 @@ namespace SupportTools_Visio.Actions
             }
             else
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Cannot locate Prop.GroupName.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Cannot locate Prop.GroupName.  Check ShapeSheet"));
                 return;
             }
 
@@ -1237,7 +1237,7 @@ namespace SupportTools_Visio.Actions
                 }
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("userColor:{0}-{1} propColor:{2}-{3} {4}", userColor, userColorS, propColor, propColorS, propColor2S));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("userColor:{0}-{1} propColor:{2}-{3} {4}", userColor, userColorS, propColor, propColorS, propColor2S));
 
             // Now walk the shapes on the page looking for shapes with a matching GroupName
 
@@ -1247,7 +1247,7 @@ namespace SupportTools_Visio.Actions
 
             foreach (Visio.Shape pageShape in currentPage.Shapes)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("shape NameID:({0})", pageShape.NameID));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("shape NameID:({0})", pageShape.NameID));
                 try
                 {
                     if ((hasGroupName = pageShape.CellExistsU["Prop.GroupName", 0]) != 0)
@@ -1269,7 +1269,7 @@ namespace SupportTools_Visio.Actions
                             // Not all Shapes with GroupName have the isSelectorTool user property, e.g. the Color Selector Shape!
                             // We don't care what the value is, we only update the shapes that don't have the user property.
 
-                            VisioHelper.DisplayInWatchWindow(string.Format("   groupName:({0})  isSelectorTool:({1})", groupName, isSelectorTool));
+                            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("   groupName:({0})  isSelectorTool:({1})", groupName, isSelectorTool));
 
                             if (isSelectorTool == 0)
                             {
@@ -1301,14 +1301,14 @@ namespace SupportTools_Visio.Actions
 
             if (args.Count() != 1)
             {
-                //VisioHelper.DisplayInWatchWindow(string.Format("Incorrect Argument Count, expected 3.  Check ShapeSheet"));
+                //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Incorrect Argument Count, expected 3.  Check ShapeSheet"));
             }
             else
             {
                 levels = int.Parse(args[0]);
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}({1})  levels:{2}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1})  levels:{2}",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page,
                 levels));
 
@@ -1327,7 +1327,7 @@ namespace SupportTools_Visio.Actions
             }
             else
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Cannot locate Prop.TagName.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Cannot locate Prop.TagName.  Check ShapeSheet"));
                 return;
             }
 
@@ -1337,7 +1337,7 @@ namespace SupportTools_Visio.Actions
             }
             else
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Cannot locate Prop.ForegroundColor.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Cannot locate Prop.ForegroundColor.  Check ShapeSheet"));
                 return;
             }
 
@@ -1347,7 +1347,7 @@ namespace SupportTools_Visio.Actions
             }
             else
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Cannot locate Prop.BackgroundColor.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Cannot locate Prop.BackgroundColor.  Check ShapeSheet"));
                 return;
             }
 
@@ -1357,7 +1357,7 @@ namespace SupportTools_Visio.Actions
             }
             else
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Cannot locate Prop.Pattern.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Cannot locate Prop.Pattern.  Check ShapeSheet"));
                 return;
             }
 
@@ -1367,19 +1367,19 @@ namespace SupportTools_Visio.Actions
             }
             else
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("Cannot locate Prop.IsVisible.  Check ShapeSheet"));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Cannot locate Prop.IsVisible.  Check ShapeSheet"));
                 return;
             }
 
             foreach (Visio.Shape pageShape in currentPage.Shapes)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("shape NameID:({0})", pageShape.NameID));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("shape NameID:({0})", pageShape.NameID));
 
                 try
                 {
                     var hasColorTags = pageShape.CellExistsU["User.HasColorTags", 0];    // 0 is Local and Inherited, 1 is Local only 
 
-                    VisioHelper.DisplayInWatchWindow(string.Format("shape {0}  hasColorTags:{1})",
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("shape {0}  hasColorTags:{1})",
                         pageShape.Name, hasColorTags));
 
                     if (hasColorTags != 0)
@@ -1423,7 +1423,7 @@ namespace SupportTools_Visio.Actions
 
         public static void UpdateLayer(Microsoft.Office.Interop.Visio.Application app, string doc, string page, string shape, string shapeu)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
@@ -1433,7 +1433,7 @@ namespace SupportTools_Visio.Actions
             {
                 try
                 {
-                    VisioHelper.DisplayInWatchWindow(layer.Name);
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(layer.Name);
 
                     if (layer.Name.ToLower() == layerName.ToLower())
                     {
@@ -1462,7 +1462,7 @@ namespace SupportTools_Visio.Actions
 
         public static void UpdatePageNameShapes(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.Name, page.NameU));
 
             foreach (Visio.Shape shape in page.Shapes)
@@ -1477,7 +1477,7 @@ namespace SupportTools_Visio.Actions
 
         private static List<Visio.Shape> GetLayerNameShapes(Visio.Page page, LayerNameType nameType = LayerNameType.AllNames)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}({1})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.NameU));
 
             List<Visio.Shape> layerNames = new List<Visio.Shape>();
@@ -1510,7 +1510,7 @@ namespace SupportTools_Visio.Actions
                             break;
 
                         default:
-                            VisioHelper.DisplayInWatchWindow(string.Format("Unknown LayerNameype:{0}",
+                            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Unknown LayerNameype:{0}",
                                 nameType));
                             break;
                     }
@@ -1522,7 +1522,7 @@ namespace SupportTools_Visio.Actions
 
         private static List<Visio.Shape> GetNavigationLinks(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}({1})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1})",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.NameU));
 
             List<Visio.Shape> navigationLinks = new List<Visio.Shape>();
@@ -1539,8 +1539,8 @@ namespace SupportTools_Visio.Actions
 
         private static string GetPageSaveName(Visio.Page page)
         {
-            string pageName = VNC.Visio.AddinHelper.Util.SafeFileName(page.NameU);
-            string documentName = VNC.Visio.AddinHelper.Util.SafeFileName(page.Application.ActiveDocument.Name);
+            string pageName = VNCVisioAddIn.Helpers.SafePageName(page.NameU);
+            string documentName = VNCVisioAddIn.Helpers.SafeFileName(page.Application.ActiveDocument.Name);
 
             // TODO(crhodes):
             // Do more fancy stuff so it is easier to find the file later
@@ -1552,7 +1552,7 @@ namespace SupportTools_Visio.Actions
 
         private static void RemoveNavigationLinks(Visio.Page page)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name, page.Name, page.NameU));
 
             List<Visio.Shape> navigationLinks = GetNavigationLinks(page);

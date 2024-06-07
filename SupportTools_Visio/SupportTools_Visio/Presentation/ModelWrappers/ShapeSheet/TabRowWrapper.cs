@@ -1,11 +1,13 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class TabRowWrapper : ModelWrapper<Domain.TabRow>
+    public class TabRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.TabRow>
     {
-        public TabRowWrapper(TabRow model) : base(model)
+        public TabRowWrapper(VNCVisioAddIn.Domain.TabRow model) : base(model)
         {
         }
 

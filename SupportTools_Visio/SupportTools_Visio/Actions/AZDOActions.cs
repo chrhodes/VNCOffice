@@ -14,7 +14,7 @@ using VNC;
 using VNC.Core;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Actions
 {
@@ -24,8 +24,7 @@ namespace SupportTools_Visio.Actions
 
         internal static async void AddLinkedWorkItems1(Visio.Application app, string doc, string page, string shape, string shapeu, string[] vs)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
-                MethodBase.GetCurrentMethod().Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             // NOTE(crhodes)
             // Can launch a UI here.  Or earlier.
@@ -45,8 +44,7 @@ namespace SupportTools_Visio.Actions
         
         internal static async void AddLinkedWorkItems2(Visio.Application app, string doc, string page, string shape, string shapeu, string[] vs)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
-                MethodBase.GetCurrentMethod().Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             // NOTE(crhodes)
             // Can launch a UI here.  Or earlier.
@@ -69,8 +67,8 @@ namespace SupportTools_Visio.Actions
         {
             bool result = false;
 
-            result = VisioHelper.LoadStencil(app, "Azure DevOps.vssx");
-            result = VisioHelper.LoadStencil(app, "Page Shapes.vssx");
+            result = VNCVisioAddIn.Helpers.LoadStencil(app, "Azure DevOps.vssx");
+            result = VNCVisioAddIn.Helpers.LoadStencil(app, "Page Shapes.vssx");
 
             return result;
         }
@@ -130,12 +128,12 @@ namespace SupportTools_Visio.Actions
                     }
                     catch (Exception ex)
                     {
-                        VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find Master named:>{0}<", shapeName));
+                        VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find Master named:>{0}<", shapeName));
                     }
                 }
                 catch (Exception ex)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
                 }
 
                 // TODO(crhodes)
@@ -157,7 +155,7 @@ namespace SupportTools_Visio.Actions
                         continue;
                     }
 
-                    VisioHelper.DisplayInWatchWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
+                    VNCVisioAddIn.Common.DisplayInDebugWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
 
                     insertionPoint = AZDOPageLayout.CalculateInsertionPointLinkedWorkItems(initialPosition, linkedWorkItem, activeShapeWorkItemInfo, workItemOffsets);
 
@@ -165,13 +163,12 @@ namespace SupportTools_Visio.Actions
                 }
             }
 
-            VisioHelper.DisplayInWatchWindow($"{activeShapeWorkItemInfo}");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{activeShapeWorkItemInfo}");
         }
 
         internal static async void GetWorkItemInfo1(Visio.Application app, string doc, string page, string shape, string shapeu, string[] vs)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
-                MethodBase.GetCurrentMethod().Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
 
@@ -180,8 +177,7 @@ namespace SupportTools_Visio.Actions
 
         internal static async void GetWorkItemInfo2(Visio.Application app, string doc, string page, string shape, string shapeu, string[] vs)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
-                MethodBase.GetCurrentMethod().Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
 
@@ -219,7 +215,7 @@ namespace SupportTools_Visio.Actions
 
             shapeInfo.PopulateShapeDataFromInfo(shape, version);
 
-            VisioHelper.DisplayInWatchWindow($"{shapeInfo}");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{shapeInfo}");
         }
 
         private static async void AddNewWorkItemShapeToPage(Visio.Page page, Visio.Master linkMaster,
@@ -241,7 +237,7 @@ namespace SupportTools_Visio.Actions
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow($"{workItem.Id} - {ex}");
+                VNCVisioAddIn.Common.DisplayInDebugWindow($"{workItem.Id} - {ex}");
             }
         }
 
@@ -264,7 +260,7 @@ namespace SupportTools_Visio.Actions
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow($"{workItem.Id} - {ex}");
+                VNCVisioAddIn.Common.DisplayInDebugWindow($"{workItem.Id} - {ex}");
             }
         }
 
@@ -396,12 +392,12 @@ namespace SupportTools_Visio.Actions
                     }
                     catch (Exception ex)
                     {
-                        VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find Master named:>{0}<", targetShapeName));
+                        VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find Master named:>{0}<", targetShapeName));
                     }
                 }
                 catch (Exception ex)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
                 }
 
                 // TODO(crhodes)
@@ -423,7 +419,7 @@ namespace SupportTools_Visio.Actions
                     //    continue;
                     //}
 
-                    VisioHelper.DisplayInWatchWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
+                    VNCVisioAddIn.Common.DisplayInDebugWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
 
                     insertionPoint = AZDOPageLayout.CalculateInsertionPointQueriedWorkItems(initialPosition, linkedWorkItem, shapeInfo, workItemOffsets);
 
@@ -490,12 +486,12 @@ namespace SupportTools_Visio.Actions
                     }
                     catch (Exception ex)
                     {
-                        VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find Master named:>{0}<", targetShapeName));
+                        VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find Master named:>{0}<", targetShapeName));
                     }
                 }
                 catch (Exception ex)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
                 }
 
                 // TODO(crhodes)
@@ -517,7 +513,7 @@ namespace SupportTools_Visio.Actions
                         continue;
                     }
 
-                    VisioHelper.DisplayInWatchWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
+                    VNCVisioAddIn.Common.DisplayInDebugWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
 
                     insertionPoint = AZDOPageLayout.CalculateInsertionPointLinkedWorkItems(initialPosition, linkedWorkItem, activeShapeWorkItemInfo, workItemOffsets);
 
@@ -525,12 +521,12 @@ namespace SupportTools_Visio.Actions
                 }
             }
 
-            VisioHelper.DisplayInWatchWindow($"{activeShapeWorkItemInfo}");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{activeShapeWorkItemInfo}");
         }
 
         public static async void GetWorkItemRevisions(Visio.Application app, string doc, string page, string shape, string shapeu, string[] array)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             // NOTE(crhodes)
@@ -602,12 +598,12 @@ namespace SupportTools_Visio.Actions
                     }
                     catch (Exception ex)
                     {
-                        VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find Master named:>{0}<", targetShapeName));
+                        VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find Master named:>{0}<", targetShapeName));
                     }
                 }
                 catch (Exception ex)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Cannot find open Stencil named:>{0}<", stencilName));
                 }
 
                 // TODO(crhodes)
@@ -629,7 +625,7 @@ namespace SupportTools_Visio.Actions
                     //    continue;
                     //}
 
-                    VisioHelper.DisplayInWatchWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
+                    VNCVisioAddIn.Common.DisplayInDebugWindow($"{linkedWorkItem.Id} {linkedWorkItem.Fields["System.Title"]}");
 
                     insertionPoint = AZDOPageLayout.CalculateInsertionPointLinkedWorkItems(initialPosition, linkedWorkItem, activeShapeWorkItemInfo, workItemOffsets);
 

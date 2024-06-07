@@ -10,6 +10,7 @@ using VNC;
 using VNC.Core.Mvvm;
 
 using Visio = Microsoft.Office.Interop.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ViewModels
 {
@@ -323,7 +324,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                 switch (foo.Name)
                 {
                     case "ShapeDataRow":
-                        shapeSheet.Add((row as ShapeDataRow).ToXElement());
+                        shapeSheet.Add((row as VNCVisioAddIn.Domain.ShapeDataRow).ToXElement());
                         break;
 
                     default:
