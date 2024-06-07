@@ -1,14 +1,15 @@
-﻿using SupportTools_Visio.Domain;
-using VNC.Core.Mvvm;
+﻿using VNC.Core.Mvvm;
+
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ShapeLayoutWrapper : ModelWrapper<Domain.ShapeLayout>
+    public class ShapeLayoutWrapper : ModelWrapper<VNCVisioAddIn.Domain.ShapeLayout>
     {
         public ShapeLayoutWrapper()
         {
         }
-        public ShapeLayoutWrapper(ShapeLayout model) : base(model)
+        public ShapeLayoutWrapper(VNCVisioAddIn.Domain.ShapeLayout model) : base(model)
         {
         }
 

@@ -5,6 +5,8 @@ using System.Windows.Controls;
 
 using VNC;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.Views
 {
     public partial class EditControlPoints : UserControl
@@ -23,7 +25,7 @@ namespace SupportTools_Visio.Presentation.Views
         {
             Log.Trace("Enter", Common.LOG_CATEGORY);
             //VNC.Log.Trace("", Common.LOG_APPNAME, 0);
-            //VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
             //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
             Log.Trace("Exit", Common.LOG_CATEGORY);
         }
@@ -32,7 +34,7 @@ namespace SupportTools_Visio.Presentation.Views
         {
             Log.Trace("Enter", Common.LOG_CATEGORY);
             //VNC.Log.Trace("", Common.LOG_APPNAME, 0);
-            //VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
             //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
             Log.Trace("Exit", Common.LOG_CATEGORY);
         }
@@ -80,15 +82,15 @@ namespace SupportTools_Visio.Presentation.Views
 
         #endregion
 
-        List<Domain.ConnectionPointRow> GetConnectionPointSettings()
+        List<VNCVisioAddIn.Domain.ConnectionPointRow> GetConnectionPointSettings()
         {
-            List<Domain.ConnectionPointRow> connectionPoints = new List<Domain.ConnectionPointRow>();
+            List<VNCVisioAddIn.Domain.ConnectionPointRow> connectionPoints = new List<VNCVisioAddIn.Domain.ConnectionPointRow>();
 
             #region Top Edge
 
             if ((bool)ceTEL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "TEL",
                     X = "Width*0.0",
@@ -102,7 +104,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16LLL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16LLL",
                     X = "Width*0.0625",
@@ -116,7 +118,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT8LL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T8LL",
                     X = "Width*0.125",
@@ -130,7 +132,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16LLR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16LLR",
                     X = "Width*0.1875",
@@ -144,7 +146,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceTQL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "TQL",
                     X = "Width*0.25",
@@ -158,7 +160,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16LRL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16LRL",
                     X = "Width*0.3125",
@@ -172,7 +174,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT8LR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T8LR",
                     X = "Width*0.375",
@@ -186,7 +188,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16LRR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16LRR",
                     X = "Width*0.4375",
@@ -200,7 +202,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceTM.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "TM",
                     X = "Width*0.5",
@@ -214,7 +216,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16RLL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16RLL",
                     X = "Width*0.5625",
@@ -228,7 +230,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT8RL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T8RL",
                     X = "Width*0.625",
@@ -242,7 +244,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16RLR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16RL",
                     X = "Width*0.6875",
@@ -256,7 +258,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceTQR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "TQR",
                     X = "Width*0.75",
@@ -270,7 +272,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16RRL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16RRL",
                     X = "Width*0.8125",
@@ -284,7 +286,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT8RR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T8RR",
                     X = "Width*0.875",
@@ -298,7 +300,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceT16RRR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "T16RRR",
                     X = "Width*0.9375",
@@ -312,7 +314,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceTER.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "TER",
                     X = "Width*1.0",
@@ -330,7 +332,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceBEL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "BEL",
                     X = "Width*0.0",
@@ -344,7 +346,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16LLL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16LLL",
                     X = "Width*0.0625",
@@ -358,7 +360,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB8LL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B8LL",
                     X = "Width*0.125",
@@ -372,7 +374,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16LLR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16LLR",
                     X = "Width*0.1875",
@@ -386,7 +388,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceBQL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "BQL",
                     X = "Width*0.25",
@@ -400,7 +402,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16LRL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16LRL",
                     X = "Width*0.3125",
@@ -414,7 +416,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB8LR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B8LR",
                     X = "Width*0.375",
@@ -428,7 +430,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16LRR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16LRR",
                     X = "Width*0.4375",
@@ -442,7 +444,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceBM.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "BM",
                     X = "Width*0.5",
@@ -456,7 +458,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16RLL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16RLL",
                     X = "Width*0.5625",
@@ -470,7 +472,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB8RL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B8RL",
                     X = "Width*0.625",
@@ -484,7 +486,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16RLR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16RL",
                     X = "Width*0.6875",
@@ -498,7 +500,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceBQR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "BQR",
                     X = "Width*0.75",
@@ -512,7 +514,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16RRL.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16RRL",
                     X = "Width*0.8125",
@@ -526,7 +528,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB8RR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B8RR",
                     X = "Width*0.875",
@@ -540,7 +542,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceB16RRR.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "B16RRR",
                     X = "Width*0.9375",
@@ -554,7 +556,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceBER.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "BER",
                     X = "Width*1.0",
@@ -572,7 +574,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16TTT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16TTT",
                     X = "Width*0.0",
@@ -586,7 +588,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL8TT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L8TT",
                     X = "Width*0.0",
@@ -600,7 +602,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16TTB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16TTB",
                     X = "Width*0.0",
@@ -614,7 +616,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceLQT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "LQT",
                     X = "Width*0.0",
@@ -628,7 +630,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16TBT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16TBT",
                     X = "Width*0.0",
@@ -642,7 +644,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL8TB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L8TB",
                     X = "Width*0.0",
@@ -656,7 +658,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16TBB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16TBB",
                     X = "Width*0.0",
@@ -670,7 +672,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceLM.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "LM",
                     X = "Width*0.0",
@@ -684,7 +686,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16BTT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16BTT",
                     X = "Width*0.0",
@@ -698,7 +700,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL8BT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L8BT",
                     X = "Width*0.0",
@@ -712,7 +714,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16BTB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16BTB",
                     X = "Width*0.0",
@@ -726,7 +728,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceLQB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "LQB",
                     X = "Width*0.0",
@@ -740,7 +742,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16BBT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16BBT",
                     X = "Width*0.0",
@@ -754,7 +756,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL8BB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L8BB",
                     X = "Width*0.0",
@@ -768,7 +770,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceL16BBB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "L16BBB",
                     X = "Width*0.0",
@@ -786,7 +788,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16TTT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16TTT",
                     X = "Width*1.0",
@@ -800,7 +802,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR8TT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R8TT",
                     X = "Width*1.0",
@@ -814,7 +816,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16TTB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16TTB",
                     X = "Width*1.0",
@@ -828,7 +830,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceRQT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "RQT",
                     X = "Width*1.0",
@@ -842,7 +844,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16TBT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16TBT",
                     X = "Width*1.0",
@@ -856,7 +858,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR8TB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R8TB",
                     X = "Width*1.0",
@@ -870,7 +872,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16TBB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16TBB",
                     X = "Width*1.0",
@@ -884,7 +886,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceRM.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "RM",
                     X = "Width*1.0",
@@ -898,7 +900,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16BTT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16BTT",
                     X = "Width*1.0",
@@ -912,7 +914,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR8BT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R8BT",
                     X = "Width*1.0",
@@ -926,7 +928,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16BTB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16BTB",
                     X = "Width*1.0",
@@ -940,7 +942,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceRQB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "RQB",
                     X = "Width*1.0",
@@ -954,7 +956,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16BBT.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16BBT",
                     X = "Width*1.0",
@@ -968,7 +970,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR8BB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R8BB",
                     X = "Width*1.0",
@@ -982,7 +984,7 @@ namespace SupportTools_Visio.Presentation.Views
 
             if ((bool)ceR16BBB.IsChecked)
             {
-                connectionPoints.Add(new Domain.ConnectionPointRow
+                connectionPoints.Add(new VNCVisioAddIn.Domain.ConnectionPointRow
                 {
                     Name = "R16BBB",
                     X = "Width*1.0",

@@ -7,6 +7,7 @@ using SupportTools_Visio.Presentation.ModelWrappers;
 using VNC;
 
 using Visio = Microsoft.Office.Interop.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ViewModels
 {
@@ -77,7 +78,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                foreach (ControlsRow row in Visio_Shape.Get_ControlsRows(shape))
+                foreach (VNCVisioAddIn.Domain.ControlsRow row in Visio_Shape.Get_ControlsRows(shape))
                 {
                     Controls.Add(new ControlsRowWrapper(row));
                 }

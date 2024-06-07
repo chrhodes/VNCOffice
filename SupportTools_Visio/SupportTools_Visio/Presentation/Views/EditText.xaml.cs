@@ -32,7 +32,7 @@ namespace SupportTools_Visio.Presentation.Views
         //{
         //    Log.Trace("Enter", Common.LOG_CATEGORY);
         //    //VNC.Log.Trace("", Common.LOG_APPNAME, 0);
-        //    //VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+        //    //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
         //    //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
         //    Log.Trace("Exit", Common.LOG_CATEGORY);
         //}
@@ -41,7 +41,7 @@ namespace SupportTools_Visio.Presentation.Views
         //{
         //    Log.Trace("Enter", Common.LOG_CATEGORY);
         //    //VNC.Log.Trace("", Common.LOG_APPNAME, 0);
-        //    //VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+        //    //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
         //    //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
         //    Log.Trace("Exit", Common.LOG_CATEGORY);
         //}

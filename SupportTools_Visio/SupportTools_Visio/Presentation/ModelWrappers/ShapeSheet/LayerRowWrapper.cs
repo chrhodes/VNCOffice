@@ -1,13 +1,15 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class LayerRowWrapper : ModelWrapper<Domain.LayerRow>
+    public class LayerRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.LayerRow>
     {
         public LayerRowWrapper() { }
 
-        public LayerRowWrapper(LayerRow model) : base(model)
+        public LayerRowWrapper(VNCVisioAddIn.Domain.LayerRow model) : base(model)
         {
         }
 

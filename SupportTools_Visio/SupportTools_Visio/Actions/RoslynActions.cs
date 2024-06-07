@@ -8,17 +8,16 @@ using SupportTools_Visio.Domain;
 using VNC.Core;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Actions
 {
     public class RoslynActions
     {
 
-
         public static void GetClassInfo(Visio.Application app, string doc, string page, string shape, string shapeu, String[] args)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             Visio.Page activePage = app.ActivePage;
@@ -26,13 +25,13 @@ namespace SupportTools_Visio.Actions
 
             ClassInfoShape classInfoShape = new ClassInfoShape(activeShape);
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                 classInfoShape.ToString()));
         }
 
         internal static void GetProjectFileInfo(Visio.Application app, string doc, string page, string shape, string shapeu, string[] v)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             Visio.Page activePage = app.ActivePage;
@@ -43,10 +42,10 @@ namespace SupportTools_Visio.Actions
             {
                 FileInfoShape fileInfoShape = new FileInfoShape(activeShape);
 
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     fileInfoShape.ToString()));
 
-                //VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                 //    fileInfoShape.DisplayInfo()));
 
                 string configFileFullPath = @"C:\temp\CodeCommandConsole_Config.xml";
@@ -73,7 +72,7 @@ namespace SupportTools_Visio.Actions
 
                 foreach (string filePath in filesToProcess)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                         filePath));
                     //if ((Boolean)ceListImpactedFilesOnly.IsChecked)
                     //{
@@ -124,14 +123,14 @@ namespace SupportTools_Visio.Actions
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     ex.ToString()));
             }
         }
 
         internal static void GetSolutionFileInfo(Visio.Application app, string doc, string page, string shape, string shapeu, string[] v)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             Visio.Page activePage = app.ActivePage;
@@ -141,10 +140,10 @@ namespace SupportTools_Visio.Actions
             {
                 FileInfoShape fileInfoShape = new FileInfoShape(activeShape);
 
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     fileInfoShape.ToString()));
 
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     fileInfoShape.DisplayInfo()));
 
                 string fileNameAndPath = fileInfoShape.SolutionFileName;
@@ -170,14 +169,14 @@ namespace SupportTools_Visio.Actions
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     ex.ToString()));
             }
         }
 
         internal static void GetSourceFileInfo(Visio.Application app, string doc, string page, string shape, string shapeu, string[] v)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             Visio.Page activePage = app.ActivePage;
@@ -187,10 +186,10 @@ namespace SupportTools_Visio.Actions
             {
                 FileInfoShape fileInfoShape = new FileInfoShape(activeShape);
 
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     fileInfoShape.ToString()));
 
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     fileInfoShape.DisplayInfo()));
 
                 string fileNameAndPath = fileInfoShape.SourceFileFileName;
@@ -216,14 +215,14 @@ namespace SupportTools_Visio.Actions
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     ex.ToString()));
             }
         }
 
         internal static void GetMethodInfo(Visio.Application app, string doc, string page, string shape, string shapeu, string[] v)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             Visio.Page activePage = app.ActivePage;
@@ -231,13 +230,13 @@ namespace SupportTools_Visio.Actions
 
             MethodInfoShape methodInfoShape = new MethodInfoShape(activeShape);
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                 methodInfoShape.ToString()));
         }
 
         internal static void CreateMethodShapes(Visio.Application app, string doc, string page, string shape, string shapeu, string[] v)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             Visio.Page activePage = app.ActivePage;
@@ -248,10 +247,10 @@ namespace SupportTools_Visio.Actions
                 FileInfoShape fileInfoShape = new FileInfoShape(activeShape);
 
 
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     fileInfoShape.ToString()));
 
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     fileInfoShape.DisplayInfo()));
 
                 string fileNameAndPath = fileInfoShape.SourceFileFileName;
@@ -277,7 +276,7 @@ namespace SupportTools_Visio.Actions
             }
             catch (Exception ex)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("{0}",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}",
                     ex.ToString()));
             }
         }

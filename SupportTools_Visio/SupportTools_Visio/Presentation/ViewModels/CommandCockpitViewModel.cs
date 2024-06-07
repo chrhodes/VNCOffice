@@ -20,7 +20,7 @@ using VNC.Core.Mvvm;
 using VNC.Core.Services;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHlp = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ViewModels
 {
@@ -366,7 +366,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             //         </Layers>                          
             //    </ActiveDocument>                          
             // </Documents>
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -375,8 +375,8 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (XElement element in documentsElement)
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -401,7 +401,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                         break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -409,7 +409,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_Document(XElement documentElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -435,7 +435,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_ActiveDocument(XElement activeDocumentElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -458,7 +458,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_Document_Add(XElement documentElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -471,7 +471,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
         #endregion
@@ -480,13 +480,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_Pages(Visio.Document doc, IEnumerable<XElement> pagesElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             foreach (XElement element in pagesElement)
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -515,7 +515,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                         break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -523,7 +523,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_Page(Visio.Document doc, XElement pageElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -544,13 +544,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_Page_Add(Visio.Document document, XElement pageElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -570,20 +570,20 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_Page_DeleteAll(XElement deleteAllElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
         }
 
         private void ProcessCommand_Page_Delete(Visio.Document doc, XElement pageElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -600,18 +600,18 @@ namespace SupportTools_Visio.Presentation.ViewModels
                     }
                     else
                     {
-                        VisioHlp.DisplayInWatchWindow(string.Format("Page ({0}) not found", pageName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Page ({0}) not found", pageName));
                     }
                 }
                 else
                 {
-                    VisioHlp.DisplayInWatchWindow("Missing \"Name\" attribute");
+                    VNCVisioAddIn.Common.WriteToWatchWindow("Missing \"Name\" attribute");
                 }
 
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
@@ -621,7 +621,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_Layers(Visio.Page page, IEnumerable<XElement> layersElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             // TODO(crhodes):
@@ -629,8 +629,8 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (XElement element in layersElement)
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -651,7 +651,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                         break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -659,7 +659,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_Layer(Visio.Page page, XElement layerElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -716,13 +716,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_Layer_Add(Visio.Page page, XElement addElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -741,13 +741,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_Layer_Delete(Visio.Page page, XElement deleteElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -759,13 +759,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_Layer_DeleteAll(Visio.Page page, XElement deleteAllElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -777,7 +777,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
@@ -791,7 +791,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
         /// <param name="shapesElement"></param>
         private void ProcessCommand_Shapes(IEnumerable<XElement> shapesElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -800,8 +800,8 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (XElement element in shapesElement)
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -814,7 +814,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                         break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -824,8 +824,8 @@ namespace SupportTools_Visio.Presentation.ViewModels
         {
             foreach (XElement element in shapeElement.Elements())
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -834,7 +834,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                         break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -842,13 +842,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_ShapeSheet(Visio.Document document, XElement shapeSheetElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             foreach (XElement element in shapeSheetElement.Elements())
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -861,7 +861,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                     //    break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -869,13 +869,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_ShapeSheet(Visio.Page page, XElement shapeSheetElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             foreach (XElement element in shapeSheetElement.Elements())
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -888,7 +888,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                     //    break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -897,13 +897,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_ShapeSheet(Visio.Shape shape, XElement shapeSheetElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             foreach (XElement element in shapeSheetElement.Elements())
             {
-                VisioHlp.DisplayInWatchWindow(element.ToString());
-                VisioHlp.DisplayInWatchWindow(element.Name.LocalName);
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(element.Name.LocalName);
 
                 switch (element.Name.LocalName)
                 {
@@ -944,7 +944,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                         break;
 
                     default:
-                        VisioHlp.DisplayInWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
+                        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Element >{0}< not supported", element.Name.LocalName));
                         break;
                 }
             }
@@ -954,7 +954,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_ShapeSheet_ActionsRow(Visio.Shape shape, XElement addActionsElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -978,13 +978,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_ShapeSheet_AddHyperlinksRow(Visio.Shape shape, XElement addHyperlinksElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -1024,14 +1024,14 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
 
         }
 
         private void ProcessCommand_ShapeSheet_AddControlsRow(Visio.Shape shape, XElement addControlsRowElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -1052,18 +1052,18 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_ShapeSheet_SetTextBlockFormat(Visio.Shape shape, XElement setTextBlockFormatElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
             {
-                Domain.TextBlockFormat textBlockFormat = new Domain.TextBlockFormat();
+                VNCVisioAddIn.Domain.TextBlockFormat textBlockFormat = new VNCVisioAddIn.Domain.TextBlockFormat();
 
                 textBlockFormat.LeftMargin = setTextBlockFormatElement.Attribute("LeftMargin").Value;
                 textBlockFormat.TopMargin = setTextBlockFormatElement.Attribute("TopMargin").Value;
@@ -1079,13 +1079,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_ShapeSheet_SetTextTransform(Visio.Shape shape, XElement setTextTransformElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -1103,7 +1103,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
@@ -1121,7 +1121,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_ShapeSheet_SetFillFormat(Visio.Shape shape, XElement setFillFormatElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -1176,13 +1176,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_ShapeSheet_ShapeTransform(Visio.Shape shape, XElement shapeTransformElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -1202,7 +1202,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
@@ -1253,7 +1253,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                     break;
 
                 default:
-                    VisioHlp.DisplayInWatchWindow(string.Format("Unrecognized VisPropType >{0}<", value));
+                    VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("Unrecognized VisPropType >{0}<", value));
 
                     break;
             }
@@ -1263,7 +1263,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         private void ProcessCommand_ShapeSheet_AddPropRow(Visio.Shape shape, XElement addPropRowElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -1325,13 +1325,13 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 
         private void ProcessCommand_ShapeSheet_AddUserRow(Visio.Shape shape, XElement addUserRowElement)
         {
-            VisioHlp.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
@@ -1361,7 +1361,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
             catch (Exception ex)
             {
-                VisioHlp.DisplayInWatchWindow(ex.ToString());
+                VNCVisioAddIn.Common.WriteToWatchWindow(ex.ToString());
             }
         }
 

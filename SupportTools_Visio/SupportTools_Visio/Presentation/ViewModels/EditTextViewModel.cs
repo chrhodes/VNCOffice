@@ -6,6 +6,8 @@ using SupportTools_Visio.Presentation.ModelWrappers;
 using VNC;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ViewModels
 {
     public class EditTextViewModel : ViewModelBase, IEditTextViewModel
@@ -33,7 +35,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             DoSomething = new DelegateCommand(OnDoSomethingExecute, OnDoSomethingCanExecute);
             DoSomethingElse = new DelegateCommand<string>(OnDoSomethingElseExecute, OnDoSomethingElseCanExecute);
             //DoSomething = new DelegateCommand(OnDoSomethingExecute);
-            TextBlockFormat = new TextBlockFormatWrapper(new Domain.TextBlockFormat());
+            TextBlockFormat = new TextBlockFormatWrapper(new VNCVisioAddIn.Domain.TextBlockFormat());
         }
 
         public void OnDoSomethingExecute()

@@ -1,11 +1,13 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ConnectionPointRowWrapper : ModelWrapper<ConnectionPointRow>
+    public class ConnectionPointRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.ConnectionPointRow>
     {
-        public ConnectionPointRowWrapper(ConnectionPointRow model) : base(model)
+        public ConnectionPointRowWrapper(VNCVisioAddIn.Domain.ConnectionPointRow model) : base(model)
         {
         }
 

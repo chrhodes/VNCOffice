@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class TextTransformWrapper : ModelWrapper<Domain.TextTransform>
+    public class TextTransformWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextTransform>
     {
         public TextTransformWrapper()
         {
         }
-        public TextTransformWrapper(TextTransform model) : base(model)
+        public TextTransformWrapper(VNCVisioAddIn.Domain.TextTransform model) : base(model)
         {
         }
 

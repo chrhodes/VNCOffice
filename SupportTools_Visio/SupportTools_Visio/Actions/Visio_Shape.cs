@@ -8,12 +8,13 @@ using System.Windows;
 using Microsoft.Office.Interop.Visio;
 
 using SupportTools_Visio.Domain;
+
 //using static VNC.Helper;
 using VNC;
 using VNC.Core;
 
 using Visio = Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Actions
 {
@@ -36,7 +37,7 @@ namespace SupportTools_Visio.Actions
 
         public static void Add_User_IsPageName()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -46,18 +47,18 @@ namespace SupportTools_Visio.Actions
 
             Visio.Selection selection = app.ActiveWindow.Selection;
 
-            VisioHelper.DisplayInWatchWindow(string.Format(" Page({0}) selection.Count: {1}", page.NameU, selection.Count));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format(" Page({0}) selection.Count: {1}", page.NameU, selection.Count));
 
             //for (int i = 0; i < selection.Count; i++)
             //{
             //    var item = selection[i];
 
-            //    VisioHelper.DisplayInWatchWindow(string.Format("  Shape({0})", item.Name));
+            //    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape({0})", item.Name));
             //}
 
             foreach (Visio.Shape shape in selection)
             {
-                VisioHelper.DisplayInWatchWindow(string.Format("  Shape({0})", shape.Name));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape({0})", shape.Name));
 
                 try
                 {
@@ -69,7 +70,7 @@ namespace SupportTools_Visio.Actions
                         Visio.Cell cell = shape.Cells["User.IsPageName"];
 
                         cell.ResultIU = 1.0;
-                        VisioHelper.DisplayInWatchWindow(string.Format("  Shape({0}).Cell(Section:{1} RowName:{2} Name:{3})", shape.Name, cell.Section, cell.RowName, cell.Name));
+                        VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape({0}).Cell(Section:{1} RowName:{2} Name:{3})", shape.Name, cell.Section, cell.RowName, cell.Name));
                     }
                     else
                     {
@@ -85,7 +86,7 @@ namespace SupportTools_Visio.Actions
                 }
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("Visio_Shape.Add_User_IsPageName() {0}", "End"));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("Visio_Shape.Add_User_IsPageName() {0}", "End"));
         }
 
         public static void AddColorSupportToSelection()
@@ -132,7 +133,7 @@ namespace SupportTools_Visio.Actions
 
         public static void Add_IDandTextSupport_ToSelection()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -146,7 +147,7 @@ namespace SupportTools_Visio.Actions
 
         public static void Add_IDSupport_ToSelection()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -160,7 +161,7 @@ namespace SupportTools_Visio.Actions
 
         public static void Add_TextControl_ToSelection()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -176,7 +177,7 @@ namespace SupportTools_Visio.Actions
         {
             var isPageName = shape.CellExists["User.IsPageName", 0];    // 0 is Local and Inherited, 1 is Local only 
 
-            //VisioHelper.DisplayInWatchWindow(string.Format("    Shape({0}).IsPageName({1})", shape.Name, isPageName));
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("    Shape({0}).IsPageName({1})", shape.Name, isPageName));
 
             if (isPageName != 0)
             {
@@ -187,13 +188,13 @@ namespace SupportTools_Visio.Actions
                 
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("   Shape(ID:{0}  Name:{1}  Text:>{2}<)",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("   Shape(ID:{0}  Name:{1}  Text:>{2}<)",
                 shape.ID, shape.Name, shape.Text));
         }
 
         public static void ClearConnectionPoints(string tag)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -288,9 +289,9 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        internal static void Add_ConnectionPoints(List<ConnectionPointRow> connectionPoints)
+        internal static void Add_ConnectionPoints(List<VNCVisioAddIn.Domain.ConnectionPointRow> connectionPoints)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -305,7 +306,7 @@ namespace SupportTools_Visio.Actions
         }
 
         static void Add_Connection_Row(Shape shape,
-            ConnectionPointRow connectionPoint)
+            VNCVisioAddIn.Domain.ConnectionPointRow connectionPoint)
         {
             short sectionConnectionPts = (short)Visio.VisSectionIndices.visSectionConnectionPts;
             short tagConnectionPts = (short)VisRowTags.visTagCnnctPt;
@@ -356,7 +357,7 @@ namespace SupportTools_Visio.Actions
                 (short)Visio.VisCellIndices.visCnnctD].FormulaU = connectionPoint.D.WrapInDblQuotes();
         }
 
-        static void Add_ConnectionPoints(Visio.Shape shape, List<ConnectionPointRow> connectionPoints)
+        static void Add_ConnectionPoints(Visio.Shape shape, List<VNCVisioAddIn.Domain.ConnectionPointRow> connectionPoints)
         {
             // TODO(crhodes)
             // Add a remove Connection Points method to clear things out.
@@ -376,14 +377,14 @@ namespace SupportTools_Visio.Actions
 
         public static void DisplayShapeInfo(Visio.Shape shape)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()  Shape(ID:{1}  Name:{2}  Text:>{3}<)",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()  Shape(ID:{1}  Name:{2}  Text:>{3}<)",
                 MethodBase.GetCurrentMethod().Name,
                 shape.ID, shape.Name, shape.Text));
         }
 
         public static void GatherInfo()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -398,23 +399,23 @@ namespace SupportTools_Visio.Actions
                 DisplayInfo(shape);
             }
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() {1}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() {1}",
                 MethodBase.GetCurrentMethod().Name, "End"));
         }
 
         public static void HandleShapeAdded(Visio.Shape shape)
         {
             var isPageName = shape.CellExists["User.IsPageName", 0];    // 0 is Local and Inherited, 1 is Local only 
-            //VisioHelper.DisplayInWatchWindow(string.Format("{0}({1}  isPageName:{2})",
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1}  isPageName:{2})",
             //    MethodBase.GetCurrentMethod().Name, shape.Name, isPageName));
 
-            //VisioHelper.DisplayInWatchWindow(string.Format("  UpdatePageNameShape({0}).IsPageName({1})", shape.Name, isPageName));
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  UpdatePageNameShape({0}).IsPageName({1})", shape.Name, isPageName));
 
             if (isPageName != 0)
             {
                 Visio.Cell cell = shape.Cells["User.IsPageName"];
 
-                //VisioHelper.DisplayInWatchWindow(string.Format("    Shape({0}).Cell(Section:{1} RowName:{2} Name:{3} Value:{4})",
+                //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("    Shape({0}).Cell(Section:{1} RowName:{2} Name:{3} Value:{4})",
                 //    shape.Name, cell.Section, cell.RowName, cell.Name, cell.ResultIU));
 
                 if (cell.ResultIU > 0)
@@ -431,14 +432,14 @@ namespace SupportTools_Visio.Actions
             string pageLevel = args[0];
             string separator = "";
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}() PageLevel:{1}",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}() PageLevel:{1}",
                 MethodBase.GetCurrentMethod().Name,
                 pageLevel));
 
             // Current shape contains text for new page name.
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
-            VisioHelper.DisplayInWatchWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  Shape(Name:{0}  Text:{1}", activeShape.Name, activeShape.Text));
 
             // Update the current shape's hyperlink to point to the page represented by the text
 
@@ -463,7 +464,7 @@ namespace SupportTools_Visio.Actions
 
         public static void MakeLinkableMaster()
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -477,7 +478,7 @@ namespace SupportTools_Visio.Actions
 
         private static void MakeLinkableMaster(Microsoft.Office.Interop.Visio.Shape shape)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             try
             {
@@ -632,7 +633,7 @@ namespace SupportTools_Visio.Actions
             string shapeShdwType = null, string shapeShdwObliqueAngle = null, string shapeShdwScaleFactor = null, 
             string shapeShdwBlur = null, string shapeShdwShow = null)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             // This Section always exists, so just set values
 
@@ -672,7 +673,7 @@ namespace SupportTools_Visio.Actions
                 string flipX = null, string flipY = null, string locPinX = null, string locPinY = null, 
                 string angle = null, string resizeMode = null)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             // This Section always exists, so just set values
 
@@ -702,16 +703,16 @@ namespace SupportTools_Visio.Actions
         {
             var isPageName = shape.CellExistsU["User.IsPageName", 0];    // 0 is Local and Inherited, 1 is Local only 
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}({1}  isPageName:{2})",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}({1}  isPageName:{2})",
                 MethodBase.GetCurrentMethod().Name, shape.Name, isPageName));
 
-            //VisioHelper.DisplayInWatchWindow(string.Format("  UpdatePageNameShape({0}).IsPageName({1})", shape.Name, isPageName));
+            //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  UpdatePageNameShape({0}).IsPageName({1})", shape.Name, isPageName));
 
             if (isPageName != 0)
             {
                 Visio.Cell cell = shape.CellsU["User.IsPageName"];
 
-                VisioHelper.DisplayInWatchWindow(string.Format("    Shape({0}).Cell(Section:{1} RowName:{2} Name:{3} Value:{4})",
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("    Shape({0}).Cell(Section:{1} RowName:{2} Name:{3} Value:{4})",
                     shape.Name, cell.Section, cell.RowName, cell.Name, cell.ResultIU));
 
                 if (cell.ResultIU > 0)
@@ -723,7 +724,7 @@ namespace SupportTools_Visio.Actions
 
         public static void SetMargins(string points)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Visio.Application app = Globals.ThisAddIn.Application;
 
@@ -761,7 +762,7 @@ namespace SupportTools_Visio.Actions
 
         private static void Add_IDandTextSupport(Microsoft.Office.Interop.Visio.Shape shape)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Validate_Prop_SectionExists(shape);
 
@@ -791,7 +792,7 @@ namespace SupportTools_Visio.Actions
         }
         private static void Add_IDSupport(Visio.Shape shape)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Validate_Prop_SectionExists(shape);
 
@@ -807,7 +808,7 @@ namespace SupportTools_Visio.Actions
 
         private static void Add_TextTransformControl(Visio.Shape shape)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Populate_Controls_Section(shape,
                 "Width*0.5",
@@ -831,13 +832,13 @@ namespace SupportTools_Visio.Actions
 
             //Set_Paragraph_Section()
 
-            TextBlockFormat textBlock = new TextBlockFormat();
-            Set_TextBlockFormat_Section(shape, new TextBlockFormat());
+            VNCVisioAddIn.Domain.TextBlockFormat textBlock = new VNCVisioAddIn.Domain.TextBlockFormat();
+            Set_TextBlockFormat_Section(shape, textBlock);
         }
 
         private static void SetAllMargins(Visio.Shape shape, string points)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Validate_TextBlockFormat_SectionExists(shape);
 
@@ -846,7 +847,7 @@ namespace SupportTools_Visio.Actions
 
         private static void SetMargins(Visio.Shape shape, string leftPoints, string topPoints, string rightPoints, string bottomPoints)
         {
-            VisioHelper.DisplayInWatchWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             Validate_TextBlockFormat_SectionExists(shape);
 
@@ -855,7 +856,7 @@ namespace SupportTools_Visio.Actions
 
         //private static void ZeroMargins(Visio.Shape shape)
         //{
-        //    VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+        //    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
         //        MethodBase.GetCurrentMethod().Name));
 
         //    Validate_TextBlockFormat_SectionExists(shape);
@@ -1339,7 +1340,7 @@ namespace SupportTools_Visio.Actions
         }
 
         internal static void Set_TextBlockFormat_Section(Visio.Shape shape,
-            TextBlockFormat textBlockFormat = null)
+            VNCVisioAddIn.Domain.TextBlockFormat textBlockFormat = null)
         {
             Validate_TextBlockFormat_SectionExists(shape);
 
@@ -1624,9 +1625,9 @@ namespace SupportTools_Visio.Actions
 
         }
 
-        public static void UpdateTextSections(TextBlockFormat textBlockFormat)
+        public static void UpdateTextSections(VNCVisioAddIn.Domain.TextBlockFormat textBlockFormat)
         {
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
 
             Visio.Application app = Globals.ThisAddIn.Application;
@@ -1649,9 +1650,9 @@ namespace SupportTools_Visio.Actions
 
         #region Get ShapeSheet Shape Section Object Based
 
-        public static OneDEndPoints Get_OneDEndPoints(Shape shape)
+        public static VNCVisioAddIn.Domain.OneDEndPoints Get_OneDEndPoints(Shape shape)
         {
-            OneDEndPoints row = new OneDEndPoints();
+            VNCVisioAddIn.Domain.OneDEndPoints row = new VNCVisioAddIn.Domain.OneDEndPoints();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowXForm1D];
@@ -1664,9 +1665,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static AdditionalEffectProperties Get_AdditionalEffectProperties(Shape shape)
+        public static VNCVisioAddIn.Domain.AdditionalEffectProperties Get_AdditionalEffectProperties(Shape shape)
         {
-            AdditionalEffectProperties row = new AdditionalEffectProperties();
+            VNCVisioAddIn.Domain.AdditionalEffectProperties row = new VNCVisioAddIn.Domain.AdditionalEffectProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowOtherEffectProperties];
@@ -1689,9 +1690,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
         
-        internal static ChangeShapeBehavior Get_ChangeShapeBehavior(Shape shape)
+        internal static VNCVisioAddIn.Domain.ChangeShapeBehavior Get_ChangeShapeBehavior(Shape shape)
         {
-            ChangeShapeBehavior row = new ChangeShapeBehavior();
+            VNCVisioAddIn.Domain.ChangeShapeBehavior row = new VNCVisioAddIn.Domain.ChangeShapeBehavior();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowReplaceBehaviors];
@@ -1704,9 +1705,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static Domain.Events Get_Events(Shape shape)
+        public static VNCVisioAddIn.Domain.Events Get_Events(Shape shape)
         {
-            Domain.Events row = new Domain.Events();
+            VNCVisioAddIn.Domain.Events row = new VNCVisioAddIn.Domain.Events();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowEvent];
@@ -1721,9 +1722,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static FillFormat Get_FillFormat(Shape shape)
+        public static VNCVisioAddIn.Domain.FillFormat Get_FillFormat(Shape shape)
         {
-            FillFormat row = new FillFormat();
+            VNCVisioAddIn.Domain.FillFormat row = new VNCVisioAddIn.Domain.FillFormat();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowFill];
@@ -1747,9 +1748,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static GlueInfo Get_GlueInfo(Shape shape)
+        public static VNCVisioAddIn.Domain.GlueInfo Get_GlueInfo(Shape shape)
         {
-            GlueInfo row = new GlueInfo();
+            VNCVisioAddIn.Domain.GlueInfo row = new VNCVisioAddIn.Domain.GlueInfo();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowMisc];
@@ -1762,9 +1763,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static GradientProperties Get_GradientProperties(Shape shape)
+        public static VNCVisioAddIn.Domain.GradientProperties Get_GradientProperties(Shape shape)
         {
-            GradientProperties row = new GradientProperties();
+            VNCVisioAddIn.Domain.GradientProperties row = new VNCVisioAddIn.Domain.GradientProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowGradientProperties];
@@ -1781,9 +1782,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static GroupProperties Get_GroupProperties(Shape shape)
+        public static VNCVisioAddIn.Domain.GroupProperties Get_GroupProperties(Shape shape)
         {
-            GroupProperties row = new GroupProperties();
+            VNCVisioAddIn.Domain.GroupProperties row = new VNCVisioAddIn.Domain.GroupProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowGroup];
@@ -1798,9 +1799,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static ImageProperties Get_ImageProperties(Shape shape)
+        public static VNCVisioAddIn.Domain.ImageProperties Get_ImageProperties(Shape shape)
         {
-            ImageProperties row = new ImageProperties();
+            VNCVisioAddIn.Domain.ImageProperties row = new VNCVisioAddIn.Domain.ImageProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowImage];
@@ -1816,9 +1817,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static LayerMembership Get_LayerMembership(Shape shape)
+        internal static VNCVisioAddIn.Domain.LayerMembership Get_LayerMembership(Shape shape)
         {
-            LayerMembership row = new LayerMembership();
+            VNCVisioAddIn.Domain.LayerMembership row = new VNCVisioAddIn.Domain.LayerMembership();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowLayerMem];
@@ -1828,9 +1829,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static LineFormat Get_LineFormat(Shape shape)
+        public static VNCVisioAddIn.Domain.LineFormat Get_LineFormat(Shape shape)
         {
-            LineFormat row = new LineFormat();
+            VNCVisioAddIn.Domain.LineFormat row = new VNCVisioAddIn.Domain.LineFormat();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowLine];
@@ -1850,9 +1851,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static Miscellaneous Get_Miscellaneous(Shape shape)
+        internal static VNCVisioAddIn.Domain.Miscellaneous Get_Miscellaneous(Shape shape)
         {
-            Miscellaneous row = new Miscellaneous();
+            VNCVisioAddIn.Domain.Miscellaneous row = new VNCVisioAddIn.Domain.Miscellaneous();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowMisc];
@@ -1877,9 +1878,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static Protection Get_Protection(Shape shape)
+        public static VNCVisioAddIn.Domain.Protection Get_Protection(Shape shape)
         {
-            Protection row = new Protection();
+            VNCVisioAddIn.Domain.Protection row = new VNCVisioAddIn.Domain.Protection();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowLock];
@@ -1913,9 +1914,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static QuickStyle Get_QuickStyle(Shape shape)
+        internal static VNCVisioAddIn.Domain.QuickStyle Get_QuickStyle(Shape shape)
         {
-            QuickStyle row = new QuickStyle();
+            VNCVisioAddIn.Domain.QuickStyle row = new VNCVisioAddIn.Domain.QuickStyle();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowQuickStyleProperties];
@@ -1933,9 +1934,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static ShapeLayout Get_ShapeLayout(Shape shape)
+        public static VNCVisioAddIn.Domain.ShapeLayout Get_ShapeLayout(Shape shape)
         {
-            ShapeLayout row = new ShapeLayout();
+            VNCVisioAddIn.Domain.ShapeLayout row = new VNCVisioAddIn.Domain.ShapeLayout();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowShapeLayout];
@@ -1961,9 +1962,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static TextTransform Get_TextTransform(Shape shape)
+        public static VNCVisioAddIn.Domain.TextTransform Get_TextTransform(Shape shape)
         {
-            TextTransform row = new TextTransform();
+            VNCVisioAddIn.Domain.TextTransform row = new VNCVisioAddIn.Domain.TextTransform();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowTextXForm];
@@ -1979,9 +1980,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static ThemeProperties Get_ThemeProperties(Shape shape)
+        internal static VNCVisioAddIn.Domain.ThemeProperties Get_ThemeProperties(Shape shape)
         {
-            ThemeProperties row = new ThemeProperties();
+            VNCVisioAddIn.Domain.ThemeProperties row = new VNCVisioAddIn.Domain.ThemeProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowThemeProperties];
@@ -1998,9 +1999,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static ThreeDRotationProperties Get_ThreeDRotationProperties(Shape shape)
+        internal static VNCVisioAddIn.Domain.ThreeDRotationProperties Get_ThreeDRotationProperties(Shape shape)
         {
-            ThreeDRotationProperties row = new ThreeDRotationProperties();
+            VNCVisioAddIn.Domain.ThreeDRotationProperties row = new VNCVisioAddIn.Domain.ThreeDRotationProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRow3DRotationProperties];
@@ -2020,9 +2021,9 @@ namespace SupportTools_Visio.Actions
 
         #region Get ShapeSheet Shape Section Row Based
 
-        public static ActionRow Get_ActionRow(Shape shape)
+        public static VNCVisioAddIn.Domain.ActionRow Get_ActionRow(Shape shape)
         {
-            ActionRow row = new ActionRow();
+            VNCVisioAddIn.Domain.ActionRow row = new VNCVisioAddIn.Domain.ActionRow();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionAction];
             Visio.Row sectionRow = section[0];
@@ -2035,9 +2036,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static ActionTagRow Get_ActionTagRow(Shape shape)
+        public static VNCVisioAddIn.Domain.ActionTagRow Get_ActionTagRow(Shape shape)
         {
-            ActionTagRow row = new ActionTagRow();
+            VNCVisioAddIn.Domain.ActionTagRow row = new VNCVisioAddIn.Domain.ActionTagRow();
 
             // TODO(crhodes)
             // Can't find Section Index
@@ -2053,9 +2054,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static CharacterRow Get_CharacterRow(Shape shape)
+        public static VNCVisioAddIn.Domain.CharacterRow Get_CharacterRow(Shape shape)
         {
-            CharacterRow row = new CharacterRow();
+            VNCVisioAddIn.Domain.CharacterRow row = new VNCVisioAddIn.Domain.CharacterRow();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionCharacter];
             Visio.Row sectionRow = section[0];
@@ -2068,9 +2069,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static ConnectionPointRow Get_ConnectionPointRow(Shape shape)
+        public static VNCVisioAddIn.Domain.ConnectionPointRow Get_ConnectionPointRow(Shape shape)
         {
-            ConnectionPointRow row = new ConnectionPointRow();
+            VNCVisioAddIn.Domain.ConnectionPointRow row = new VNCVisioAddIn.Domain.ConnectionPointRow();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionConnectionPts];
             Visio.Row sectionRow = section[0];
@@ -2084,9 +2085,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static ControlsRow Get_ControlsRow(Shape shape)
+        public static VNCVisioAddIn.Domain.ControlsRow Get_ControlsRow(Shape shape)
         {
-            Domain.ControlsRow controlRow = new Domain.ControlsRow();
+            VNCVisioAddIn.Domain.ControlsRow controlRow = new VNCVisioAddIn.Domain.ControlsRow();
 
             Visio.Section controlRowsSection = shape.Section[(short)Visio.VisSectionIndices.visSectionControls];
             Visio.Row firstControlRow = controlRowsSection[0];
@@ -2108,9 +2109,9 @@ namespace SupportTools_Visio.Actions
             return controlRow;
         }
 
-        internal static FillGradientStopRow Get_FillGradientStopRow(Shape shape)
+        internal static VNCVisioAddIn.Domain.FillGradientStopRow Get_FillGradientStopRow(Shape shape)
         {
-            FillGradientStopRow row = new FillGradientStopRow();
+            VNCVisioAddIn.Domain.FillGradientStopRow row = new VNCVisioAddIn.Domain.FillGradientStopRow();
 
             // Shape Transform Section is part of object
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
@@ -2141,9 +2142,9 @@ namespace SupportTools_Visio.Actions
         //    return row;
         //}
 
-        internal static LayerRow Get_LayerRow(Shape shape)
+        internal static VNCVisioAddIn.Domain.LayerRow Get_LayerRow(Shape shape)
         {
-            LayerRow row = new LayerRow();
+            VNCVisioAddIn.Domain.LayerRow row = new VNCVisioAddIn.Domain.LayerRow();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowLayer];
@@ -2164,9 +2165,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static ObservableCollection<LayerRow> Get_LayerRows(Shape shape)
+        internal static ObservableCollection<VNCVisioAddIn.Domain.LayerRow> Get_LayerRows(Shape shape)
         {
-            var rows = new ObservableCollection<LayerRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.LayerRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionLayer];
 
@@ -2174,7 +2175,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                Domain.LayerRow layerRow = new LayerRow();
+                VNCVisioAddIn.Domain.LayerRow layerRow = new VNCVisioAddIn.Domain.LayerRow();
 
                 var row = section[i];
 
@@ -2199,9 +2200,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        public static LineGradientStopRow Get_LineGradientStopRow(Shape shape)
+        public static VNCVisioAddIn.Domain.LineGradientStopRow Get_LineGradientStopRow(Shape shape)
         {
-            LineGradientStopRow row = new LineGradientStopRow();
+            VNCVisioAddIn.Domain.LineGradientStopRow row = new VNCVisioAddIn.Domain.LineGradientStopRow();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionLineGradientStops];
             Visio.Row sectionRow = section[0];
@@ -2214,9 +2215,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static ObservableCollection<ActionRow> Get_ActionsRows(Shape shape)
+        internal static ObservableCollection<VNCVisioAddIn.Domain.ActionRow> Get_ActionsRows(Shape shape)
         {
-            var rows = new ObservableCollection<ActionRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.ActionRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionAction];
 
@@ -2224,7 +2225,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                Domain.ActionRow actionRow = new ActionRow();
+                VNCVisioAddIn.Domain.ActionRow actionRow = new VNCVisioAddIn.Domain.ActionRow();
 
                 var row = section[i];
 
@@ -2248,9 +2249,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        internal static ObservableCollection<ActionTagRow> Get_ActionTagRows(Shape shape)
+        internal static ObservableCollection<VNCVisioAddIn.Domain.ActionTagRow> Get_ActionTagRows(Shape shape)
         {
-            var rows = new ObservableCollection<ActionTagRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.ActionTagRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionSmartTag];
 
@@ -2258,7 +2259,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                Domain.ActionTagRow actionTagRow = new ActionTagRow();
+                VNCVisioAddIn.Domain.ActionTagRow actionTagRow = new VNCVisioAddIn.Domain.ActionTagRow();
 
                 var row = section[i];
 
@@ -2280,9 +2281,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        internal static ObservableCollection<ConnectionPointRow> Get_ConnectionPointRows(Shape shape)
+        internal static ObservableCollection<VNCVisioAddIn.Domain.ConnectionPointRow> Get_ConnectionPointRows(Shape shape)
         {
-            var rows = new ObservableCollection<ConnectionPointRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.ConnectionPointRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionConnectionPts];
 
@@ -2290,7 +2291,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                Domain.ConnectionPointRow connectionPointRow = new ConnectionPointRow();
+                VNCVisioAddIn.Domain.ConnectionPointRow connectionPointRow = new VNCVisioAddIn.Domain.ConnectionPointRow();
 
                 var row = section[i];
 
@@ -2312,9 +2313,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        internal static ObservableCollection<ControlsRow> Get_ControlsRows(Shape shape)
+        internal static ObservableCollection<VNCVisioAddIn.Domain.ControlsRow> Get_ControlsRows(Shape shape)
         {
-            var rows = new ObservableCollection<ControlsRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.ControlsRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionControls];
 
@@ -2322,7 +2323,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                Domain.ControlsRow controlsRow = new ControlsRow();
+                VNCVisioAddIn.Domain.ControlsRow controlsRow = new VNCVisioAddIn.Domain.ControlsRow();
 
                 var row = section[i];
 
@@ -2343,9 +2344,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        internal static ObservableCollection<HyperlinkRow> Get_HyperlinksRows(Shape shape)
+        internal static ObservableCollection<VNCVisioAddIn.Domain.HyperlinkRow> Get_HyperlinksRows(Shape shape)
         {
-            var rows = new ObservableCollection<HyperlinkRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.HyperlinkRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionHyperlink];
 
@@ -2353,7 +2354,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                Domain.HyperlinkRow hyperlinkRow = new HyperlinkRow();
+                VNCVisioAddIn.Domain.HyperlinkRow hyperlinkRow = new VNCVisioAddIn.Domain.HyperlinkRow();
 
                 var row = section[i];
 
@@ -2375,9 +2376,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        public static ScratchRow Get_ScratchRow(Shape shape, short rowNumber)
+        public static VNCVisioAddIn.Domain.ScratchRow Get_ScratchRow(Shape shape, short rowNumber)
         {
-            ScratchRow row = new ScratchRow();
+            VNCVisioAddIn.Domain.ScratchRow row = new VNCVisioAddIn.Domain.ScratchRow();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionScratch];
             Visio.Row sectionRow = section[rowNumber];
@@ -2385,9 +2386,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static ObservableCollection<ScratchRow> Get_ScratchRows(Shape shape)
+        internal static ObservableCollection<VNCVisioAddIn.Domain.ScratchRow> Get_ScratchRows(Shape shape)
         {
-            var rows = new ObservableCollection<ScratchRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.ScratchRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionScratch];
 
@@ -2395,7 +2396,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                ScratchRow scratchRow = new ScratchRow();
+                VNCVisioAddIn.Domain.ScratchRow scratchRow = new VNCVisioAddIn.Domain.ScratchRow();
 
                 var row = section[i];
 
@@ -2414,9 +2415,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        public static Domain.ParagraphRow Get_ParagraphSection(Visio.Shape shape)
+        public static VNCVisioAddIn.Domain.ParagraphRow Get_ParagraphSection(Visio.Shape shape)
         {
-            Domain.ParagraphRow paragraph = new Domain.ParagraphRow();
+            VNCVisioAddIn.Domain.ParagraphRow paragraph = new VNCVisioAddIn.Domain.ParagraphRow();
 
             Visio.Section paragraphSection = shape.Section[(short)Visio.VisSectionIndices.visSectionParagraph];
             Visio.Row paragraphRow = paragraphSection[0];
@@ -2444,9 +2445,9 @@ namespace SupportTools_Visio.Actions
 
         #region Get ShapeSheet Page Section
 
-        internal static Domain.PageProperties Get_PageProperties(Shape shape)
+        internal static VNCVisioAddIn.Domain.PageProperties Get_PageProperties(Shape shape)
         {
-            Domain.PageProperties row = new Domain.PageProperties();
+            VNCVisioAddIn.Domain.PageProperties row = new VNCVisioAddIn.Domain.PageProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowPage];
@@ -2466,9 +2467,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        internal static PageLayout Get_PageLayout(Shape shape)
+        internal static VNCVisioAddIn.Domain.PageLayout Get_PageLayout(Shape shape)
         {
-            PageLayout row = new PageLayout();
+            VNCVisioAddIn.Domain.PageLayout row = new VNCVisioAddIn.Domain.PageLayout();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowPageLayout];
@@ -2505,9 +2506,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static PrintProperties Get_PrintProperties(Shape shape)
+        public static VNCVisioAddIn.Domain.PrintProperties Get_PrintProperties(Shape shape)
         {
-            PrintProperties row = new PrintProperties();
+            VNCVisioAddIn.Domain.PrintProperties row = new VNCVisioAddIn.Domain.PrintProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowPrintProperties];
@@ -2531,9 +2532,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static Domain.RulerAndGrid Get_RulerAndGrid(Shape shape)
+        public static VNCVisioAddIn.Domain.RulerAndGrid Get_RulerAndGrid(Shape shape)
         {
-            RulerAndGrid row = new RulerAndGrid();
+            VNCVisioAddIn.Domain.RulerAndGrid row = new VNCVisioAddIn.Domain.RulerAndGrid();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowRulerGrid];
@@ -2556,9 +2557,9 @@ namespace SupportTools_Visio.Actions
 
         #region Get ShapeSheet Document Section
 
-        internal static Domain.DocumentProperties Get_DocumentProperties(Shape shape)
+        internal static VNCVisioAddIn.Domain.DocumentProperties Get_DocumentProperties(Shape shape)
         {
-            Domain.DocumentProperties row = new Domain.DocumentProperties();
+            VNCVisioAddIn.Domain.DocumentProperties row = new VNCVisioAddIn.Domain.DocumentProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowDoc];
@@ -2579,9 +2580,9 @@ namespace SupportTools_Visio.Actions
 
         #endregion
 
-        public static GeometryRow Get_GeometryRow(Shape shape)
+        public static VNCVisioAddIn.Domain.GeometryRow Get_GeometryRow(Shape shape)
         {
-            GeometryRow row = new GeometryRow();
+            VNCVisioAddIn.Domain.GeometryRow row = new VNCVisioAddIn.Domain.GeometryRow();
 
             // TODO(crhodes)
             // Can't find Section Index
@@ -2607,9 +2608,9 @@ namespace SupportTools_Visio.Actions
             return result;
         }
 
-        public static BevelProperties Get_BevelProperties(Shape shape)
+        public static VNCVisioAddIn.Domain.BevelProperties Get_BevelProperties(Shape shape)
         {
-            BevelProperties row = new BevelProperties();
+            VNCVisioAddIn.Domain.BevelProperties row = new VNCVisioAddIn.Domain.BevelProperties();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowBevelProperties];
@@ -2631,9 +2632,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static ShapeTransform Get_ShapeTransform(Shape shape)
+        public static VNCVisioAddIn.Domain.ShapeTransform Get_ShapeTransform(Shape shape)
         {
-            ShapeTransform row = new ShapeTransform();
+            VNCVisioAddIn.Domain.ShapeTransform row = new VNCVisioAddIn.Domain.ShapeTransform();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowXFormOut];
@@ -2652,9 +2653,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static TextBlockFormat Get_TextBlockFormat(Shape shape)
+        public static VNCVisioAddIn.Domain.TextBlockFormat Get_TextBlockFormat(Shape shape)
         {
-            TextBlockFormat row = new TextBlockFormat();
+            VNCVisioAddIn.Domain.TextBlockFormat row = new VNCVisioAddIn.Domain.TextBlockFormat();
 
             // Shape Transform Section is part of object
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
@@ -2676,9 +2677,9 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static StyleProperties Get_StyleProperties(Shape shape)
+        public static VNCVisioAddIn.Domain.StyleProperties Get_StyleProperties(Shape shape)
         {
-            StyleProperties row = new StyleProperties();
+            VNCVisioAddIn.Domain.StyleProperties row = new VNCVisioAddIn.Domain.StyleProperties();
 
             // Shape Transform Section is part of object
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
@@ -2689,14 +2690,14 @@ namespace SupportTools_Visio.Actions
             return row;
         }
 
-        public static TabRow Get_TabRow(Shape shape)
+        public static VNCVisioAddIn.Domain.TabRow Get_TabRow(Shape shape)
         {
             throw new NotImplementedException();
         }
 
-        public static ObservableCollection<Domain.ShapeDataRow> Get_ShapeDataRows(Shape shape)
+        public static ObservableCollection<VNCVisioAddIn.Domain.ShapeDataRow> Get_ShapeDataRows(Shape shape)
         {
-            var rows = new ObservableCollection<ShapeDataRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.ShapeDataRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionProp];
 
@@ -2704,7 +2705,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                Domain.ShapeDataRow shapeDataRow = new ShapeDataRow();
+                VNCVisioAddIn.Domain.ShapeDataRow shapeDataRow = new VNCVisioAddIn.Domain.ShapeDataRow();
 
                 var row = section[i];
 
@@ -2753,9 +2754,9 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        public static ObservableCollection<Domain.UserDefinedCellRow> Get_UserDefinedCellsRows(Shape shape)
+        public static ObservableCollection<VNCVisioAddIn.Domain.UserDefinedCellRow> Get_UserDefinedCellsRows(Shape shape)
         {
-            var rows = new ObservableCollection<UserDefinedCellRow>();
+            var rows = new ObservableCollection<VNCVisioAddIn.Domain.UserDefinedCellRow>();
 
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionUser];
 
@@ -2763,7 +2764,7 @@ namespace SupportTools_Visio.Actions
 
             for (short i = 0; i < rowCount; i++)
             {
-                var userRow = new UserDefinedCellRow();
+                var userRow = new VNCVisioAddIn.Domain.UserDefinedCellRow();
 
                 var row = section[i];
 
@@ -2778,7 +2779,7 @@ namespace SupportTools_Visio.Actions
             return rows;
         }
 
-        public static TextFieldRow Get_TextFieldRow(Shape shape)
+        public static VNCVisioAddIn.Domain.TextFieldRow Get_TextFieldRow(Shape shape)
         {
             throw new NotImplementedException();
         }
@@ -2788,7 +2789,7 @@ namespace SupportTools_Visio.Actions
         #region Set ShapeSheet Section
 
         #region Document Section
-        public static void Set_DocumentProperties_Section(Shape shape, Domain.DocumentProperties documentProperties)
+        public static void Set_DocumentProperties_Section(Shape shape, VNCVisioAddIn.Domain.DocumentProperties documentProperties)
         {
             try
             {
@@ -2816,7 +2817,7 @@ namespace SupportTools_Visio.Actions
 
         #region Page Section
 
-        public static void Set_PageProperties_Section(Shape shape, Domain.PageProperties pageProperties)
+        public static void Set_PageProperties_Section(Shape shape, VNCVisioAddIn.Domain.PageProperties pageProperties)
         {
             try
             {
@@ -2845,7 +2846,7 @@ namespace SupportTools_Visio.Actions
         #region Shape Section
 
 
-        public static void Set_AdditionalEffectProperties_Section(Shape shape, AdditionalEffectProperties additionalEffectProperties)
+        public static void Set_AdditionalEffectProperties_Section(Shape shape, VNCVisioAddIn.Domain.AdditionalEffectProperties additionalEffectProperties)
         {
             try
             {
@@ -2873,7 +2874,7 @@ namespace SupportTools_Visio.Actions
             }
         }
         
-        public static void Set_BevelPropertiesWrapper_Section(Shape shape, BevelProperties bevelProperties)
+        public static void Set_BevelPropertiesWrapper_Section(Shape shape, VNCVisioAddIn.Domain.BevelProperties bevelProperties)
         {
             try
             {
@@ -2900,7 +2901,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_ChangeShapeBehavior_Section(Shape shape, ChangeShapeBehavior changeShapeBehavior)
+        public static void Set_ChangeShapeBehavior_Section(Shape shape, VNCVisioAddIn.Domain.ChangeShapeBehavior changeShapeBehavior)
         {
             try
             {
@@ -2918,7 +2919,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_FillFormat_Section(Shape shape, FillFormat fillFormat)
+        public static void Set_FillFormat_Section(Shape shape, VNCVisioAddIn.Domain.FillFormat fillFormat)
         {
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowFill];
@@ -2940,7 +2941,7 @@ namespace SupportTools_Visio.Actions
             sectionRow[VisCellIndices.visFillShdwShow].FormulaU = fillFormat.ShapeShdwShow;
         }
 
-        public static void Set_GlueInfo_Section(Shape shape, GlueInfo glueInfo)
+        public static void Set_GlueInfo_Section(Shape shape, VNCVisioAddIn.Domain.GlueInfo glueInfo)
         {
             try
             {
@@ -2958,7 +2959,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_GradientProperties_Section(Shape shape, GradientProperties gradientProperties)
+        public static void Set_GradientProperties_Section(Shape shape, VNCVisioAddIn.Domain.GradientProperties gradientProperties)
         {
             try
             {
@@ -2980,7 +2981,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_GroupProperties_Section(Shape shape, GroupProperties groupProperties)
+        public static void Set_GroupProperties_Section(Shape shape, VNCVisioAddIn.Domain.GroupProperties groupProperties)
         {
             Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
             Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowGroup];
@@ -2993,7 +2994,7 @@ namespace SupportTools_Visio.Actions
             groupProperties.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
         }
 
-        public static void Set_ImageProperties_Section(Shape shape, ImageProperties imageProperties)
+        public static void Set_ImageProperties_Section(Shape shape, VNCVisioAddIn.Domain.ImageProperties imageProperties)
         {
             try
             {
@@ -3014,15 +3015,14 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_LayerMembership_Section(Shape shape, LayerMembership layerMembership)
+        public static void Set_LayerMembership_Section(Shape shape, VNCVisioAddIn.Domain.LayerMembership layerMembership)
         {
             try
             {
                 Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.visSectionObject];
                 Visio.Row sectionRow = section[(short)Visio.VisRowIndices.visRowLayerMem];
 
-                sectionRow[VisCellIndices.visLayerMember].FormulaU =
-                layerMembership.Name;
+                sectionRow[VisCellIndices.visLayerMember].FormulaU = layerMembership.Name;
             }
             catch (Exception ex)
             {
@@ -3030,7 +3030,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_LineFormat_Section(Shape shape, LineFormat lineFormat)
+        public static void Set_LineFormat_Section(Shape shape, VNCVisioAddIn.Domain.LineFormat lineFormat)
         {
             try
             {
@@ -3055,7 +3055,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        internal static void Set_Miscellaneous_Section(Shape shape, Miscellaneous miscellaneous)
+        internal static void Set_Miscellaneous_Section(Shape shape, VNCVisioAddIn.Domain.Miscellaneous miscellaneous)
         {
             try
             {
@@ -3085,7 +3085,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_OneDEndPoints_Section(Shape shape, OneDEndPoints oneDEndPoints)
+        public static void Set_OneDEndPoints_Section(Shape shape, VNCVisioAddIn.Domain.OneDEndPoints oneDEndPoints)
         {
             try
             {
@@ -3103,7 +3103,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_PageLayout_Section(Shape shape, PageLayout pageLayout)
+        public static void Set_PageLayout_Section(Shape shape, VNCVisioAddIn.Domain.PageLayout pageLayout)
         {
             try
             {
@@ -3145,7 +3145,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_Paragraph_Section(Visio.Shape shape, Domain.ParagraphRow paragraph)
+        public static void Set_Paragraph_Section(Visio.Shape shape, VNCVisioAddIn.Domain.ParagraphRow paragraph)
         {
             try
             {
@@ -3173,7 +3173,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_PrintProperties_Section(Shape shape, PrintProperties printProperties)
+        public static void Set_PrintProperties_Section(Shape shape, VNCVisioAddIn.Domain.PrintProperties printProperties)
         {
             try
             {
@@ -3202,7 +3202,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_Protection_Section(Shape shape, Protection protection)
+        public static void Set_Protection_Section(Shape shape, VNCVisioAddIn.Domain.Protection protection)
         {
             try
             {
@@ -3241,7 +3241,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_QuickStyle_Section(Shape shape, QuickStyle quickStyle)
+        public static void Set_QuickStyle_Section(Shape shape, VNCVisioAddIn.Domain.QuickStyle quickStyle)
         {
             try
             {
@@ -3264,7 +3264,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_RulerAndGrid_Section(Shape shape, RulerAndGrid rulerAndGrid)
+        public static void Set_RulerAndGrid_Section(Shape shape, VNCVisioAddIn.Domain.RulerAndGrid rulerAndGrid)
         {
             try
             {
@@ -3288,7 +3288,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_ShapeLayout_Section(Shape shape, ShapeLayout shapeLayout)
+        public static void Set_ShapeLayout_Section(Shape shape, VNCVisioAddIn.Domain.ShapeLayout shapeLayout)
         {
             try
             {
@@ -3319,7 +3319,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_ShapeTransform_Section(Shape shape, ShapeTransform shapeTransform)
+        public static void Set_ShapeTransform_Section(Shape shape, VNCVisioAddIn.Domain.ShapeTransform shapeTransform)
         {
             try
             {
@@ -3343,7 +3343,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_TextTransform_Section(Shape shape, TextTransform textTransform)
+        public static void Set_TextTransform_Section(Shape shape, VNCVisioAddIn.Domain.TextTransform textTransform)
         {
             try
             {
@@ -3364,7 +3364,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_ThemeProperties_Section(Shape shape, ThemeProperties themeProperties)
+        public static void Set_ThemeProperties_Section(Shape shape, VNCVisioAddIn.Domain.ThemeProperties themeProperties)
         {
             try
             {
@@ -3386,7 +3386,7 @@ namespace SupportTools_Visio.Actions
             }
         }
 
-        public static void Set_ThreeDRotationProperties_Section(Shape shape, ThreeDRotationProperties threeDRotationProperties)
+        public static void Set_ThreeDRotationProperties_Section(Shape shape, VNCVisioAddIn.Domain.ThreeDRotationProperties threeDRotationProperties)
         {
             try
             {

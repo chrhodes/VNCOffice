@@ -11,6 +11,7 @@ using VNC.Core.Mvvm;
 using Microsoft.Office.Interop.Visio;
 using SupportTools_Visio.Actions;
 using SupportTools_Visio.Domain;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ViewModels
 {
@@ -23,7 +24,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
     public class EditControlRowsViewModel : ViewModelBase, IEditTextViewModel
     {
-        public System.Collections.ObjectModel.ObservableCollection<Domain.ControlsRow> ControlRows { get; set; }
+        public System.Collections.ObjectModel.ObservableCollection<VNCVisioAddIn.Domain.ControlsRow> ControlRows { get; set; }
 
 
         //ItemInfo _selectedHorizontalAlignmentItem;

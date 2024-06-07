@@ -812,7 +812,6 @@
     <Compile Include="Domain\ShapeInfo.cs" />
     <Compile Include="Domain\WorkItemOffset.cs" />
     <Compile Include="Domain\WorkItemOffsets.cs" />
-    <Compile Include="Domain\ShapeSheet\PageProperties.cs" />
     <Compile Include="Domain\ShapeType.cs" />
     <Compile Include="Domain\WorkItemQueryShapeInfo.cs" />
     <Compile Include="Domain\WorkItemShapeInfo.cs" />
@@ -828,44 +827,6 @@
     <Compile Include="Actions\Visio_Stencil.cs" />
     <Compile Include="Actions\Visio_Window.cs" />
     <Compile Include="Application\Bootstrapper.cs" />
-    <Compile Include="Domain\ShapeSheet\DocumentProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\FillFormat.cs" />
-    <Compile Include="Domain\ShapeSheet\FillGradientStopRow.cs" />
-    <Compile Include="Domain\ShapeSheet\GeometryRow.cs" />
-    <Compile Include="Domain\ShapeSheet\GradientProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\GlueInfo.cs" />
-    <Compile Include="Domain\ShapeSheet\GroupProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\HyperlinkRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ImageProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\LayerRow.cs" />
-    <Compile Include="Domain\ShapeSheet\LayerMembership.cs" />
-    <Compile Include="Domain\ShapeSheet\LineFormat.cs" />
-    <Compile Include="Domain\ShapeSheet\LineGradientStopRow.cs" />
-    <Compile Include="Domain\ShapeSheet\Miscellaneous.cs" />
-    <Compile Include="Domain\ShapeSheet\PageLayout.cs" />
-    <Compile Include="Domain\ShapeSheet\PrintProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\Protection.cs" />
-    <Compile Include="Domain\ShapeSheet\QuickStyle.cs" />
-    <Compile Include="Domain\ShapeSheet\RulerAndGrid.cs" />
-    <Compile Include="Domain\ShapeSheet\ScratchRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ShapeDataRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ShapeLayout.cs" />
-    <Compile Include="Domain\ShapeSheet\StyleProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\TabRow.cs" />
-    <Compile Include="Domain\ShapeSheet\TextFieldRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ThemeProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\ShapeTransform.cs" />
-    <Compile Include="Domain\ShapeSheet\OneDEndPoints.cs" />
-    <Compile Include="Domain\ShapeSheet\UserDefinedCellRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ThreeDRotationProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\ActionTagRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ActionRow.cs" />
-    <Compile Include="Domain\ShapeSheet\AdditionalEffectProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\BevelProperties.cs" />
-    <Compile Include="Domain\ShapeSheet\CharacterRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ChangeShapeBehavior.cs" />
-    <Compile Include="Domain\ShapeSheet\Events.cs" />
-    <Compile Include="Domain\ShapeSheet\ConnectionPointRow.cs" />
     <Compile Include="Data\ApplicationDS.cs">
       <DependentUpon>ApplicationDS.xsd</DependentUpon>
     </Compile>
@@ -875,17 +836,12 @@
       <DependentUpon>ApplicationDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Data\Config.cs" />
-    <Compile Include="Domain\ShapeSheet\ControlsRow.cs" />
-    <Compile Include="Domain\ShapeSheet\ParagraphRow.cs" />
-    <Compile Include="Domain\ShapeSheet\TextBlockFormat.cs" />
-    <Compile Include="Domain\ShapeSheet\TextTransform.cs" />
     <Compile Include="ErrorNumbers.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IAddStuffViewModel.cs" />
     <Compile Include="Modules\SupportTools_VisioModule.cs" />
     <Compile Include="Modules\EditTextModule.cs" />
     <Compile Include="Domain\Cat.cs" />
-    <Compile Include="Domain\ShapeSheet\NewButton.cs" />
     <Compile Include="Presentation\Converters\XElementToStringConverter.cs" />
     <Compile Include="Presentation\Converters\SelectedItemsConverter.cs" />
     <Compile Include="Presentation\Converters\SelectedItemsToListOfStringConverter.cs" />
@@ -1565,9 +1521,13 @@
       <Project>{1cf219f0-f24b-4cda-bd68-a0cbfc177f82}</Project>
       <Name>VNC.ExcelHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\VNC.Visio.AddinHelper\VNC.Visio.AddinHelper.csproj">
-      <Project>{0157a4a9-9a7c-477b-9ba4-b2b7bdeb4b32}</Project>
-      <Name>VNC.Visio.AddinHelper</Name>
+    <ProjectReference Include="..\..\VNC.Visio.VSTOAddin\VNC.Visio.VSTOAddIn.csproj">
+      <Project>{aed58d4e-6267-4cb7-b402-9a66724aa40e}</Project>
+      <Name>VNC.Visio.VSTOAddIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj">
+      <Project>{9ff3f7c2-c7ac-4269-9ec8-4b7cd3c630c3}</Project>
+      <Name>VNC.VSTOAddIn</Name>
     </ProjectReference>
     <ProjectReference Include="..\Modules\Explore\Explore.csproj">
       <Project>{2c063f33-f4f1-40df-b485-a7dc21154300}</Project>

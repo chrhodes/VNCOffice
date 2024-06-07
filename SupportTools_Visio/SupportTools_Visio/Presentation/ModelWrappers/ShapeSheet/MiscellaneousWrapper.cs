@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class MiscellaneousWrapper : ModelWrapper<Domain.Miscellaneous>
+    public class MiscellaneousWrapper : ModelWrapper<VNCVisioAddIn.Domain.Miscellaneous>
     {
         public MiscellaneousWrapper()
         {
         }
-        public MiscellaneousWrapper(Miscellaneous model) : base(model)
+        public MiscellaneousWrapper(VNCVisioAddIn.Domain.Miscellaneous model) : base(model)
         {
         } 
         public string NoObjHandles { get { return GetValue<string>(); } set { SetValue(value); } }

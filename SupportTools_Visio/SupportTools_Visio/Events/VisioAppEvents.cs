@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 using Visio=Microsoft.Office.Interop.Visio;
-using VisioHelper = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 using VNC;
 using SupportTools_Visio.Core;
 
@@ -868,7 +868,7 @@ namespace SupportTools_Visio.Events
         {
             if (Common.DisplayEvents)
             {
-                VNC.Visio.AddinHelper.Common.WriteToWatchWindow(string.Format("{0}:{1}", outputLine, i));
+                VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}:{1}", outputLine, i));
             }
         }
 
@@ -876,14 +876,14 @@ namespace SupportTools_Visio.Events
         {
             VNC.Log.Debug("", Common.LOG_CATEGORY, 0);
 
-            VisioHelper.DisplayInWatchWindow(string.Format("{0}()",
+            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 System.Reflection.MethodInfo.GetCurrentMethod().Name));
 
             try
             {
                 for (int i = 0; i < context.Count(); i++)
                 {
-                    VisioHelper.DisplayInWatchWindow(string.Format("  ci[{0}]:>{1}", i, context[i]));
+                    VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("  ci[{0}]:>{1}", i, context[i]));
                 }
 
                 // The QueueMarkerEvent provides context information for each event along with user information (action).
@@ -894,9 +894,9 @@ namespace SupportTools_Visio.Events
                 string page = context[1].Substring(6);      // "/page="
                 string shape = context[2].Substring(7);     // "/shape="
 
-                VisioHelper.DisplayInWatchWindow(string.Format("   doc:   >{0}<", doc));
-                VisioHelper.DisplayInWatchWindow(string.Format("   page:  >{0}<", page));
-                VisioHelper.DisplayInWatchWindow(string.Format("   shape: >{0}<", shape));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("   doc:   >{0}<", doc));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("   page:  >{0}<", page));
+                VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("   shape: >{0}<", shape));
 
                 // QueueMarkerEvent from Pages does not have a shapeu
 

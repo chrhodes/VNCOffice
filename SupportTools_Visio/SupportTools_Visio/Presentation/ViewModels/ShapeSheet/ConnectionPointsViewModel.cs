@@ -7,7 +7,7 @@ using SupportTools_Visio.Presentation.ModelWrappers;
 using VNC;
 
 using Visio = Microsoft.Office.Interop.Visio;
-
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 namespace SupportTools_Visio.Presentation.ViewModels
 {
     public class ConnectionPointsViewModel : ShapeSheetSectionBase //, IConnectionPointRowViewModelViewModel
@@ -77,7 +77,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                foreach (ConnectionPointRow row in Visio_Shape.Get_ConnectionPointRows(shape))
+                foreach (VNCVisioAddIn.Domain.ConnectionPointRow row in Visio_Shape.Get_ConnectionPointRows(shape))
                 {
                     ConnectionPoints.Add(new ConnectionPointRowWrapper(row));
                 }

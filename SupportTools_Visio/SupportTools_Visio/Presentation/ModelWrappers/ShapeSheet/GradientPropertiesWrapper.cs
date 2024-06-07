@@ -1,14 +1,15 @@
-﻿using SupportTools_Visio.Domain;
-using VNC.Core.Mvvm;
+﻿using VNC.Core.Mvvm;
+
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class GradientPropertiesWrapper : ModelWrapper<GradientProperties>
+    public class GradientPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.GradientProperties>
     {
         public GradientPropertiesWrapper()
         {
         }
-        public GradientPropertiesWrapper(GradientProperties model) : base(model)
+        public GradientPropertiesWrapper(VNCVisioAddIn.Domain.GradientProperties model) : base(model)
         {
         }
 

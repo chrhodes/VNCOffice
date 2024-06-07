@@ -1,15 +1,17 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class PrintPropertiesWrapper : ModelWrapper<Domain.PrintProperties>
+    public class PrintPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.PrintProperties>
     {
         public PrintPropertiesWrapper()
         {
         }
 
-        public PrintPropertiesWrapper(PrintProperties model) : base(model)
+        public PrintPropertiesWrapper(VNCVisioAddIn.Domain.PrintProperties model) : base(model)
         {
         }
 

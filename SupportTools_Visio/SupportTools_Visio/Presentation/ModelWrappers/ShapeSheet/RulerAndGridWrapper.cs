@@ -1,14 +1,15 @@
-﻿using SupportTools_Visio.Domain;
-using VNC.Core.Mvvm;
+﻿using VNC.Core.Mvvm;
+
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class RulerAndGridWrapper : ModelWrapper<Domain.RulerAndGrid>
+    public class RulerAndGridWrapper : ModelWrapper<VNCVisioAddIn.Domain.RulerAndGrid>
     {
         public RulerAndGridWrapper()
         {
         }
-        public RulerAndGridWrapper(RulerAndGrid model) : base(model)
+        public RulerAndGridWrapper(VNCVisioAddIn.Domain.RulerAndGrid model) : base(model)
         {
         }
 

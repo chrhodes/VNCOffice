@@ -63,6 +63,7 @@ namespace VNC.VSTOAddIn
             if (DeveloperMode)
             {
                 WatchWindow.AddOutputLine(message);
+
             }
 
             return Stopwatch.GetTimestamp();

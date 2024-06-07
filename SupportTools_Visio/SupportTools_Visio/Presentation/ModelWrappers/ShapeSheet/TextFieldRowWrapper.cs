@@ -1,11 +1,13 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class TextFieldRowWrapper : ModelWrapper<Domain.TextFieldRow>
+    public class TextFieldRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextFieldRow>
     {
-        public TextFieldRowWrapper(TextFieldRow model) : base(model)
+        public TextFieldRowWrapper(VNCVisioAddIn.Domain.TextFieldRow model) : base(model)
         {
         }
 

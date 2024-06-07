@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ImagePropertiesWrapper : ModelWrapper<Domain.ImageProperties>
+    public class ImagePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ImageProperties>
     {
         public ImagePropertiesWrapper()
         {
         }
-        public ImagePropertiesWrapper(ImageProperties model) : base(model)
+        public ImagePropertiesWrapper(VNCVisioAddIn.Domain.ImageProperties model) : base(model)
         {
         }
 

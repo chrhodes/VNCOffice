@@ -22,15 +22,15 @@ namespace SupportTools_Visio
             try
             {
                 Globals.Ribbons.Ribbon.chkDisplayEvents.Checked = Common.DisplayEvents;
-                Globals.Ribbons.Ribbon.chkEnableAppEvents.Checked = Common.HasAppEvents;
+                Globals.Ribbons.Ribbon.chkEnableAppEvents.Checked = Common.EnableAppEvents;
 
-                if (Common.HasAppEvents)
+                if (Common.EnableAppEvents)
                 {
                     Common.AppEvents = new Events.VisioAppEvents();
                     Common.AppEvents.VisioApplication = Globals.ThisAddIn.Application;
                 }
 
-                Common.VisioHelper.VisioApplication = Globals.ThisAddIn.Application;
+                Common.VisioApplication = Globals.ThisAddIn.Application;
 
                 // For the WPF stuff we do
                 InitializeWPFApplication();
@@ -50,7 +50,7 @@ namespace SupportTools_Visio
 
             try
             {
-                if (Common.HasAppEvents)
+                if (Common.EnableAppEvents)
                 {
                     Common.AppEvents = null;
                 }

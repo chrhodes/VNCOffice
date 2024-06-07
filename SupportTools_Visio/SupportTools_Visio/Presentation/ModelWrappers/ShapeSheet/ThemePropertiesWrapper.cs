@@ -1,14 +1,16 @@
 ﻿using SupportTools_Visio.Domain;
 using VNC.Core.Mvvm;
 
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ThemePropertiesWrapper : ModelWrapper<Domain.ThemeProperties>
+    public class ThemePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ThemeProperties>
     {
         public ThemePropertiesWrapper()
         {
         }
-        public ThemePropertiesWrapper(ThemeProperties model) : base(model)
+        public ThemePropertiesWrapper(VNCVisioAddIn.Domain.ThemeProperties model) : base(model)
         {
         }
 

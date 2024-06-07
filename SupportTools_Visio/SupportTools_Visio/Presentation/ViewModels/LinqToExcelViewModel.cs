@@ -14,7 +14,7 @@ using VNC.Core.Mvvm;
 
 //using ExcelHlp = VNC.AddinHelper.Excel;
 using LTE = LinqToExcel;
-using VisioHlp = VNC.Visio.AddinHelper.Visio;
+using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 using XL = Microsoft.Office.Interop.Excel;
 
@@ -161,7 +161,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (var item in stuff)
             {
-                VisioHlp.DisplayInWatchWindow(
+                VNCVisioAddIn.Common.WriteToWatchWindow(
                     string.Format("Col1:{0} Col2:{1} Col3:{2} Col4:{3} Col5:{4}", item.Col1, item.Col2, item.Col3, item.Col4, item.Col5)
                     );
             }
@@ -218,11 +218,11 @@ namespace SupportTools_Visio.Presentation.ViewModels
         XL.ListColumns listColumns = lo.ListColumns;
         XL.ListRows listRows = lo.ListRows;
 
-        VisioHlp.DisplayInWatchWindow(string.Format("{0}\n", tableName));
+        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}\n", tableName));
 
         foreach (XL.ListColumn col in listColumns)
         {
-            VisioHlp.DisplayInWatchWindow(col.Name);
+            VNCVisioAddIn.Common.WriteToWatchWindow(col.Name);
         }
 
         tableName = "tbl_Data2";
@@ -231,16 +231,16 @@ namespace SupportTools_Visio.Presentation.ViewModels
         listColumns = lo.ListColumns;
         listRows = lo.ListRows;
 
-        VisioHlp.DisplayInWatchWindow(string.Format("{0}\n", tableName));
+        VNCVisioAddIn.Common.WriteToWatchWindow(string.Format("{0}\n", tableName));
 
         foreach (XL.ListColumn col in listColumns)
         {
-            VisioHlp.DisplayInWatchWindow(col.Name);
+            VNCVisioAddIn.Common.WriteToWatchWindow(col.Name);
         }
 
         foreach (XL.ListRow row in listRows)
         {
-            VisioHlp.DisplayInWatchWindow(row.ToString());
+            VNCVisioAddIn.Common.WriteToWatchWindow(row.ToString());
         }
         wb.Close();
     }
@@ -293,34 +293,34 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (var sheet in sheets)
             {
-                VisioHlp.DisplayInWatchWindow(sheet);
+                VNCVisioAddIn.Common.WriteToWatchWindow(sheet);
             }
 
-            VisioHlp.DisplayInWatchWindow("Has Header Row\n");
+            VNCVisioAddIn.Common.WriteToWatchWindow("Has Header Row\n");
 
             var info = excelData.GetData("Sheet1");
 
             foreach (var row in info)
             {
-                VisioHlp.DisplayInWatchWindow("NewRow\n");
+                VNCVisioAddIn.Common.WriteToWatchWindow("NewRow\n");
 
                 for (int i = 0; i <= row.ItemArray.GetUpperBound(0); i++)
                 {
-                    VisioHlp.DisplayInWatchWindow(row[i].ToString());
+                    VNCVisioAddIn.Common.WriteToWatchWindow(row[i].ToString());
                 }
             }
 
-            VisioHlp.DisplayInWatchWindow("Has No Header Row\n");
+            VNCVisioAddIn.Common.WriteToWatchWindow("Has No Header Row\n");
 
             info = excelData.GetData("Sheet1", false);
 
             foreach (var row in info)
             {
-                VisioHlp.DisplayInWatchWindow("NewRow\n");
+                VNCVisioAddIn.Common.WriteToWatchWindow("NewRow\n");
 
                 for (int i = 0; i <= row.ItemArray.GetUpperBound(0); i++)
                 {
-                    VisioHlp.DisplayInWatchWindow(row[i].ToString());
+                    VNCVisioAddIn.Common.WriteToWatchWindow(row[i].ToString());
                 }
             }
 
@@ -344,7 +344,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (var item in testData)
             {
-                VisioHlp.DisplayInWatchWindow(
+                VNCVisioAddIn.Common.WriteToWatchWindow(
                     string.Format("Col1:{0} Col2:{1} Col3:{2} Col4:{3} Col5:{4}", item.Col1, item.Col2, item.Col3, item.Col4, item.Col5)
                     );
             }
@@ -406,7 +406,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             {
                 for (int j = 1; j <= cols; j++)
                 {
-                    VisioHlp.DisplayInWatchWindow(rng.Cells[i, j].Value2.ToString());
+                    VNCVisioAddIn.Common.WriteToWatchWindow(rng.Cells[i, j].Value2.ToString());
                 }
             }
 
