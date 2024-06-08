@@ -15,6 +15,8 @@
 // webnamespace           $webnamespace$
 // year                   2020
 
+using Microsoft.Office.Interop.Visio;
+
 namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class NewButton

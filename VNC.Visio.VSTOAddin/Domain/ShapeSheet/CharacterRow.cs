@@ -1,4 +1,6 @@
-﻿namespace VNC.Visio.VSTOAddIn.Domain
+﻿using Microsoft.Office.Interop.Visio;
+
+namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class CharacterRow
     {
@@ -19,5 +21,20 @@
         public string ComplexScriptFont { get; set; }
         public string ComplexScriptSize { get; set; }
         public string LangID { get; set; }
+
+        public static CharacterRow GetRow(Shape shape)
+        {
+            CharacterRow row = new CharacterRow();
+
+            Section section = shape.Section[(short)VisSectionIndices.visSectionCharacter];
+            Row sectionRow = section[0];
+
+            // TODO(crhodes)
+            // Handle multiple rows
+
+            row.AsianFont = sectionRow[VisCellIndices.visCharacterAsianFont].FormulaU;
+
+            return row;
+        }
     }
 }

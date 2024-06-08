@@ -1,4 +1,8 @@
-﻿namespace VNC.Visio.VSTOAddIn.Domain
+﻿using System;
+
+using Microsoft.Office.Interop.Visio;
+
+namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class PageLayout
     {
@@ -30,5 +34,86 @@
         public string LineJumpCode { get; set; }
         public string LineJumpStyle { get; set; }
         public string PageShapeSplit { get; set; }
+
+        public static PageLayout GetRow(Shape shape)
+        {
+            PageLayout row = new PageLayout();
+
+            Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+            Row sectionRow = section[(short)VisRowIndices.visRowPageLayout];
+
+            row.PlaceStyle = sectionRow[VisCellIndices.visPLOPlaceStyle].FormulaU;
+            row.PlaceDepth = sectionRow[VisCellIndices.visPLOPlaceDepth].FormulaU;
+            row.PlowCode = sectionRow[VisCellIndices.visPLOPlowCode].FormulaU;
+            row.ResizePage = sectionRow[VisCellIndices.visPLOResizePage].FormulaU;
+            row.DynamicsOff = sectionRow[VisCellIndices.visPLODynamicsOff].FormulaU;
+            row.EnableGrid = sectionRow[VisCellIndices.visPLOEnableGrid].FormulaU;
+            row.CtrlAsInput = sectionRow[VisCellIndices.visPLOCtrlAsInput].FormulaU;
+            row.LineAdjustFrom = sectionRow[VisCellIndices.visPLOLineAdjustFrom].FormulaU;
+            row.PlaceFlip = sectionRow[VisCellIndices.visPLOPlaceFlip].FormulaU;
+            row.AvoidPageBreaks = sectionRow[VisCellIndices.visPLOAvoidPageBreaks].FormulaU;
+            row.BlockSizeX = sectionRow[VisCellIndices.visPLOBlockSizeX].FormulaU;
+            row.BlockSizeY = sectionRow[VisCellIndices.visPLOBlockSizeY].FormulaU;
+            row.AvenueSizeX = sectionRow[VisCellIndices.visPLOAvenueSizeX].FormulaU;
+            row.AvenueSizeY = sectionRow[VisCellIndices.visPLOAvenueSizeY].FormulaU;
+            row.RouteStyle = sectionRow[VisCellIndices.visPLORouteStyle].FormulaU;
+            row.PageLineJumpDirX = sectionRow[VisCellIndices.visPLOJumpDirX].FormulaU;
+            row.PageLineJumpDirY = sectionRow[VisCellIndices.visPLOJumpDirY].FormulaU;
+            row.LineAdjustTo = sectionRow[VisCellIndices.visPLOLineAdjustTo].FormulaU;
+            row.LineRouteExt = sectionRow[VisCellIndices.visPLOLineRouteExt].FormulaU;
+            row.LineToNodeX = sectionRow[VisCellIndices.visPLOLineToNodeX].FormulaU;
+            row.LineToNodeY = sectionRow[VisCellIndices.visPLOLineToNodeY].FormulaU;
+            row.LineToLineX = sectionRow[VisCellIndices.visPLOLineToLineX].FormulaU;
+            row.LineToLineY = sectionRow[VisCellIndices.visPLOLineToLineY].FormulaU;
+            row.LineJumpFactorX = sectionRow[VisCellIndices.visPLOJumpFactorX].FormulaU;
+            row.LineJumpFactorY = sectionRow[VisCellIndices.visPLOJumpFactorY].FormulaU;
+            row.LineJumpCode = sectionRow[VisCellIndices.visPLOJumpCode].FormulaU;
+            row.LineJumpStyle = sectionRow[VisCellIndices.visPLOJumpStyle].FormulaU;
+            row.PageShapeSplit = sectionRow[VisCellIndices.visPLOSplit].FormulaU;
+
+            return row;
+        }
+
+        public static void Set_PageLayout_Section(Shape shape, PageLayout pageLayout)
+        {
+            try
+            {
+                Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+                Row sectionRow = section[(short)VisRowIndices.visRowPageLayout];
+
+                sectionRow[VisCellIndices.visPLOPlaceStyle].FormulaU = pageLayout.PlaceStyle;
+                sectionRow[VisCellIndices.visPLOPlaceDepth].FormulaU = pageLayout.PlaceDepth;
+                sectionRow[VisCellIndices.visPLOPlowCode].FormulaU = pageLayout.PlowCode;
+                sectionRow[VisCellIndices.visPLOResizePage].FormulaU = pageLayout.ResizePage;
+                sectionRow[VisCellIndices.visPLODynamicsOff].FormulaU = pageLayout.DynamicsOff;
+                sectionRow[VisCellIndices.visPLOEnableGrid].FormulaU = pageLayout.EnableGrid;
+                sectionRow[VisCellIndices.visPLOCtrlAsInput].FormulaU = pageLayout.CtrlAsInput;
+                sectionRow[VisCellIndices.visPLOLineAdjustFrom].FormulaU = pageLayout.LineAdjustFrom;
+                sectionRow[VisCellIndices.visPLOPlaceFlip].FormulaU = pageLayout.PlaceFlip;
+                sectionRow[VisCellIndices.visPLOAvoidPageBreaks].FormulaU = pageLayout.AvoidPageBreaks;
+                sectionRow[VisCellIndices.visPLOBlockSizeX].FormulaU = pageLayout.BlockSizeX;
+                sectionRow[VisCellIndices.visPLOBlockSizeY].FormulaU = pageLayout.BlockSizeY;
+                sectionRow[VisCellIndices.visPLOAvenueSizeX].FormulaU = pageLayout.AvenueSizeX;
+                sectionRow[VisCellIndices.visPLOAvenueSizeY].FormulaU = pageLayout.AvenueSizeY;
+                sectionRow[VisCellIndices.visPLORouteStyle].FormulaU = pageLayout.RouteStyle;
+                sectionRow[VisCellIndices.visPLOJumpDirX].FormulaU = pageLayout.PageLineJumpDirX;
+                sectionRow[VisCellIndices.visPLOJumpDirY].FormulaU = pageLayout.PageLineJumpDirY;
+                sectionRow[VisCellIndices.visPLOLineAdjustTo].FormulaU = pageLayout.LineAdjustTo;
+                sectionRow[VisCellIndices.visPLOLineRouteExt].FormulaU = pageLayout.LineRouteExt;
+                sectionRow[VisCellIndices.visPLOLineToNodeX].FormulaU = pageLayout.LineToNodeX;
+                sectionRow[VisCellIndices.visPLOLineToNodeY].FormulaU = pageLayout.LineToNodeY;
+                sectionRow[VisCellIndices.visPLOLineToLineX].FormulaU = pageLayout.LineToLineX;
+                sectionRow[VisCellIndices.visPLOLineToLineY].FormulaU = pageLayout.LineToLineY;
+                sectionRow[VisCellIndices.visPLOJumpFactorX].FormulaU = pageLayout.LineJumpFactorX;
+                sectionRow[VisCellIndices.visPLOJumpFactorY].FormulaU = pageLayout.LineJumpFactorY;
+                sectionRow[VisCellIndices.visPLOJumpCode].FormulaU = pageLayout.LineJumpCode;
+                sectionRow[VisCellIndices.visPLOJumpStyle].FormulaU = pageLayout.LineJumpStyle;
+                sectionRow[VisCellIndices.visPLOSplit].FormulaU = pageLayout.PageShapeSplit;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Common.LOG_CATEGORY);
+            }
+        }
     }
 }

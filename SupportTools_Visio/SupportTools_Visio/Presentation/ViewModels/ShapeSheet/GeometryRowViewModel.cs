@@ -66,7 +66,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                GeometryRow = new GeometryRowWrapper(Visio_Shape.Get_GeometryRow(shape));
+                GeometryRow = new GeometryRowWrapper(VNC.Visio.VSTOAddIn.Domain.GeometryRow.GetRow(shape));
                 OnPropertyChanged("GeometryRow");
             }
 

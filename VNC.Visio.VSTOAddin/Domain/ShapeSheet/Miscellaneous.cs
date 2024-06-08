@@ -1,4 +1,8 @@
-﻿namespace VNC.Visio.VSTOAddIn.Domain
+﻿using System;
+
+using Microsoft.Office.Interop.Visio;
+
+namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class Miscellaneous
     {
@@ -18,5 +22,63 @@
         public string DropOnPageScale { get; set; }
         public string LocalizeMerge { get; set; }
         public string NoProofing { get; set; }
+
+
+        public static Miscellaneous GetRow(Shape shape)
+        {
+            Miscellaneous row = new Miscellaneous();
+
+            Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+            Row sectionRow = section[(short)VisRowIndices.visRowMisc];
+
+            row.NoObjHandles = sectionRow[VisCellIndices.visNoObjHandles].FormulaU;
+            row.NoCtlHandle = sectionRow[VisCellIndices.visNoCtlHandles].FormulaU;
+            row.NoAlignBox = sectionRow[VisCellIndices.visNoAlignBox].FormulaU;
+            row.NonPrinting = sectionRow[VisCellIndices.visNonPrinting].FormulaU;
+            row.LangID = sectionRow[VisCellIndices.visObjLangID].FormulaU;
+            row.HideText = sectionRow[VisCellIndices.visHideText].FormulaU;
+            row.UpdateAlignBox = sectionRow[VisCellIndices.visUpdateAlignBox].FormulaU;
+            row.DynFeedback = sectionRow[VisCellIndices.visDynFeedback].FormulaU;
+            row.NoLiveDynamics = sectionRow[VisCellIndices.visNoLiveDynamics].FormulaU;
+            row.Calendar = sectionRow[VisCellIndices.visObjCalendar].FormulaU;
+            row.ObjType = sectionRow[VisCellIndices.visLOFlags].FormulaU;
+            row.IsDropSource = sectionRow[VisCellIndices.visDropSource].FormulaU;
+            row.Comment = sectionRow[VisCellIndices.visComment].FormulaU;
+            row.DropOnPageScale = sectionRow[VisCellIndices.visObjDropOnPageScale].FormulaU;
+            row.LocalizeMerge = sectionRow[VisCellIndices.visObjLocalizeMerge].FormulaU;
+            row.NoProofing = sectionRow[VisCellIndices.visObjNoProofing].FormulaU;
+
+            return row;
+        }
+
+        internal static void Set_Miscellaneous_Section(Shape shape, Miscellaneous miscellaneous)
+        {
+            try
+            {
+                Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+                Row sectionRow = section[(short)VisRowIndices.visRowMisc];
+
+                sectionRow[VisCellIndices.visNoObjHandles].FormulaU = miscellaneous.NoObjHandles;
+                sectionRow[VisCellIndices.visNoCtlHandles].FormulaU = miscellaneous.NoCtlHandle;
+                sectionRow[VisCellIndices.visNoAlignBox].FormulaU = miscellaneous.NoAlignBox;
+                sectionRow[VisCellIndices.visNonPrinting].FormulaU = miscellaneous.NonPrinting;
+                sectionRow[VisCellIndices.visObjLangID].FormulaU = miscellaneous.LangID;
+                sectionRow[VisCellIndices.visHideText].FormulaU = miscellaneous.HideText;
+                sectionRow[VisCellIndices.visUpdateAlignBox].FormulaU = miscellaneous.UpdateAlignBox;
+                sectionRow[VisCellIndices.visDynFeedback].FormulaU = miscellaneous.DynFeedback;
+                sectionRow[VisCellIndices.visNoLiveDynamics].FormulaU = miscellaneous.NoLiveDynamics;
+                sectionRow[VisCellIndices.visObjCalendar].FormulaU = miscellaneous.Calendar;
+                sectionRow[VisCellIndices.visLOFlags].FormulaU = miscellaneous.ObjType;
+                sectionRow[VisCellIndices.visDropSource].FormulaU = miscellaneous.IsDropSource;
+                sectionRow[VisCellIndices.visComment].FormulaU = miscellaneous.Comment;
+                sectionRow[VisCellIndices.visObjDropOnPageScale].FormulaU = miscellaneous.DropOnPageScale;
+                sectionRow[VisCellIndices.visObjLocalizeMerge].FormulaU = miscellaneous.LocalizeMerge;
+                sectionRow[VisCellIndices.visObjNoProofing].FormulaU = miscellaneous.NoProofing;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Common.LOG_CATEGORY);
+            }
+        }
     }
 }

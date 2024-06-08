@@ -66,7 +66,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                LineGradientStopRow = new LineGradientStopRowWrapper(Visio_Shape.Get_LineGradientStopRow(shape));
+                LineGradientStopRow = new LineGradientStopRowWrapper(VNC.Visio.VSTOAddIn.Domain.LineGradientStopRow.Get_LineGradientStopRow(shape));
                 OnPropertyChanged("LineGradientStopRow");
             }
 

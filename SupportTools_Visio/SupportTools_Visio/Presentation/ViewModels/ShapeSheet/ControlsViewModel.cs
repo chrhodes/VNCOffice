@@ -78,7 +78,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                foreach (VNCVisioAddIn.Domain.ControlsRow row in Visio_Shape.Get_ControlsRows(shape))
+                foreach (VNCVisioAddIn.Domain.ControlsRow row in VNC.Visio.VSTOAddIn.Domain.ControlsRow.Get_ControlsRows(shape))
                 {
                     Controls.Add(new ControlsRowWrapper(row));
                 }

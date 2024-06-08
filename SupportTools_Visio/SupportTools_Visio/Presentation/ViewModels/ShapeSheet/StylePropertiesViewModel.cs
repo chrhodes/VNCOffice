@@ -56,7 +56,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                StyleProperties = new StylePropertiesWrapper(Visio_Shape.Get_StyleProperties(shape));
+                StyleProperties = new StylePropertiesWrapper(VNC.Visio.VSTOAddIn.Domain.StyleProperties.GetRow(shape));
                 OnPropertyChanged("StyleProperties");
             }
 

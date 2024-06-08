@@ -63,7 +63,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                TextFieldRow = new TextFieldRowWrapper(Visio_Shape.Get_TextFieldRow(shape));
+                TextFieldRow = new TextFieldRowWrapper(VNC.Visio.VSTOAddIn.Domain.TextFieldRow.GetRow(shape));
                 OnPropertyChanged("TextFieldRow");
             }
 

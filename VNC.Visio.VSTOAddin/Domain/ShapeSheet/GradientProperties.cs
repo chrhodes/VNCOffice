@@ -1,4 +1,8 @@
-﻿namespace VNC.Visio.VSTOAddIn.Domain
+﻿using System;
+
+using Microsoft.Office.Interop.Visio;
+
+namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class GradientProperties
     {
@@ -10,5 +14,46 @@
         public string FillGradientEnabled { get; set; }
         public string RotateGradientWithShape { get; set; }
         public string UseGroupGradient { get; set; }
+
+        public static GradientProperties Get_GradientProperties(Shape shape)
+        {
+            GradientProperties row = new GradientProperties();
+
+            Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+            Row sectionRow = section[(short)VisRowIndices.visRowGradientProperties];
+
+            row.LineGradientDir = sectionRow[VisCellIndices.visLineGradientDir].FormulaU;
+            row.LineGradientAngle = sectionRow[VisCellIndices.visLineGradientAngle].FormulaU;
+            row.FillGradientDir = sectionRow[VisCellIndices.visFillGradientDir].FormulaU;
+            row.FillGradientAngle = sectionRow[VisCellIndices.visFillGradientAngle].FormulaU;
+            row.LineGradientEnabled = sectionRow[VisCellIndices.visLineGradientEnabled].FormulaU;
+            row.FillGradientEnabled = sectionRow[VisCellIndices.visFillGradientEnabled].FormulaU;
+            row.RotateGradientWithShape = sectionRow[VisCellIndices.visRotateGradientWithShape].FormulaU;
+            row.UseGroupGradient = sectionRow[VisCellIndices.visUseGroupGradient].FormulaU;
+
+            return row;
+        }
+
+        public static void Set_GradientProperties_Section(Shape shape, GradientProperties gradientProperties)
+        {
+            try
+            {
+                Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+                Row sectionRow = section[(short)VisRowIndices.visRowGradientProperties];
+
+                sectionRow[VisCellIndices.visLineGradientDir].FormulaU = gradientProperties.LineGradientDir;
+                sectionRow[VisCellIndices.visLineGradientAngle].FormulaU = gradientProperties.LineGradientAngle;
+                sectionRow[VisCellIndices.visFillGradientDir].FormulaU = gradientProperties.FillGradientDir;
+                sectionRow[VisCellIndices.visFillGradientAngle].FormulaU = gradientProperties.FillGradientAngle;
+                sectionRow[VisCellIndices.visLineGradientEnabled].FormulaU = gradientProperties.LineGradientEnabled;
+                sectionRow[VisCellIndices.visFillGradientEnabled].FormulaU = gradientProperties.FillGradientEnabled;
+                sectionRow[VisCellIndices.visRotateGradientWithShape].FormulaU = gradientProperties.RotateGradientWithShape;
+                sectionRow[VisCellIndices.visUseGroupGradient].FormulaU = gradientProperties.UseGroupGradient;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Common.LOG_CATEGORY);
+            }
+        }
     }
 }
