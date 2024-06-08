@@ -1,4 +1,6 @@
-﻿namespace VNC.Visio.VSTOAddIn.Domain
+﻿using Microsoft.Office.Interop.Visio;
+
+namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class GroupProperties
     {
@@ -8,5 +10,36 @@
         public string DisplayMode { get; set; }
         public string IsSnapTarget { get; set; }
         public string DontMoveChildren { get; set; }
+
+        public static GroupProperties Get_GroupProperties(Shape shape)
+        {
+            GroupProperties row = new GroupProperties();
+
+            Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+            Row sectionRow = section[(short)VisRowIndices.visRowGroup];
+
+            row.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
+            row.IsTextEditTarget = sectionRow[VisCellIndices.visGroupIsTextEditTarget].FormulaU;
+            row.IsDropTarget = sectionRow[VisCellIndices.visGroupIsDropTarget].FormulaU;
+            row.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
+            row.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
+            row.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+
+            return row;
+        }
+
+        public static void Set_GroupProperties_Section(Shape shape, GroupProperties groupProperties)
+        {
+            Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+            Row sectionRow = section[(short)VisRowIndices.visRowGroup];
+
+            groupProperties.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
+            groupProperties.IsTextEditTarget = sectionRow[VisCellIndices.visGroupIsTextEditTarget].FormulaU;
+            groupProperties.IsDropTarget = sectionRow[VisCellIndices.visGroupIsDropTarget].FormulaU;
+            groupProperties.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
+            groupProperties.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
+            groupProperties.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+        }
+
     }
 }

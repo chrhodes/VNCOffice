@@ -61,7 +61,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                CharacterRow = new CharacterRowWrapper(Visio_Shape.Get_CharacterRow(shape));
+                CharacterRow = new CharacterRowWrapper(VNC.Visio.VSTOAddIn.Domain.CharacterRow.GetRow(shape));
                 OnPropertyChanged("CharacterRow");
             }
 

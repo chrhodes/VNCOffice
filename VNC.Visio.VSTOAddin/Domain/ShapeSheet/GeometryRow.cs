@@ -1,4 +1,6 @@
-﻿namespace VNC.Visio.VSTOAddIn.Domain
+﻿using Microsoft.Office.Interop.Visio;
+
+namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class GeometryRow
     {
@@ -11,5 +13,23 @@
         public string B { get; set; }
         public string C { get; set; }
         public string D { get; set; }
+
+        public static GeometryRow GetRow(Shape shape)
+        {
+            GeometryRow row = new GeometryRow();
+
+            // TODO(crhodes)
+            // Can't find Section Index
+
+            //Visio.Section section = shape.Section[(short)Visio.VisSectionIndices.v];
+            //Visio.Row sectionRow = section[0];
+
+            //// TODO(crhodes)
+            //// Handle multiple rows
+
+            //row.Action = sectionRow[VisCellIndices.visActionAction].FormulaU;
+
+            return row;
+        }
     }
 }

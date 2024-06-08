@@ -865,7 +865,7 @@ namespace SupportTools_Visio.User_Interface.User_Controls
                 textBlockFormat.TextBkgndTrans = setTextBlockFormatElement.Attribute("TextBkgndTrans").Value;
                 textBlockFormat.DefaultTabStop = setTextBlockFormatElement.Attribute("DefaultTabStop").Value;
 
-                Actions.Visio_Shape.Set_TextBlockFormat_Section(shape, textBlockFormat);
+                VNC.Visio.VSTOAddIn.Domain.TextBlockFormat.SetSection(shape, textBlockFormat);
             }
             catch (Exception ex)
             {
@@ -889,7 +889,7 @@ namespace SupportTools_Visio.User_Interface.User_Controls
                 string angle = setTextTransformElement.Attribute("Angle").Value;
 
 
-                Actions.Visio_Shape.Set_TextTransform_Section(shape, width, height, pinX, pinY, locPinX, locPinY, angle);
+                Actions.Visio_Shape.Set_TextXForm_Section(shape, width, height, pinX, pinY, locPinX, locPinY, angle);
             }
             catch (Exception ex)
             {

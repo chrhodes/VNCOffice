@@ -94,7 +94,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                Visio_Shape.Set_Paragraph_Section(shape, Paragraph.Model);
+                VNC.Visio.VSTOAddIn.Domain.ParagraphRow.Set_Paragraph_Section(shape, Paragraph.Model);
             }
 
             Globals.ThisAddIn.Application.EndUndoScope(undoScope, true);
@@ -119,7 +119,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                Paragraph = new ParagraphWrapper(Visio_Shape.Get_ParagraphSection(shape));
+                Paragraph = new ParagraphWrapper(VNC.Visio.VSTOAddIn.Domain.ParagraphRow.Get_ParagraphSection(shape));
                 OnPropertyChanged("Paragraph");
             }
         }

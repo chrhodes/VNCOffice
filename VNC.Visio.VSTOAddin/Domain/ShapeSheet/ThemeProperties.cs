@@ -1,4 +1,8 @@
-﻿namespace VNC.Visio.VSTOAddIn.Domain
+﻿using System;
+
+using Microsoft.Office.Interop.Visio;
+
+namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class ThemeProperties
     {
@@ -10,5 +14,46 @@
         public string VariationColorIndex { get; set; }
         public string VariationStyleIndex { get; set; }
         public string EmbellishmentIndex { get; set; }
+
+        public static ThemeProperties Get_ThemeProperties(Shape shape)
+        {
+            ThemeProperties row = new ThemeProperties();
+
+            Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+            Row sectionRow = section[(short)VisRowIndices.visRowThemeProperties];
+
+            row.ConnectorSchemeIndex = sectionRow[VisCellIndices.visConnectorSchemeIndex].FormulaU;
+            row.EffectSchemeIndex = sectionRow[VisCellIndices.visEffectSchemeIndex].FormulaU;
+            row.ColorSchemeIndex = sectionRow[VisCellIndices.visColorSchemeIndex].FormulaU;
+            row.FontSchemeIndex = sectionRow[VisCellIndices.visFontSchemeIndex].FormulaU;
+            row.ThemeIndex = sectionRow[VisCellIndices.visThemeIndex].FormulaU;
+            row.VariationColorIndex = sectionRow[VisCellIndices.visVariationColorIndex].FormulaU;
+            row.VariationStyleIndex = sectionRow[VisCellIndices.visVariationStyleIndex].FormulaU;
+            row.EmbellishmentIndex = sectionRow[VisCellIndices.visEmbellishmentIndex].FormulaU;
+
+            return row;
+        }
+
+        public static void Set_ThemeProperties_Section(Shape shape, ThemeProperties themeProperties)
+        {
+            try
+            {
+                Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+                Row sectionRow = section[(short)VisRowIndices.visRowThemeProperties];
+
+                sectionRow[VisCellIndices.visConnectorSchemeIndex].FormulaU = themeProperties.ConnectorSchemeIndex;
+                sectionRow[VisCellIndices.visEffectSchemeIndex].FormulaU = themeProperties.EffectSchemeIndex;
+                sectionRow[VisCellIndices.visColorSchemeIndex].FormulaU = themeProperties.ColorSchemeIndex;
+                sectionRow[VisCellIndices.visFontSchemeIndex].FormulaU = themeProperties.FontSchemeIndex;
+                sectionRow[VisCellIndices.visThemeIndex].FormulaU = themeProperties.ThemeIndex;
+                sectionRow[VisCellIndices.visVariationColorIndex].FormulaU = themeProperties.VariationColorIndex;
+                sectionRow[VisCellIndices.visVariationStyleIndex].FormulaU = themeProperties.VariationStyleIndex;
+                sectionRow[VisCellIndices.visEmbellishmentIndex].FormulaU = themeProperties.EmbellishmentIndex;
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, Common.LOG_CATEGORY);
+            }
+        }
     }
 }

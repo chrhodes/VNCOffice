@@ -120,7 +120,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                ControlRow = new ControlsRowWrapper(Visio_Shape.Get_ControlsRow(shape));
+                ControlRow = new ControlsRowWrapper(VNC.Visio.VSTOAddIn.Domain.ControlsRow.GetRow(shape));
                 OnPropertyChanged("ControlRow");
             }
         }
