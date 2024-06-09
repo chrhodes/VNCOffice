@@ -29,7 +29,7 @@
         <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
         <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
         <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
-        <PackageReference Include="stdole" Version="17.4.33103.184" />
+        <PackageReference Include="stdole" Version="17.10.40170" />
         <PackageReference Include="System.Windows.Forms.Ribbon35" Version="3.5.8" />
         <PackageReference Include="VNC.AssemblyHelper" Version="2.0.0" />
         <PackageReference Include="VNC.Logging" Version="2.1.0" />

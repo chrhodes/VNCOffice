@@ -545,7 +545,7 @@
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -1518,7 +1518,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\VNC.ExcelHelper\VNC.ExcelHelper.csproj">
-      <Project>{1cf219f0-f24b-4cda-bd68-a0cbfc177f82}</Project>
+      <Project>{29e804e7-29d1-4b67-8802-efa0e9332911}</Project>
       <Name>VNC.ExcelHelper</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\VNC.Visio.VSTOAddin\VNC.Visio.VSTOAddIn.csproj">
