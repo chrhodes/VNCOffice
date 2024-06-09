@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class AdditionalEffectProperties
+    public class AdditionalEffectPropertiesRow
     {
         public string ReflectionTrans { get; set; }
         public string ReflectionSize { get; set; }
@@ -21,9 +21,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string GlowSize { get; set; }
         public string SoftEdgesSize { get; set; }
 
-        public static AdditionalEffectProperties Get_AdditionalEffectProperties(Shape shape)
+        public static AdditionalEffectPropertiesRow Get_AdditionalEffectProperties(Shape shape)
         {
-            AdditionalEffectProperties row = new AdditionalEffectProperties();
+            AdditionalEffectPropertiesRow row = new AdditionalEffectPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowOtherEffectProperties];
@@ -46,7 +46,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_AdditionalEffectProperties_Section(Shape shape, AdditionalEffectProperties additionalEffectProperties)
+        public static void Set_AdditionalEffectProperties_Section(Shape shape, AdditionalEffectPropertiesRow additionalEffectProperties)
         {
             try
             {

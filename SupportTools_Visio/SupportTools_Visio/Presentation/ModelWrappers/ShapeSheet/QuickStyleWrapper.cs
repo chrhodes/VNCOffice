@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class QuickStyleWrapper : ModelWrapper<VNCVisioAddIn.Domain.QuickStyle>
+    public class QuickStyleWrapper : ModelWrapper<VNCVisioAddIn.Domain.QuickStyleRow>
     {
         public QuickStyleWrapper()
         {
         }
-        public QuickStyleWrapper(VNCVisioAddIn.Domain.QuickStyle model) : base(model)
+        public QuickStyleWrapper(VNCVisioAddIn.Domain.QuickStyleRow model) : base(model)
         {
         }
 

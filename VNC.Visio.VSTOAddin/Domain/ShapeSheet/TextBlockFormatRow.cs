@@ -17,9 +17,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
     //    public string DefaultTabStop = "0.5 in";
     //}
 
-    public class TextBlockFormat
+    public class TextBlockFormatRow
     {
-        public TextBlockFormat()
+        public TextBlockFormatRow()
         {
             // Initialize Defaults
             //LeftMargin = "Char.Size/2";
@@ -39,9 +39,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string VerticalAlign { get; set; } = "1";
         public string DefaultTabStop { get; set; } = "0.5 in";
 
-        public static TextBlockFormat GetRow(Shape shape)
+        public static TextBlockFormatRow GetRow(Shape shape)
         {
-            TextBlockFormat row = new TextBlockFormat();
+            TextBlockFormatRow row = new TextBlockFormatRow();
 
             // Shape Transform Section is part of object
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
@@ -64,7 +64,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         }
 
         public static void SetSection(Shape shape,
-            TextBlockFormat textBlockFormat = null)
+            TextBlockFormatRow textBlockFormat = null)
         {
             ValidateSectionExists(shape);
 

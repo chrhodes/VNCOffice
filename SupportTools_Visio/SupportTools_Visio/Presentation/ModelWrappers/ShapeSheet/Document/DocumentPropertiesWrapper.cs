@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class DocumentPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.DocumentProperties>
+    public class DocumentPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.DocumentPropertiesRow>
     {
         public DocumentPropertiesWrapper()
         {
         }
-        public DocumentPropertiesWrapper(VNCVisioAddIn.Domain.DocumentProperties model) : base(model)
+        public DocumentPropertiesWrapper(VNCVisioAddIn.Domain.DocumentPropertiesRow model) : base(model)
         {
         }
         public string PreviewQuality { get { return GetValue<string>(); } set { SetValue(value); } }

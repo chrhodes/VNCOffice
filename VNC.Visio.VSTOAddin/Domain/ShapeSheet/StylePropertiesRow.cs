@@ -2,16 +2,16 @@
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class StyleProperties
+    public class StylePropertiesRow
     {
         public string EnableTextProps { get; set; }
         public string EnableLineProps { get; set; }
         public string EnableFillProps { get; set; }
         public string HideForApply { get; set; }
 
-        public static StyleProperties GetRow(Shape shape)
+        public static StylePropertiesRow GetRow(Shape shape)
         {
-            StyleProperties row = new StyleProperties();
+            StylePropertiesRow row = new StylePropertiesRow();
 
             // Shape Transform Section is part of object
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];

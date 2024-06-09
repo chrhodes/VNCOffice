@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class QuickStyle
+    public class QuickStyleRow
     {
         public string QuickStyleLineMatrix { get; set; }
         public string QuickStyleLineColor { get; set; }
@@ -16,9 +16,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string QuickStyleShadowColor { get; set; }
         public string QuickStyleType { get; set; }
 
-        public static QuickStyle GetRow(Shape shape)
+        public static QuickStyleRow GetRow(Shape shape)
         {
-            QuickStyle row = new QuickStyle();
+            QuickStyleRow row = new QuickStyleRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowQuickStyleProperties];
@@ -36,7 +36,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_QuickStyle_Section(Shape shape, QuickStyle quickStyle)
+        public static void Set_QuickStyle_Section(Shape shape, QuickStyleRow quickStyle)
         {
             try
             {

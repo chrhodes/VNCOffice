@@ -38,7 +38,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                VNC.Visio.VSTOAddIn.Domain.FillFormat.SetSection(shape, FillFormat.Model);
+                VNC.Visio.VSTOAddIn.Domain.FillFormatRow.SetSection(shape, FillFormat.Model);
             }
 
             Globals.ThisAddIn.Application.EndUndoScope(undoScope, true);
@@ -56,7 +56,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                FillFormat = new FillFormatWrapper(VNC.Visio.VSTOAddIn.Domain.FillFormat.GetRow(shape));
+                FillFormat = new FillFormatWrapper(VNC.Visio.VSTOAddIn.Domain.FillFormatRow.GetRow(shape));
                 OnPropertyChanged("FillFormat");
             }
 

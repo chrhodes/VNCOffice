@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class GradientProperties
+    public class GradientPropertiesRow
     {
         public string LineGradientDir { get; set; }
         public string LineGradientAngle { get; set; }
@@ -15,9 +15,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string RotateGradientWithShape { get; set; }
         public string UseGroupGradient { get; set; }
 
-        public static GradientProperties Get_GradientProperties(Shape shape)
+        public static GradientPropertiesRow Get_GradientProperties(Shape shape)
         {
-            GradientProperties row = new GradientProperties();
+            GradientPropertiesRow row = new GradientPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowGradientProperties];
@@ -34,7 +34,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_GradientProperties_Section(Shape shape, GradientProperties gradientProperties)
+        public static void Set_GradientProperties_Section(Shape shape, GradientPropertiesRow gradientProperties)
         {
             try
             {

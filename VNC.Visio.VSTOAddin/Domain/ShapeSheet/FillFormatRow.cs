@@ -2,7 +2,7 @@
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class FillFormat
+    public class FillFormatRow
     {
         public string FillForegnd { get; set; }
         public string ShdwForegnd { get; set; }
@@ -20,9 +20,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string FillPattern { get; set; }
         public string ShapeShdwShow { get; set; }
 
-        public static FillFormat GetRow(Shape shape)
+        public static FillFormatRow GetRow(Shape shape)
         {
-            FillFormat row = new FillFormat();
+            FillFormatRow row = new FillFormatRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowFill];
@@ -46,7 +46,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void SetSection(Shape shape, FillFormat fillFormat)
+        public static void SetSection(Shape shape, FillFormatRow fillFormat)
         {
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowFill];

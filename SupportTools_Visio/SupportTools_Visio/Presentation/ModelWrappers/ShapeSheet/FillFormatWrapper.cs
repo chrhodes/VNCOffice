@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class FillFormatWrapper : ModelWrapper<VNCVisioAddIn.Domain.FillFormat>
+    public class FillFormatWrapper : ModelWrapper<VNCVisioAddIn.Domain.FillFormatRow>
     {
         public FillFormatWrapper()
         {
         }
-        public FillFormatWrapper(VNCVisioAddIn.Domain.FillFormat model) : base(model)
+        public FillFormatWrapper(VNCVisioAddIn.Domain.FillFormatRow model) : base(model)
         {
         }
 

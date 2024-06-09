@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class DocumentProperties
+    public class DocumentPropertiesRow
     {
         public string PreviewQuality { get; set; }
         public string OutputFormat { get; set; }
@@ -17,9 +17,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string NoCoauth { get; set; }
         public string DocLockDuplicatePage { get; set; }
 
-        public static DocumentProperties GetRow(Shape shape)
+        public static DocumentPropertiesRow GetRow(Shape shape)
         {
-            DocumentProperties row = new DocumentProperties();
+            DocumentPropertiesRow row = new DocumentPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowDoc];
@@ -38,7 +38,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_DocumentProperties_Section(Shape shape, DocumentProperties documentProperties)
+        public static void SetRow(Shape shape, DocumentPropertiesRow documentProperties)
         {
             try
             {

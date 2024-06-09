@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class ThreeDRotationProperties
+    public class ThreeDRotationPropertiesRow
     {
         public string RotationXAngle { get; set; }
         public string RotationYAngle { get; set; }
@@ -14,9 +14,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string DistanceFromGround { get; set; }
         public string KeepTextFlat { get; set; }
 
-        public static ThreeDRotationProperties GetRow(Shape shape)
+        public static ThreeDRotationPropertiesRow GetRow(Shape shape)
         {
-            ThreeDRotationProperties row = new ThreeDRotationProperties();
+            ThreeDRotationPropertiesRow row = new ThreeDRotationPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRow3DRotationProperties];
@@ -32,7 +32,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ThreeDRotationProperties_Section(Shape shape, ThreeDRotationProperties threeDRotationProperties)
+        public static void Set_ThreeDRotationProperties_Section(Shape shape, ThreeDRotationPropertiesRow threeDRotationProperties)
         {
             try
             {

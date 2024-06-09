@@ -4,12 +4,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class PagePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.PageProperties>
+    public class PagePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.PagePropertiesRow>
     {
         public PagePropertiesWrapper()
         {
         }
-        public PagePropertiesWrapper(VNCVisioAddIn.Domain.PageProperties model) : base(model)
+        public PagePropertiesWrapper(VNCVisioAddIn.Domain.PagePropertiesRow model) : base(model)
         {
         }
 

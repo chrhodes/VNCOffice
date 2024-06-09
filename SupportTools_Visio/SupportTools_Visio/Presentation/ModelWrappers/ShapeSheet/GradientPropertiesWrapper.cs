@@ -4,12 +4,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class GradientPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.GradientProperties>
+    public class GradientPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.GradientPropertiesRow>
     {
         public GradientPropertiesWrapper()
         {
         }
-        public GradientPropertiesWrapper(VNCVisioAddIn.Domain.GradientProperties model) : base(model)
+        public GradientPropertiesWrapper(VNCVisioAddIn.Domain.GradientPropertiesRow model) : base(model)
         {
         }
 

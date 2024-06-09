@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class Miscellaneous
+    public class MiscellaneousRow
     {
         public string NoObjHandles { get; set; }
         public string NoCtlHandle { get; set; }
@@ -24,9 +24,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string NoProofing { get; set; }
 
 
-        public static Miscellaneous GetRow(Shape shape)
+        public static MiscellaneousRow GetRow(Shape shape)
         {
-            Miscellaneous row = new Miscellaneous();
+            MiscellaneousRow row = new MiscellaneousRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowMisc];
@@ -51,7 +51,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        internal static void Set_Miscellaneous_Section(Shape shape, Miscellaneous miscellaneous)
+        internal static void Set_Miscellaneous_Section(Shape shape, MiscellaneousRow miscellaneous)
         {
             try
             {

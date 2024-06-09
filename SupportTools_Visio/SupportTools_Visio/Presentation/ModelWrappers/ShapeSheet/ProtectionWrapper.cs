@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 { 
-    public class ProtectionWrapper : ModelWrapper<VNCVisioAddIn.Domain.Protection>
+    public class ProtectionWrapper : ModelWrapper<VNCVisioAddIn.Domain.ProtectionRow>
     {
         public ProtectionWrapper()
         {
         }
-        public ProtectionWrapper(VNCVisioAddIn.Domain.Protection model) : base(model)
+        public ProtectionWrapper(VNCVisioAddIn.Domain.ProtectionRow model) : base(model)
         {
         }
 

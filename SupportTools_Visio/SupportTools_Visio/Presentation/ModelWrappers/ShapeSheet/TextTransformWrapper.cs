@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class TextTransformWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextTransform>
+    public class TextTransformWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextTransformRow>
     {
         public TextTransformWrapper()
         {
         }
-        public TextTransformWrapper(VNCVisioAddIn.Domain.TextTransform model) : base(model)
+        public TextTransformWrapper(VNCVisioAddIn.Domain.TextTransformRow model) : base(model)
         {
         }
 

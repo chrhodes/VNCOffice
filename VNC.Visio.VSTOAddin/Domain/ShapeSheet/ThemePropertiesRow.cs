@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class ThemeProperties
+    public class ThemePropertiesRow
     {
         public string ConnectorSchemeIndex { get; set; }
         public string EffectSchemeIndex { get; set; }
@@ -15,9 +15,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string VariationStyleIndex { get; set; }
         public string EmbellishmentIndex { get; set; }
 
-        public static ThemeProperties Get_ThemeProperties(Shape shape)
+        public static ThemePropertiesRow Get_ThemeProperties(Shape shape)
         {
-            ThemeProperties row = new ThemeProperties();
+            ThemePropertiesRow row = new ThemePropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowThemeProperties];
@@ -34,7 +34,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ThemeProperties_Section(Shape shape, ThemeProperties themeProperties)
+        public static void Set_ThemeProperties_Section(Shape shape, ThemePropertiesRow themeProperties)
         {
             try
             {

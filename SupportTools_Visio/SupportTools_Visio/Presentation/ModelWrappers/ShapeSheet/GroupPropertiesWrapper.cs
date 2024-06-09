@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class GroupPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.GroupProperties>
+    public class GroupPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.GroupPropertiesRow>
     {
         public GroupPropertiesWrapper()
         {
         }
-        public GroupPropertiesWrapper(VNCVisioAddIn.Domain.GroupProperties model) : base(model)
+        public GroupPropertiesWrapper(VNCVisioAddIn.Domain.GroupPropertiesRow model) : base(model)
         {
         }
 

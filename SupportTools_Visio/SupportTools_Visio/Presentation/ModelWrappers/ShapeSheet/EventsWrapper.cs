@@ -4,12 +4,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class EventsWrapper : ModelWrapper<VNCVisioAddIn.Domain.Events>
+    public class EventsWrapper : ModelWrapper<VNCVisioAddIn.Domain.EventsRow>
     {
         public EventsWrapper()
         {
         }
-        public EventsWrapper(VNCVisioAddIn.Domain.Events model) : base(model)
+        public EventsWrapper(VNCVisioAddIn.Domain.EventsRow model) : base(model)
         {
         }
 

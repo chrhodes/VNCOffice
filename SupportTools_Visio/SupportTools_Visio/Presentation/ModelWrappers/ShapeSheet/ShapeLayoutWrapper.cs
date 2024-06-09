@@ -4,12 +4,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ShapeLayoutWrapper : ModelWrapper<VNCVisioAddIn.Domain.ShapeLayout>
+    public class ShapeLayoutWrapper : ModelWrapper<VNCVisioAddIn.Domain.ShapeLayoutRow>
     {
         public ShapeLayoutWrapper()
         {
         }
-        public ShapeLayoutWrapper(VNCVisioAddIn.Domain.ShapeLayout model) : base(model)
+        public ShapeLayoutWrapper(VNCVisioAddIn.Domain.ShapeLayoutRow model) : base(model)
         {
         }
 

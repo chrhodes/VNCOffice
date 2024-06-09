@@ -38,7 +38,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                VNC.Visio.VSTOAddIn.Domain.ShapeLayout.SetSection(shape, ShapeLayout.Model);
+                VNC.Visio.VSTOAddIn.Domain.ShapeLayoutRow.SetSection(shape, ShapeLayout.Model);
             }
 
             Globals.ThisAddIn.Application.EndUndoScope(undoScope, true);
@@ -56,7 +56,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                ShapeLayout = new ShapeLayoutWrapper(VNC.Visio.VSTOAddIn.Domain.ShapeLayout.GetRow(shape));
+                ShapeLayout = new ShapeLayoutWrapper(VNC.Visio.VSTOAddIn.Domain.ShapeLayoutRow.GetRow(shape));
                 OnPropertyChanged("ShapeLayout");
             }
 

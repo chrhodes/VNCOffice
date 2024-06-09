@@ -1063,7 +1063,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             try
             {
-                VNCVisioAddIn.Domain.TextBlockFormat textBlockFormat = new VNCVisioAddIn.Domain.TextBlockFormat();
+                VNCVisioAddIn.Domain.TextBlockFormatRow textBlockFormat = new VNCVisioAddIn.Domain.TextBlockFormatRow();
 
                 textBlockFormat.LeftMargin = setTextBlockFormatElement.Attribute("LeftMargin").Value;
                 textBlockFormat.TopMargin = setTextBlockFormatElement.Attribute("TopMargin").Value;
@@ -1075,7 +1075,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                 textBlockFormat.TextBkgndTrans = setTextBlockFormatElement.Attribute("TextBkgndTrans").Value;
                 textBlockFormat.DefaultTabStop = setTextBlockFormatElement.Attribute("DefaultTabStop").Value;
 
-                VNCVisioAddIn.Domain.TextBlockFormat.SetSection(shape, textBlockFormat);
+                VNCVisioAddIn.Domain.TextBlockFormatRow.SetSection(shape, textBlockFormat);
             }
             catch (Exception ex)
             {

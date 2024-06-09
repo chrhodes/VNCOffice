@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ThemePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ThemeProperties>
+    public class ThemePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ThemePropertiesRow>
     {
         public ThemePropertiesWrapper()
         {
         }
-        public ThemePropertiesWrapper(VNCVisioAddIn.Domain.ThemeProperties model) : base(model)
+        public ThemePropertiesWrapper(VNCVisioAddIn.Domain.ThemePropertiesRow model) : base(model)
         {
         }
 

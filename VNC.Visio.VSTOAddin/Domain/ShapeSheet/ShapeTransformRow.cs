@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class ShapeTransform
+    public class ShapeTransformRow
     {
         public string Width { get; set; }
         public string Height { get; set; }
@@ -18,9 +18,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string ResizeMode { get; set; }
 
 
-        public static ShapeTransform Get_ShapeTransform(Shape shape)
+        public static ShapeTransformRow Get_ShapeTransform(Shape shape)
         {
-            ShapeTransform row = new ShapeTransform();
+            ShapeTransformRow row = new ShapeTransformRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowXFormOut];
@@ -39,7 +39,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ShapeTransform_Section(Shape shape, ShapeTransform shapeTransform)
+        public static void Set_ShapeTransform_Section(Shape shape, ShapeTransformRow shapeTransform)
         {
             try
             {

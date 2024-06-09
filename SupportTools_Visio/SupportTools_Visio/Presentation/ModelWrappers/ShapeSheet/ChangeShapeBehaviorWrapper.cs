@@ -4,12 +4,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ChangeShapeBehaviorWrapper : ModelWrapper<VNCVisioAddIn.Domain.ChangeShapeBehavior>
+    public class ChangeShapeBehaviorWrapper : ModelWrapper<VNCVisioAddIn.Domain.ChangeShapeBehaviorRow>
     {
         public ChangeShapeBehaviorWrapper()
         {
         }
-        public ChangeShapeBehaviorWrapper(VNCVisioAddIn.Domain.ChangeShapeBehavior model) : base(model)
+        public ChangeShapeBehaviorWrapper(VNCVisioAddIn.Domain.ChangeShapeBehaviorRow model) : base(model)
         {
         }
 

@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class PrintProperties
+    public class PrintPropertiesRow
     {
         public string PageLeftMargin { get; set; }
         public string PageTopMargin { get; set; }
@@ -22,9 +22,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string PaperKind { get; set; }
         public string PaperSource { get; set; }
 
-        public static PrintProperties Get_PrintProperties(Shape shape)
+        public static PrintPropertiesRow Get_PrintProperties(Shape shape)
         {
-            PrintProperties row = new PrintProperties();
+            PrintPropertiesRow row = new PrintPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowPrintProperties];
@@ -48,7 +48,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_PrintProperties_Section(Shape shape, PrintProperties printProperties)
+        public static void Set_PrintProperties_Section(Shape shape, PrintPropertiesRow printProperties)
         {
             try
             {
