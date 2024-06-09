@@ -23,7 +23,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         // TODO(crhodes)
         // Why is this Section and not Row
 
-        public static ParagraphRow Get_ParagraphSection(Shape shape)
+        public static ParagraphRow GetRow(Shape shape)
         {
             ParagraphRow paragraph = new ParagraphRow();
 
@@ -47,7 +47,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return paragraph;
         }
 
-        public static void Set_Paragraph_Section(Shape shape, ParagraphRow paragraph)
+        public static void SetRow(Shape shape, ParagraphRow paragraph)
         {
             try
             {

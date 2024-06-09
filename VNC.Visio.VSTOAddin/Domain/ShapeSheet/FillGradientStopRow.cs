@@ -10,7 +10,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string ColorTrans { get; set; }
         public string Position { get; set; }
 
-        public static Domain.FillGradientStopRow GetRow(Shape shape)
+        public static FillGradientStopRow GetRow(Shape shape)
         {
             FillGradientStopRow row = new FillGradientStopRow();
 
