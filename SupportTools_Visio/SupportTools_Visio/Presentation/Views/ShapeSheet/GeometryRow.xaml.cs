@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using SupportTools_Visio.Presentation.ViewModels;
 using VNC;
 
@@ -6,17 +7,15 @@ namespace SupportTools_Visio.Presentation.Views
 {
     public partial class GeometryRow : UserControl
     {
-        //private readonly GeometryRowViewModel _viewModel;
-
         #region Constructors and Load
 
-        public GeometryRow(GeometryRowViewModel viewModel)
+        public GeometryRow()
         {
-            Log.Trace("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+
             InitializeComponent();
-            //_viewModel = viewModel;
-            //DataContext = _viewModel;
-            Log.Trace("Exit", Common.LOG_CATEGORY);
+
+            Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion

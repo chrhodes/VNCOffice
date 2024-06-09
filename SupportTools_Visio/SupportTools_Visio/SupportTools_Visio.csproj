@@ -849,6 +849,7 @@
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\AlignmentRowWrapper.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\ILinqToExcelViewModel.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\IViewCViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\ShapeSheet\ShapeSheetSectionBase.cs" />
     <Compile Include="Presentation\ViewModels\TestData.cs" />
     <Compile Include="Presentation\ViewModels\ViewCViewModel.cs" />
     <Compile Include="Presentation\Views\LinqToExcel.xaml.cs">
@@ -873,7 +874,7 @@
       <DependentUpon>CommandCockpit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\ViewModels\Interfaces\IMovePageViewModel.cs" />
-    <Compile Include="Presentation\ModelWrappers\ShapeSheet\Page\PagePropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\PagePropertiesWrapper.cs" />
     <Compile Include="Presentation\Views\MovePage.xaml.cs">
       <DependentUpon>MovePage.xaml</DependentUpon>
     </Compile>
@@ -889,7 +890,7 @@
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\CharacterRowWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ConnectionPointRowWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ControlsRowWrapper.cs" />
-    <Compile Include="Presentation\ModelWrappers\ShapeSheet\Document\DocumentPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\DocumentPropertiesWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\EventsWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\FillFormatWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\FillGradientStopRowWrapper.cs" />
@@ -923,14 +924,11 @@
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ThemePropertiesWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ThreeDRotationPropertiesWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\UserDefinedCellRowWrapper.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\ControlsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\EditControlRowsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\EditParagraphViewModel.cs" />
     <Compile Include="Presentation\ViewModels\EditTextViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\GeometryRowViewModel.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\IEditTextViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\RowsViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\ShapeSheetSectionBase.cs" />
     <Compile Include="Presentation\ViewModels\ViewAViewModel.cs" />
     <Compile Include="Presentation\Views\EditText.xaml.cs">
       <DependentUpon>EditText.xaml</DependentUpon>
@@ -1057,7 +1055,6 @@
     <Compile Include="Presentation\Views\EditParagraph.xaml.cs">
       <DependentUpon>EditParagraph.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ViewModels\ShapeSheet\FillFormatViewModel.cs" />
     <Compile Include="Presentation\Views\ShapeSheet\GeometryRow.xaml.cs">
       <DependentUpon>GeometryRow.xaml</DependentUpon>
     </Compile>
@@ -1073,16 +1070,12 @@
     <Compile Include="Presentation\Views\ShapeSheet\ShapeLayout.xaml.cs">
       <DependentUpon>ShapeLayout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ViewModels\ShapeSheet\ShapeLayoutViewModel.cs" />
     <Compile Include="Presentation\Views\ShapeSheet\StyleProperties.xaml.cs">
       <DependentUpon>StyleProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ViewModels\ShapeSheet\StylePropertiesViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\TabRowViewModel.cs" />
     <Compile Include="Presentation\Views\ShapeSheet\TextFields.xaml.cs">
       <DependentUpon>TextFields.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\ViewModels\ShapeSheet\TextFieldRowViewModel.cs" />
     <Compile Include="Presentation\Views\ShapeSheet\UserDefinedCells.xaml.cs">
       <DependentUpon>UserDefinedCells.xaml</DependentUpon>
     </Compile>
@@ -1519,7 +1512,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fakes\" />
-    <Folder Include="Presentation\ModelWrappers\ShapeSheet\Shape\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\cut-16x16.png" />
