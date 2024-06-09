@@ -22,7 +22,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string PaperKind { get; set; }
         public string PaperSource { get; set; }
 
-        public static PrintPropertiesRow Get_PrintProperties(Shape shape)
+        public static PrintPropertiesRow GetRow(Shape shape)
         {
             PrintPropertiesRow row = new PrintPropertiesRow();
 
@@ -48,7 +48,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_PrintProperties_Section(Shape shape, PrintPropertiesRow printProperties)
+        public static void SetRow(Shape shape, PrintPropertiesRow printProperties)
         {
             try
             {

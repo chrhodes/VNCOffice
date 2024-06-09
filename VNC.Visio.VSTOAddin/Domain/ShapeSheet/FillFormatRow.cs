@@ -46,7 +46,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void SetSection(Shape shape, FillFormatRow fillFormat)
+        public static void SetRow(Shape shape, FillFormatRow fillFormat)
         {
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowFill];

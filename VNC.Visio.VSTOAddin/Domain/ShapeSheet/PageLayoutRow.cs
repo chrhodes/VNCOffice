@@ -74,7 +74,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_PageLayout_Section(Shape shape, PageLayoutRow pageLayout)
+        public static void SetRow(Shape shape, PageLayoutRow pageLayout)
         {
             try
             {

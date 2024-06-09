@@ -11,7 +11,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string GlueType { get; set; }
         public string WalkPreference { get; set; }
 
-        public static GlueInfoRow Get_GlueInfo(Shape shape)
+        public static GlueInfoRow GetRow(Shape shape)
         {
             GlueInfoRow row = new GlueInfoRow();
 
@@ -26,7 +26,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_GlueInfo_Section(Shape shape, GlueInfoRow glueInfo)
+        public static void SetRow(Shape shape, GlueInfoRow glueInfo)
         {
             try
             {

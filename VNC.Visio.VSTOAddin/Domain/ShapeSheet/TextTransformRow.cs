@@ -16,7 +16,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string TxtLocPinX { get; set; }
         public string TxtLocPinY { get; set; }
 
-        public static TextTransformRow Get_TextTransform(Shape shape)
+        public static TextTransformRow GetRow(Shape shape)
         {
             TextTransformRow row = new TextTransformRow();
 
@@ -34,7 +34,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_TextTransform_Section(Shape shape, TextTransformRow textTransform)
+        public static void SetRow(Shape shape, TextTransformRow textTransform)
         {
             try
             {

@@ -12,7 +12,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string EndY { get; set; }
 
 
-        public static OneDEndPointsRow Get_OneDEndPoints(Shape shape)
+        public static OneDEndPointsRow GetRow(Shape shape)
         {
             OneDEndPointsRow row = new OneDEndPointsRow();
 
@@ -27,7 +27,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_OneDEndPoints_Section(Shape shape, OneDEndPointsRow oneDEndPoints)
+        public static void SetRow(Shape shape, OneDEndPointsRow oneDEndPoints)
         {
             try
             {

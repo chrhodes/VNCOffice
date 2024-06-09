@@ -846,6 +846,7 @@
     <Compile Include="Presentation\Converters\SelectedItemsConverter.cs" />
     <Compile Include="Presentation\Converters\SelectedItemsToListOfStringConverter.cs" />
     <Compile Include="Presentation\Converters\SelectedItemsToVisioCommandWrapperConverter.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\AlignmentRowWrapper.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\ILinqToExcelViewModel.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\IViewCViewModel.cs" />
     <Compile Include="Presentation\ViewModels\TestData.cs" />
@@ -858,6 +859,10 @@
     <Compile Include="Presentation\ViewModels\Interfaces\ICommandCockpitViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ViewBViewModel.cs" />
     <Compile Include="Presentation\ViewModels\CommandCockpitViewModel.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Alignment.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\FillGradientStops.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\LineGradientStops.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Tabs.xaml.cs" />
     <Compile Include="Presentation\Views\ViewC2.xaml.cs">
       <DependentUpon>ViewC2.xaml</DependentUpon>
     </Compile>
@@ -879,7 +884,7 @@
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ActionRowWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ActionTagRowWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\AdditionalEffectPropertiesWrapper.cs" />
-    <Compile Include="Presentation\ModelWrappers\ShapeSheet\BevelPropertiesWrapper.cs" />
+    <Compile Include="Presentation\ModelWrappers\ShapeSheet\BevelPropertiesRowWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ChangeShapeBehaviorWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\CharacterRowWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ConnectionPointRowWrapper.cs" />
@@ -918,16 +923,12 @@
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ThemePropertiesWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\ThreeDRotationPropertiesWrapper.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\UserDefinedCellRowWrapper.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\CharacterRowViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\ConnectionPointsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\ControlsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\EditControlRowsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\EditParagraphViewModel.cs" />
     <Compile Include="Presentation\ViewModels\EditTextViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\FillGradientStopRowViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\GeometryRowViewModel.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\IEditTextViewModel.cs" />
-    <Compile Include="Presentation\ViewModels\ShapeSheet\LineGradientStopRowViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\RowsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\ShapeSheetSectionBase.cs" />
     <Compile Include="Presentation\ViewModels\ViewAViewModel.cs" />
@@ -966,88 +967,88 @@
     <Compile Include="Presentation\Views\ShapeSheet\Layers.xaml.cs">
       <DependentUpon>Layers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Page\PageLayout.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\PageLayout.xaml.cs">
       <DependentUpon>PageLayout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Page\PageProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\PageProperties.xaml.cs">
       <DependentUpon>PageProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Page\ThemeProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\ThemeProperties.xaml.cs">
       <DependentUpon>ThemeProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Page\PrintProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\PrintProperties.xaml.cs">
       <DependentUpon>PrintProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Page\RulerAndGrid.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\RulerAndGrid.xaml.cs">
       <DependentUpon>RulerAndGrid.xaml</DependentUpon>
-    </Compile>    
+    </Compile>
     <Compile Include="Presentation\Views\ShapeSheet\ShapeData.xaml.cs">
       <DependentUpon>ShapeData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Views\ShapeSheet\ShapeSheetSection.xaml.cs">
       <DependentUpon>ShapeSheetSection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\AdditionalEffectProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\AdditionalEffectProperties.xaml.cs">
       <DependentUpon>AdditionalEffectProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\BevelProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\BevelProperties.xaml.cs">
       <DependentUpon>BevelProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\ChangeShapeBehavior.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\ChangeShapeBehavior.xaml.cs">
       <DependentUpon>ChangeShapeBehavior.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\Events.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\Events.xaml.cs">
       <DependentUpon>Events.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\FillFormat.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\FillFormat.xaml.cs">
       <DependentUpon>FillFormat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\GlueInfo.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\GlueInfo.xaml.cs">
       <DependentUpon>GlueInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\GradientProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\GradientProperties.xaml.cs">
       <DependentUpon>GradientProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\GroupProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\GroupProperties.xaml.cs">
       <DependentUpon>GroupProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\ImageProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\ImageProperties.xaml.cs">
       <DependentUpon>ImageProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\LayerMembership.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\LayerMembership.xaml.cs">
       <DependentUpon>LayerMembership.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\LineFormat.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\LineFormat.xaml.cs">
       <DependentUpon>LineFormat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\Miscellaneous.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\Miscellaneous.xaml.cs">
       <DependentUpon>Miscellaneous.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\OneDEndPoints.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\OneDEndPoints.xaml.cs">
       <DependentUpon>OneDEndPoints.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\Protection.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\Protection.xaml.cs">
       <DependentUpon>Protection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\QuickStyle.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\QuickStyle.xaml.cs">
       <DependentUpon>QuickStyle.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\ShapeTransform.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\ShapeTransform.xaml.cs">
       <DependentUpon>ShapeTransform.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\TextBlockFormat.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\TextBlockFormat.xaml.cs">
       <DependentUpon>TextBlockFormat.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\TextTransform.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\TextTransform.xaml.cs">
       <DependentUpon>TextTransform.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\TextTransformContent.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\TextTransformContent.xaml.cs">
       <DependentUpon>TextTransformContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\ThreeDRotationProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\ThreeDRotationProperties.xaml.cs">
       <DependentUpon>ThreeDRotationProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Document\DocumentProperties.xaml.cs">
+    <Compile Include="Presentation\Views\ShapeSheet\DocumentProperties.xaml.cs">
       <DependentUpon>DocumentProperties.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\Views\EditControlRows.xaml.cs">
@@ -1078,8 +1079,8 @@
     </Compile>
     <Compile Include="Presentation\ViewModels\ShapeSheet\StylePropertiesViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\TabRowViewModel.cs" />
-    <Compile Include="Presentation\Views\ShapeSheet\TextFieldRow.xaml.cs">
-      <DependentUpon>TextFieldRow.xaml</DependentUpon>
+    <Compile Include="Presentation\Views\ShapeSheet\TextFields.xaml.cs">
+      <DependentUpon>TextFields.xaml</DependentUpon>
     </Compile>
     <Compile Include="Presentation\ViewModels\ShapeSheet\TextFieldRowViewModel.cs" />
     <Compile Include="Presentation\Views\ShapeSheet\UserDefinedCells.xaml.cs">
@@ -1211,6 +1212,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Alignment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\FillGradientStops.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\LineGradientStops.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\Tabs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Presentation\Views\ViewC2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1271,23 +1288,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Page\PageLayout.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\PageLayout.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Page\PageProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\PageProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Page\ThemeProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\ThemeProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Page\PrintProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\PrintProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Page\RulerAndGrid.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\RulerAndGrid.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1299,87 +1316,87 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\AdditionalEffectProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\AdditionalEffectProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\BevelProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\BevelProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\ChangeShapeBehavior.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\ChangeShapeBehavior.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\Events.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\Events.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\FillFormat.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\FillFormat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\GlueInfo.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\GlueInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\GradientProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\GradientProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\GroupProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\GroupProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\ImageProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\ImageProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\LayerMembership.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\LayerMembership.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\LineFormat.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\LineFormat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\Miscellaneous.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\Miscellaneous.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\OneDEndPoints.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\OneDEndPoints.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\Protection.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\Protection.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\QuickStyle.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\QuickStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\ShapeTransform.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\ShapeTransform.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\TextBlockFormat.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\TextBlockFormat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\TextTransform.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\TextTransform.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\TextTransformContent.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\TextTransformContent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Shape\ThreeDRotationProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\ThreeDRotationProperties.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\Document\DocumentProperties.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\DocumentProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1415,7 +1432,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Presentation\Views\ShapeSheet\TextFieldRow.xaml">
+    <Page Include="Presentation\Views\ShapeSheet\TextFields.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

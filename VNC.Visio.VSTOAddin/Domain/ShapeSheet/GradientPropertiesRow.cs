@@ -15,7 +15,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string RotateGradientWithShape { get; set; }
         public string UseGroupGradient { get; set; }
 
-        public static GradientPropertiesRow Get_GradientProperties(Shape shape)
+        public static GradientPropertiesRow GetRow(Shape shape)
         {
             GradientPropertiesRow row = new GradientPropertiesRow();
 
@@ -34,7 +34,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_GradientProperties_Section(Shape shape, GradientPropertiesRow gradientProperties)
+        public static void SetRow(Shape shape, GradientPropertiesRow gradientProperties)
         {
             try
             {

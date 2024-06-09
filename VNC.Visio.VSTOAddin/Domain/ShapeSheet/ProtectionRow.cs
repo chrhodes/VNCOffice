@@ -32,7 +32,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string LockThemeFonts { get; set; }
         public string LockVariation { get; set; }
 
-        public static ProtectionRow Get_Protection(Shape shape)
+        public static ProtectionRow GetRow(Shape shape)
         {
             ProtectionRow row = new ProtectionRow();
 
@@ -68,7 +68,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_Protection_Section(Shape shape, ProtectionRow protection)
+        public static void SetRow(Shape shape, ProtectionRow protection)
         {
             try
             {

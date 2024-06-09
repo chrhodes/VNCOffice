@@ -15,13 +15,14 @@ namespace SupportTools_Visio.Presentation.ViewModels
     public class ObjectViewModel<TInfo, TInfoWrapper> : ShapeSheetSectionBase
         where TInfoWrapper : ModelWrapper<TInfo>, new()
     {
-        public ObjectViewModel(string updateButtonMessage, GetInfo getInfoMethod, ShapeType shapeType) 
+        public ObjectViewModel(string updateButtonMessage, GetRow getRowMethod, SetRow setRowMethod, ShapeType shapeType) 
             : base()
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             UpdateButtonContent = updateButtonMessage;
-            _getCommand = getInfoMethod;
+            _getCommand = getRowMethod;
+            _setCommand = setRowMethod;
             _shapeType = shapeType;
 
             OnLoadCurrentSettingsExecute();
@@ -32,11 +33,14 @@ namespace SupportTools_Visio.Presentation.ViewModels
             Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public TInfoWrapper Info { get; set; }
+        public TInfoWrapper InfoWrapper { get; set; }
+        public TInfo Info { get; set; }
 
-        public delegate TInfo GetInfo(Visio.Shape shape);
+        public delegate TInfo GetRow(Visio.Shape shape);
+        public delegate void SetRow(Visio.Shape shape, TInfo values);
 
-        GetInfo _getCommand;
+        GetRow _getCommand;
+        SetRow _setCommand;
 
         ShapeType _shapeType;
         
@@ -59,20 +63,33 @@ namespace SupportTools_Visio.Presentation.ViewModels
             Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             // Wrap a big, OMG, what have I done ???, undo around the whole thing !!!
-            int undoScope = Globals.ThisAddIn.Application.BeginUndoScope("UpdateRows");
+            int undoScope = Globals.ThisAddIn.Application.BeginUndoScope("UpdateRow");
 
-            // Just need to pass in the model.
+            Visio.Application app = Globals.ThisAddIn.Application;
 
-            //Visio.Application app = Globals.ThisAddIn.Application;
+            switch (_shapeType)
+            {
+                case ShapeType.Document:
+                    SetShapeRow(((Visio.Document)app.ActiveDocument).DocumentSheet, Info);
+                    break;
 
-            //Visio.Selection selection = app.ActiveWindow.Selection;
+                case ShapeType.Page:
+                    SetShapeRow(((Visio.Page)app.ActivePage).PageSheet, Info);
+                    break;
 
-            //// Verify only one shape, for now just grab first.
+                case ShapeType.Shape:
+                    Visio.Selection selection = app.ActiveWindow.Selection;
 
-            //foreach (Visio.Shape shape in selection)
-            //{
-            //    //Visio_Shape.Set_XXX_Section(shape, XXX.Model);
-            //}
+                    foreach (Visio.Shape shape in selection)
+                    {
+                        SetShapeRow(shape, Info);
+                    }
+                    break;
+
+                default:
+                    MessageBox.Show($"Unexpected _shapeType({_shapeType.GetType()}");
+                    break;
+            }
 
             Globals.ThisAddIn.Application.EndUndoScope(undoScope, true);
 
@@ -111,11 +128,11 @@ namespace SupportTools_Visio.Presentation.ViewModels
             switch (_shapeType)
             {
                 case ShapeType.Document:
-                    GetInfoFromShape(((Visio.Document)app.ActiveDocument).DocumentSheet);
+                    GetRowFromShape(((Visio.Document)app.ActiveDocument).DocumentSheet);
                     break;
 
                 case ShapeType.Page:
-                    GetInfoFromShape(((Visio.Page)app.ActivePage).PageSheet);
+                    GetRowFromShape(((Visio.Page)app.ActivePage).PageSheet);
                     break;
 
                 case ShapeType.Shape:
@@ -123,7 +140,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
                     foreach (Visio.Shape shape in selection)
                     {
-                        GetInfoFromShape(shape);
+                        GetRowFromShape(shape);
                     }
                     break;
 
@@ -158,12 +175,17 @@ namespace SupportTools_Visio.Presentation.ViewModels
             return false;
         }
 
-        private void GetInfoFromShape(Shape shape)
+        private void GetRowFromShape(Shape shape)
         {
-            var info = _getCommand(shape);
-            Info = (TInfoWrapper)Activator.CreateInstance(typeof(TInfoWrapper), info);
+            Info = _getCommand(shape);
+            InfoWrapper = (TInfoWrapper)Activator.CreateInstance(typeof(TInfoWrapper), Info);
 
-            OnPropertyChanged("Info");
+            OnPropertyChanged("InfoWrapper");
+        }
+
+        private void SetShapeRow(Shape shape, TInfo values)
+        {
+            _setCommand(shape, values);
         }
     }
 }

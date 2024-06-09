@@ -14,7 +14,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string Denoise { get; set; }
         public string Transparency { get; set; }
 
-        public static ImagePropertiesRow Get_ImageProperties(Shape shape)
+        public static ImagePropertiesRow GetRow(Shape shape)
         {
             ImagePropertiesRow row = new ImagePropertiesRow();
 
@@ -32,7 +32,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ImageProperties_Section(Shape shape, ImagePropertiesRow imageProperties)
+        public static void SetRow(Shape shape, ImagePropertiesRow imageProperties)
         {
             try
             {

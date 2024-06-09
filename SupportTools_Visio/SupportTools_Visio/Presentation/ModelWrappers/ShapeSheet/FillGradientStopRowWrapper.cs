@@ -7,6 +7,8 @@ namespace SupportTools_Visio.Presentation.ModelWrappers
 {
     public class FillGradientStopRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.FillGradientStopRow>
     {
+        public FillGradientStopRowWrapper() { }
+
         public FillGradientStopRowWrapper(VNCVisioAddIn.Domain.FillGradientStopRow model) : base(model)
         {
         }

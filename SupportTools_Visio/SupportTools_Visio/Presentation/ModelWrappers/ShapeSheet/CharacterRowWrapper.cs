@@ -6,6 +6,8 @@ namespace SupportTools_Visio.Presentation.ModelWrappers
 {
     public class CharacterRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.CharacterRow>
     {
+        public CharacterRowWrapper() { }
+
         public CharacterRowWrapper(VNCVisioAddIn.Domain.CharacterRow model) : base(model)
         {
         }

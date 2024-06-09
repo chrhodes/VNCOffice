@@ -23,7 +23,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_LayerMembership_Section(Shape shape, LayerMembershipRow layerMembership)
+        public static void SetRow(Shape shape, LayerMembershipRow layerMembership)
         {
             try
             {

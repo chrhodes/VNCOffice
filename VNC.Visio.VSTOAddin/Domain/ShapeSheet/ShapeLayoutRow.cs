@@ -53,7 +53,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void SetSection(Shape shape, ShapeLayoutRow shapeLayout)
+        public static void SetRow(Shape shape, ShapeLayoutRow shapeLayout)
         {
             try
             {

@@ -45,12 +45,12 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         #endregion
 
-        #region Enums (None)
+        #region Enums (one)
 
 
         #endregion
 
-        #region Structures
+        #region Structures (none)
 
 
         #endregion
@@ -89,10 +89,10 @@ namespace SupportTools_Visio.Presentation.ViewModels
                 OnPropertyChanged();
             }
         }
-       
+
         #endregion
 
-        #region Event Handlers
+        #region Event Handlers (none)
 
 
         #endregion
@@ -272,12 +272,12 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
         #endregion
 
-        #region Public Methods
+        #region Public Methods (none)
 
 
         #endregion
 
-        #region Protected Methods
+        #region Protected Methods (none)
 
 
         #endregion

@@ -7,6 +7,8 @@ namespace SupportTools_Visio.Presentation.ModelWrappers
 {
     public class ConnectionPointRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.ConnectionPointRow>
     {
+        public ConnectionPointRowWrapper() { }
+
         public ConnectionPointRowWrapper(VNCVisioAddIn.Domain.ConnectionPointRow model) : base(model)
         {
         }

@@ -18,7 +18,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string EndArrowSize { get; set; }
         public string Rounding { get; set; }
 
-        public static LineFormatRow Get_LineFormat(Shape shape)
+        public static LineFormatRow GetRow(Shape shape)
         {
             LineFormatRow row = new LineFormatRow();
 
@@ -40,7 +40,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_LineFormat_Section(Shape shape, LineFormatRow lineFormat)
+        public static void SetRow(Shape shape, LineFormatRow lineFormat)
         {
             try
             {
