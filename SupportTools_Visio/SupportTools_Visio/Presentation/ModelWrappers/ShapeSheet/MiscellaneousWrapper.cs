@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class MiscellaneousWrapper : ModelWrapper<VNCVisioAddIn.Domain.Miscellaneous>
+    public class MiscellaneousWrapper : ModelWrapper<VNCVisioAddIn.Domain.MiscellaneousRow>
     {
         public MiscellaneousWrapper()
         {
         }
-        public MiscellaneousWrapper(VNCVisioAddIn.Domain.Miscellaneous model) : base(model)
+        public MiscellaneousWrapper(VNCVisioAddIn.Domain.MiscellaneousRow model) : base(model)
         {
         } 
         public string NoObjHandles { get { return GetValue<string>(); } set { SetValue(value); } }

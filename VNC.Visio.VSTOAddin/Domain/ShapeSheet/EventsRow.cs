@@ -2,7 +2,7 @@
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class Events
+    public class EventsRow
     {
         public string TheData { get; set; }
         public string EventDblClick { get; set; }
@@ -11,9 +11,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string EventXFMod { get; set; }
         public string EventMultiDrop { get; set; }
 
-        public static Events Get_Events(Shape shape)
+        public static EventsRow Get_Events(Shape shape)
         {
-            Events row = new Events();
+            EventsRow row = new EventsRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowEvent];

@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ThreeDRotationPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ThreeDRotationProperties>
+    public class ThreeDRotationPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ThreeDRotationPropertiesRow>
     {
         public ThreeDRotationPropertiesWrapper()
         {
         }
-        public ThreeDRotationPropertiesWrapper(VNCVisioAddIn.Domain.ThreeDRotationProperties model) : base(model)
+        public ThreeDRotationPropertiesWrapper(VNCVisioAddIn.Domain.ThreeDRotationPropertiesRow model) : base(model)
         {
         }
 

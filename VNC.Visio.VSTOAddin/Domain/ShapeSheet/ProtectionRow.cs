@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class Protection
+    public class ProtectionRow
     {
         public string LockWidth { get; set; }
         public string LockHeight { get; set; }
@@ -32,9 +32,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string LockThemeFonts { get; set; }
         public string LockVariation { get; set; }
 
-        public static Protection Get_Protection(Shape shape)
+        public static ProtectionRow Get_Protection(Shape shape)
         {
-            Protection row = new Protection();
+            ProtectionRow row = new ProtectionRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowLock];
@@ -68,7 +68,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_Protection_Section(Shape shape, Protection protection)
+        public static void Set_Protection_Section(Shape shape, ProtectionRow protection)
         {
             try
             {

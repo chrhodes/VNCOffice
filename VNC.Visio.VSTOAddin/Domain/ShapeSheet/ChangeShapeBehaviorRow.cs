@@ -4,16 +4,16 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class ChangeShapeBehavior
+    public class ChangeShapeBehaviorRow
     {
         public string ReplaceLockShapeData { get; set; }
         public string ReplaceLockText { get; set; }
         public string ReplaceLockFormat { get; set; }
         public string ReplaceCopyCells { get; set; }
 
-        public static ChangeShapeBehavior Get_ChangeShapeBehavior(Shape shape)
+        public static ChangeShapeBehaviorRow Get_ChangeShapeBehavior(Shape shape)
         {
-            ChangeShapeBehavior row = new ChangeShapeBehavior();
+            ChangeShapeBehaviorRow row = new ChangeShapeBehaviorRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowReplaceBehaviors];
@@ -26,7 +26,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ChangeShapeBehavior_Section(Shape shape, ChangeShapeBehavior changeShapeBehavior)
+        public static void Set_ChangeShapeBehavior_Section(Shape shape, ChangeShapeBehaviorRow changeShapeBehavior)
         {
             try
             {

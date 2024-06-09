@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class OneDEndPoints
+    public class OneDEndPointsRow
     {
         public string BeginX { get; set; }
         public string BeginY { get; set; }
@@ -12,9 +12,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string EndY { get; set; }
 
 
-        public static OneDEndPoints Get_OneDEndPoints(Shape shape)
+        public static OneDEndPointsRow Get_OneDEndPoints(Shape shape)
         {
-            OneDEndPoints row = new OneDEndPoints();
+            OneDEndPointsRow row = new OneDEndPointsRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowXForm1D];
@@ -27,7 +27,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_OneDEndPoints_Section(Shape shape, OneDEndPoints oneDEndPoints)
+        public static void Set_OneDEndPoints_Section(Shape shape, OneDEndPointsRow oneDEndPoints)
         {
             try
             {

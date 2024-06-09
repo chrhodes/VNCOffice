@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class ImageProperties
+    public class ImagePropertiesRow
     {
         public string Contrast { get; set; }
         public string Gamma { get; set; }
@@ -14,9 +14,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string Denoise { get; set; }
         public string Transparency { get; set; }
 
-        public static ImageProperties Get_ImageProperties(Shape shape)
+        public static ImagePropertiesRow Get_ImageProperties(Shape shape)
         {
-            ImageProperties row = new ImageProperties();
+            ImagePropertiesRow row = new ImagePropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowImage];
@@ -32,7 +32,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ImageProperties_Section(Shape shape, ImageProperties imageProperties)
+        public static void Set_ImageProperties_Section(Shape shape, ImagePropertiesRow imageProperties)
         {
             try
             {

@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class BevelProperties
+    public class BevelPropertiesRow
     {
         public string BevelTopType { get; set; }
         public string BevelTopWidth { get; set; }
@@ -20,9 +20,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string BevelLightingType { get; set; }
         public string BevelLightingAngle { get; set; }
 
-        public static BevelProperties Get_BevelProperties(Shape shape)
+        public static BevelPropertiesRow Get_BevelProperties(Shape shape)
         {
-            BevelProperties row = new BevelProperties();
+            BevelPropertiesRow row = new BevelPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowBevelProperties];
@@ -44,7 +44,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_BevelPropertiesWrapper_Section(Shape shape, BevelProperties bevelProperties)
+        public static void Set_BevelPropertiesWrapper_Section(Shape shape, BevelPropertiesRow bevelProperties)
         {
             try
             {

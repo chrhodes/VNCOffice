@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class PageProperties
+    public class PagePropertiesRow
     {
         public string PageWidth { get; set; }
         public string PageHeight { get; set; }
@@ -18,9 +18,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string PageLockReplace { get; set; }
         public string PageLockDuplicate { get; set; }
 
-        public static PageProperties Get_PageProperties(Shape shape)
+        public static PagePropertiesRow Get_PageProperties(Shape shape)
         {
-            PageProperties row = new PageProperties();
+            PagePropertiesRow row = new PagePropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowPage];
@@ -40,7 +40,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_PageProperties_Section(Shape shape, PageProperties pageProperties)
+        public static void Set_PageProperties_Section(Shape shape, PagePropertiesRow pageProperties)
         {
             try
             {

@@ -35,7 +35,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             DoSomething = new DelegateCommand(OnDoSomethingExecute, OnDoSomethingCanExecute);
             DoSomethingElse = new DelegateCommand<string>(OnDoSomethingElseExecute, OnDoSomethingElseCanExecute);
             //DoSomething = new DelegateCommand(OnDoSomethingExecute);
-            TextBlockFormat = new TextBlockFormatWrapper(new VNCVisioAddIn.Domain.TextBlockFormat());
+            TextBlockFormat = new TextBlockFormatWrapper(new VNCVisioAddIn.Domain.TextBlockFormatRow());
         }
 
         public void OnDoSomethingExecute()

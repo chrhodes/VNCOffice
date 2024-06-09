@@ -4,12 +4,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class RulerAndGridWrapper : ModelWrapper<VNCVisioAddIn.Domain.RulerAndGrid>
+    public class RulerAndGridWrapper : ModelWrapper<VNCVisioAddIn.Domain.RulerAndGridRow>
     {
         public RulerAndGridWrapper()
         {
         }
-        public RulerAndGridWrapper(VNCVisioAddIn.Domain.RulerAndGrid model) : base(model)
+        public RulerAndGridWrapper(VNCVisioAddIn.Domain.RulerAndGridRow model) : base(model)
         {
         }
 

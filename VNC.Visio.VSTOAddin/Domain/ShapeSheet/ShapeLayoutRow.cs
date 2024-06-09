@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class ShapeLayout
+    public class ShapeLayoutRow
     {
         public string ShapePermeableX { get; set; }
         public string ShapePermeableY { get; set; }
@@ -25,9 +25,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string Relationships { get; set; }
 
 
-        public static ShapeLayout GetRow(Shape shape)
+        public static ShapeLayoutRow GetRow(Shape shape)
         {
-            ShapeLayout row = new ShapeLayout();
+            ShapeLayoutRow row = new ShapeLayoutRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowShapeLayout];
@@ -53,7 +53,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void SetSection(Shape shape, ShapeLayout shapeLayout)
+        public static void SetSection(Shape shape, ShapeLayoutRow shapeLayout)
         {
             try
             {

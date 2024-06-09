@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class RulerAndGrid
+    public class RulerAndGridRow
     {
         public string XRulerOrigin { get; set; }
         public string YRulerOrigin { get; set; }
@@ -17,9 +17,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string XGridSpacing { get; set; }
         public string YGridSpacing { get; set; }
 
-        public static RulerAndGrid Get_RulerAndGrid(Shape shape)
+        public static RulerAndGridRow Get_RulerAndGrid(Shape shape)
         {
-            RulerAndGrid row = new RulerAndGrid();
+            RulerAndGridRow row = new RulerAndGridRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowRulerGrid];
@@ -38,7 +38,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_RulerAndGrid_Section(Shape shape, RulerAndGrid rulerAndGrid)
+        public static void Set_RulerAndGrid_Section(Shape shape, RulerAndGridRow rulerAndGrid)
         {
             try
             {

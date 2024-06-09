@@ -4,12 +4,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class TextBlockFormatWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextBlockFormat>
+    public class TextBlockFormatWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextBlockFormatRow>
     {
         public TextBlockFormatWrapper()
         {
         }
-        public TextBlockFormatWrapper(VNCVisioAddIn.Domain.TextBlockFormat model) : base(model)
+        public TextBlockFormatWrapper(VNCVisioAddIn.Domain.TextBlockFormatRow model) : base(model)
         {
         }
 

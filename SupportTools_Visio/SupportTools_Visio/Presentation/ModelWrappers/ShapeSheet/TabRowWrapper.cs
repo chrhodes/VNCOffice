@@ -5,9 +5,9 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class TabRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.TabRow>
+    public class TabRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.TabsRow>
     {
-        public TabRowWrapper(VNCVisioAddIn.Domain.TabRow model) : base(model)
+        public TabRowWrapper(VNCVisioAddIn.Domain.TabsRow model) : base(model)
         {
         }
 

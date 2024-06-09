@@ -6,7 +6,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
 {
     // TODO(crhodes)
     // Verify Name shyould this be TextXForm
-    public class TextTransform
+    public class TextTransformRow
     {
         public string TxtWidth { get; set; }
         public string TxtHeight { get; set; }
@@ -16,9 +16,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string TxtLocPinX { get; set; }
         public string TxtLocPinY { get; set; }
 
-        public static TextTransform Get_TextTransform(Shape shape)
+        public static TextTransformRow Get_TextTransform(Shape shape)
         {
-            TextTransform row = new TextTransform();
+            TextTransformRow row = new TextTransformRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowTextXForm];
@@ -34,7 +34,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_TextTransform_Section(Shape shape, TextTransform textTransform)
+        public static void Set_TextTransform_Section(Shape shape, TextTransformRow textTransform)
         {
             try
             {

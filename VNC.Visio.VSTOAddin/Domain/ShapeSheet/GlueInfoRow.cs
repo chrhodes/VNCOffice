@@ -4,16 +4,16 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class GlueInfo
+    public class GlueInfoRow
     {
         public string BegTrigger { get; set; }
         public string EndTrigger { get; set; }
         public string GlueType { get; set; }
         public string WalkPreference { get; set; }
 
-        public static GlueInfo Get_GlueInfo(Shape shape)
+        public static GlueInfoRow Get_GlueInfo(Shape shape)
         {
-            GlueInfo row = new GlueInfo();
+            GlueInfoRow row = new GlueInfoRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowMisc];
@@ -26,7 +26,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_GlueInfo_Section(Shape shape, GlueInfo glueInfo)
+        public static void Set_GlueInfo_Section(Shape shape, GlueInfoRow glueInfo)
         {
             try
             {

@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class AdditionalEffectPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.AdditionalEffectProperties>
+    public class AdditionalEffectPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.AdditionalEffectPropertiesRow>
     {
         public AdditionalEffectPropertiesWrapper()
         {
         }
-        public AdditionalEffectPropertiesWrapper(VNCVisioAddIn.Domain.AdditionalEffectProperties model) : base(model)
+        public AdditionalEffectPropertiesWrapper(VNCVisioAddIn.Domain.AdditionalEffectPropertiesRow model) : base(model)
         {
         }
 

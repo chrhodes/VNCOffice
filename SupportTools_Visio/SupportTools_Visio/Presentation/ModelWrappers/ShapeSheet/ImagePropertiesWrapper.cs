@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class ImagePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ImageProperties>
+    public class ImagePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.ImagePropertiesRow>
     {
         public ImagePropertiesWrapper()
         {
         }
-        public ImagePropertiesWrapper(VNCVisioAddIn.Domain.ImageProperties model) : base(model)
+        public ImagePropertiesWrapper(VNCVisioAddIn.Domain.ImagePropertiesRow model) : base(model)
         {
         }
 

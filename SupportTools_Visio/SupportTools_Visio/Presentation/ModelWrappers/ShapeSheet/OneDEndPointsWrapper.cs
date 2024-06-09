@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class OneDEndPointsWrapper : ModelWrapper<VNCVisioAddIn.Domain.OneDEndPoints>
+    public class OneDEndPointsWrapper : ModelWrapper<VNCVisioAddIn.Domain.OneDEndPointsRow>
     {
         public OneDEndPointsWrapper()
         {
         }
-        public OneDEndPointsWrapper(VNCVisioAddIn.Domain.OneDEndPoints model) : base(model)
+        public OneDEndPointsWrapper(VNCVisioAddIn.Domain.OneDEndPointsRow model) : base(model)
         {
         }
 

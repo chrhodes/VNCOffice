@@ -4,16 +4,16 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class LayerMembership
+    public class LayerMembershipRow
     {
         // TODO(crhodes)
         // Not clear what this is all about in ShapeSheet
 
         public string Name { get; set; }
 
-        public static LayerMembership GetRow(Shape shape)
+        public static LayerMembershipRow GetRow(Shape shape)
         {
-            LayerMembership row = new LayerMembership();
+            LayerMembershipRow row = new LayerMembershipRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
@@ -23,7 +23,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_LayerMembership_Section(Shape shape, LayerMembership layerMembership)
+        public static void Set_LayerMembership_Section(Shape shape, LayerMembershipRow layerMembership)
         {
             try
             {

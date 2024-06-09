@@ -2,7 +2,7 @@
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class GroupProperties
+    public class GroupPropertiesRow
     {
         public string SelectMode { get; set; }
         public string IsTextEditTarget { get; set; }
@@ -11,9 +11,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string IsSnapTarget { get; set; }
         public string DontMoveChildren { get; set; }
 
-        public static GroupProperties Get_GroupProperties(Shape shape)
+        public static GroupPropertiesRow Get_GroupProperties(Shape shape)
         {
-            GroupProperties row = new GroupProperties();
+            GroupPropertiesRow row = new GroupPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowGroup];
@@ -28,7 +28,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_GroupProperties_Section(Shape shape, GroupProperties groupProperties)
+        public static void Set_GroupProperties_Section(Shape shape, GroupPropertiesRow groupProperties)
         {
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowGroup];

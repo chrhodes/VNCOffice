@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class BevelPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.BevelProperties>
+    public class BevelPropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.BevelPropertiesRow>
     {
         public BevelPropertiesWrapper()
         {
         }
-        public BevelPropertiesWrapper(VNCVisioAddIn.Domain.BevelProperties model) : base(model)
+        public BevelPropertiesWrapper(VNCVisioAddIn.Domain.BevelPropertiesRow model) : base(model)
         {
         }
 

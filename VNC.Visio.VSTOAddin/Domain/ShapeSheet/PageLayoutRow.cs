@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class PageLayout
+    public class PageLayoutRow
     {
         public string PlaceStyle { get; set; }
         public string PlaceDepth { get; set; }
@@ -35,9 +35,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string LineJumpStyle { get; set; }
         public string PageShapeSplit { get; set; }
 
-        public static PageLayout GetRow(Shape shape)
+        public static PageLayoutRow GetRow(Shape shape)
         {
-            PageLayout row = new PageLayout();
+            PageLayoutRow row = new PageLayoutRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowPageLayout];
@@ -74,7 +74,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_PageLayout_Section(Shape shape, PageLayout pageLayout)
+        public static void Set_PageLayout_Section(Shape shape, PageLayoutRow pageLayout)
         {
             try
             {

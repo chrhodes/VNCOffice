@@ -834,7 +834,7 @@ namespace SupportTools_Visio.Actions
             //VNCVisioAddIn.Domain.TextBlockFormat textBlock = new VNCVisioAddIn.Domain.TextBlockFormat();
             //VNCVisioAddIn.Domain.TextBlockFormat.Set_TextBlockFormat_Section(shape, textBlock);
 
-            VNCVisioAddIn.Domain.TextBlockFormat.SetSection(shape);
+            VNCVisioAddIn.Domain.TextBlockFormatRow.SetSection(shape);
         }
 
         private static void SetAllMargins(Visio.Shape shape, string points)
@@ -843,7 +843,7 @@ namespace SupportTools_Visio.Actions
 
             //VNCVisioAddIn.Domain.TextBlockFormat.Validate_TextBlockFormat_SectionExists(shape);
 
-            VNCVisioAddIn.Domain.TextBlockFormat.SetMargins(shape, points, points, points, points);
+            VNCVisioAddIn.Domain.TextBlockFormatRow.SetMargins(shape, points, points, points, points);
         }
 
         private static void SetMargins(Visio.Shape shape, string leftPoints, string topPoints, string rightPoints, string bottomPoints)
@@ -852,7 +852,7 @@ namespace SupportTools_Visio.Actions
 
             //VNCVisioAddIn.Domain.TextBlockFormat.Validate_TextBlockFormat_SectionExists(shape);
 
-            VNCVisioAddIn.Domain.TextBlockFormat.SetMargins(shape, leftPoints, topPoints, rightPoints, bottomPoints);
+            VNCVisioAddIn.Domain.TextBlockFormatRow.SetMargins(shape, leftPoints, topPoints, rightPoints, bottomPoints);
         }
 
         #endregion
@@ -1510,7 +1510,7 @@ namespace SupportTools_Visio.Actions
 
         }
 
-        public static void UpdateTextSections(VNCVisioAddIn.Domain.TextBlockFormat textBlockFormat)
+        public static void UpdateTextSections(VNCVisioAddIn.Domain.TextBlockFormatRow textBlockFormat)
         {
             VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
                 MethodBase.GetCurrentMethod().Name));
@@ -1523,7 +1523,7 @@ namespace SupportTools_Visio.Actions
 
             foreach (Shape shape in selection)
             {
-                VNCVisioAddIn.Domain.TextBlockFormat.SetSection(shape, textBlockFormat);
+                VNCVisioAddIn.Domain.TextBlockFormatRow.SetSection(shape, textBlockFormat);
             }
         }
 

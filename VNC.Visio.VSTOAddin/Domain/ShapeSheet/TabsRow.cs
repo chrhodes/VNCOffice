@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class TabRow
+    public class TabsRow
     {
         // TODO(crhodes)
         // This looks tricky as there are an unknown number of tabs
@@ -14,7 +14,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string Position2 { get; set; }
         public string Alignment2 { get; set; }
 
-        public static TabRow GetRow(Shape shape)
+        public static TabsRow GetRow(Shape shape)
         {
             throw new NotImplementedException();
         }

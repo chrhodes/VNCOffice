@@ -5,9 +5,9 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class StylePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.StyleProperties>
+    public class StylePropertiesWrapper : ModelWrapper<VNCVisioAddIn.Domain.StylePropertiesRow>
     {
-        public StylePropertiesWrapper(VNCVisioAddIn.Domain.StyleProperties model) : base(model)
+        public StylePropertiesWrapper(VNCVisioAddIn.Domain.StylePropertiesRow model) : base(model)
         {
         }
 

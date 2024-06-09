@@ -63,7 +63,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             foreach (Visio.Shape shape in selection)
             {
-                TabRow = new TabRowWrapper(VNC.Visio.VSTOAddIn.Domain.TabRow.GetRow(shape));
+                TabRow = new TabRowWrapper(VNC.Visio.VSTOAddIn.Domain.TabsRow.GetRow(shape));
                 OnPropertyChanged("TabRow");
             }
 

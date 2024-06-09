@@ -4,7 +4,7 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    public class LineFormat
+    public class LineFormatRow
     {
         public string LinePattern { get; set; }
         public string LineWeight { get; set; }
@@ -18,9 +18,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string EndArrowSize { get; set; }
         public string Rounding { get; set; }
 
-        public static LineFormat Get_LineFormat(Shape shape)
+        public static LineFormatRow Get_LineFormat(Shape shape)
         {
-            LineFormat row = new LineFormat();
+            LineFormatRow row = new LineFormatRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowLine];
@@ -40,7 +40,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_LineFormat_Section(Shape shape, LineFormat lineFormat)
+        public static void Set_LineFormat_Section(Shape shape, LineFormatRow lineFormat)
         {
             try
             {

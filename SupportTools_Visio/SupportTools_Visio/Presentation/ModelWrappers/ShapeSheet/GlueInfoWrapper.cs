@@ -5,12 +5,12 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace SupportTools_Visio.Presentation.ModelWrappers
 {
-    public class GlueInfoWrapper : ModelWrapper<VNCVisioAddIn.Domain.GlueInfo>
+    public class GlueInfoWrapper : ModelWrapper<VNCVisioAddIn.Domain.GlueInfoRow>
     {
         public GlueInfoWrapper()
         {
         }
-        public GlueInfoWrapper(VNCVisioAddIn.Domain.GlueInfo model) : base(model)
+        public GlueInfoWrapper(VNCVisioAddIn.Domain.GlueInfoRow model) : base(model)
         {
         }
 
