@@ -32,7 +32,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ThreeDRotationProperties_Section(Shape shape, ThreeDRotationPropertiesRow threeDRotationProperties)
+        public static void SetRow(Shape shape, ThreeDRotationPropertiesRow threeDRotationProperties)
         {
             try
             {

@@ -11,7 +11,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string IsSnapTarget { get; set; }
         public string DontMoveChildren { get; set; }
 
-        public static GroupPropertiesRow Get_GroupProperties(Shape shape)
+        public static GroupPropertiesRow GetRow(Shape shape)
         {
             GroupPropertiesRow row = new GroupPropertiesRow();
 
@@ -28,7 +28,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_GroupProperties_Section(Shape shape, GroupPropertiesRow groupProperties)
+        public static void SetRow(Shape shape, GroupPropertiesRow groupProperties)
         {
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
             Row sectionRow = section[(short)VisRowIndices.visRowGroup];

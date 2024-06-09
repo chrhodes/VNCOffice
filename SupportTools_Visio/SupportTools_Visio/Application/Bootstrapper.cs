@@ -48,27 +48,6 @@ namespace SupportTools_Visio.Application
             return new ConfigurationModuleCatalog();
         }
 
-        // Step 5 - Configure the catalog of modules
-        // Modules are loaded at Startup and must be a project reference
-
-        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-        {
-            Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-
-            moduleCatalog.AddModule(typeof(SupportTools_VisioModule));
-
-            moduleCatalog.AddModule(typeof(ModuleA.ModuleAModule));
-
-            moduleCatalog.AddModule(typeof(EditTextModule));
-
-            moduleCatalog.AddModule(typeof(Explore.ExploreModule));
-            moduleCatalog.AddModule(typeof(Explore.CarModule));
-
-            base.ConfigureModuleCatalog(moduleCatalog);
-
-            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
         // Step 3 - Configure the container
 
         protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
@@ -104,16 +83,25 @@ namespace SupportTools_Visio.Application
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        // Step 7 - Create the Shell that will hold the modules in designated regions.
+        // Step 5 - Configure the catalog of modules
+        // Modules are loaded at Startup and must be a project reference
 
-        protected override DependencyObject CreateShell()
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
-            Log.APPLICATION_INITIALIZE("Exit (null)", Common.LOG_CATEGORY, startTicks);
-            return null;
-            //return Container.Resolve<Views.MainWindow>();
-            //return Container.TryResolve<Views.MainWindow>();
+            moduleCatalog.AddModule(typeof(SupportTools_VisioModule));
+
+            moduleCatalog.AddModule(typeof(ModuleA.ModuleAModule));
+
+            moduleCatalog.AddModule(typeof(EditTextModule));
+
+            moduleCatalog.AddModule(typeof(Explore.ExploreModule));
+            moduleCatalog.AddModule(typeof(Explore.CarModule));
+
+            base.ConfigureModuleCatalog(moduleCatalog);
+
+            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // Step 6 - Configure the RegionAdapters if any custom ones have been created
@@ -126,6 +114,18 @@ namespace SupportTools_Visio.Application
             regionAdapterMappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // Step 7 - Create the Shell that will hold the modules in designated regions.
+
+        protected override DependencyObject CreateShell()
+        {
+            Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+
+            Log.APPLICATION_INITIALIZE("Exit (null)", Common.LOG_CATEGORY, startTicks);
+            return null;
+            //return Container.Resolve<Views.MainWindow>();
+            //return Container.TryResolve<Views.MainWindow>();
         }
 
         protected override void ConfigureDefaultRegionBehaviors(IRegionBehaviorFactory regionBehaviors)

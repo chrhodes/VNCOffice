@@ -63,7 +63,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void SetSection(Shape shape,
+        public static void SetRow(Shape shape,
             TextBlockFormatRow textBlockFormat = null)
         {
             ValidateSectionExists(shape);

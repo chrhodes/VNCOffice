@@ -51,7 +51,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        internal static void Set_Miscellaneous_Section(Shape shape, MiscellaneousRow miscellaneous)
+        public static void SetRow(Shape shape, MiscellaneousRow miscellaneous)
         {
             try
             {

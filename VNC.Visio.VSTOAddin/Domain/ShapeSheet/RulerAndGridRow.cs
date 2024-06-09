@@ -17,7 +17,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string XGridSpacing { get; set; }
         public string YGridSpacing { get; set; }
 
-        public static RulerAndGridRow Get_RulerAndGrid(Shape shape)
+        public static RulerAndGridRow GetRow(Shape shape)
         {
             RulerAndGridRow row = new RulerAndGridRow();
 
@@ -38,7 +38,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_RulerAndGrid_Section(Shape shape, RulerAndGridRow rulerAndGrid)
+        public static void SetRow(Shape shape, RulerAndGridRow rulerAndGrid)
         {
             try
             {

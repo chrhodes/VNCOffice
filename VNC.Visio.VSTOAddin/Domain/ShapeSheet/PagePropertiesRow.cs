@@ -18,7 +18,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string PageLockReplace { get; set; }
         public string PageLockDuplicate { get; set; }
 
-        public static PagePropertiesRow Get_PageProperties(Shape shape)
+        public static PagePropertiesRow GetRow(Shape shape)
         {
             PagePropertiesRow row = new PagePropertiesRow();
 
@@ -40,7 +40,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_PageProperties_Section(Shape shape, PagePropertiesRow pageProperties)
+        public static void SetRow(Shape shape, PagePropertiesRow pageProperties)
         {
             try
             {

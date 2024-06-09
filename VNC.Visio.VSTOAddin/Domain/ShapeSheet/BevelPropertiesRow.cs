@@ -20,7 +20,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string BevelLightingType { get; set; }
         public string BevelLightingAngle { get; set; }
 
-        public static BevelPropertiesRow Get_BevelProperties(Shape shape)
+        public static BevelPropertiesRow GetRow(Shape shape)
         {
             BevelPropertiesRow row = new BevelPropertiesRow();
 
@@ -44,7 +44,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_BevelPropertiesWrapper_Section(Shape shape, BevelPropertiesRow bevelProperties)
+        public static void SetRow(Shape shape, BevelPropertiesRow bevelProperties)
         {
             try
             {

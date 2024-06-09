@@ -129,6 +129,7 @@
             this.btnPageShapeData = this.Factory.CreateRibbonButton();
             this.btnPageUserDefinedCells = this.Factory.CreateRibbonButton();
             this.rgSSShapeObjectSections = this.Factory.CreateRibbonGroup();
+            this.btnAlignment = this.Factory.CreateRibbonButton();
             this.btn1DEndpoints = this.Factory.CreateRibbonButton();
             this.btn3DRotationProperties = this.Factory.CreateRibbonButton();
             this.btnAdditionalEffectProperties = this.Factory.CreateRibbonButton();
@@ -894,6 +895,7 @@
             this.rgSSShapeObjectSections.Items.Add(this.btn1DEndpoints);
             this.rgSSShapeObjectSections.Items.Add(this.btn3DRotationProperties);
             this.rgSSShapeObjectSections.Items.Add(this.btnAdditionalEffectProperties);
+            this.rgSSShapeObjectSections.Items.Add(this.btnAlignment);
             this.rgSSShapeObjectSections.Items.Add(this.btnBevelProperties);
             this.rgSSShapeObjectSections.Items.Add(this.btnChangeShapeBehavior);
             this.rgSSShapeObjectSections.Items.Add(this.btnEvents);
@@ -914,6 +916,13 @@
             this.rgSSShapeObjectSections.Items.Add(this.btnThemeProperties);
             this.rgSSShapeObjectSections.Label = "Shape (Object)";
             this.rgSSShapeObjectSections.Name = "rgSSShapeObjectSections";
+            // 
+            // btnAlignment
+            // 
+            this.btnAlignment.Label = "Alignment";
+            this.btnAlignment.Name = "btnAlignment";
+            this.btnAlignment.ScreenTip = "Edit Text";
+            this.btnAlignment.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAlignment_Click);
             // 
             // btn1DEndpoints
             // 
@@ -1654,6 +1663,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgDocumentBasePages;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddArchitectureBasePages;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCustomUI_Car;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAlignment;
     }
 
     partial class ThisRibbonCollection

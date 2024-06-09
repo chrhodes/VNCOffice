@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Tools.Ribbon;
 
@@ -15,6 +16,8 @@ namespace SupportTools_Visio
     public partial class Ribbon
     {
         #region Event Handlers
+
+        #region UI Events - Object based - Uses ObjectViewModel
 
         #region ShapeSheet UI Events Document Related
 
@@ -40,12 +43,19 @@ namespace SupportTools_Visio
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.DocumentPropertiesRow, Presentation.ModelWrappers.DocumentPropertiesWrapper>(
                         "Update Properties",
                         VNC.Visio.VSTOAddIn.Domain.DocumentPropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.DocumentPropertiesRow.SetRow,
                         ShapeType.Document),
                     new Presentation.Views.DocumentProperties()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
+        #endregion
+
+        #region Style Related
+
+        // TODO(crhodes)
+        // 
         #endregion
 
         #region ShapeSheet UI Events Page Related
@@ -64,6 +74,7 @@ namespace SupportTools_Visio
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.PageLayoutRow, Presentation.ModelWrappers.PageLayoutWrapper>(
                         "Update Page Properties",
                         VNC.Visio.VSTOAddIn.Domain.PageLayoutRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.PageLayoutRow.SetRow,
                         ShapeType.Page),
                     new Presentation.Views.PageLayout()));
 
@@ -91,7 +102,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.PagePropertiesRow, Presentation.ModelWrappers.PagePropertiesWrapper>(
                         "Update Page Properties",
-                        VNC.Visio.VSTOAddIn.Domain.PagePropertiesRow.Get_PageProperties,
+                        VNC.Visio.VSTOAddIn.Domain.PagePropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.PagePropertiesRow.SetRow,
                         ShapeType.Page),
                     new Presentation.Views.PageProperties()));
 
@@ -111,7 +123,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.PrintPropertiesRow, Presentation.ModelWrappers.PrintPropertiesWrapper>(
                         "Update PrintProperties",
-                        VNC.Visio.VSTOAddIn.Domain.PrintPropertiesRow.Get_PrintProperties,
+                        VNC.Visio.VSTOAddIn.Domain.PrintPropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.PrintPropertiesRow.SetRow,
                         ShapeType.Page),
                     new Presentation.Views.PrintProperties()));
 
@@ -131,7 +144,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.RulerAndGridRow, Presentation.ModelWrappers.RulerAndGridWrapper>(
                         "Update Ruler & Grid",
-                        VNC.Visio.VSTOAddIn.Domain.RulerAndGridRow.Get_RulerAndGrid,
+                        VNC.Visio.VSTOAddIn.Domain.RulerAndGridRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.RulerAndGridRow.SetRow,
                         ShapeType.Page),
                     new Presentation.Views.RulerAndGrid()));
 
@@ -151,7 +165,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ThemePropertiesRow, Presentation.ModelWrappers.ThemePropertiesWrapper>(
                         "Update ThemeProperties",
-                        VNC.Visio.VSTOAddIn.Domain.ThemePropertiesRow.Get_ThemeProperties,
+                        VNC.Visio.VSTOAddIn.Domain.ThemePropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.ThemePropertiesRow.SetRow,
                         ShapeType.Page),
                     new Presentation.Views.ThemeProperties()));
 
@@ -175,7 +190,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.OneDEndPointsRow, Presentation.ModelWrappers.OneDEndPointsWrapper>(
                         "Update 1-D Endpoints",
-                        VNC.Visio.VSTOAddIn.Domain.OneDEndPointsRow.Get_OneDEndPoints,
+                        VNC.Visio.VSTOAddIn.Domain.OneDEndPointsRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.OneDEndPointsRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.OneDEndPoints()));
 
@@ -196,6 +212,7 @@ namespace SupportTools_Visio
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ThreeDRotationPropertiesRow, Presentation.ModelWrappers.ThreeDRotationPropertiesWrapper>(
                         "Update 3-D Rotation Properties",
                         VNC.Visio.VSTOAddIn.Domain.ThreeDRotationPropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.ThreeDRotationPropertiesRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.OneDEndPoints()));
 
@@ -215,9 +232,31 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.AdditionalEffectPropertiesRow, Presentation.ModelWrappers.AdditionalEffectPropertiesWrapper>(
                         "Update Additional Effect Properties",
-                        VNC.Visio.VSTOAddIn.Domain.AdditionalEffectPropertiesRow.Get_AdditionalEffectProperties,
+                        VNC.Visio.VSTOAddIn.Domain.AdditionalEffectPropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.AdditionalEffectPropertiesRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.AdditionalEffectProperties()));
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        public static DxThemedWindowHost _shapeAlignmentHost = null;
+
+        private void btnAlignment_Click(object sender, RibbonControlEventArgs e)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeAdditionalEffectPropertiesHost,
+                "Alignment",
+                600, 450,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.ShapeSheetSection(
+                    new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.AlignmentRow, Presentation.ModelWrappers.AlignmentRowWrapper>(
+                        "Update Alignment",
+                        VNC.Visio.VSTOAddIn.Domain.AlignmentRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.AlignmentRow.SetRow,
+                        ShapeType.Shape),
+                    new Presentation.Views.Alignment()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -233,9 +272,10 @@ namespace SupportTools_Visio
             600, 450,
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
-                    new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.BevelPropertiesRow, Presentation.ModelWrappers.BevelPropertiesWrapper>(
+                    new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.BevelPropertiesRow, Presentation.ModelWrappers.BevelPropertiesRowWrapper>(
                         "Update Bevel Properties",
-                        VNC.Visio.VSTOAddIn.Domain.BevelPropertiesRow.Get_BevelProperties,
+                        VNC.Visio.VSTOAddIn.Domain.BevelPropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.BevelPropertiesRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.BevelProperties()));
 
@@ -255,7 +295,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ChangeShapeBehaviorRow, Presentation.ModelWrappers.ChangeShapeBehaviorWrapper>(
                         "Update ChangeShapeBehavior",
-                        VNC.Visio.VSTOAddIn.Domain.ChangeShapeBehaviorRow.Get_ChangeShapeBehavior,
+                        VNC.Visio.VSTOAddIn.Domain.ChangeShapeBehaviorRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.ChangeShapeBehaviorRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.ChangeShapeBehavior()));
 
@@ -275,7 +316,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.EventsRow, Presentation.ModelWrappers.EventsWrapper>(
                         "Update Events",
-                        VNC.Visio.VSTOAddIn.Domain.EventsRow.Get_Events,
+                        VNC.Visio.VSTOAddIn.Domain.EventsRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.EventsRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.Events()));
 
@@ -296,6 +338,7 @@ namespace SupportTools_Visio
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.FillFormatRow, Presentation.ModelWrappers.FillFormatWrapper>(
                         "Update Fill Format",
                         VNC.Visio.VSTOAddIn.Domain.FillFormatRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.FillFormatRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.FillFormat()));
 
@@ -315,12 +358,14 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.GlueInfoRow, Presentation.ModelWrappers.GlueInfoWrapper>(
                         "Update Glue Info",
-                        VNC.Visio.VSTOAddIn.Domain.GlueInfoRow.Get_GlueInfo,
+                        VNC.Visio.VSTOAddIn.Domain.GlueInfoRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.GlueInfoRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.GlueInfo()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
         public static DxThemedWindowHost _shapeGradientPropertiesHost = null;
 
         private void btnGradientProperties_Click(object sender, RibbonControlEventArgs e)
@@ -334,32 +379,14 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.GradientPropertiesRow, Presentation.ModelWrappers.GradientPropertiesWrapper>(
                         "Update Gradient Properties",
-                        VNC.Visio.VSTOAddIn.Domain.GradientPropertiesRow.Get_GradientProperties,
+                        VNC.Visio.VSTOAddIn.Domain.GradientPropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.GradientPropertiesRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.GradientProperties()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public static DxThemedWindowHost _shapeShapeLayoutHost = null;
-
-        private void btnShapeLayout_Click(object sender, RibbonControlEventArgs e)
-        {
-            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
-
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeShapeLayoutHost,
-            "Shape Layout",
-            600, 450,
-                ShowWindowMode.Modeless_Show,
-                new Presentation.Views.ShapeSheetSection(
-                    new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ShapeLayoutRow, Presentation.ModelWrappers.ShapeLayoutWrapper>(
-                        "Update Shape Layout",
-                        VNC.Visio.VSTOAddIn.Domain.ShapeLayoutRow.GetRow,
-                        ShapeType.Shape),
-                    new Presentation.Views.ShapeLayout()));
-
-            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
 
         public static DxThemedWindowHost _shapeGroupPropertiesHost = null;
 
@@ -374,7 +401,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.GroupPropertiesRow, Presentation.ModelWrappers.GroupPropertiesWrapper>(
                         "Update Group Properties",
-                        VNC.Visio.VSTOAddIn.Domain.GroupPropertiesRow.Get_GroupProperties,
+                        VNC.Visio.VSTOAddIn.Domain.GroupPropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.GroupPropertiesRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.GroupProperties()));
 
@@ -394,7 +422,8 @@ namespace SupportTools_Visio
                     new Presentation.Views.ShapeSheetSection(
                         new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ImagePropertiesRow, Presentation.ModelWrappers.ImagePropertiesWrapper>(
                             "Update Group Properties",
-                            VNC.Visio.VSTOAddIn.Domain.ImagePropertiesRow.Get_ImageProperties,
+                            VNC.Visio.VSTOAddIn.Domain.ImagePropertiesRow.GetRow,
+                            VNC.Visio.VSTOAddIn.Domain.ImagePropertiesRow.SetRow,
                             ShapeType.Shape),
                         new Presentation.Views.ImageProperties()));
 
@@ -415,6 +444,7 @@ namespace SupportTools_Visio
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.LayerMembershipRow, Presentation.ModelWrappers.LayerMembershipWrapper>(
                         "Update Layer Membership",
                         VNC.Visio.VSTOAddIn.Domain.LayerMembershipRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.LayerMembershipRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.LayerMembership()));
 
@@ -434,7 +464,8 @@ namespace SupportTools_Visio
                     new Presentation.Views.ShapeSheetSection(
                         new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.LineFormatRow, Presentation.ModelWrappers.LineFormatWrapper>(
                             "Update LineFormat",
-                            VNC.Visio.VSTOAddIn.Domain.LineFormatRow.Get_LineFormat,
+                            VNC.Visio.VSTOAddIn.Domain.LineFormatRow.GetRow,
+                            VNC.Visio.VSTOAddIn.Domain.LineFormatRow.SetRow,
                             ShapeType.Shape),
                         new Presentation.Views.LineFormat()));
 
@@ -455,6 +486,7 @@ namespace SupportTools_Visio
                         new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.MiscellaneousRow, Presentation.ModelWrappers.MiscellaneousWrapper>(
                             "Update Miscellaneous",
                             VNC.Visio.VSTOAddIn.Domain.MiscellaneousRow.GetRow,
+                            VNC.Visio.VSTOAddIn.Domain.MiscellaneousRow.SetRow,
                             ShapeType.Shape),
                         new Presentation.Views.Miscellaneous()));
 
@@ -474,7 +506,8 @@ namespace SupportTools_Visio
                     new Presentation.Views.ShapeSheetSection(
                         new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ProtectionRow, Presentation.ModelWrappers.ProtectionWrapper>(
                             "Update Protection",
-                            VNC.Visio.VSTOAddIn.Domain.ProtectionRow.Get_Protection,
+                            VNC.Visio.VSTOAddIn.Domain.ProtectionRow.GetRow,
+                            VNC.Visio.VSTOAddIn.Domain.ProtectionRow.SetRow,
                             ShapeType.Shape),
                         new Presentation.Views.Protection()));
 
@@ -495,26 +528,49 @@ namespace SupportTools_Visio
                         new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.QuickStyleRow, Presentation.ModelWrappers.QuickStyleWrapper>(
                             "Update Layer Membership",
                             VNC.Visio.VSTOAddIn.Domain.QuickStyleRow.GetRow,
+                            VNC.Visio.VSTOAddIn.Domain.QuickStyleRow.SetRow,
                             ShapeType.Shape),
                         new Presentation.Views.QuickStyle()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public static DxThemedWindowHost _shapeShapeTransformHost = null;
+        public static DxThemedWindowHost _shapeLayoutHost = null;
+
+        private void btnShapeLayout_Click(object sender, RibbonControlEventArgs e)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeLayoutHost,
+            "Shape Layout",
+            600, 450,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.ShapeSheetSection(
+                    new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ShapeLayoutRow, Presentation.ModelWrappers.ShapeLayoutWrapper>(
+                        "Update Shape Layout",
+                        VNC.Visio.VSTOAddIn.Domain.ShapeLayoutRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.ShapeLayoutRow.SetRow,
+                        ShapeType.Shape),
+                    new Presentation.Views.ShapeLayout()));
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        public static DxThemedWindowHost _shapeTransformHost = null;
 
         private void btnShapeTransform_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeShapeTransformHost,
+            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeTransformHost,
                 "Shape Transform",
-                800,600,
+                800, 600,
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ShapeTransformRow, Presentation.ModelWrappers.ShapeTransformWrapper>(
                         "Update Shape Transform",
-                        VNC.Visio.VSTOAddIn.Domain.ShapeTransformRow.Get_ShapeTransform,
+                        VNC.Visio.VSTOAddIn.Domain.ShapeTransformRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.ShapeTransformRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.ShapeTransform()));
 
@@ -528,13 +584,14 @@ namespace SupportTools_Visio
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             DxThemedWindowHost.DisplayUserControlInHost(ref _shapeTextBlockFormatHost,
-            "Shape TextBlock Format",
+            "TextBlockFormat",
             600, 450,
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.TextBlockFormatRow, Presentation.ModelWrappers.TextBlockFormatWrapper>(
-                        "Update Text Block Format",
+                        "Update TextBlockFormat",
                         VNC.Visio.VSTOAddIn.Domain.TextBlockFormatRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.TextBlockFormatRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.TextBlockFormat()));
 
@@ -548,13 +605,14 @@ namespace SupportTools_Visio
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             DxThemedWindowHost.DisplayUserControlInHost(ref _shapeTextTransformHost,
-            "Shape Text Transform",
+            "TextTransform",
             600, 450,
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.TextTransformRow, Presentation.ModelWrappers.TextTransformWrapper>(
-                        "Update 3-D Rotation Properties",
-                        VNC.Visio.VSTOAddIn.Domain.TextTransformRow.Get_TextTransform,
+                        "Update TextTransform",
+                        VNC.Visio.VSTOAddIn.Domain.TextTransformRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.TextTransformRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.TextTransform()));
 
@@ -573,7 +631,8 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.ThemePropertiesRow, Presentation.ModelWrappers.ThemePropertiesWrapper>(
                         "Update ThemeProperties",
-                        VNC.Visio.VSTOAddIn.Domain.ThemePropertiesRow.Get_ThemeProperties,
+                        VNC.Visio.VSTOAddIn.Domain.ThemePropertiesRow.GetRow,
+                        VNC.Visio.VSTOAddIn.Domain.ThemePropertiesRow.SetRow,
                         ShapeType.Shape),
                     new Presentation.Views.ThemeProperties()));
 
@@ -582,7 +641,9 @@ namespace SupportTools_Visio
 
         #endregion
 
-        #region UI Events Shape - Row Based
+        #endregion
+
+        #region UI Events - Row Based - Uses RowViewModel
 
         #region Actions
 
@@ -642,7 +703,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ActionTagRow, Presentation.ModelWrappers.ActionTagRowWrapper>(
-                        "Hello Natalie", 
+                        "Update ActionTags (Page)", 
                         VNC.Visio.VSTOAddIn.Domain.ActionTagRow.GetRows,
                         ShapeType.Page),
                     new Presentation.Views.ActionTags()));
@@ -662,7 +723,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ActionTagRow, Presentation.ModelWrappers.ActionTagRowWrapper>(
-                        "Hello Natalie", 
+                        "Update ActionTags (Shape)", 
                         VNC.Visio.VSTOAddIn.Domain.ActionTagRow.GetRows,
                         ShapeType.Shape),
                     new Presentation.Views.ActionTags()));
@@ -672,67 +733,116 @@ namespace SupportTools_Visio
 
         #endregion
 
+        #region Character
+
+        public static DxThemedWindowHost _characterHost = null;
+
         private void btnCharacter_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
+            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeActionTagsHost,
+                "Character",
+                600, 750,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.ShapeSheetSection(
+                    new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.CharacterRow, Presentation.ModelWrappers.CharacterRowWrapper>(
+                        "Update Character",
+                        VNC.Visio.VSTOAddIn.Domain.CharacterRow.GetRows,
+                        ShapeType.Shape),
+                    new Presentation.Views.Character()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public static DxThemedWindowHost ssConnectionPoints_ShapeSheetSectionHost = null;
+        #endregion
+
+        #region ConnectionPoints
+
+        public static DxThemedWindowHost _connectionPointsHost = null;
 
         private void btnConnectionPoints_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref ssConnectionPoints_ShapeSheetSectionHost,
-            "Connection Points",
-            600, 450,
-            //Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+            DxThemedWindowHost.DisplayUserControlInHost(ref _connectionPointsHost,
+                "ConnectionPoints",
+                600, 750,
                 ShowWindowMode.Modeless_Show,
-            new Presentation.Views.ShapeSheetSection(
-                new Presentation.ViewModels.ConnectionPointsViewModel(),
-                new Presentation.Views.ConnectionPoints()));
+                new Presentation.Views.ShapeSheetSection(
+                    new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ConnectionPointRow, Presentation.ModelWrappers.ConnectionPointRowWrapper>(
+                        "Update ConnectionPoints",
+                        VNC.Visio.VSTOAddIn.Domain.ConnectionPointRow.GetRows,
+                        ShapeType.Shape),
+                    new Presentation.Views.ConnectionPoints()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public static DxThemedWindowHost ssControls_ShapeSheetSectionHost = null;
+        #endregion
+
+        #region Controls
+
+        public static DxThemedWindowHost _controlsHost = null;
 
         private void btnControls_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref ssControls_ShapeSheetSectionHost,
-            "Controls",
-            600, 450,
-            //Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-                ShowWindowMode.Modeless_Show,
-            new Presentation.Views.ShapeSheetSection(
-                new Presentation.ViewModels.ControlsViewModel(),
-                new Presentation.Views.Controls()));
+            DxThemedWindowHost.DisplayUserControlInHost(ref _controlsHost,
+                 "Controls",
+                 600, 750,
+                 ShowWindowMode.Modeless_Show,
+                 new Presentation.Views.ShapeSheetSection(
+                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ControlsRow, Presentation.ModelWrappers.ControlsRowWrapper>(
+                         "Update Controls",
+                         VNC.Visio.VSTOAddIn.Domain.ControlsRow.GetRows,
+                         ShapeType.Shape),
+                     new Presentation.Views.Controls()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
+
+        #region Geometry
+
+        public static DxThemedWindowHost _geometryHost = null;
 
         private void btnGeometry_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
+            MessageBox.Show("// TODO(crhodes) - Not Implemented Yet");
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public static DxThemedWindowHost ssGradientStops_ShapeSheetSectionHost = null;
+        #endregion
+
+        #region FillGradientStops
+
+        public static DxThemedWindowHost _fillGradientStopsHost = null;
 
         private void btnGradientStops_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
+            DxThemedWindowHost.DisplayUserControlInHost(ref _fillGradientStopsHost,
+                 "FillGradientStops",
+                 600, 750,
+                 ShowWindowMode.Modeless_Show,
+                 new Presentation.Views.ShapeSheetSection(
+                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.FillGradientStopRow, Presentation.ModelWrappers.FillGradientStopRowWrapper>(
+                         "Update FillGradientStops",
+                         VNC.Visio.VSTOAddIn.Domain.FillGradientStopRow.GetRows,
+                         ShapeType.Shape),
+                     new Presentation.Views.FillGradientStops()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
 
         #region Hyperlinks
 
@@ -748,7 +858,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.HyperlinkRow, Presentation.ModelWrappers.HyperlinkRowWrapper>(
-                        "Update Hyperlinks",
+                        "Update Hyperlinks (Document)",
                         VNC.Visio.VSTOAddIn.Domain.HyperlinkRow.GetRows,
                         ShapeType.Document),
                     new Presentation.Views.Hyperlinks()));
@@ -768,7 +878,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.HyperlinkRow, Presentation.ModelWrappers.HyperlinkRowWrapper>(
-                        "Update Hyperlinks",
+                        "Update Hyperlinks (Page)",
                         VNC.Visio.VSTOAddIn.Domain.HyperlinkRow.GetRows,
                         ShapeType.Page),
                     new Presentation.Views.Hyperlinks()));
@@ -788,7 +898,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.HyperlinkRow, Presentation.ModelWrappers.HyperlinkRowWrapper>(
-                        "Update Hyperlinks",
+                        "Update Hyperlinks (Shape)",
                         VNC.Visio.VSTOAddIn.Domain.HyperlinkRow.GetRows,
                         ShapeType.Shape),
                     new Presentation.Views.Hyperlinks()));
@@ -812,7 +922,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.LayerRow, Presentation.ModelWrappers.LayerRowWrapper>(
-                        "Update Layers",
+                        "Update Layers (Page)",
                         VNC.Visio.VSTOAddIn.Domain.LayerRow.GetRows,
                         ShapeType.Page),
                     new Presentation.Views.Layers()));
@@ -822,20 +932,53 @@ namespace SupportTools_Visio
 
         #endregion
 
+        #region LineGradientStops
+
+        public static DxThemedWindowHost _lineGradientStopsHost = null;
+
+        private void btnLineStops_Click(object sender, RibbonControlEventArgs e)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            DxThemedWindowHost.DisplayUserControlInHost(ref _lineGradientStopsHost,
+                 "LineGradientStops",
+                 600, 750,
+                 ShowWindowMode.Modeless_Show,
+                 new Presentation.Views.ShapeSheetSection(
+                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.LineGradientStopRow, Presentation.ModelWrappers.LineGradientStopRowWrapper>(
+                         "Update LineGradientStops",
+                         VNC.Visio.VSTOAddIn.Domain.LineGradientStopRow.GetRows,
+                         ShapeType.Shape),
+                     new Presentation.Views.LineGradientStops()));
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region Paragraph
+
+        public static DxThemedWindowHost _paragraphHost = null;
+
         private void btnParagraph_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-
-        }
-
-        private void btnTabs_Click(object sender, RibbonControlEventArgs e)
-        {
-            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
-
+            DxThemedWindowHost.DisplayUserControlInHost(ref _paragraphHost,
+                "Paragraph",
+                800, 700,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.ShapeSheetSection(
+                    new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.LayerRow, Presentation.ModelWrappers.LayerRowWrapper>(
+                        "Update Paragraph",
+                        VNC.Visio.VSTOAddIn.Domain.LayerRow.GetRows,
+                        ShapeType.Page),
+                    new Presentation.Views.Layers()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        #endregion
 
         #region Scratch
 
@@ -851,7 +994,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ScratchRow, Presentation.ModelWrappers.ScratchRowWrapper>(
-                        "Update Scratch",
+                        "Update Scratch (Document)",
                         VNC.Visio.VSTOAddIn.Domain.ScratchRow.GetRows,
                         ShapeType.Document),
                     new Presentation.Views.Scratch()));
@@ -871,7 +1014,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ScratchRow, Presentation.ModelWrappers.ScratchRowWrapper>(
-                        "Update Scratch",
+                        "Update Scratch (Page)",
                         VNC.Visio.VSTOAddIn.Domain.ScratchRow.GetRows,
                         ShapeType.Page),
                     new Presentation.Views.Scratch()));
@@ -891,7 +1034,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ScratchRow, Presentation.ModelWrappers.ScratchRowWrapper>(
-                        "Update Scratch",
+                        "Update Scratch (Shape)",
                         VNC.Visio.VSTOAddIn.Domain.ScratchRow.GetRows,
                         ShapeType.Shape),
                     new Presentation.Views.Scratch()));
@@ -915,7 +1058,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ShapeDataRow, Presentation.ModelWrappers.ShapeDataRowWrapper>(
-                        "Update ShapeData",
+                        "Update ShapeData (Document)",
                         VNC.Visio.VSTOAddIn.Domain.ShapeDataRow.GetRows,
                         ShapeType.Document),
                     new Presentation.Views.ShapeData()));
@@ -935,7 +1078,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ShapeDataRow, Presentation.ModelWrappers.ShapeDataRowWrapper>(
-                        "Update ShapeData",
+                        "Update ShapeData (Page)",
                         VNC.Visio.VSTOAddIn.Domain.ShapeDataRow.GetRows,
                         ShapeType.Page),
                     new Presentation.Views.ShapeData()));
@@ -950,15 +1093,63 @@ namespace SupportTools_Visio
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             DxThemedWindowHost.DisplayUserControlInHost(ref _shapeShapeDataHost,
-                "Scratch (Shape)",
+                "Shape Data (Shape)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.ShapeDataRow, Presentation.ModelWrappers.ShapeDataRowWrapper>(
-                        "Update ShapeData",
+                        "Update ShapeData (Shape)",
                         VNC.Visio.VSTOAddIn.Domain.ShapeDataRow.GetRows,
                         ShapeType.Shape),
                     new Presentation.Views.ShapeData()));
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region Tabs
+
+        public static DxThemedWindowHost _tabsHost = null;
+
+        private void btnTabs_Click(object sender, RibbonControlEventArgs e)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            DxThemedWindowHost.DisplayUserControlInHost(ref _tabsHost,
+                "Tabs",
+                800, 700,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.ShapeSheetSection(
+                    new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.TabsRow, Presentation.ModelWrappers.TabRowWrapper>(
+                        "Update Tabs",
+                        VNC.Visio.VSTOAddIn.Domain.TabsRow.GetRows,
+                        ShapeType.Page),
+                    new Presentation.Views.Tabs()));
+
+            Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region TextFields
+
+        public static DxThemedWindowHost _textFieldsHost = null;
+
+        private void btnTextFields_Click(object sender, RibbonControlEventArgs e)
+        {
+            Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            DxThemedWindowHost.DisplayUserControlInHost(ref _textFieldsHost,
+                "Tabs",
+                800, 700,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.ShapeSheetSection(
+                    new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.TextFieldRow, Presentation.ModelWrappers.TextFieldRowWrapper>(
+                        "Update Tabs",
+                        VNC.Visio.VSTOAddIn.Domain.TextFieldRow.GetRows,
+                        ShapeType.Page),
+                    new Presentation.Views.TextFields()));
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -979,7 +1170,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.UserDefinedCellRow, Presentation.ModelWrappers.UserDefinedCellRowWrapper>(
-                        "Update ShapeData",
+                        "Update User-Defined Cells  (Document)",
                         VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.Get_UserDefinedCellsRows,
                         ShapeType.Document),
                     new Presentation.Views.UserDefinedCells()));
@@ -999,7 +1190,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.UserDefinedCellRow, Presentation.ModelWrappers.UserDefinedCellRowWrapper>(
-                        "Update ShapeData",
+                        "Update User-Defined Cells (Page)",
                         VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.Get_UserDefinedCellsRows,
                         ShapeType.Page),
                     new Presentation.Views.UserDefinedCells()));
@@ -1019,7 +1210,7 @@ namespace SupportTools_Visio
                 ShowWindowMode.Modeless_Show,
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.UserDefinedCellRow, Presentation.ModelWrappers.UserDefinedCellRowWrapper>(
-                        "Update ShapeData",
+                        "Update User-Defined Cells (Shape)",
                         VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.Get_UserDefinedCellsRows,
                         ShapeType.Shape),
                     new Presentation.Views.UserDefinedCells()));

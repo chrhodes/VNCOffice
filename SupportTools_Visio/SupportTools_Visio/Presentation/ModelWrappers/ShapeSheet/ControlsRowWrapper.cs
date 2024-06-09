@@ -7,6 +7,8 @@ namespace SupportTools_Visio.Presentation.ModelWrappers
 {
     public class ControlsRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.ControlsRow>
     {
+        public ControlsRowWrapper() { }
+
         public ControlsRowWrapper(VNCVisioAddIn.Domain.ControlsRow model) : base(model)
         {
         }

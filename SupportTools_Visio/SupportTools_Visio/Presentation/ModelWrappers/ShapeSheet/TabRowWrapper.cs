@@ -7,6 +7,8 @@ namespace SupportTools_Visio.Presentation.ModelWrappers
 {
     public class TabRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.TabsRow>
     {
+        public TabRowWrapper() { }
+
         public TabRowWrapper(VNCVisioAddIn.Domain.TabsRow model) : base(model)
         {
         }

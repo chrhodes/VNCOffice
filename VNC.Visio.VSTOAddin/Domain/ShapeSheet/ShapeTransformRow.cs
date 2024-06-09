@@ -18,7 +18,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string ResizeMode { get; set; }
 
 
-        public static ShapeTransformRow Get_ShapeTransform(Shape shape)
+        public static ShapeTransformRow GetRow(Shape shape)
         {
             ShapeTransformRow row = new ShapeTransformRow();
 
@@ -39,7 +39,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ShapeTransform_Section(Shape shape, ShapeTransformRow shapeTransform)
+        public static void SetRow(Shape shape, ShapeTransformRow shapeTransform)
         {
             try
             {

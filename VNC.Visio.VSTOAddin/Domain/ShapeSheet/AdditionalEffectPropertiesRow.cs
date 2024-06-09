@@ -21,7 +21,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string GlowSize { get; set; }
         public string SoftEdgesSize { get; set; }
 
-        public static AdditionalEffectPropertiesRow Get_AdditionalEffectProperties(Shape shape)
+        public static AdditionalEffectPropertiesRow GetRow(Shape shape)
         {
             AdditionalEffectPropertiesRow row = new AdditionalEffectPropertiesRow();
 
@@ -46,7 +46,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_AdditionalEffectProperties_Section(Shape shape, AdditionalEffectPropertiesRow additionalEffectProperties)
+        public static void SetRow(Shape shape, AdditionalEffectPropertiesRow additionalEffectProperties)
         {
             try
             {

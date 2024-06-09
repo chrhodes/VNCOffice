@@ -36,7 +36,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_QuickStyle_Section(Shape shape, QuickStyleRow quickStyle)
+        public static void SetRow(Shape shape, QuickStyleRow quickStyle)
         {
             try
             {

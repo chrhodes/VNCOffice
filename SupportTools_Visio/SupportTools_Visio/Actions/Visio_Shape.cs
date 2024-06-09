@@ -834,7 +834,7 @@ namespace SupportTools_Visio.Actions
             //VNCVisioAddIn.Domain.TextBlockFormat textBlock = new VNCVisioAddIn.Domain.TextBlockFormat();
             //VNCVisioAddIn.Domain.TextBlockFormat.Set_TextBlockFormat_Section(shape, textBlock);
 
-            VNCVisioAddIn.Domain.TextBlockFormatRow.SetSection(shape);
+            VNCVisioAddIn.Domain.TextBlockFormatRow.SetRow(shape);
         }
 
         private static void SetAllMargins(Visio.Shape shape, string points)
@@ -1523,7 +1523,7 @@ namespace SupportTools_Visio.Actions
 
             foreach (Shape shape in selection)
             {
-                VNCVisioAddIn.Domain.TextBlockFormatRow.SetSection(shape, textBlockFormat);
+                VNCVisioAddIn.Domain.TextBlockFormatRow.SetRow(shape, textBlockFormat);
             }
         }
 

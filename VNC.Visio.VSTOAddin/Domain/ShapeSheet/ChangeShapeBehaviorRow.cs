@@ -11,7 +11,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string ReplaceLockFormat { get; set; }
         public string ReplaceCopyCells { get; set; }
 
-        public static ChangeShapeBehaviorRow Get_ChangeShapeBehavior(Shape shape)
+        public static ChangeShapeBehaviorRow GetRow(Shape shape)
         {
             ChangeShapeBehaviorRow row = new ChangeShapeBehaviorRow();
 
@@ -26,7 +26,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ChangeShapeBehavior_Section(Shape shape, ChangeShapeBehaviorRow changeShapeBehavior)
+        public static void SetRow(Shape shape, ChangeShapeBehaviorRow changeShapeBehavior)
         {
             try
             {

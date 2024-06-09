@@ -1,4 +1,6 @@
-﻿using Microsoft.Office.Interop.Visio;
+﻿using System;
+
+using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
@@ -11,7 +13,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string EventXFMod { get; set; }
         public string EventMultiDrop { get; set; }
 
-        public static EventsRow Get_Events(Shape shape)
+        public static EventsRow GetRow(Shape shape)
         {
             EventsRow row = new EventsRow();
 
@@ -26,6 +28,27 @@ namespace VNC.Visio.VSTOAddIn.Domain
             row.EventMultiDrop = sectionRow[VisCellIndices.visEvtCellMultiDrop].FormulaU;
 
             return row;
+        }
+
+        public static void SetRow(Shape shape, EventsRow events)
+        {
+            // TODO(crhodes)
+         // Implement
+
+         //    try
+         //    {
+         //        Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
+         //        Row sectionRow = section[(short)VisRowIndices.visRowMisc];
+
+            //        sectionRow[VisCellIndices.visBegTrigger].FormulaU = glueInfo.BegTrigger;
+            //        sectionRow[VisCellIndices.visEndTrigger].FormulaU = glueInfo.EndTrigger;
+            //        sectionRow[VisCellIndices.visGlueType].FormulaU = glueInfo.GlueType;
+            //        sectionRow[VisCellIndices.visWalkPref].FormulaU = glueInfo.WalkPreference;
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Log.Error(ex, Common.LOG_CATEGORY);
+            //    }
         }
     }
 }

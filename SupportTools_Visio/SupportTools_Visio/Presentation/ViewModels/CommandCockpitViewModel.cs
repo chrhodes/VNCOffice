@@ -1075,7 +1075,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
                 textBlockFormat.TextBkgndTrans = setTextBlockFormatElement.Attribute("TextBkgndTrans").Value;
                 textBlockFormat.DefaultTabStop = setTextBlockFormatElement.Attribute("DefaultTabStop").Value;
 
-                VNCVisioAddIn.Domain.TextBlockFormatRow.SetSection(shape, textBlockFormat);
+                VNCVisioAddIn.Domain.TextBlockFormatRow.SetRow(shape, textBlockFormat);
             }
             catch (Exception ex)
             {

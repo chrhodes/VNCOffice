@@ -7,6 +7,8 @@ namespace SupportTools_Visio.Presentation.ModelWrappers
 {
     public class TextFieldRowWrapper : ModelWrapper<VNCVisioAddIn.Domain.TextFieldRow>
     {
+        public TextFieldRowWrapper() { }
+
         public TextFieldRowWrapper(VNCVisioAddIn.Domain.TextFieldRow model) : base(model)
         {
         }

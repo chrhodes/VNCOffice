@@ -15,7 +15,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string VariationStyleIndex { get; set; }
         public string EmbellishmentIndex { get; set; }
 
-        public static ThemePropertiesRow Get_ThemeProperties(Shape shape)
+        public static ThemePropertiesRow GetRow(Shape shape)
         {
             ThemePropertiesRow row = new ThemePropertiesRow();
 
@@ -34,7 +34,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return row;
         }
 
-        public static void Set_ThemeProperties_Section(Shape shape, ThemePropertiesRow themeProperties)
+        public static void SetRow(Shape shape, ThemePropertiesRow themeProperties)
         {
             try
             {

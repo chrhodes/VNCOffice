@@ -41,7 +41,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             return controlRow;
         }
 
-        public static ObservableCollection<ControlsRow> Get_ControlsRows(Shape shape)
+        public static ObservableCollection<ControlsRow> GetRows(Shape shape)
         {
             var rows = new ObservableCollection<ControlsRow>();
 
