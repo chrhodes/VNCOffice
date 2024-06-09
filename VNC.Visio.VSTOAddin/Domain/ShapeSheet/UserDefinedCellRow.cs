@@ -10,7 +10,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public string Value { get; set; }
         public string Prompt { get; set; }
 
-        public static ObservableCollection<UserDefinedCellRow> Get_UserDefinedCellsRows(Shape shape)
+        public static ObservableCollection<UserDefinedCellRow> GetRows(Shape shape)
         {
             var rows = new ObservableCollection<UserDefinedCellRow>();
 

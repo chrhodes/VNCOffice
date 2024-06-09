@@ -1171,7 +1171,7 @@ namespace SupportTools_Visio
                 new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.UserDefinedCellRow, Presentation.ModelWrappers.UserDefinedCellRowWrapper>(
                         "Update User-Defined Cells  (Document)",
-                        VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.Get_UserDefinedCellsRows,
+                        VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.GetRows,
                         ShapeType.Document),
                     new Presentation.Views.UserDefinedCells()));
 
@@ -1191,7 +1191,7 @@ namespace SupportTools_Visio
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.UserDefinedCellRow, Presentation.ModelWrappers.UserDefinedCellRowWrapper>(
                         "Update User-Defined Cells (Page)",
-                        VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.Get_UserDefinedCellsRows,
+                        VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.GetRows,
                         ShapeType.Page),
                     new Presentation.Views.UserDefinedCells()));
 
@@ -1211,7 +1211,7 @@ namespace SupportTools_Visio
                     new Presentation.Views.ShapeSheetSection(
                     new Presentation.ViewModels.RowsViewModel<VNCVisioAddIn.Domain.UserDefinedCellRow, Presentation.ModelWrappers.UserDefinedCellRowWrapper>(
                         "Update User-Defined Cells (Shape)",
-                        VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.Get_UserDefinedCellsRows,
+                        VNC.Visio.VSTOAddIn.Domain.UserDefinedCellRow.GetRows,
                         ShapeType.Shape),
                     new Presentation.Views.UserDefinedCells()));
 
