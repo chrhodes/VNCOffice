@@ -4,6 +4,9 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
+    /// <summary>
+    /// Document Properties - VisSectionObject - Optional
+    /// </summary>
     public class DocumentPropertiesRow
     {
         public string PreviewQuality { get; set; }

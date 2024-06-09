@@ -32,7 +32,7 @@ namespace SupportTools_Visio
             //    new Presentation.Views.DocumentShapeSheetSection(
             //        new Presentation.ViewModels.DocumentPropertiesViewModel(),
             //        new Presentation.Views.DocumentProperties()));
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageActionsHost,
+            DxThemedWindowHost.DisplayUserControlInHost(ref _documentPropertiesHost,
                 "Document Properties",
                 600, 600,
                 ShowWindowMode.Modeless_Show,
@@ -56,7 +56,7 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pagePagePropertiesHost,
+            DxThemedWindowHost.DisplayUserControlInHost(ref _pagePageLayoutHost,
                 "Page PageLayout",
                 600, 600,
                 ShowWindowMode.Modeless_Show,
@@ -967,13 +967,13 @@ namespace SupportTools_Visio
 
         #region UserDefinedCells
 
-        public static DxThemedWindowHost _documentUserDefineCellsHost = null;
+        public static DxThemedWindowHost _documentUserDefinedCellsHost = null;
 
         private void btnDocumentUserDefinedCells_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _documentUserDefineCellsHost,
+            DxThemedWindowHost.DisplayUserControlInHost(ref _documentUserDefinedCellsHost,
                 "User-Defined Cells (Document)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -987,13 +987,13 @@ namespace SupportTools_Visio
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public static DxThemedWindowHost _pageUserDefineCellsHost = null;
+        public static DxThemedWindowHost _pageUserDefinedCellsHost = null;
 
         private void btnPageUserDefinedCells_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageUserDefineCellsHost,
+            DxThemedWindowHost.DisplayUserControlInHost(ref _pageUserDefinedCellsHost,
                 "User-Defined Cells (Page)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1007,13 +1007,13 @@ namespace SupportTools_Visio
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public static DxThemedWindowHost _shapeUserDefineCellsHost = null;
+        public static DxThemedWindowHost _shapeUserDefinedCellsHost = null;
 
         private void btnShapeUserDefinedCells_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeUserDefineCellsHost,
+            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeUserDefinedCellsHost,
                 "User-Defined Cells (Shape)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,

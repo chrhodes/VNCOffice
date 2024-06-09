@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.CommandCockpitViewModel" Collapsed="true">
+    <Position X="0.75" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>MMEAsgEDAIAQEI0ooiAAABEQAEAJAAGQEQBQIGhAgIA=</HashCode>
+      <FileName>Presentation\ViewModels\CommandCockpitViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.DuplicatePageViewModel" Collapsed="true">
+    <Position X="8.25" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAEEBCAAAAAMAAAAAgAASQAsAIAAMABIIgAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\DuplicatePageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.EditControlRowsViewModel" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABAAQkAAAAAAAAAAAAAAAAAABAAAAQAAAACAiAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\EditControlRowsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.EditParagraphViewModel" Collapsed="true">
+    <Position X="8.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAQgAAAAAAAAAAAAAAAAAABAAAQQAAAACAgAIAABA=</HashCode>
+      <FileName>Presentation\ViewModels\EditParagraphViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.EditTextViewModel" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>EACQAAAABAACAAAQAAAAAAAAAAAAAgIAAAAAIAAAEAA=</HashCode>
+      <FileName>Presentation\ViewModels\EditTextViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.ItemInfo" Collapsed="true">
+    <Position X="1.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\EditParagraphViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.LinqToExcelViewModel" Collapsed="true">
+    <Position X="1" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ECEBMgAgCAAiEAAAkCABAQAAAEAMCABAEIoAoCAAAgA=</HashCode>
+      <FileName>Presentation\ViewModels\LinqToExcelViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.MovePageViewModel" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAEAAAYAAAAAAAgAIAAAAAAAAIQAAAEAAgICAABQA=</HashCode>
+      <FileName>Presentation\ViewModels\MovePageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.RenamePageViewModel" Collapsed="true">
+    <Position X="10.75" Y="4" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAMAAAAAAAAAAAgCAAAAAAAAAIAAAAEAAAIAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\RenamePageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.ViewAViewModel" Collapsed="true">
+    <Position X="2.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAIAAAgAAAAAAAAAAIAAAAEAAAIAQAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\ViewAViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.ViewBViewModel" Collapsed="true">
+    <Position X="0.75" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAIAAAgAAAAAAAAAAIAAAAEAAAIAQAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\ViewBViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.ViewCViewModel" Collapsed="true">
+    <Position X="2" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAIAAAgAAAAAAAAAAIAAAAEAAAIAQAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\ViewCViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SupportTools_Visio.Presentation.ViewModels.TestData" Collapsed="true">
+    <Position X="1.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAADwAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\TestData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
