@@ -848,20 +848,30 @@
     <Compile Include="Presentation\Converters\SelectedItemsToVisioCommandWrapperConverter.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\ILinqToExcelViewModel.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\IViewCViewModel.cs" />
+    <Compile Include="Presentation\ViewModels\TestData.cs" />
     <Compile Include="Presentation\ViewModels\ViewCViewModel.cs" />
-    <Compile Include="Presentation\Views\LinqToExcel.xaml.cs" />
+    <Compile Include="Presentation\Views\LinqToExcel.xaml.cs">
+      <DependentUpon>LinqToExcel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\ViewModels\LinqToExcelViewModel.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\IViewBViewModel.cs" />
     <Compile Include="Presentation\ViewModels\Interfaces\ICommandCockpitViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ViewBViewModel.cs" />
     <Compile Include="Presentation\ViewModels\CommandCockpitViewModel.cs" />
-    <Compile Include="Presentation\Views\ViewC2.xaml.cs" />
-    <Compile Include="Presentation\Views\ViewC1.xaml.cs" />
-    <Compile Include="Presentation\Views\ViewB.xaml.cs" />
-    <Compile Include="Presentation\Views\CommandCockpit.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewC2.xaml.cs">
+      <DependentUpon>ViewC2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ViewC1.xaml.cs">
+      <DependentUpon>ViewC1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\CommandCockpit.xaml.cs">
+      <DependentUpon>CommandCockpit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\ViewModels\Interfaces\IMovePageViewModel.cs" />
     <Compile Include="Presentation\ModelWrappers\ShapeSheet\Page\PagePropertiesWrapper.cs" />
-    <Compile Include="Presentation\Views\MovePage.xaml.cs" />
+    <Compile Include="Presentation\Views\MovePage.xaml.cs">
+      <DependentUpon>MovePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\ViewModels\MovePageViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\ObjectViewModel.cs" />
     <Compile Include="Presentation\ModelWrappers\CatWrapper.cs" />
@@ -921,9 +931,13 @@
     <Compile Include="Presentation\ViewModels\ShapeSheet\RowsViewModel.cs" />
     <Compile Include="Presentation\ViewModels\ShapeSheet\ShapeSheetSectionBase.cs" />
     <Compile Include="Presentation\ViewModels\ViewAViewModel.cs" />
-    <Compile Include="Presentation\Views\EditText.xaml.cs" />
-    <Compile Include="Presentation\Views\IRenamePageViewModel.cs" />
-    <Compile Include="Presentation\Views\PrismRegionTest.xaml.cs" />
+    <Compile Include="Presentation\Views\EditText.xaml.cs">
+      <DependentUpon>EditText.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ViewModels\Interfaces\IRenamePageViewModel.cs" />
+    <Compile Include="Presentation\Views\PrismRegionTest.xaml.cs">
+      <DependentUpon>PrismRegionTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Domain\DuplicatePage.cs" />
     <Compile Include="Presentation\Views\DuplicatePage.xaml.cs">
       <DependentUpon>DuplicatePage.xaml</DependentUpon>
@@ -952,13 +966,21 @@
     <Compile Include="Presentation\Views\ShapeSheet\Layers.xaml.cs">
       <DependentUpon>Layers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Page\PageLayout.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Page\PageLayout.xaml.cs">
+      <DependentUpon>PageLayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Views\ShapeSheet\Page\PageProperties.xaml.cs">
       <DependentUpon>PageProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Page\ThemeProperties.xaml.cs" />
-    <Compile Include="Presentation\Views\ShapeSheet\Page\PrintProperties.xaml.cs" />
-    <Compile Include="Presentation\Views\ShapeSheet\Page\RuleAndGrid.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Page\ThemeProperties.xaml.cs">
+      <DependentUpon>ThemeProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Page\PrintProperties.xaml.cs">
+      <DependentUpon>PrintProperties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\Views\ShapeSheet\Page\RulerAndGrid.xaml.cs">
+      <DependentUpon>RulerAndGrid.xaml</DependentUpon>
+    </Compile>    
     <Compile Include="Presentation\Views\ShapeSheet\ShapeData.xaml.cs">
       <DependentUpon>ShapeData.xaml</DependentUpon>
     </Compile>
@@ -986,7 +1008,9 @@
     <Compile Include="Presentation\Views\ShapeSheet\Shape\GradientProperties.xaml.cs">
       <DependentUpon>GradientProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\Shape\GroupProperties.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\Shape\GroupProperties.xaml.cs">
+      <DependentUpon>GroupProperties.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Views\ShapeSheet\Shape\ImageProperties.xaml.cs">
       <DependentUpon>ImageProperties.xaml</DependentUpon>
     </Compile>
@@ -1061,9 +1085,13 @@
     <Compile Include="Presentation\Views\ShapeSheet\UserDefinedCells.xaml.cs">
       <DependentUpon>UserDefinedCells.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\RenamePage.xaml.cs" />
+    <Compile Include="Presentation\Views\RenamePage.xaml.cs">
+      <DependentUpon>RenamePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\ViewModels\RenamePageViewModel.cs" />
-    <Compile Include="Presentation\Views\ViewA.xaml.cs" />
+    <Compile Include="Presentation\Views\ViewA.xaml.cs">
+      <DependentUpon>ViewA.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Actions\Class1.cs" />
     <Compile Include="Actions\Visio_PageFormatting.cs" />
     <Compile Include="Common.cs" />
@@ -1075,22 +1103,22 @@
     <Compile Include="User Interface\DisplayOptions.cs" />
     <Compile Include="User Interface\Help.cs" />
     <Compile Include="User Interface\PreserveColumnOrderBehavior.cs" />
-    <Compile Include="User Interface\Ribbon\Ribbon_ShapeSheet.cs">
+    <Compile Include="Presentation\Ribbon\Ribbon_ShapeSheet.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="User Interface\Ribbon\Ribbon_UILauchApproaches.cs">
+    <Compile Include="Presentation\Ribbon\Ribbon_UILauchApproaches.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="User Interface\Ribbon\Ribbon_CustomUI.cs">
+    <Compile Include="Presentation\Ribbon\Ribbon_CustomUI.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="User Interface\Ribbon\Ribbon_SupportTools.cs">
+    <Compile Include="Presentation\Ribbon\Ribbon_SupportTools.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="User Interface\Ribbon\Ribbon.cs">
+    <Compile Include="Presentation\Ribbon\Ribbon.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="User Interface\Ribbon\Ribbon.designer.cs">
+    <Compile Include="Presentation\Ribbon\Ribbon.designer.cs">
       <DependentUpon>Ribbon.cs</DependentUpon>
     </Compile>
     <Compile Include="User Interface\IRefresh.cs" />
@@ -1114,7 +1142,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="User Interface\Ribbon\Ribbon.resx">
+    <EmbeddedResource Include="Presentation\Ribbon\Ribbon.resx">
       <DependentUpon>Ribbon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config">
@@ -1131,7 +1159,8 @@
     <None Include="Data\ApplicationDS.xss">
       <DependentUpon>ApplicationDS.xsd</DependentUpon>
     </None>
-    <None Include="Diagrams\SupportTools_Visio.cd" />
+    <None Include="Diagrams\SupportTools_Visio - ShapeSheetSectionBase.cd" />
+    <None Include="Diagrams\SupportTools_Visio - ViewModelBase.cd" />
     <None Include="Diagrams\SupportTools_Visio.Core.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

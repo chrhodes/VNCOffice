@@ -37,7 +37,7 @@ namespace SupportTools_Visio.Application
             return new UnityContainerExtension();
         }
 
-        // Step 1a - Create the catalog of Modules
+        // Step 2 - Create the catalog of Modules
 
         protected override IModuleCatalog CreateModuleCatalog()
         {
@@ -48,7 +48,7 @@ namespace SupportTools_Visio.Application
             return new ConfigurationModuleCatalog();
         }
 
-        // Step 1b - Configure the catalog of modules
+        // Step 5 - Configure the catalog of modules
         // Modules are loaded at Startup and must be a project reference
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
@@ -69,7 +69,7 @@ namespace SupportTools_Visio.Application
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        // Step 2 - Configure the container
+        // Step 3 - Configure the container
 
         protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
         {
@@ -81,6 +81,8 @@ namespace SupportTools_Visio.Application
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
+
+        // Step 4 - Register Types to be used
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -102,9 +104,7 @@ namespace SupportTools_Visio.Application
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        // Step 3 - Configure the RegionAdapters if any custom ones have been created
-
-        // Step 4 - Create the Shell that will hold the modules in designated regions.
+        // Step 7 - Create the Shell that will hold the modules in designated regions.
 
         protected override DependencyObject CreateShell()
         {
@@ -116,7 +116,7 @@ namespace SupportTools_Visio.Application
             //return Container.TryResolve<Views.MainWindow>();
         }
 
-        // Step 5 - Show the MainWindow
+        // Step 6 - Configure the RegionAdapters if any custom ones have been created
 
         protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)
         {
