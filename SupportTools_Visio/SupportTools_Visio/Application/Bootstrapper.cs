@@ -116,7 +116,17 @@ namespace SupportTools_Visio.Application
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        // Step 7 - Create the Shell that will hold the modules in designated regions.
+        // Step 7 - Configure any Region Behaviors
+        protected override void ConfigureDefaultRegionBehaviors(IRegionBehaviorFactory regionBehaviors)
+        {
+            Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+
+            base.ConfigureDefaultRegionBehaviors(regionBehaviors);
+
+            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // Step 8 - Create the Shell that will hold the modules in designated regions.
 
         protected override DependencyObject CreateShell()
         {
@@ -127,16 +137,5 @@ namespace SupportTools_Visio.Application
             //return Container.Resolve<Views.MainWindow>();
             //return Container.TryResolve<Views.MainWindow>();
         }
-
-        protected override void ConfigureDefaultRegionBehaviors(IRegionBehaviorFactory regionBehaviors)
-        {
-            Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-
-            base.ConfigureDefaultRegionBehaviors(regionBehaviors);
-
-            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-
     }
 }
