@@ -9,6 +9,6 @@ namespace VNC.Visio.VSTOAddIn.Domain.ShapeSheet
     public class AnnotationRow
     {
         // TODO(crhodes)
-        // populate
+        // Implement
     }
 }

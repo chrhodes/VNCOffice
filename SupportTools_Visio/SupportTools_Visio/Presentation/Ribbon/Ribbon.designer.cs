@@ -129,10 +129,10 @@
             this.btnPageShapeData = this.Factory.CreateRibbonButton();
             this.btnPageUserDefinedCells = this.Factory.CreateRibbonButton();
             this.rgSSShapeObjectSections = this.Factory.CreateRibbonGroup();
-            this.btnAlignment = this.Factory.CreateRibbonButton();
             this.btn1DEndpoints = this.Factory.CreateRibbonButton();
             this.btn3DRotationProperties = this.Factory.CreateRibbonButton();
             this.btnAdditionalEffectProperties = this.Factory.CreateRibbonButton();
+            this.btnAlignment = this.Factory.CreateRibbonButton();
             this.btnBevelProperties = this.Factory.CreateRibbonButton();
             this.btnChangeShapeBehavior = this.Factory.CreateRibbonButton();
             this.btnEvents = this.Factory.CreateRibbonButton();
@@ -559,7 +559,7 @@
             // 
             // btnAddDefaultLayers_Page
             // 
-            this.btnAddDefaultLayers_Page.Label = "Add DefaultLayers";
+            this.btnAddDefaultLayers_Page.Label = "+ DefaultLayers";
             this.btnAddDefaultLayers_Page.Name = "btnAddDefaultLayers_Page";
             // 
             // btnRemoveLayers_Page
@@ -655,7 +655,7 @@
             // 
             // btn0PtMargins
             // 
-            this.btn0PtMargins.Label = "0pt Margins";
+            this.btn0PtMargins.Label = "0 pt Margins";
             this.btn0PtMargins.Name = "btn0PtMargins";
             this.btn0PtMargins.ScreenTip = "0 Pt Text Block Margins for selected Shapes";
             this.btn0PtMargins.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn0PtMargins_Click);
@@ -917,13 +917,6 @@
             this.rgSSShapeObjectSections.Label = "Shape (Object)";
             this.rgSSShapeObjectSections.Name = "rgSSShapeObjectSections";
             // 
-            // btnAlignment
-            // 
-            this.btnAlignment.Label = "Alignment";
-            this.btnAlignment.Name = "btnAlignment";
-            this.btnAlignment.ScreenTip = "Edit Text";
-            this.btnAlignment.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAlignment_Click);
-            // 
             // btn1DEndpoints
             // 
             this.btn1DEndpoints.Label = "1D Endpoints";
@@ -947,6 +940,13 @@
             this.btnAdditionalEffectProperties.ScreenTip = "Edit Text";
             this.btnAdditionalEffectProperties.SuperTip = "Launch the Super Duper Edit Text UI";
             this.btnAdditionalEffectProperties.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAdditionalEffectProperties_Click);
+            // 
+            // btnAlignment
+            // 
+            this.btnAlignment.Label = "Alignment";
+            this.btnAlignment.Name = "btnAlignment";
+            this.btnAlignment.ScreenTip = "Edit Text";
+            this.btnAlignment.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAlignment_Click);
             // 
             // btnBevelProperties
             // 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -43,32 +44,39 @@ namespace VNC.Visio.VSTOAddIn.Domain
         {
             var rows = new ObservableCollection<LayerRow>();
 
-            Section section = shape.Section[(short)VisSectionIndices.visSectionLayer];
-
-            var rowCount = section.Count;
-
-            for (short i = 0; i < rowCount; i++)
+            if (0 == shape.SectionExists[(short)VisSectionIndices.visSectionLayer, 0])
             {
-                LayerRow layerRow = new LayerRow();
+                MessageBox.Show("No visSectionLayer exists");
+            }
+            else
+            {
+                Section section = shape.Section[(short)VisSectionIndices.visSectionLayer];
 
-                var row = section[i];
+                var rowCount = section.Count;
 
-                layerRow.Name = row[(short)VisCellIndices.visLayerName].FormulaU;
-                layerRow.Visible = row[(short)VisCellIndices.visLayerVisible].FormulaU;
-                layerRow.Print = row[(short)VisCellIndices.visLayerPrint].FormulaU;
-                layerRow.Active = row[(short)VisCellIndices.visLayerActive].FormulaU;
-                layerRow.Lock = row[(short)VisCellIndices.visLayerLock].FormulaU;
-                layerRow.Snap = row[(short)VisCellIndices.visLayerSnap].FormulaU;
-                layerRow.Glue = row[(short)VisCellIndices.visLayerGlue].FormulaU;
-                layerRow.Color = row[(short)VisCellIndices.visLayerColor].FormulaU;
-                layerRow.Transparency = row[(short)VisCellIndices.visLayerColorTrans].FormulaU;
+                for (short i = 0; i < rowCount; i++)
+                {
+                    LayerRow layerRow = new LayerRow();
 
-                // NOTE(crhodes)
-                // There are a few more VisCellIndices.  See what they do
-                //VisCellIndices.visLayerMember
-                //VisCellIndices.visLayerStatus
+                    var row = section[i];
 
-                rows.Add(layerRow);
+                    layerRow.Name = row[(short)VisCellIndices.visLayerName].FormulaU;
+                    layerRow.Visible = row[(short)VisCellIndices.visLayerVisible].FormulaU;
+                    layerRow.Print = row[(short)VisCellIndices.visLayerPrint].FormulaU;
+                    layerRow.Active = row[(short)VisCellIndices.visLayerActive].FormulaU;
+                    layerRow.Lock = row[(short)VisCellIndices.visLayerLock].FormulaU;
+                    layerRow.Snap = row[(short)VisCellIndices.visLayerSnap].FormulaU;
+                    layerRow.Glue = row[(short)VisCellIndices.visLayerGlue].FormulaU;
+                    layerRow.Color = row[(short)VisCellIndices.visLayerColor].FormulaU;
+                    layerRow.Transparency = row[(short)VisCellIndices.visLayerColorTrans].FormulaU;
+
+                    // NOTE(crhodes)
+                    // There are a few more VisCellIndices.  See what they do
+                    //VisCellIndices.visLayerMember
+                    //VisCellIndices.visLayerStatus
+
+                    rows.Add(layerRow);
+                }
             }
 
             return rows;

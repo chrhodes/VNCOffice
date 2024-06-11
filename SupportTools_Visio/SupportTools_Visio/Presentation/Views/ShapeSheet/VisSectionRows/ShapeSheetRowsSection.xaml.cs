@@ -7,11 +7,11 @@ using VNC;
 
 namespace SupportTools_Visio.Presentation.Views
 {
-    public partial class ShapeSheetSection : UserControl
+    public partial class ShapeSheetRowsSection : UserControl
     {
         private readonly ShapeSheetSectionBase _viewModel;
 
-        public ShapeSheetSection(ShapeSheetSectionBase viewModel, ContentControl ssUserControl)
+        public ShapeSheetRowsSection(ShapeSheetSectionBase viewModel, ContentControl ssUserControl)
         {
             Int64 startTicks = Log.CONSTRUCTOR($"Enter viewModel:({viewModel.GetType()} userControl:({ssUserControl.GetType()}))", Common.LOG_CATEGORY);
 
