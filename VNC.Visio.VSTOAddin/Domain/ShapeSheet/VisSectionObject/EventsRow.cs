@@ -33,7 +33,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public static void SetRow(Shape shape, EventsRow events)
         {
             // TODO(crhodes)
-         // Implement
+            // Implement
 
          //    try
          //    {

@@ -35,10 +35,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
         string _message = "";
         public string Message
         {
-            get
-            {
-                return _message;
-            }
+            get { return _message; }
             set
             {
                 _message = value;
@@ -54,10 +51,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
         string _LoadButtonContent = "Load from Current Shape";
         public string LoadButtonContent
         {
-            get
-            {
-                return _LoadButtonContent;
-            }
+            get { return _LoadButtonContent; }
             set
             {
                 _LoadButtonContent = value;
@@ -65,13 +59,10 @@ namespace SupportTools_Visio.Presentation.ViewModels
             }
         }
 
-        string _UpdateButtonContent = "Update Shapes";
+        string _UpdateButtonContent = "Update Items";
         public string UpdateButtonContent
         {
-            get
-            {
-                return _UpdateButtonContent;
-            }
+            get { return _UpdateButtonContent; }
             set
             {
                 _UpdateButtonContent = value;
@@ -80,13 +71,10 @@ namespace SupportTools_Visio.Presentation.ViewModels
         }
 
 
-        string _exportSettingsContent = "Export Rows from Shape";
+        string _exportSettingsContent = "Export Rows";
         public string ExportSettingsContent
         {
-            get
-            {
-                return _exportSettingsContent;
-            }
+            get { return _exportSettingsContent; }
             set
             {
                 _exportSettingsContent = value;
@@ -122,31 +110,8 @@ namespace SupportTools_Visio.Presentation.ViewModels
 
             Visio.Selection selection = app.ActiveWindow.Selection;
 
-            //var containingMaster = selection.ContainingMaster;
-            //var containingMasterID = selection.ContainingMasterID;
-            //var containingPage = selection.ContainingPage;
-            //var containingPageID = selection.ContainingPageID;
-            //var containingShape = selection.ContainingShape;
-            //var primaryItem = selection.PrimaryItem;
-
-            //var itemStatus = selection.ItemStatus[0];
-
             var count = selection.Count;
             SelectedShapeCount = count;
-
-            //var whatAreYou = selection[0];
-
-            //if (Visio_Shape.HasTextTransformSection(shape))
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            //// TODO(crhodes)
-            //// Check if shape selected
-
 
             if (count > 0)
             {

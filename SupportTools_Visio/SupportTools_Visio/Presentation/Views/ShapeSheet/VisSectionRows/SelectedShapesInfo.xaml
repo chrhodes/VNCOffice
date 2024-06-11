@@ -8,13 +8,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="50" d:DesignWidth="300">
-    <dxlc:LayoutGroup
-                	View="Group" Orientation="Horizontal">
+    <dxlc:LayoutGroup View="Group" Orientation="Horizontal">
         <dxe:TextEdit Text="{Binding SelectedShapeCount}"
                               HorizontalAlignment="Left"
     	                      ToolTip="# Shapes Selected" />
 
         <dxe:TextEdit Text="{Binding Message}"
-    	              ToolTip="What you need to do to get good selection" />
+    	              ToolTip="What you need to do to get a good selection" />
     </dxlc:LayoutGroup>
 </UserControl>

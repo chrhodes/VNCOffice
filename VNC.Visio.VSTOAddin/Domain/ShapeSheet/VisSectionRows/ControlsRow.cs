@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -45,28 +46,35 @@ namespace VNC.Visio.VSTOAddIn.Domain
         {
             var rows = new ObservableCollection<ControlsRow>();
 
-            Section section = shape.Section[(short)VisSectionIndices.visSectionControls];
-
-            var rowCount = section.Count;
-
-            for (short i = 0; i < rowCount; i++)
+            if (0 == shape.SectionExists[(short)VisSectionIndices.visSectionControls, 0])
             {
-                ControlsRow controlsRow = new ControlsRow();
+                MessageBox.Show("No visSectionControls exists");
+            }
+            else
+            {
+                Section section = shape.Section[(short)VisSectionIndices.visSectionControls];
 
-                var row = section[i];
+                var rowCount = section.Count;
 
-                controlsRow.Name = row.NameU;
+                for (short i = 0; i < rowCount; i++)
+                {
+                    ControlsRow controlsRow = new ControlsRow();
 
-                controlsRow.X = row[VisCellIndices.visCtlX].FormulaU;
-                controlsRow.Y = row[VisCellIndices.visCtlY].FormulaU;
-                controlsRow.XDynamics = row[VisCellIndices.visCtlXDyn].FormulaU;
-                controlsRow.YDynamics = row[VisCellIndices.visCtlYDyn].FormulaU;
-                controlsRow.XBehavior = row[VisCellIndices.visCtlXCon].FormulaU;
-                controlsRow.YBehavior = row[VisCellIndices.visCtlYCon].FormulaU;
-                controlsRow.CanGlue = row[VisCellIndices.visCtlGlue].FormulaU;
-                controlsRow.Tip = row[VisCellIndices.visCtlTip].FormulaU;
+                    var row = section[i];
 
-                rows.Add(controlsRow);
+                    controlsRow.Name = row.NameU;
+
+                    controlsRow.X = row[VisCellIndices.visCtlX].FormulaU;
+                    controlsRow.Y = row[VisCellIndices.visCtlY].FormulaU;
+                    controlsRow.XDynamics = row[VisCellIndices.visCtlXDyn].FormulaU;
+                    controlsRow.YDynamics = row[VisCellIndices.visCtlYDyn].FormulaU;
+                    controlsRow.XBehavior = row[VisCellIndices.visCtlXCon].FormulaU;
+                    controlsRow.YBehavior = row[VisCellIndices.visCtlYCon].FormulaU;
+                    controlsRow.CanGlue = row[VisCellIndices.visCtlGlue].FormulaU;
+                    controlsRow.Tip = row[VisCellIndices.visCtlTip].FormulaU;
+
+                    rows.Add(controlsRow);
+                }
             }
 
             return rows;
