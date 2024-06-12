@@ -35,10 +35,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowShapeLayout))
             {
-                MessageBox.Show("No visRowShapeLayout exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowShapeLayout];
 
                 row.ShapePermeableX = sectionRow[VisCellIndices.visSLOPermX].FormulaU;
@@ -59,6 +55,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.ShapeSplittable = sectionRow[VisCellIndices.visSLOSplittable].FormulaU;
                 row.Relationships = sectionRow[VisCellIndices.visSLORelationships].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowShapeLayout exists");
+            }
 
             return row;
         }
@@ -70,10 +70,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowShapeLayout))
-                {
-                    MessageBox.Show("No visRowShapeLayout exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowShapeLayout];
 
@@ -94,6 +90,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visSLOSplit].FormulaU = shapeLayout.ShapeSplit;
                     sectionRow[VisCellIndices.visSLOSplittable].FormulaU = shapeLayout.ShapeSplittable;
                     sectionRow[VisCellIndices.visSLORelationships].FormulaU = shapeLayout.Relationships;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowShapeLayout exists");
                 }
             }
             catch (Exception ex)

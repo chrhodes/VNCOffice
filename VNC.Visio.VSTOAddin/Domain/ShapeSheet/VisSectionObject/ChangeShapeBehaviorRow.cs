@@ -20,16 +20,16 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowReplaceBehaviors))
             {
-                MessageBox.Show("No visRowReplaceBehaviors exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowReplaceBehaviors];
 
                 row.ReplaceLockShapeData = sectionRow[VisCellIndices.visReplaceLockShapeData].FormulaU;
                 row.ReplaceLockText = sectionRow[VisCellIndices.visReplaceLockText].FormulaU;
                 row.ReplaceLockFormat = sectionRow[VisCellIndices.visReplaceLockFormat].FormulaU;
                 row.ReplaceCopyCells = sectionRow[VisCellIndices.visReplaceCopyCells].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowReplaceBehaviors exists");
             }
 
             return row;
@@ -43,16 +43,16 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowReplaceBehaviors))
                 {
-                    MessageBox.Show("No visRowReplaceBehaviors exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowReplaceBehaviors];
 
                     sectionRow[VisCellIndices.visReplaceLockShapeData].FormulaU = changeShapeBehavior.ReplaceLockShapeData;
                     sectionRow[VisCellIndices.visReplaceLockText].FormulaU = changeShapeBehavior.ReplaceLockText;
                     sectionRow[VisCellIndices.visReplaceLockFormat].FormulaU = changeShapeBehavior.ReplaceLockFormat;
                     sectionRow[VisCellIndices.visReplaceCopyCells].FormulaU = changeShapeBehavior.ReplaceCopyCells;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowReplaceBehaviors exists");
                 }
             }
             catch (Exception ex)

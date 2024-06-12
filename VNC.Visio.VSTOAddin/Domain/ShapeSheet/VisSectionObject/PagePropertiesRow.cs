@@ -28,10 +28,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowPage))
             {
-                MessageBox.Show("No visRowPage exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowPage];
 
                 row.PageWidth = sectionRow[VisCellIndices.visPageWidth].FormulaU;
@@ -46,6 +42,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.PageLockReplace = sectionRow[VisCellIndices.visPageLockReplace].FormulaU;
                 row.PageLockDuplicate = sectionRow[VisCellIndices.visPageLockDuplicate].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowPage exists");
+            }
 
             return row;
         }
@@ -57,10 +57,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowPage))
-                {
-                    MessageBox.Show("No visRowPage exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowPage];
 
@@ -74,6 +70,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visPageUIVisibility].FormulaU = pageProperties.UIVisibility;
                     sectionRow[VisCellIndices.visPageLockReplace].FormulaU = pageProperties.PageLockReplace;
                     sectionRow[VisCellIndices.visPageLockDuplicate].FormulaU = pageProperties.PageLockDuplicate;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowPage exists");
                 }
             }
             catch (Exception ex)

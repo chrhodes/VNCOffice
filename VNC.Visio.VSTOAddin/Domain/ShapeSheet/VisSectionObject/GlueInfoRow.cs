@@ -23,10 +23,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowMisc))
             {
-                MessageBox.Show("No visRowMisc exists");
-            }
-            else
-            {
 
                 Row sectionRow = section[(short)VisRowIndices.visRowMisc];
 
@@ -34,6 +30,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.EndTrigger = sectionRow[VisCellIndices.visEndTrigger].FormulaU;
                 row.GlueType = sectionRow[VisCellIndices.visGlueType].FormulaU;
                 row.WalkPreference = sectionRow[VisCellIndices.visWalkPref].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowMisc exists");
             }
 
             return row;
@@ -47,16 +47,16 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowMisc))
                 {
-                    MessageBox.Show("No visRowMisc exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowMisc];
 
                     sectionRow[VisCellIndices.visBegTrigger].FormulaU = glueInfo.BegTrigger;
                     sectionRow[VisCellIndices.visEndTrigger].FormulaU = glueInfo.EndTrigger;
                     sectionRow[VisCellIndices.visGlueType].FormulaU = glueInfo.GlueType;
                     sectionRow[VisCellIndices.visWalkPref].FormulaU = glueInfo.WalkPreference;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowMisc exists");
                 }
             }
             catch (Exception ex)

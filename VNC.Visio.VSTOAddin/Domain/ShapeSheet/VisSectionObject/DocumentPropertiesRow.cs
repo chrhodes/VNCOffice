@@ -29,10 +29,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowDoc))
             {
-                MessageBox.Show("No visRowDoc exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowDoc];
 
                 row.PreviewQuality = sectionRow[VisCellIndices.visDocPreviewQuality].FormulaU;
@@ -46,6 +42,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.NoCoauth = sectionRow[VisCellIndices.visDocNoCoauth].FormulaU;
                 row.DocLockDuplicatePage = sectionRow[VisCellIndices.visDocLockDuplicatePage].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowDoc exists");
+            }
 
             return row;
         }
@@ -57,10 +57,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowDoc))
-                {
-                    MessageBox.Show("No visRowDoc exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowDoc];
 
@@ -74,6 +70,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visDocLockReplace].FormulaU = documentProperties.DocLockReplace;
                     sectionRow[VisCellIndices.visDocNoCoauth].FormulaU = documentProperties.NoCoauth;
                     sectionRow[VisCellIndices.visDocLockDuplicatePage].FormulaU = documentProperties.DocLockDuplicatePage;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowDoc exists");
                 }
             }
             catch (Exception ex)

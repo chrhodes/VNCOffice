@@ -24,10 +24,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowGradientProperties))
             {
-                MessageBox.Show("No visRowGradientProperties exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowGradientProperties];
 
                 row.LineGradientDir = sectionRow[VisCellIndices.visLineGradientDir].FormulaU;
@@ -38,6 +34,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.FillGradientEnabled = sectionRow[VisCellIndices.visFillGradientEnabled].FormulaU;
                 row.RotateGradientWithShape = sectionRow[VisCellIndices.visRotateGradientWithShape].FormulaU;
                 row.UseGroupGradient = sectionRow[VisCellIndices.visUseGroupGradient].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowGradientProperties exists");
             }
 
             return row;
@@ -51,10 +51,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowGradientProperties))
                 {
-                    MessageBox.Show("No visRowGradientProperties exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowGradientProperties];
 
                     sectionRow[VisCellIndices.visLineGradientDir].FormulaU = gradientProperties.LineGradientDir;
@@ -65,6 +61,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visFillGradientEnabled].FormulaU = gradientProperties.FillGradientEnabled;
                     sectionRow[VisCellIndices.visRotateGradientWithShape].FormulaU = gradientProperties.RotateGradientWithShape;
                     sectionRow[VisCellIndices.visUseGroupGradient].FormulaU = gradientProperties.UseGroupGradient;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowGradientProperties exists");
                 }
             }
             catch (Exception ex)

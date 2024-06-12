@@ -27,10 +27,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowRulerGrid))
             {
-                MessageBox.Show("No visRowRulerGrid exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowRulerGrid];
 
                 row.XRulerOrigin = sectionRow[VisCellIndices.visXRulerOrigin].FormulaU;
@@ -44,6 +40,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.XGridSpacing = sectionRow[VisCellIndices.visXGridSpacing].FormulaU;
                 row.YGridSpacing = sectionRow[VisCellIndices.visYGridSpacing].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowRulerGrid exists");
+            }
 
             return row;
         }
@@ -56,23 +56,22 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowRulerGrid))
                 {
-                    MessageBox.Show("No visRowRulerGrid exists");
+                    Row sectionRow = section[(short)VisRowIndices.visRowRulerGrid];
+
+                    sectionRow[VisCellIndices.visXRulerOrigin].FormulaU = rulerAndGrid.XRulerOrigin;
+                    sectionRow[VisCellIndices.visYRulerOrigin].FormulaU = rulerAndGrid.YRulerOrigin;
+                    sectionRow[VisCellIndices.visXRulerDensity].FormulaU = rulerAndGrid.XRulerDensity;
+                    sectionRow[VisCellIndices.visYRulerDensity].FormulaU = rulerAndGrid.YRulerDensity;
+                    sectionRow[VisCellIndices.visXGridOrigin].FormulaU = rulerAndGrid.XGridOrigin;
+                    sectionRow[VisCellIndices.visYGridOrigin].FormulaU = rulerAndGrid.YGridOrigin;
+                    sectionRow[VisCellIndices.visXGridDensity].FormulaU = rulerAndGrid.XGridDensity;
+                    sectionRow[VisCellIndices.visYGridDensity].FormulaU = rulerAndGrid.YGridDensity;
+                    sectionRow[VisCellIndices.visXGridSpacing].FormulaU = rulerAndGrid.XGridSpacing;
+                    sectionRow[VisCellIndices.visYGridSpacing].FormulaU = rulerAndGrid.YGridSpacing;
                 }
                 else
                 {
-                    Row sectionRow = section[(short)VisRowIndices.visRowRulerGrid];
-
-                sectionRow[VisCellIndices.visXRulerOrigin].FormulaU = rulerAndGrid.XRulerOrigin;
-                sectionRow[VisCellIndices.visYRulerOrigin].FormulaU = rulerAndGrid.YRulerOrigin;
-                sectionRow[VisCellIndices.visXRulerDensity].FormulaU = rulerAndGrid.XRulerDensity;
-                sectionRow[VisCellIndices.visYRulerDensity].FormulaU = rulerAndGrid.YRulerDensity;
-                sectionRow[VisCellIndices.visXGridOrigin].FormulaU = rulerAndGrid.XGridOrigin;
-                sectionRow[VisCellIndices.visYGridOrigin].FormulaU = rulerAndGrid.YGridOrigin;
-                sectionRow[VisCellIndices.visXGridDensity].FormulaU = rulerAndGrid.XGridDensity;
-                sectionRow[VisCellIndices.visYGridDensity].FormulaU = rulerAndGrid.YGridDensity;
-                sectionRow[VisCellIndices.visXGridSpacing].FormulaU = rulerAndGrid.XGridSpacing;
-                sectionRow[VisCellIndices.visYGridSpacing].FormulaU = rulerAndGrid.YGridSpacing;
-
+                    MessageBox.Show("No visRowRulerGrid exists");
                 }
             }
             catch (Exception ex)

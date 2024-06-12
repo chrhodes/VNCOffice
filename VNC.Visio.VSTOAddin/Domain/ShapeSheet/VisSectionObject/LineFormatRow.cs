@@ -27,10 +27,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLine))
             {
-                MessageBox.Show("No visRowLine exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowLine];
 
                 row.LinePattern = sectionRow[VisCellIndices.visLinePattern].FormulaU;
@@ -45,6 +41,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.EndArrowSize = sectionRow[VisCellIndices.visLineEndArrowSize].FormulaU;
                 row.Rounding = sectionRow[VisCellIndices.visLineRounding].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowLine exists");
+            }
 
             return row;
         }
@@ -56,10 +56,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLine))
-                {
-                    MessageBox.Show("No visRowLine exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowLine];
 
@@ -74,6 +70,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visLineBeginArrowSize].FormulaU = lineFormat.BeginArrowSize;
                     sectionRow[VisCellIndices.visLineEndArrowSize].FormulaU = lineFormat.EndArrowSize;
                     sectionRow[VisCellIndices.visLineRounding].FormulaU = lineFormat.Rounding;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowLine exists");
                 }
             }
             catch (Exception ex)

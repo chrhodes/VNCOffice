@@ -31,10 +31,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowFill))
             {
-                MessageBox.Show("No visRowFill exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowFill];
 
                 row.FillForegnd = sectionRow[VisCellIndices.visFillForegnd].FormulaU;
@@ -53,6 +49,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.FillPattern = sectionRow[VisCellIndices.visFillShdwPattern].FormulaU;
                 row.ShapeShdwShow = sectionRow[VisCellIndices.visFillShdwShow].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowFill exists");
+            }
 
             return row;
         }
@@ -62,10 +62,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowFill))
-            {
-                MessageBox.Show("No visRowFill exists");
-            }
-            else
             {
                 Row sectionRow = section[(short)VisRowIndices.visRowFill];
 
@@ -84,6 +80,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 sectionRow[VisCellIndices.visFillShdwShow].FormulaU = fillFormat.ShapeShdwBlur;
                 sectionRow[VisCellIndices.visFillShdwPattern].FormulaU = fillFormat.FillPattern;
                 sectionRow[VisCellIndices.visFillShdwShow].FormulaU = fillFormat.ShapeShdwShow;
+            }
+            else
+            {
+                MessageBox.Show("No visRowFill exists");
             }
         }
     }

@@ -22,14 +22,14 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowAlign))
             {
-                MessageBox.Show("No visRowAlign exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowAlign];
 
                 // TODO(crhodes)
                 // Implement
+            }
+            else
+            {
+                MessageBox.Show("No visRowAlign exists");
             }
 
             return row;

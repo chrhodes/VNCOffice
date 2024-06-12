@@ -23,10 +23,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowImage))
             {
-                MessageBox.Show("No visRowImage exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowImage];
 
                 row.Contrast = sectionRow[VisCellIndices.visImageContrast].FormulaU;
@@ -36,6 +32,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.Blur = sectionRow[VisCellIndices.visImageBlur].FormulaU;
                 row.Denoise = sectionRow[VisCellIndices.visImageDenoise].FormulaU;
                 row.Transparency = sectionRow[VisCellIndices.visImageTransparency].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowImage exists");
             }
 
             return row;
@@ -49,10 +49,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowImage))
                 {
-                    MessageBox.Show("No visRowImage exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowImage];
 
                     sectionRow[VisCellIndices.visImageContrast].FormulaU = imageProperties.Contrast;
@@ -62,6 +58,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visImageBlur].FormulaU = imageProperties.Blur;
                     sectionRow[VisCellIndices.visImageDenoise].FormulaU = imageProperties.Denoise;
                     imageProperties.Transparency = sectionRow[VisCellIndices.visImageTransparency].FormulaU;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowImage exists");
                 }
             }
             catch (Exception ex)

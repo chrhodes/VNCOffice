@@ -23,10 +23,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowGroup))
             {
-                MessageBox.Show("No visRowGroup exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowGroup];
 
                 row.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
@@ -35,6 +31,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
                 row.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
                 row.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowGroup exists");
             }
 
             return row;
@@ -46,10 +46,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowGroup))
             {
-                MessageBox.Show("No visRowGroup exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowGroup];
 
                 groupProperties.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
@@ -58,6 +54,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 groupProperties.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
                 groupProperties.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
                 groupProperties.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowGroup exists");
             }
         }
     }

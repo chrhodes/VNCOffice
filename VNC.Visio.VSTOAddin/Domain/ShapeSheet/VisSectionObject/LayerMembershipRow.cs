@@ -20,13 +20,13 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLayerMem))
             {
-                MessageBox.Show("No visRowLayerMem exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
 
                 row.Name = sectionRow[VisCellIndices.visLayerMember].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowLayerMem exists");
             }
 
             return row;
@@ -40,13 +40,13 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLayerMem))
                 {
-                    MessageBox.Show("No visRowLayerMem exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
 
                     sectionRow[VisCellIndices.visLayerMember].FormulaU = layerMembership.Name;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowLayerMem exists");
                 }
             }
             catch (Exception ex)

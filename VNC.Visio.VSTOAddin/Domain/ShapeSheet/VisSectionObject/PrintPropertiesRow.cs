@@ -32,10 +32,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowPrintProperties))
             {
-                MessageBox.Show("No visRowPrintProperties exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowPrintProperties];
 
                 row.PageLeftMargin = sectionRow[VisCellIndices.visPrintPropertiesLeftMargin].FormulaU;
@@ -54,6 +50,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.PaperKind = sectionRow[VisCellIndices.visPrintPropertiesPaperKind].FormulaU;
                 row.PaperSource = sectionRow[VisCellIndices.visPrintPropertiesPaperSource].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowPrintProperties exists");
+            }
 
             return row;
         }
@@ -65,10 +65,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowPrintProperties))
-                {
-                    MessageBox.Show("No visRowPrintProperties exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowPrintProperties];
 
@@ -87,6 +83,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visPrintPropertiesPageOrientation].FormulaU = printProperties.PrintPageOrientation;
                     sectionRow[VisCellIndices.visPrintPropertiesPaperKind].FormulaU = printProperties.PaperKind;
                     sectionRow[VisCellIndices.visPrintPropertiesPaperSource].FormulaU = printProperties.PaperSource;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowPrintProperties exists");
                 }
             }
             catch (Exception ex)

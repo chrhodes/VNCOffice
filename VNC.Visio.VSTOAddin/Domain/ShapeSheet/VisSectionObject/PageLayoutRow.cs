@@ -44,10 +44,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowPageLayout))
             {
-                MessageBox.Show("No visRowPageLayout exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowPageLayout];
 
                 row.PlaceStyle = sectionRow[VisCellIndices.visPLOPlaceStyle].FormulaU;
@@ -79,6 +75,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.LineJumpStyle = sectionRow[VisCellIndices.visPLOJumpStyle].FormulaU;
                 row.PageShapeSplit = sectionRow[VisCellIndices.visPLOSplit].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowPageLayout exists");
+            }
 
             return row;
         }
@@ -90,10 +90,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowPageLayout))
-                {
-                    MessageBox.Show("No visRowPageLayout exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowPageLayout];
 
@@ -125,6 +121,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visPLOJumpCode].FormulaU = pageLayout.LineJumpCode;
                     sectionRow[VisCellIndices.visPLOJumpStyle].FormulaU = pageLayout.LineJumpStyle;
                     sectionRow[VisCellIndices.visPLOSplit].FormulaU = pageLayout.PageShapeSplit;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowPageLayout exists");
                 }
             }
             catch (Exception ex)

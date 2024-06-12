@@ -30,10 +30,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowOtherEffectProperties))
             {
-                MessageBox.Show("No visRowOtherEffectProperties exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowOtherEffectProperties];
 
                 row.ReflectionTrans = sectionRow[VisCellIndices.visReflectionTrans].FormulaU;
@@ -51,6 +47,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.GlowSize = sectionRow[VisCellIndices.visGlowSize].FormulaU;
                 row.SoftEdgesSize = sectionRow[VisCellIndices.visSoftEdgesSize].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowOtherEffectProperties exists");
+            }
 
             return row;
         }
@@ -62,10 +62,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowOtherEffectProperties))
-                {
-                    MessageBox.Show("No visRowOtherEffectProperties exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowOtherEffectProperties];
 
@@ -83,6 +79,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visGlowColorTrans].FormulaU = additionalEffectProperties.GlowColorTrans;
                     sectionRow[VisCellIndices.visGlowSize].FormulaU = additionalEffectProperties.GlowSize;
                     sectionRow[VisCellIndices.visSoftEdgesSize].FormulaU = additionalEffectProperties.SoftEdgesSize;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowOtherEffectProperties exists");
                 }
             }
             catch (Exception ex)

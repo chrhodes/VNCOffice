@@ -26,10 +26,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowTextXForm))
             {
-                MessageBox.Show("No visRowTextXForm exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowTextXForm];
 
                 row.TxtWidth = sectionRow[VisCellIndices.visXFormWidth].FormulaU;
@@ -39,6 +35,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.TxtPinY = sectionRow[VisCellIndices.visXFormPinY].FormulaU;
                 row.TxtLocPinX = sectionRow[VisCellIndices.visXFormLocPinX].FormulaU;
                 row.TxtLocPinY = sectionRow[VisCellIndices.visXFormLocPinY].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowTextXForm exists");
             }
 
             return row;
@@ -52,10 +52,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowTextXForm))
                 {
-                    MessageBox.Show("No visRowTextXForm exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowTextXForm];
 
                     sectionRow[VisCellIndices.visXFormWidth].FormulaForceU = textTransform.TxtWidth;
@@ -65,6 +61,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visXFormPinY].FormulaForceU = textTransform.TxtPinY;
                     sectionRow[VisCellIndices.visXFormLocPinX].FormulaForceU = textTransform.TxtLocPinX;
                     sectionRow[VisCellIndices.visXFormLocPinY].FormulaForceU = textTransform.TxtLocPinY;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowTextXForm exists");
                 }
             }
             catch (Exception ex)

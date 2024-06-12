@@ -26,10 +26,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowQuickStyleProperties))
             {
-                MessageBox.Show("No visRowQuickStyleProperties exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowQuickStyleProperties];
 
                 row.QuickStyleLineMatrix = sectionRow[VisCellIndices.visQuickStyleLineMatrix].FormulaU;
@@ -41,6 +37,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.QuickStyleEffectsMatrix = sectionRow[VisCellIndices.visQuickStyleEffectsMatrix].FormulaU;
                 row.QuickStyleShadowColor = sectionRow[VisCellIndices.visQuickStyleShadowColor].FormulaU;
                 row.QuickStyleType = sectionRow[VisCellIndices.visQuickStyleType].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowQuickStyleProperties exists");
             }
 
             return row;
@@ -54,10 +54,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowQuickStyleProperties))
                 {
-                    MessageBox.Show("No visRowQuickStyleProperties exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowQuickStyleProperties];
 
                     sectionRow[VisCellIndices.visQuickStyleLineMatrix].FormulaU = quickStyle.QuickStyleLineMatrix;
@@ -69,6 +65,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visQuickStyleEffectsMatrix].FormulaU = quickStyle.QuickStyleEffectsMatrix;
                     sectionRow[VisCellIndices.visQuickStyleShadowColor].FormulaU = quickStyle.QuickStyleShadowColor;
                     sectionRow[VisCellIndices.visQuickStyleType].FormulaU = quickStyle.QuickStyleType;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowQuickStyleProperties exists");
                 }
             }
             catch (Exception ex)
