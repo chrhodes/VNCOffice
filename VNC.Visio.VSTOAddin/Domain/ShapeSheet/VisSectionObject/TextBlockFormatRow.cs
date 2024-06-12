@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -45,20 +46,28 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             // Shape Transform Section is part of object
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowText];
 
-            // TODO(crhodes)
-            // Handle multiple rows
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowText))
+            {
+                MessageBox.Show("No visRowXForm1D exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowText];
 
-            row.LeftMargin = sectionRow[VisCellIndices.visTxtBlkLeftMargin].FormulaU;
-            row.TopMargin = sectionRow[VisCellIndices.visTxtBlkTopMargin].FormulaU;
-            row.RightMargin = sectionRow[VisCellIndices.visTxtBlkRightMargin].FormulaU;
-            row.BottomMargin = sectionRow[VisCellIndices.visTxtBlkBottomMargin].FormulaU;
-            row.TextBkgnd = sectionRow[VisCellIndices.visTxtBlkBkgnd].FormulaU;
-            row.TextBkgndTrans = sectionRow[VisCellIndices.visTxtBlkBkgndTrans].FormulaU;
-            row.TextDirection = sectionRow[VisCellIndices.visTxtBlkDirection].FormulaU;
-            row.VerticalAlign = sectionRow[VisCellIndices.visTxtBlkVerticalAlign].FormulaU;
-            row.DefaultTabStop = sectionRow[VisCellIndices.visTxtBlkDefaultTabStop].FormulaU;
+                // TODO(crhodes)
+                // Handle multiple rows
+
+                row.LeftMargin = sectionRow[VisCellIndices.visTxtBlkLeftMargin].FormulaU;
+                row.TopMargin = sectionRow[VisCellIndices.visTxtBlkTopMargin].FormulaU;
+                row.RightMargin = sectionRow[VisCellIndices.visTxtBlkRightMargin].FormulaU;
+                row.BottomMargin = sectionRow[VisCellIndices.visTxtBlkBottomMargin].FormulaU;
+                row.TextBkgnd = sectionRow[VisCellIndices.visTxtBlkBkgnd].FormulaU;
+                row.TextBkgndTrans = sectionRow[VisCellIndices.visTxtBlkBkgndTrans].FormulaU;
+                row.TextDirection = sectionRow[VisCellIndices.visTxtBlkDirection].FormulaU;
+                row.VerticalAlign = sectionRow[VisCellIndices.visTxtBlkVerticalAlign].FormulaU;
+                row.DefaultTabStop = sectionRow[VisCellIndices.visTxtBlkDefaultTabStop].FormulaU;
+            }
 
             return row;
         }
@@ -66,6 +75,9 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public static void SetRow(Shape shape,
             TextBlockFormatRow textBlockFormat = null)
         {
+
+            // TODO(crhodes)
+            // Change this to Helpers.RowExists
             ValidateSectionExists(shape);
 
             try

@@ -1,5 +1,7 @@
 ﻿using System;
 
+using System.Windows;
+
 using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
@@ -18,14 +20,22 @@ namespace VNC.Visio.VSTOAddIn.Domain
             EventsRow row = new EventsRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowEvent];
 
-            //row.TheData = sectionRow[VisCellIndices.???].FormulaU;
-            row.EventDblClick = sectionRow[VisCellIndices.visEvtCellDblClick].FormulaU;
-            row.EventDrop = sectionRow[VisCellIndices.visEvtCellDrop].FormulaU;
-            row.TheText = sectionRow[VisCellIndices.visEvtCellTheText].FormulaU;
-            row.EventXFMod = sectionRow[VisCellIndices.visEvtCellXFMod].FormulaU;
-            row.EventMultiDrop = sectionRow[VisCellIndices.visEvtCellMultiDrop].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowEvent))
+            {
+                MessageBox.Show("No visRowEvent exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowEvent];
+
+                //row.TheData = sectionRow[VisCellIndices.???].FormulaU;
+                row.EventDblClick = sectionRow[VisCellIndices.visEvtCellDblClick].FormulaU;
+                row.EventDrop = sectionRow[VisCellIndices.visEvtCellDrop].FormulaU;
+                row.TheText = sectionRow[VisCellIndices.visEvtCellTheText].FormulaU;
+                row.EventXFMod = sectionRow[VisCellIndices.visEvtCellXFMod].FormulaU;
+                row.EventMultiDrop = sectionRow[VisCellIndices.visEvtCellMultiDrop].FormulaU;
+            }
 
             return row;
         }
@@ -35,20 +45,22 @@ namespace VNC.Visio.VSTOAddIn.Domain
             // TODO(crhodes)
             // Implement
 
-         //    try
-         //    {
-         //        Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-         //        Row sectionRow = section[(short)VisRowIndices.visRowMisc];
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowEvent))
+            {
+                MessageBox.Show("No visRowEvent exists");
+            }
+            else
+            {
+                if (0 == shape.RowExists[(short)VisSectionIndices.visSectionObject,
+                                        (short)VisRowIndices.visRowEvent, 0])
+                {
+                    MessageBox.Show("No visRowEvent exists");
+                }
+                else
+                {
 
-            //        sectionRow[VisCellIndices.visBegTrigger].FormulaU = glueInfo.BegTrigger;
-            //        sectionRow[VisCellIndices.visEndTrigger].FormulaU = glueInfo.EndTrigger;
-            //        sectionRow[VisCellIndices.visGlueType].FormulaU = glueInfo.GlueType;
-            //        sectionRow[VisCellIndices.visWalkPref].FormulaU = glueInfo.WalkPreference;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Log.Error(ex, Common.LOG_CATEGORY);
-            //    }
+                }
+            }
         }
     }
 }

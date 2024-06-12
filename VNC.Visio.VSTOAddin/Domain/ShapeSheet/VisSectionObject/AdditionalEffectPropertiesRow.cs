@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -26,22 +27,30 @@ namespace VNC.Visio.VSTOAddIn.Domain
             AdditionalEffectPropertiesRow row = new AdditionalEffectPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowOtherEffectProperties];
 
-            row.ReflectionTrans = sectionRow[VisCellIndices.visReflectionTrans].FormulaU;
-            row.ReflectionSize = sectionRow[VisCellIndices.visReflectionSize].FormulaU;
-            row.ReflectionDist = sectionRow[VisCellIndices.visReflectionDist].FormulaU;
-            row.ReflectionBlur = sectionRow[VisCellIndices.visReflectionBlur].FormulaU;
-            row.SketchEnabled = sectionRow[VisCellIndices.visSketchEnabled].FormulaU;
-            row.SketchSeed = sectionRow[VisCellIndices.visSketchSeed].FormulaU;
-            row.SketchAmount = sectionRow[VisCellIndices.visSketchAmount].FormulaU;
-            row.SketchLineWeight = sectionRow[VisCellIndices.visSketchLineWeight].FormulaU;
-            row.SketchLineChange = sectionRow[VisCellIndices.visSketchLineChange].FormulaU;
-            row.SketchFillChange = sectionRow[VisCellIndices.visSketchFillChange].FormulaU;
-            row.GlowColor = sectionRow[VisCellIndices.visGlowColor].FormulaU;
-            row.GlowColorTrans = sectionRow[VisCellIndices.visGlowColorTrans].FormulaU;
-            row.GlowSize = sectionRow[VisCellIndices.visGlowSize].FormulaU;
-            row.SoftEdgesSize = sectionRow[VisCellIndices.visSoftEdgesSize].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowOtherEffectProperties))
+            {
+                MessageBox.Show("No visRowOtherEffectProperties exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowOtherEffectProperties];
+
+                row.ReflectionTrans = sectionRow[VisCellIndices.visReflectionTrans].FormulaU;
+                row.ReflectionSize = sectionRow[VisCellIndices.visReflectionSize].FormulaU;
+                row.ReflectionDist = sectionRow[VisCellIndices.visReflectionDist].FormulaU;
+                row.ReflectionBlur = sectionRow[VisCellIndices.visReflectionBlur].FormulaU;
+                row.SketchEnabled = sectionRow[VisCellIndices.visSketchEnabled].FormulaU;
+                row.SketchSeed = sectionRow[VisCellIndices.visSketchSeed].FormulaU;
+                row.SketchAmount = sectionRow[VisCellIndices.visSketchAmount].FormulaU;
+                row.SketchLineWeight = sectionRow[VisCellIndices.visSketchLineWeight].FormulaU;
+                row.SketchLineChange = sectionRow[VisCellIndices.visSketchLineChange].FormulaU;
+                row.SketchFillChange = sectionRow[VisCellIndices.visSketchFillChange].FormulaU;
+                row.GlowColor = sectionRow[VisCellIndices.visGlowColor].FormulaU;
+                row.GlowColorTrans = sectionRow[VisCellIndices.visGlowColorTrans].FormulaU;
+                row.GlowSize = sectionRow[VisCellIndices.visGlowSize].FormulaU;
+                row.SoftEdgesSize = sectionRow[VisCellIndices.visSoftEdgesSize].FormulaU;
+            }
 
             return row;
         }
@@ -51,22 +60,30 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowOtherEffectProperties];
 
-                sectionRow[VisCellIndices.visReflectionTrans].FormulaU = additionalEffectProperties.ReflectionTrans;
-                sectionRow[VisCellIndices.visReflectionSize].FormulaU = additionalEffectProperties.ReflectionSize;
-                sectionRow[VisCellIndices.visReflectionDist].FormulaU = additionalEffectProperties.ReflectionDist;
-                sectionRow[VisCellIndices.visReflectionBlur].FormulaU = additionalEffectProperties.ReflectionBlur;
-                sectionRow[VisCellIndices.visSketchEnabled].FormulaU = additionalEffectProperties.SketchEnabled;
-                sectionRow[VisCellIndices.visSketchSeed].FormulaU = additionalEffectProperties.SketchSeed;
-                sectionRow[VisCellIndices.visSketchAmount].FormulaU = additionalEffectProperties.SketchAmount;
-                sectionRow[VisCellIndices.visSketchLineWeight].FormulaU = additionalEffectProperties.SketchLineWeight;
-                sectionRow[VisCellIndices.visSketchLineChange].FormulaU = additionalEffectProperties.SketchLineChange;
-                sectionRow[VisCellIndices.visSketchFillChange].FormulaU = additionalEffectProperties.SketchFillChange;
-                sectionRow[VisCellIndices.visGlowColor].FormulaU = additionalEffectProperties.GlowColor;
-                sectionRow[VisCellIndices.visGlowColorTrans].FormulaU = additionalEffectProperties.GlowColorTrans;
-                sectionRow[VisCellIndices.visGlowSize].FormulaU = additionalEffectProperties.GlowSize;
-                sectionRow[VisCellIndices.visSoftEdgesSize].FormulaU = additionalEffectProperties.SoftEdgesSize;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowOtherEffectProperties))
+                {
+                    MessageBox.Show("No visRowOtherEffectProperties exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowOtherEffectProperties];
+
+                    sectionRow[VisCellIndices.visReflectionTrans].FormulaU = additionalEffectProperties.ReflectionTrans;
+                    sectionRow[VisCellIndices.visReflectionSize].FormulaU = additionalEffectProperties.ReflectionSize;
+                    sectionRow[VisCellIndices.visReflectionDist].FormulaU = additionalEffectProperties.ReflectionDist;
+                    sectionRow[VisCellIndices.visReflectionBlur].FormulaU = additionalEffectProperties.ReflectionBlur;
+                    sectionRow[VisCellIndices.visSketchEnabled].FormulaU = additionalEffectProperties.SketchEnabled;
+                    sectionRow[VisCellIndices.visSketchSeed].FormulaU = additionalEffectProperties.SketchSeed;
+                    sectionRow[VisCellIndices.visSketchAmount].FormulaU = additionalEffectProperties.SketchAmount;
+                    sectionRow[VisCellIndices.visSketchLineWeight].FormulaU = additionalEffectProperties.SketchLineWeight;
+                    sectionRow[VisCellIndices.visSketchLineChange].FormulaU = additionalEffectProperties.SketchLineChange;
+                    sectionRow[VisCellIndices.visSketchFillChange].FormulaU = additionalEffectProperties.SketchFillChange;
+                    sectionRow[VisCellIndices.visGlowColor].FormulaU = additionalEffectProperties.GlowColor;
+                    sectionRow[VisCellIndices.visGlowColorTrans].FormulaU = additionalEffectProperties.GlowColorTrans;
+                    sectionRow[VisCellIndices.visGlowSize].FormulaU = additionalEffectProperties.GlowSize;
+                    sectionRow[VisCellIndices.visSoftEdgesSize].FormulaU = additionalEffectProperties.SoftEdgesSize;
+                }
             }
             catch (Exception ex)
             {

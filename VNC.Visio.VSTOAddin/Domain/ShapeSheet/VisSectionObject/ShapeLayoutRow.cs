@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows;
+
 
 using Microsoft.Office.Interop.Visio;
 
@@ -30,25 +32,33 @@ namespace VNC.Visio.VSTOAddIn.Domain
             ShapeLayoutRow row = new ShapeLayoutRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowShapeLayout];
 
-            row.ShapePermeableX = sectionRow[VisCellIndices.visSLOPermX].FormulaU;
-            row.ShapePermeableY = sectionRow[VisCellIndices.visSLOPermY].FormulaU;
-            row.ShapeFixedCode = sectionRow[VisCellIndices.visSLOFixedCode].FormulaU;
-            row.ConLineJumpDirX = sectionRow[VisCellIndices.visSLOJumpDirX].FormulaU;
-            row.ConLineJumpDirY = sectionRow[VisCellIndices.visSLOJumpDirY].FormulaU;
-            row.ConLineJumpCode = sectionRow[VisCellIndices.visSLOJumpCode].FormulaU;
-            row.ShapePlaceFlip = sectionRow[VisCellIndices.visSLOPlaceFlip].FormulaU;
-            row.ShapePlaceStyle = sectionRow[VisCellIndices.visSLOPlaceStyle].FormulaU;
-            row.ShapePlowCode = sectionRow[VisCellIndices.visSLOPlowCode].FormulaU;
-            row.ConLineJumpStyle = sectionRow[VisCellIndices.visSLOJumpStyle].FormulaU;
-            row.ConLineRouteExt = sectionRow[VisCellIndices.visSLOLineRouteExt].FormulaU;
-            row.DisplayLevel = sectionRow[VisCellIndices.visSLODisplayLevel].FormulaU;
-            row.ShapeRouteStyle = sectionRow[VisCellIndices.visSLORouteStyle].FormulaU;
-            row.ConFixedCode = sectionRow[VisCellIndices.visSLOConFixedCode].FormulaU;
-            row.ShapeSplit = sectionRow[VisCellIndices.visSLOSplit].FormulaU;
-            row.ShapeSplittable = sectionRow[VisCellIndices.visSLOSplittable].FormulaU;
-            row.Relationships = sectionRow[VisCellIndices.visSLORelationships].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowShapeLayout))
+            {
+                MessageBox.Show("No visRowShapeLayout exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowShapeLayout];
+
+                row.ShapePermeableX = sectionRow[VisCellIndices.visSLOPermX].FormulaU;
+                row.ShapePermeableY = sectionRow[VisCellIndices.visSLOPermY].FormulaU;
+                row.ShapeFixedCode = sectionRow[VisCellIndices.visSLOFixedCode].FormulaU;
+                row.ConLineJumpDirX = sectionRow[VisCellIndices.visSLOJumpDirX].FormulaU;
+                row.ConLineJumpDirY = sectionRow[VisCellIndices.visSLOJumpDirY].FormulaU;
+                row.ConLineJumpCode = sectionRow[VisCellIndices.visSLOJumpCode].FormulaU;
+                row.ShapePlaceFlip = sectionRow[VisCellIndices.visSLOPlaceFlip].FormulaU;
+                row.ShapePlaceStyle = sectionRow[VisCellIndices.visSLOPlaceStyle].FormulaU;
+                row.ShapePlowCode = sectionRow[VisCellIndices.visSLOPlowCode].FormulaU;
+                row.ConLineJumpStyle = sectionRow[VisCellIndices.visSLOJumpStyle].FormulaU;
+                row.ConLineRouteExt = sectionRow[VisCellIndices.visSLOLineRouteExt].FormulaU;
+                row.DisplayLevel = sectionRow[VisCellIndices.visSLODisplayLevel].FormulaU;
+                row.ShapeRouteStyle = sectionRow[VisCellIndices.visSLORouteStyle].FormulaU;
+                row.ConFixedCode = sectionRow[VisCellIndices.visSLOConFixedCode].FormulaU;
+                row.ShapeSplit = sectionRow[VisCellIndices.visSLOSplit].FormulaU;
+                row.ShapeSplittable = sectionRow[VisCellIndices.visSLOSplittable].FormulaU;
+                row.Relationships = sectionRow[VisCellIndices.visSLORelationships].FormulaU;
+            }
 
             return row;
         }
@@ -58,25 +68,33 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowShapeLayout];
 
-                sectionRow[VisCellIndices.visSLOPermX].FormulaU = shapeLayout.ShapePermeableX;
-                sectionRow[VisCellIndices.visSLOPermY].FormulaU = shapeLayout.ShapePermeableY;
-                sectionRow[VisCellIndices.visSLOFixedCode].FormulaU = shapeLayout.ShapeFixedCode;
-                sectionRow[VisCellIndices.visSLOJumpDirX].FormulaU = shapeLayout.ConLineJumpDirX;
-                sectionRow[VisCellIndices.visSLOJumpDirY].FormulaU = shapeLayout.ConLineJumpDirY;
-                sectionRow[VisCellIndices.visSLOJumpCode].FormulaU = shapeLayout.ConLineJumpCode;
-                sectionRow[VisCellIndices.visSLOPlaceFlip].FormulaU = shapeLayout.ShapePlaceFlip;
-                sectionRow[VisCellIndices.visSLOPlaceStyle].FormulaU = shapeLayout.ShapePlaceStyle;
-                sectionRow[VisCellIndices.visSLOPlowCode].FormulaU = shapeLayout.ShapePlowCode;
-                sectionRow[VisCellIndices.visSLOJumpStyle].FormulaU = shapeLayout.ConLineJumpStyle;
-                sectionRow[VisCellIndices.visSLOLineRouteExt].FormulaU = shapeLayout.ConLineRouteExt;
-                sectionRow[VisCellIndices.visSLODisplayLevel].FormulaU = shapeLayout.DisplayLevel;
-                sectionRow[VisCellIndices.visSLORouteStyle].FormulaU = shapeLayout.ShapeRouteStyle;
-                sectionRow[VisCellIndices.visSLOConFixedCode].FormulaU = shapeLayout.ConFixedCode;
-                sectionRow[VisCellIndices.visSLOSplit].FormulaU = shapeLayout.ShapeSplit;
-                sectionRow[VisCellIndices.visSLOSplittable].FormulaU = shapeLayout.ShapeSplittable;
-                sectionRow[VisCellIndices.visSLORelationships].FormulaU = shapeLayout.Relationships;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowShapeLayout))
+                {
+                    MessageBox.Show("No visRowShapeLayout exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowShapeLayout];
+
+                    sectionRow[VisCellIndices.visSLOPermX].FormulaU = shapeLayout.ShapePermeableX;
+                    sectionRow[VisCellIndices.visSLOPermY].FormulaU = shapeLayout.ShapePermeableY;
+                    sectionRow[VisCellIndices.visSLOFixedCode].FormulaU = shapeLayout.ShapeFixedCode;
+                    sectionRow[VisCellIndices.visSLOJumpDirX].FormulaU = shapeLayout.ConLineJumpDirX;
+                    sectionRow[VisCellIndices.visSLOJumpDirY].FormulaU = shapeLayout.ConLineJumpDirY;
+                    sectionRow[VisCellIndices.visSLOJumpCode].FormulaU = shapeLayout.ConLineJumpCode;
+                    sectionRow[VisCellIndices.visSLOPlaceFlip].FormulaU = shapeLayout.ShapePlaceFlip;
+                    sectionRow[VisCellIndices.visSLOPlaceStyle].FormulaU = shapeLayout.ShapePlaceStyle;
+                    sectionRow[VisCellIndices.visSLOPlowCode].FormulaU = shapeLayout.ShapePlowCode;
+                    sectionRow[VisCellIndices.visSLOJumpStyle].FormulaU = shapeLayout.ConLineJumpStyle;
+                    sectionRow[VisCellIndices.visSLOLineRouteExt].FormulaU = shapeLayout.ConLineRouteExt;
+                    sectionRow[VisCellIndices.visSLODisplayLevel].FormulaU = shapeLayout.DisplayLevel;
+                    sectionRow[VisCellIndices.visSLORouteStyle].FormulaU = shapeLayout.ShapeRouteStyle;
+                    sectionRow[VisCellIndices.visSLOConFixedCode].FormulaU = shapeLayout.ConFixedCode;
+                    sectionRow[VisCellIndices.visSLOSplit].FormulaU = shapeLayout.ShapeSplit;
+                    sectionRow[VisCellIndices.visSLOSplittable].FormulaU = shapeLayout.ShapeSplittable;
+                    sectionRow[VisCellIndices.visSLORelationships].FormulaU = shapeLayout.Relationships;
+                }
             }
             catch (Exception ex)
             {

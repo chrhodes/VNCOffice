@@ -186,7 +186,7 @@ namespace SupportTools_Visio
 
             DxThemedWindowHost.DisplayUserControlInHost(ref _shapeOneDEndpointsHost,
                 "1-D Endpoints",
-                600, 200,
+                600, 300,
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.ShapeSheetObjectSection(
                     new Presentation.ViewModels.ObjectViewModel<VNCVisioAddIn.Domain.OneDEndPointsRow, Presentation.ModelWrappers.OneDEndPointsWrapper>(

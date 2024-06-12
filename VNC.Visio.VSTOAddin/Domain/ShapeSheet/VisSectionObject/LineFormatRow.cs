@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -23,19 +24,27 @@ namespace VNC.Visio.VSTOAddIn.Domain
             LineFormatRow row = new LineFormatRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowLine];
 
-            row.LinePattern = sectionRow[VisCellIndices.visLinePattern].FormulaU;
-            row.LineWeight = sectionRow[VisCellIndices.visLineWeight].FormulaU;
-            row.LineColor = sectionRow[VisCellIndices.visLineColor].FormulaU;
-            row.LineCap = sectionRow[VisCellIndices.visLineEndCap].FormulaU;
-            row.BeginArrow = sectionRow[VisCellIndices.visLineBeginArrow].FormulaU;
-            row.EndArrow = sectionRow[VisCellIndices.visLineEndArrow].FormulaU;
-            row.LineColorTrans = sectionRow[VisCellIndices.visLineColorTrans].FormulaU;
-            row.CompoundType = sectionRow[VisCellIndices.visCompoundType].FormulaU;
-            row.BeginArrowSize = sectionRow[VisCellIndices.visLineBeginArrowSize].FormulaU;
-            row.EndArrowSize = sectionRow[VisCellIndices.visLineEndArrowSize].FormulaU;
-            row.Rounding = sectionRow[VisCellIndices.visLineRounding].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLine))
+            {
+                MessageBox.Show("No visRowLine exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowLine];
+
+                row.LinePattern = sectionRow[VisCellIndices.visLinePattern].FormulaU;
+                row.LineWeight = sectionRow[VisCellIndices.visLineWeight].FormulaU;
+                row.LineColor = sectionRow[VisCellIndices.visLineColor].FormulaU;
+                row.LineCap = sectionRow[VisCellIndices.visLineEndCap].FormulaU;
+                row.BeginArrow = sectionRow[VisCellIndices.visLineBeginArrow].FormulaU;
+                row.EndArrow = sectionRow[VisCellIndices.visLineEndArrow].FormulaU;
+                row.LineColorTrans = sectionRow[VisCellIndices.visLineColorTrans].FormulaU;
+                row.CompoundType = sectionRow[VisCellIndices.visCompoundType].FormulaU;
+                row.BeginArrowSize = sectionRow[VisCellIndices.visLineBeginArrowSize].FormulaU;
+                row.EndArrowSize = sectionRow[VisCellIndices.visLineEndArrowSize].FormulaU;
+                row.Rounding = sectionRow[VisCellIndices.visLineRounding].FormulaU;
+            }
 
             return row;
         }
@@ -45,26 +54,32 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowLine];
 
-                sectionRow[VisCellIndices.visLinePattern].FormulaU = lineFormat.LinePattern;
-                sectionRow[VisCellIndices.visLineWeight].FormulaU = lineFormat.LineWeight;
-                sectionRow[VisCellIndices.visLineColor].FormulaU = lineFormat.LineColor;
-                sectionRow[VisCellIndices.visLineEndCap].FormulaU = lineFormat.LineCap;
-                sectionRow[VisCellIndices.visLineBeginArrow].FormulaU = lineFormat.BeginArrow;
-                sectionRow[VisCellIndices.visLineEndArrow].FormulaU = lineFormat.EndArrow;
-                sectionRow[VisCellIndices.visLineColorTrans].FormulaU = lineFormat.LineColorTrans;
-                sectionRow[VisCellIndices.visCompoundType].FormulaU = lineFormat.CompoundType;
-                sectionRow[VisCellIndices.visLineBeginArrowSize].FormulaU = lineFormat.BeginArrowSize;
-                sectionRow[VisCellIndices.visLineEndArrowSize].FormulaU = lineFormat.EndArrowSize;
-                sectionRow[VisCellIndices.visLineRounding].FormulaU = lineFormat.Rounding;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLine))
+                {
+                    MessageBox.Show("No visRowLine exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowLine];
+
+                    sectionRow[VisCellIndices.visLinePattern].FormulaU = lineFormat.LinePattern;
+                    sectionRow[VisCellIndices.visLineWeight].FormulaU = lineFormat.LineWeight;
+                    sectionRow[VisCellIndices.visLineColor].FormulaU = lineFormat.LineColor;
+                    sectionRow[VisCellIndices.visLineEndCap].FormulaU = lineFormat.LineCap;
+                    sectionRow[VisCellIndices.visLineBeginArrow].FormulaU = lineFormat.BeginArrow;
+                    sectionRow[VisCellIndices.visLineEndArrow].FormulaU = lineFormat.EndArrow;
+                    sectionRow[VisCellIndices.visLineColorTrans].FormulaU = lineFormat.LineColorTrans;
+                    sectionRow[VisCellIndices.visCompoundType].FormulaU = lineFormat.CompoundType;
+                    sectionRow[VisCellIndices.visLineBeginArrowSize].FormulaU = lineFormat.BeginArrowSize;
+                    sectionRow[VisCellIndices.visLineEndArrowSize].FormulaU = lineFormat.EndArrowSize;
+                    sectionRow[VisCellIndices.visLineRounding].FormulaU = lineFormat.Rounding;
+                }
             }
             catch (Exception ex)
             {
                 Log.Error(ex, Common.LOG_CATEGORY);
             }
         }
-
-
     }
 }

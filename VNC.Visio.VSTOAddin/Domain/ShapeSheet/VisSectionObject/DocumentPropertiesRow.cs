@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -25,18 +26,26 @@ namespace VNC.Visio.VSTOAddIn.Domain
             DocumentPropertiesRow row = new DocumentPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowDoc];
 
-            row.PreviewQuality = sectionRow[VisCellIndices.visDocPreviewQuality].FormulaU;
-            row.OutputFormat = sectionRow[VisCellIndices.visDocOutputFormat].FormulaU;
-            row.PreviewScope = sectionRow[VisCellIndices.visDocPreviewScope].FormulaU;
-            row.LockPreview = sectionRow[VisCellIndices.visDocLockPreview].FormulaU;
-            row.AddMarkup = sectionRow[VisCellIndices.visDocAddMarkup].FormulaU;
-            row.ViewMarkup = sectionRow[VisCellIndices.visDocViewMarkup].FormulaU;
-            row.DocLangID = sectionRow[VisCellIndices.visDocLangID].FormulaU;
-            row.DocLockReplace = sectionRow[VisCellIndices.visDocLockReplace].FormulaU;
-            row.NoCoauth = sectionRow[VisCellIndices.visDocNoCoauth].FormulaU;
-            row.DocLockDuplicatePage = sectionRow[VisCellIndices.visDocLockDuplicatePage].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowDoc))
+            {
+                MessageBox.Show("No visRowDoc exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowDoc];
+
+                row.PreviewQuality = sectionRow[VisCellIndices.visDocPreviewQuality].FormulaU;
+                row.OutputFormat = sectionRow[VisCellIndices.visDocOutputFormat].FormulaU;
+                row.PreviewScope = sectionRow[VisCellIndices.visDocPreviewScope].FormulaU;
+                row.LockPreview = sectionRow[VisCellIndices.visDocLockPreview].FormulaU;
+                row.AddMarkup = sectionRow[VisCellIndices.visDocAddMarkup].FormulaU;
+                row.ViewMarkup = sectionRow[VisCellIndices.visDocViewMarkup].FormulaU;
+                row.DocLangID = sectionRow[VisCellIndices.visDocLangID].FormulaU;
+                row.DocLockReplace = sectionRow[VisCellIndices.visDocLockReplace].FormulaU;
+                row.NoCoauth = sectionRow[VisCellIndices.visDocNoCoauth].FormulaU;
+                row.DocLockDuplicatePage = sectionRow[VisCellIndices.visDocLockDuplicatePage].FormulaU;
+            }
 
             return row;
         }
@@ -46,18 +55,26 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowDoc];
 
-                sectionRow[VisCellIndices.visDocPreviewQuality].FormulaU = documentProperties.PreviewQuality;
-                sectionRow[VisCellIndices.visDocOutputFormat].FormulaU = documentProperties.OutputFormat;
-                sectionRow[VisCellIndices.visDocPreviewScope].FormulaU = documentProperties.PreviewScope;
-                sectionRow[VisCellIndices.visDocLockPreview].FormulaU = documentProperties.LockPreview;
-                sectionRow[VisCellIndices.visDocAddMarkup].FormulaU = documentProperties.AddMarkup;
-                sectionRow[VisCellIndices.visDocViewMarkup].FormulaU = documentProperties.ViewMarkup;
-                sectionRow[VisCellIndices.visDocLangID].FormulaU = documentProperties.DocLangID;
-                sectionRow[VisCellIndices.visDocLockReplace].FormulaU = documentProperties.DocLockReplace;
-                sectionRow[VisCellIndices.visDocNoCoauth].FormulaU = documentProperties.NoCoauth;
-                sectionRow[VisCellIndices.visDocLockDuplicatePage].FormulaU = documentProperties.DocLockDuplicatePage;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowDoc))
+                {
+                    MessageBox.Show("No visRowDoc exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowDoc];
+
+                    sectionRow[VisCellIndices.visDocPreviewQuality].FormulaU = documentProperties.PreviewQuality;
+                    sectionRow[VisCellIndices.visDocOutputFormat].FormulaU = documentProperties.OutputFormat;
+                    sectionRow[VisCellIndices.visDocPreviewScope].FormulaU = documentProperties.PreviewScope;
+                    sectionRow[VisCellIndices.visDocLockPreview].FormulaU = documentProperties.LockPreview;
+                    sectionRow[VisCellIndices.visDocAddMarkup].FormulaU = documentProperties.AddMarkup;
+                    sectionRow[VisCellIndices.visDocViewMarkup].FormulaU = documentProperties.ViewMarkup;
+                    sectionRow[VisCellIndices.visDocLangID].FormulaU = documentProperties.DocLangID;
+                    sectionRow[VisCellIndices.visDocLockReplace].FormulaU = documentProperties.DocLockReplace;
+                    sectionRow[VisCellIndices.visDocNoCoauth].FormulaU = documentProperties.NoCoauth;
+                    sectionRow[VisCellIndices.visDocLockDuplicatePage].FormulaU = documentProperties.DocLockDuplicatePage;
+                }
             }
             catch (Exception ex)
             {
