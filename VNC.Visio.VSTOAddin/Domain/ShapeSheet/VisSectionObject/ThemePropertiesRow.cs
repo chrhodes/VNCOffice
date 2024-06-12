@@ -25,10 +25,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowThemeProperties))
             {
-                MessageBox.Show("No visRowThemeProperties exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowThemeProperties];
 
                 row.ConnectorSchemeIndex = sectionRow[VisCellIndices.visConnectorSchemeIndex].FormulaU;
@@ -39,6 +35,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.VariationColorIndex = sectionRow[VisCellIndices.visVariationColorIndex].FormulaU;
                 row.VariationStyleIndex = sectionRow[VisCellIndices.visVariationStyleIndex].FormulaU;
                 row.EmbellishmentIndex = sectionRow[VisCellIndices.visEmbellishmentIndex].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowThemeProperties exists");
             }
 
             return row;
@@ -52,10 +52,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowThemeProperties))
                 {
-                    MessageBox.Show("No visRowThemeProperties exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowThemeProperties];
 
                     sectionRow[VisCellIndices.visConnectorSchemeIndex].FormulaU = themeProperties.ConnectorSchemeIndex;
@@ -66,6 +62,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visVariationColorIndex].FormulaU = themeProperties.VariationColorIndex;
                     sectionRow[VisCellIndices.visVariationStyleIndex].FormulaU = themeProperties.VariationStyleIndex;
                     sectionRow[VisCellIndices.visEmbellishmentIndex].FormulaU = themeProperties.EmbellishmentIndex;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowThemeProperties exists");
                 }
             }
             catch (Exception ex)

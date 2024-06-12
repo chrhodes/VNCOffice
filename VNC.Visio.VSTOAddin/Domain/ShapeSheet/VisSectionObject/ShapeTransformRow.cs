@@ -28,10 +28,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowXFormOut))
             {
-                MessageBox.Show("No visRowXFormOut exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowXFormOut];
 
                 row.Width = sectionRow[VisCellIndices.visXFormWidth].FormulaU;
@@ -45,6 +41,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.FlipY = sectionRow[VisCellIndices.visXFormFlipY].FormulaU;
                 row.ResizeMode = sectionRow[VisCellIndices.visXFormResizeMode].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowXFormOut exists");
+            }
 
             return row;
         }
@@ -56,10 +56,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowXFormOut))
-                {
-                    MessageBox.Show("No visRowXFormOut exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowXFormOut];
 
@@ -73,6 +69,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visXFormFlipX].FormulaU = shapeTransform.FlipX;
                     sectionRow[VisCellIndices.visXFormFlipY].FormulaU = shapeTransform.FlipY;
                     sectionRow[VisCellIndices.visXFormResizeMode].FormulaU = shapeTransform.ResizeMode;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowXFormOut exists");
                 }
             }
             catch (Exception ex)

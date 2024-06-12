@@ -49,10 +49,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowText))
             {
-                MessageBox.Show("No visRowXForm1D exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowText];
 
                 // TODO(crhodes)
@@ -67,6 +63,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.TextDirection = sectionRow[VisCellIndices.visTxtBlkDirection].FormulaU;
                 row.VerticalAlign = sectionRow[VisCellIndices.visTxtBlkVerticalAlign].FormulaU;
                 row.DefaultTabStop = sectionRow[VisCellIndices.visTxtBlkDefaultTabStop].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowXForm1D exists");
             }
 
             return row;

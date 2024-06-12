@@ -21,16 +21,16 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowXForm1D))
             {
-                MessageBox.Show("No visRowXForm1D exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowXForm1D];
 
                 row.BeginX = sectionRow[VisCellIndices.vis1DBeginX].FormulaU;
                 row.BeginY = sectionRow[VisCellIndices.vis1DBeginY].FormulaU;
                 row.EndX = sectionRow[VisCellIndices.vis1DEndX].FormulaU;
                 row.EndY = sectionRow[VisCellIndices.vis1DEndY].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowXForm1D exists");
             }
 
             return row;
@@ -44,16 +44,16 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowXForm1D))
                 {
-                    MessageBox.Show("No visRowXForm1D exists");
-                }
-                else
-                {
                     Row sectionRow = section[(short)VisRowIndices.visRowXForm1D];
 
                     sectionRow[VisCellIndices.vis1DBeginX].FormulaU = oneDEndPoints.BeginX;
                     sectionRow[VisCellIndices.vis1DBeginY].FormulaU = oneDEndPoints.BeginY;
                     sectionRow[VisCellIndices.vis1DEndX].FormulaU = oneDEndPoints.EndX;
                     sectionRow[VisCellIndices.vis1DEndY].FormulaU = oneDEndPoints.EndY;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowXForm1D exists");
                 }
             }
             catch (Exception ex)

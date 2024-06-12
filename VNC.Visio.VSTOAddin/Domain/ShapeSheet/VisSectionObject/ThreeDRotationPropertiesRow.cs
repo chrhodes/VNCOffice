@@ -21,12 +21,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
-            if (0 == shape.RowExists[(short)VisSectionIndices.visSectionObject,
-                        (short)VisRowIndices.visRow3DRotationProperties, 0])
-            {
-                MessageBox.Show("No visRow3DRotationProperties exists");
-            }
-            else
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRow3DRotationProperties))
             {
                 Row sectionRow = section[(short)VisRowIndices.visRow3DRotationProperties];
 
@@ -38,6 +33,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.DistanceFromGround = sectionRow[VisCellIndices.visDistanceFromGround].FormulaU;
                 row.KeepTextFlat = sectionRow[VisCellIndices.visKeepTextFlat].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRow3DRotationProperties exists");
+            }
 
             return row;
         }
@@ -48,12 +47,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
-                if (0 == shape.RowExists[(short)VisSectionIndices.visSectionObject,
-                            (short)VisRowIndices.visRow3DRotationProperties, 0])
-                {
-                    MessageBox.Show("No visRow3DRotationProperties exists");
-                }
-                else
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRow3DRotationProperties))
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRow3DRotationProperties];
 
@@ -64,6 +58,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visPerspective].FormulaU = threeDRotationProperties.Perspective;
                     sectionRow[VisCellIndices.visDistanceFromGround].FormulaU = threeDRotationProperties.DistanceFromGround;
                     sectionRow[VisCellIndices.visKeepTextFlat].FormulaU = threeDRotationProperties.KeepTextFlat;
+                }
+                else
+                {
+                    MessageBox.Show("No visRow3DRotationProperties exists");
                 }
             }
             catch (Exception ex)

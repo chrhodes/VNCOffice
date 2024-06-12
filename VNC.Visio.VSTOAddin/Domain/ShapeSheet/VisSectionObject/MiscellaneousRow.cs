@@ -33,10 +33,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowMisc))
             {
-                MessageBox.Show("No visRowMisc exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowMisc];
 
                 row.NoObjHandles = sectionRow[VisCellIndices.visNoObjHandles].FormulaU;
@@ -56,6 +52,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.LocalizeMerge = sectionRow[VisCellIndices.visObjLocalizeMerge].FormulaU;
                 row.NoProofing = sectionRow[VisCellIndices.visObjNoProofing].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowMisc exists");
+            }
             return row;
         }
 
@@ -66,10 +66,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowMisc))
-                {
-                    MessageBox.Show("No visRowMisc exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowMisc];
 
@@ -89,6 +85,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visObjDropOnPageScale].FormulaU = miscellaneous.DropOnPageScale;
                     sectionRow[VisCellIndices.visObjLocalizeMerge].FormulaU = miscellaneous.LocalizeMerge;
                     sectionRow[VisCellIndices.visObjNoProofing].FormulaU = miscellaneous.NoProofing;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowMisc exists");
                 }
             }
             catch (Exception ex)

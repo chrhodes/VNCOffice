@@ -23,10 +23,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowEvent))
             {
-                MessageBox.Show("No visRowEvent exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowEvent];
 
                 //row.TheData = sectionRow[VisCellIndices.???].FormulaU;
@@ -35,6 +31,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.TheText = sectionRow[VisCellIndices.visEvtCellTheText].FormulaU;
                 row.EventXFMod = sectionRow[VisCellIndices.visEvtCellXFMod].FormulaU;
                 row.EventMultiDrop = sectionRow[VisCellIndices.visEvtCellMultiDrop].FormulaU;
+            }
+            else
+            {
+                MessageBox.Show("No visRowEvent exists");
             }
 
             return row;
@@ -47,10 +47,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowEvent))
             {
-                MessageBox.Show("No visRowEvent exists");
-            }
-            else
-            {
                 if (0 == shape.RowExists[(short)VisSectionIndices.visSectionObject,
                                         (short)VisRowIndices.visRowEvent, 0])
                 {
@@ -60,6 +56,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 {
 
                 }
+            }
+            else
+            {
+                MessageBox.Show("No visRowEvent exists");
             }
         }
     }

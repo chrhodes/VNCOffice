@@ -29,10 +29,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowBevelProperties))
             {
-                MessageBox.Show("No visRowBevelProperties exists");
-            }
-            else
-            {
                 Row sectionRow = section[(short)VisRowIndices.visRowBevelProperties];
 
                 row.BevelTopType = sectionRow[VisCellIndices.visBevelTopType].FormulaU;
@@ -49,6 +45,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 row.BevelLightingType = sectionRow[VisCellIndices.visBevelLightingType].FormulaU;
                 row.BevelLightingAngle = sectionRow[VisCellIndices.visBevelLightingAngle].FormulaU;
             }
+            else
+            {
+                MessageBox.Show("No visRowBevelProperties exists");
+            }
 
             return row;
         }
@@ -60,10 +60,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
                 if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowBevelProperties))
-                {
-                    MessageBox.Show("No visRowBevelProperties exists");
-                }
-                else
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowBevelProperties];
 
@@ -80,6 +76,10 @@ namespace VNC.Visio.VSTOAddIn.Domain
                     sectionRow[VisCellIndices.visBevelMaterialType].FormulaU = bevelProperties.BevelMaterialType;
                     sectionRow[VisCellIndices.visBevelLightingType].FormulaU = bevelProperties.BevelLightingType;
                     sectionRow[VisCellIndices.visBevelLightingAngle].FormulaU = bevelProperties.BevelLightingAngle;
+                }
+                else
+                {
+                    MessageBox.Show("No visRowBevelProperties exists");
                 }
             }
             catch (Exception ex)
