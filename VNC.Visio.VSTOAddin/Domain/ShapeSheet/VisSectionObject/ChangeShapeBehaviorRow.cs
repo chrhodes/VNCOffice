@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -16,12 +17,20 @@ namespace VNC.Visio.VSTOAddIn.Domain
             ChangeShapeBehaviorRow row = new ChangeShapeBehaviorRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowReplaceBehaviors];
 
-            row.ReplaceLockShapeData = sectionRow[VisCellIndices.visReplaceLockShapeData].FormulaU;
-            row.ReplaceLockText = sectionRow[VisCellIndices.visReplaceLockText].FormulaU;
-            row.ReplaceLockFormat = sectionRow[VisCellIndices.visReplaceLockFormat].FormulaU;
-            row.ReplaceCopyCells = sectionRow[VisCellIndices.visReplaceCopyCells].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowReplaceBehaviors))
+            {
+                MessageBox.Show("No visRowReplaceBehaviors exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowReplaceBehaviors];
+
+                row.ReplaceLockShapeData = sectionRow[VisCellIndices.visReplaceLockShapeData].FormulaU;
+                row.ReplaceLockText = sectionRow[VisCellIndices.visReplaceLockText].FormulaU;
+                row.ReplaceLockFormat = sectionRow[VisCellIndices.visReplaceLockFormat].FormulaU;
+                row.ReplaceCopyCells = sectionRow[VisCellIndices.visReplaceCopyCells].FormulaU;
+            }
 
             return row;
         }
@@ -31,12 +40,20 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowReplaceBehaviors];
 
-                sectionRow[VisCellIndices.visReplaceLockShapeData].FormulaU = changeShapeBehavior.ReplaceLockShapeData;
-                sectionRow[VisCellIndices.visReplaceLockText].FormulaU = changeShapeBehavior.ReplaceLockText;
-                sectionRow[VisCellIndices.visReplaceLockFormat].FormulaU = changeShapeBehavior.ReplaceLockFormat;
-                sectionRow[VisCellIndices.visReplaceCopyCells].FormulaU = changeShapeBehavior.ReplaceCopyCells;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowReplaceBehaviors))
+                {
+                    MessageBox.Show("No visRowReplaceBehaviors exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowReplaceBehaviors];
+
+                    sectionRow[VisCellIndices.visReplaceLockShapeData].FormulaU = changeShapeBehavior.ReplaceLockShapeData;
+                    sectionRow[VisCellIndices.visReplaceLockText].FormulaU = changeShapeBehavior.ReplaceLockText;
+                    sectionRow[VisCellIndices.visReplaceLockFormat].FormulaU = changeShapeBehavior.ReplaceLockFormat;
+                    sectionRow[VisCellIndices.visReplaceCopyCells].FormulaU = changeShapeBehavior.ReplaceCopyCells;
+                }
             }
             catch (Exception ex)
             {

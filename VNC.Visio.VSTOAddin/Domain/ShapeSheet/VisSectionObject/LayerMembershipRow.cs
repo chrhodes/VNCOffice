@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -16,9 +17,17 @@ namespace VNC.Visio.VSTOAddIn.Domain
             LayerMembershipRow row = new LayerMembershipRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
 
-            row.Name = sectionRow[VisCellIndices.visLayerMember].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLayerMem))
+            {
+                MessageBox.Show("No visRowLayerMem exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
+
+                row.Name = sectionRow[VisCellIndices.visLayerMember].FormulaU;
+            }
 
             return row;
         }
@@ -28,9 +37,17 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
 
-                sectionRow[VisCellIndices.visLayerMember].FormulaU = layerMembership.Name;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowLayerMem))
+                {
+                    MessageBox.Show("No visRowLayerMem exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
+
+                    sectionRow[VisCellIndices.visLayerMember].FormulaU = layerMembership.Name;
+                }
             }
             catch (Exception ex)
             {

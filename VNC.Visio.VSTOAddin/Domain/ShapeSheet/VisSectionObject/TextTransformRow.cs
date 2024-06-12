@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows;
+
 
 using Microsoft.Office.Interop.Visio;
 
@@ -21,15 +23,23 @@ namespace VNC.Visio.VSTOAddIn.Domain
             TextTransformRow row = new TextTransformRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowTextXForm];
 
-            row.TxtWidth = sectionRow[VisCellIndices.visXFormWidth].FormulaU;
-            row.TxtHeight = sectionRow[VisCellIndices.visXFormHeight].FormulaU;
-            row.TxtAngle = sectionRow[VisCellIndices.visXFormAngle].FormulaU;
-            row.TxtPinX = sectionRow[VisCellIndices.visXFormPinX].FormulaU;
-            row.TxtPinY = sectionRow[VisCellIndices.visXFormPinY].FormulaU;
-            row.TxtLocPinX = sectionRow[VisCellIndices.visXFormLocPinX].FormulaU;
-            row.TxtLocPinY = sectionRow[VisCellIndices.visXFormLocPinY].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowTextXForm))
+            {
+                MessageBox.Show("No visRowTextXForm exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowTextXForm];
+
+                row.TxtWidth = sectionRow[VisCellIndices.visXFormWidth].FormulaU;
+                row.TxtHeight = sectionRow[VisCellIndices.visXFormHeight].FormulaU;
+                row.TxtAngle = sectionRow[VisCellIndices.visXFormAngle].FormulaU;
+                row.TxtPinX = sectionRow[VisCellIndices.visXFormPinX].FormulaU;
+                row.TxtPinY = sectionRow[VisCellIndices.visXFormPinY].FormulaU;
+                row.TxtLocPinX = sectionRow[VisCellIndices.visXFormLocPinX].FormulaU;
+                row.TxtLocPinY = sectionRow[VisCellIndices.visXFormLocPinY].FormulaU;
+            }
 
             return row;
         }
@@ -39,15 +49,23 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowTextXForm];
 
-                sectionRow[VisCellIndices.visXFormWidth].FormulaForceU = textTransform.TxtWidth;
-                sectionRow[VisCellIndices.visXFormHeight].FormulaForceU = textTransform.TxtHeight;
-                sectionRow[VisCellIndices.visXFormAngle].FormulaForceU = textTransform.TxtAngle;
-                sectionRow[VisCellIndices.visXFormPinX].FormulaForceU = textTransform.TxtPinX;
-                sectionRow[VisCellIndices.visXFormPinY].FormulaForceU = textTransform.TxtPinY;
-                sectionRow[VisCellIndices.visXFormLocPinX].FormulaForceU = textTransform.TxtLocPinX;
-                sectionRow[VisCellIndices.visXFormLocPinY].FormulaForceU = textTransform.TxtLocPinY;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowTextXForm))
+                {
+                    MessageBox.Show("No visRowTextXForm exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowTextXForm];
+
+                    sectionRow[VisCellIndices.visXFormWidth].FormulaForceU = textTransform.TxtWidth;
+                    sectionRow[VisCellIndices.visXFormHeight].FormulaForceU = textTransform.TxtHeight;
+                    sectionRow[VisCellIndices.visXFormAngle].FormulaForceU = textTransform.TxtAngle;
+                    sectionRow[VisCellIndices.visXFormPinX].FormulaForceU = textTransform.TxtPinX;
+                    sectionRow[VisCellIndices.visXFormPinY].FormulaForceU = textTransform.TxtPinY;
+                    sectionRow[VisCellIndices.visXFormLocPinX].FormulaForceU = textTransform.TxtLocPinX;
+                    sectionRow[VisCellIndices.visXFormLocPinY].FormulaForceU = textTransform.TxtLocPinY;
+                }
             }
             catch (Exception ex)
             {

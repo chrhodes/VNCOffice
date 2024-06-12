@@ -60,5 +60,17 @@ namespace VNC.Visio.VSTOAddIn
 
             return pageName;
         }
+
+        public static Boolean RowExists(Shape shape, VisSectionIndices sectionIndex, VisRowIndices rowIndex, VisExistsFlags visExistsFlags = VisExistsFlags.visExistsAnywhere)
+        {
+            if (0 == shape.RowExists[ (short)sectionIndex, (short)rowIndex, (short)visExistsFlags])
+            { 
+                return false; 
+            }
+            else 
+            { 
+                return true; 
+            }
+        }
     }
 }

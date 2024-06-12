@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -16,12 +17,24 @@ namespace VNC.Visio.VSTOAddIn.Domain
             GlueInfoRow row = new GlueInfoRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowMisc];
 
-            row.BegTrigger = sectionRow[VisCellIndices.visBegTrigger].FormulaU;
-            row.EndTrigger = sectionRow[VisCellIndices.visEndTrigger].FormulaU;
-            row.GlueType = sectionRow[VisCellIndices.visGlueType].FormulaU;
-            row.WalkPreference = sectionRow[VisCellIndices.visWalkPref].FormulaU;
+            // TODO(crhodes)
+            // Check RowIndices name
+
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowMisc))
+            {
+                MessageBox.Show("No visRowMisc exists");
+            }
+            else
+            {
+
+                Row sectionRow = section[(short)VisRowIndices.visRowMisc];
+
+                row.BegTrigger = sectionRow[VisCellIndices.visBegTrigger].FormulaU;
+                row.EndTrigger = sectionRow[VisCellIndices.visEndTrigger].FormulaU;
+                row.GlueType = sectionRow[VisCellIndices.visGlueType].FormulaU;
+                row.WalkPreference = sectionRow[VisCellIndices.visWalkPref].FormulaU;
+            }
 
             return row;
         }
@@ -31,12 +44,20 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowMisc];
 
-                sectionRow[VisCellIndices.visBegTrigger].FormulaU = glueInfo.BegTrigger;
-                sectionRow[VisCellIndices.visEndTrigger].FormulaU = glueInfo.EndTrigger;
-                sectionRow[VisCellIndices.visGlueType].FormulaU = glueInfo.GlueType;
-                sectionRow[VisCellIndices.visWalkPref].FormulaU = glueInfo.WalkPreference;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowMisc))
+                {
+                    MessageBox.Show("No visRowMisc exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowMisc];
+
+                    sectionRow[VisCellIndices.visBegTrigger].FormulaU = glueInfo.BegTrigger;
+                    sectionRow[VisCellIndices.visEndTrigger].FormulaU = glueInfo.EndTrigger;
+                    sectionRow[VisCellIndices.visGlueType].FormulaU = glueInfo.GlueType;
+                    sectionRow[VisCellIndices.visWalkPref].FormulaU = glueInfo.WalkPreference;
+                }
             }
             catch (Exception ex)
             {

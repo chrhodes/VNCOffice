@@ -1,4 +1,8 @@
-﻿using Microsoft.Office.Interop.Visio;
+﻿using System;
+using System.Windows;
+
+
+using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
@@ -16,14 +20,22 @@ namespace VNC.Visio.VSTOAddIn.Domain
             GroupPropertiesRow row = new GroupPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowGroup];
 
-            row.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
-            row.IsTextEditTarget = sectionRow[VisCellIndices.visGroupIsTextEditTarget].FormulaU;
-            row.IsDropTarget = sectionRow[VisCellIndices.visGroupIsDropTarget].FormulaU;
-            row.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
-            row.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
-            row.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowGroup))
+            {
+                MessageBox.Show("No visRowGroup exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowGroup];
+
+                row.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
+                row.IsTextEditTarget = sectionRow[VisCellIndices.visGroupIsTextEditTarget].FormulaU;
+                row.IsDropTarget = sectionRow[VisCellIndices.visGroupIsDropTarget].FormulaU;
+                row.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
+                row.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
+                row.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+            }
 
             return row;
         }
@@ -31,15 +43,22 @@ namespace VNC.Visio.VSTOAddIn.Domain
         public static void SetRow(Shape shape, GroupPropertiesRow groupProperties)
         {
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowGroup];
 
-            groupProperties.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
-            groupProperties.IsTextEditTarget = sectionRow[VisCellIndices.visGroupIsTextEditTarget].FormulaU;
-            groupProperties.IsDropTarget = sectionRow[VisCellIndices.visGroupIsDropTarget].FormulaU;
-            groupProperties.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
-            groupProperties.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
-            groupProperties.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowGroup))
+            {
+                MessageBox.Show("No visRowGroup exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowGroup];
+
+                groupProperties.SelectMode = sectionRow[VisCellIndices.visGroupSelectMode].FormulaU;
+                groupProperties.IsTextEditTarget = sectionRow[VisCellIndices.visGroupIsTextEditTarget].FormulaU;
+                groupProperties.IsDropTarget = sectionRow[VisCellIndices.visGroupIsDropTarget].FormulaU;
+                groupProperties.DisplayMode = sectionRow[VisCellIndices.visGroupDisplayMode].FormulaU;
+                groupProperties.IsSnapTarget = sectionRow[VisCellIndices.visGroupIsSnapTarget].FormulaU;
+                groupProperties.DontMoveChildren = sectionRow[VisCellIndices.visGroupDontMoveChildren].FormulaU;
+            }
         }
-
     }
 }

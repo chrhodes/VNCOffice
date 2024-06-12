@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -18,21 +19,18 @@ namespace VNC.Visio.VSTOAddIn.Domain
             AlignmentRow row = new AlignmentRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowAlign];
 
-            //row.BevelTopType = sectionRow[VisCellIndices.visBevelTopType].FormulaU;
-            //row.BevelTopWidth = sectionRow[VisCellIndices.visBevelTopWidth].FormulaU;
-            //row.BevelTopHeight = sectionRow[VisCellIndices.visBevelTopHeight].FormulaU;
-            //row.BevelBottomType = sectionRow[VisCellIndices.visBevelBottomType].FormulaU;
-            //row.BevelBottomWidth = sectionRow[VisCellIndices.visBevelBottomWidth].FormulaU;
-            //row.BevelBottomHeight = sectionRow[VisCellIndices.visBevelBottomHeight].FormulaU;
-            //row.BevelDepthColor = sectionRow[VisCellIndices.visBevelDepthColor].FormulaU;
-            //row.BevelDepthSize = sectionRow[VisCellIndices.visBevelDepthSize].FormulaU;
-            //row.BevelContourColor = sectionRow[VisCellIndices.visBevelContourColor].FormulaU;
-            //row.BevelContourSize = sectionRow[VisCellIndices.visBevelContourSize].FormulaU;
-            //row.BevelMaterialType = sectionRow[VisCellIndices.visBevelMaterialType].FormulaU;
-            //row.BevelLightingType = sectionRow[VisCellIndices.visBevelLightingType].FormulaU;
-            //row.BevelLightingAngle = sectionRow[VisCellIndices.visBevelLightingAngle].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowAlign))
+            {
+                MessageBox.Show("No visRowAlign exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowAlign];
+
+                // TODO(crhodes)
+                // Implement
+            }
 
             return row;
         }
@@ -42,20 +40,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
             // TODO(crhodes)
             // Implement
 
-            //    try
-            //    {
-            //        Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            //        Row sectionRow = section[(short)VisRowIndices.visRowMisc];
-
-            //        sectionRow[VisCellIndices.visBegTrigger].FormulaU = glueInfo.BegTrigger;
-            //        sectionRow[VisCellIndices.visEndTrigger].FormulaU = glueInfo.EndTrigger;
-            //        sectionRow[VisCellIndices.visGlueType].FormulaU = glueInfo.GlueType;
-            //        sectionRow[VisCellIndices.visWalkPref].FormulaU = glueInfo.WalkPreference;
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        Log.Error(ex, Common.LOG_CATEGORY);
-            //    }
         }
     }
 }

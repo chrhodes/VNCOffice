@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
 
@@ -25,21 +26,29 @@ namespace VNC.Visio.VSTOAddIn.Domain
             BevelPropertiesRow row = new BevelPropertiesRow();
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-            Row sectionRow = section[(short)VisRowIndices.visRowBevelProperties];
 
-            row.BevelTopType = sectionRow[VisCellIndices.visBevelTopType].FormulaU;
-            row.BevelTopWidth = sectionRow[VisCellIndices.visBevelTopWidth].FormulaU;
-            row.BevelTopHeight = sectionRow[VisCellIndices.visBevelTopHeight].FormulaU;
-            row.BevelBottomType = sectionRow[VisCellIndices.visBevelBottomType].FormulaU;
-            row.BevelBottomWidth = sectionRow[VisCellIndices.visBevelBottomWidth].FormulaU;
-            row.BevelBottomHeight = sectionRow[VisCellIndices.visBevelBottomHeight].FormulaU;
-            row.BevelDepthColor = sectionRow[VisCellIndices.visBevelDepthColor].FormulaU;
-            row.BevelDepthSize = sectionRow[VisCellIndices.visBevelDepthSize].FormulaU;
-            row.BevelContourColor = sectionRow[VisCellIndices.visBevelContourColor].FormulaU;
-            row.BevelContourSize = sectionRow[VisCellIndices.visBevelContourSize].FormulaU;
-            row.BevelMaterialType = sectionRow[VisCellIndices.visBevelMaterialType].FormulaU;
-            row.BevelLightingType = sectionRow[VisCellIndices.visBevelLightingType].FormulaU;
-            row.BevelLightingAngle = sectionRow[VisCellIndices.visBevelLightingAngle].FormulaU;
+            if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowBevelProperties))
+            {
+                MessageBox.Show("No visRowBevelProperties exists");
+            }
+            else
+            {
+                Row sectionRow = section[(short)VisRowIndices.visRowBevelProperties];
+
+                row.BevelTopType = sectionRow[VisCellIndices.visBevelTopType].FormulaU;
+                row.BevelTopWidth = sectionRow[VisCellIndices.visBevelTopWidth].FormulaU;
+                row.BevelTopHeight = sectionRow[VisCellIndices.visBevelTopHeight].FormulaU;
+                row.BevelBottomType = sectionRow[VisCellIndices.visBevelBottomType].FormulaU;
+                row.BevelBottomWidth = sectionRow[VisCellIndices.visBevelBottomWidth].FormulaU;
+                row.BevelBottomHeight = sectionRow[VisCellIndices.visBevelBottomHeight].FormulaU;
+                row.BevelDepthColor = sectionRow[VisCellIndices.visBevelDepthColor].FormulaU;
+                row.BevelDepthSize = sectionRow[VisCellIndices.visBevelDepthSize].FormulaU;
+                row.BevelContourColor = sectionRow[VisCellIndices.visBevelContourColor].FormulaU;
+                row.BevelContourSize = sectionRow[VisCellIndices.visBevelContourSize].FormulaU;
+                row.BevelMaterialType = sectionRow[VisCellIndices.visBevelMaterialType].FormulaU;
+                row.BevelLightingType = sectionRow[VisCellIndices.visBevelLightingType].FormulaU;
+                row.BevelLightingAngle = sectionRow[VisCellIndices.visBevelLightingAngle].FormulaU;
+            }
 
             return row;
         }
@@ -49,21 +58,29 @@ namespace VNC.Visio.VSTOAddIn.Domain
             try
             {
                 Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
-                Row sectionRow = section[(short)VisRowIndices.visRowBevelProperties];
 
-                sectionRow[VisCellIndices.visBevelTopType].FormulaU = bevelProperties.BevelTopType;
-                sectionRow[VisCellIndices.visBevelTopWidth].FormulaU = bevelProperties.BevelTopWidth;
-                sectionRow[VisCellIndices.visBevelTopHeight].FormulaU = bevelProperties.BevelTopHeight;
-                sectionRow[VisCellIndices.visBevelBottomType].FormulaU = bevelProperties.BevelBottomType;
-                sectionRow[VisCellIndices.visBevelBottomWidth].FormulaU = bevelProperties.BevelBottomWidth;
-                sectionRow[VisCellIndices.visBevelBottomHeight].FormulaU = bevelProperties.BevelBottomHeight;
-                sectionRow[VisCellIndices.visBevelDepthColor].FormulaU = bevelProperties.BevelDepthColor;
-                sectionRow[VisCellIndices.visBevelDepthSize].FormulaU = bevelProperties.BevelDepthSize;
-                sectionRow[VisCellIndices.visBevelContourColor].FormulaU = bevelProperties.BevelContourColor;
-                sectionRow[VisCellIndices.visBevelContourSize].FormulaU = bevelProperties.BevelContourSize;
-                sectionRow[VisCellIndices.visBevelMaterialType].FormulaU = bevelProperties.BevelMaterialType;
-                sectionRow[VisCellIndices.visBevelLightingType].FormulaU = bevelProperties.BevelLightingType;
-                sectionRow[VisCellIndices.visBevelLightingAngle].FormulaU = bevelProperties.BevelLightingAngle;
+                if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowBevelProperties))
+                {
+                    MessageBox.Show("No visRowBevelProperties exists");
+                }
+                else
+                {
+                    Row sectionRow = section[(short)VisRowIndices.visRowBevelProperties];
+
+                    sectionRow[VisCellIndices.visBevelTopType].FormulaU = bevelProperties.BevelTopType;
+                    sectionRow[VisCellIndices.visBevelTopWidth].FormulaU = bevelProperties.BevelTopWidth;
+                    sectionRow[VisCellIndices.visBevelTopHeight].FormulaU = bevelProperties.BevelTopHeight;
+                    sectionRow[VisCellIndices.visBevelBottomType].FormulaU = bevelProperties.BevelBottomType;
+                    sectionRow[VisCellIndices.visBevelBottomWidth].FormulaU = bevelProperties.BevelBottomWidth;
+                    sectionRow[VisCellIndices.visBevelBottomHeight].FormulaU = bevelProperties.BevelBottomHeight;
+                    sectionRow[VisCellIndices.visBevelDepthColor].FormulaU = bevelProperties.BevelDepthColor;
+                    sectionRow[VisCellIndices.visBevelDepthSize].FormulaU = bevelProperties.BevelDepthSize;
+                    sectionRow[VisCellIndices.visBevelContourColor].FormulaU = bevelProperties.BevelContourColor;
+                    sectionRow[VisCellIndices.visBevelContourSize].FormulaU = bevelProperties.BevelContourSize;
+                    sectionRow[VisCellIndices.visBevelMaterialType].FormulaU = bevelProperties.BevelMaterialType;
+                    sectionRow[VisCellIndices.visBevelLightingType].FormulaU = bevelProperties.BevelLightingType;
+                    sectionRow[VisCellIndices.visBevelLightingAngle].FormulaU = bevelProperties.BevelLightingAngle;
+                }
             }
             catch (Exception ex)
             {
