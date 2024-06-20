@@ -43,13 +43,13 @@ namespace VNC.Visio.VSTOAddIn.Domain
         {
             var rows = new ObservableCollection<TabsRow>();
 
-            if (0 == shape.SectionExists[(short)VisSectionIndices.visSectionLayer, 0])
+            if (0 == shape.SectionExists[(short)VisSectionIndices.visSectionTab, 0])
             {
                 MessageBox.Show("No visSectionLayer exists");
             }
             else
             {
-                Section section = shape.Section[(short)VisSectionIndices.visSectionLayer];
+                Section section = shape.Section[(short)VisSectionIndices.visSectionTab];
 
                 var rowCount = section.Count;
 

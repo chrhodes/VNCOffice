@@ -1225,5 +1225,62 @@ namespace SupportTools_Visio
         #endregion
 
         #endregion Event Handlers
+
+        protected void UpdateShapeSheetWindowHosts()
+        {
+            if (_characterHost != null) _characterHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_connectionPointsHost != null) _connectionPointsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_controlsHost != null) _controlsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_documentHyperLinksHost != null) _documentHyperLinksHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_documentPropertiesHost != null) _documentPropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_documentScratchHost != null) _documentScratchHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_documentShapeDataHost != null) _documentShapeDataHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_documentUserDefinedCellsHost != null) _documentUserDefinedCellsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_fillGradientStopsHost != null) _fillGradientStopsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_geometryHost != null) _geometryHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_lineGradientStopsHost != null) _lineGradientStopsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageActionsHost != null) _pageActionsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageActionTagsHost != null) _pageActionTagsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageHyperLinksHost != null) _pageHyperLinksHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageLayersHost != null) _pageLayersHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pagePageLayoutHost != null) _pagePageLayoutHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pagePagePropertiesHost != null) _pagePagePropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pagePrintPropertiesHost != null) _pagePrintPropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageRulerAndGridsHost != null) _pageRulerAndGridsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageScratchHost != null) _pageScratchHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageShapeDataHost != null) _pageShapeDataHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageThemePropertiesHost != null) _pageThemePropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_pageUserDefinedCellsHost != null) _pageUserDefinedCellsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_paragraphHost != null) _paragraphHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeActionsHost != null) _shapeActionsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeActionTagsHost != null) _shapeActionTagsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeAdditionalEffectPropertiesHost != null) _shapeAdditionalEffectPropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeAlignmentHost != null) _shapeAlignmentHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeBevelPropertiesHost != null) _shapeBevelPropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeChangeShapeBehaviorHost != null) _shapeChangeShapeBehaviorHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeEventsHost != null) _shapeEventsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeFillFormatHost != null) _shapeFillFormatHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeGlueInfoHost != null) _shapeGlueInfoHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeGradientPropertiesHost != null) _shapeGradientPropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeGroupPropertiesHost != null) _shapeGroupPropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeHyperlinksHost != null) _shapeHyperlinksHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeImagePropertiesHost != null) _shapeImagePropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeLayoutHost != null) _shapeLayoutHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeLineFormatHost != null) _shapeLineFormatHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeMiscellaneousHost != null) _shapeMiscellaneousHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeOneDEndpointsHost != null) _shapeOneDEndpointsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeProtectionHost != null) _shapeProtectionHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeQuickStyleHost != null) _shapeQuickStyleHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeScratchHost != null) _shapeScratchHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeShapeDataHost != null) _shapeShapeDataHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeTextBlockFormatHost != null) _shapeTextBlockFormatHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeTextTransformHost!= null) _shapeTextTransformHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeThemePropertiesHost != null) _shapeThemePropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeThreeDRotationPropertiesHost != null) _shapeThreeDRotationPropertiesHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeTransformHost != null) _shapeTransformHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_shapeUserDefinedCellsHost != null) _shapeUserDefinedCellsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_tabsHost != null) _tabsHost.DeveloperUIMode = Common.DeveloperUIMode;
+            if (_textFieldsHost != null) _textFieldsHost.DeveloperUIMode = Common.DeveloperUIMode;
+        }
     }
 }

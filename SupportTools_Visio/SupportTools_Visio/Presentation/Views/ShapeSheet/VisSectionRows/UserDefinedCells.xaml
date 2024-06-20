@@ -16,11 +16,15 @@
         <dxlc:LayoutGroup 
         	View="Group" Orientation="Vertical" >
 
-            <dxg:GridControl x:Name="dgW" AutoGenerateColumns="AddNew" 
-                        EnableSmartColumnsGeneration="True" 
+            <dxg:GridControl x:Name="dgW" AutoGenerateColumns="None"
                         ItemsSource="{Binding Rows}"
                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                         Height="300">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="Name" />
+                    <dxg:GridColumn FieldName="Value" />
+                    <dxg:GridColumn FieldName="Prompt" />
+                </dxg:GridControl.Columns>
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
                 </dxg:GridControl.View>

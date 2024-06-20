@@ -17,11 +17,17 @@
         <dxlc:LayoutGroup 
         	View="Group" Orientation="Vertical" >
             
-            <dxg:GridControl x:Name="dgW" AutoGenerateColumns="AddNew" 
-                        EnableSmartColumnsGeneration="True" 
+            <dxg:GridControl x:Name="dgW" AutoGenerateColumns="None" 
                         ItemsSource="{Binding Rows}"
                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                         Height="200">
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="Name"/>
+                    <dxg:GridColumn FieldName="Position1" />
+                    <dxg:GridColumn FieldName="Alignment1"  />
+                    <dxg:GridColumn FieldName="Position2"  />
+                    <dxg:GridColumn FieldName="Alignment2"  />
+                </dxg:GridControl.Columns>
                 <dxg:GridControl.View>
                     <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
                 </dxg:GridControl.View>

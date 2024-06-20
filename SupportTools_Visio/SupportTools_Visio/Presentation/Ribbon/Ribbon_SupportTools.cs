@@ -549,6 +549,20 @@ namespace SupportTools_Visio
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
+        private void chkDeveloperUIMode_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (chkDeveloperUIMode.Checked)
+            {
+                Common.DeveloperUIMode = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                Common.DeveloperUIMode = System.Windows.Visibility.Collapsed;
+            }
+
+            UpdateShapeSheetWindowHosts();
+        }
+
         #endregion Debug Events
 
         #region Main Function Routines

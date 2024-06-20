@@ -6,8 +6,6 @@ using Microsoft.Office.Interop.Visio;
 
 namespace VNC.Visio.VSTOAddIn.Domain
 {
-    // TODO(crhodes)
-    // Verify Name shyould this be TextXForm
     public class TextTransformRow
     {
         public string TxtWidth { get; set; }

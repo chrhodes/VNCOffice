@@ -23,8 +23,6 @@ d:DesignWidth="300" >
 	        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
 	        IsCollapsible="True"  IsCollapsed="False" >
 
-            <local:SelectedShapesInfo VerticalAlignment="Top"/>
-
             <dxlc:LayoutGroup 
                 View="Group"  Orientation="Vertical" 
                 Style="{StaticResource ConfigurationLayoutGroup}" >
@@ -60,6 +58,8 @@ d:DesignWidth="300" >
             </dxlc:LayoutGroup>
 
         </dxlc:LayoutGroup>
+
+        <local:SelectedShapesInfo VerticalAlignment="Bottom"/>
 
     </dxlc:LayoutGroup>
 

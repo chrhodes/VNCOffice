@@ -45,8 +45,8 @@ namespace SupportTools_Visio
 
         }
 
-        #endregion
 
+        #endregion
 
     }
 }
