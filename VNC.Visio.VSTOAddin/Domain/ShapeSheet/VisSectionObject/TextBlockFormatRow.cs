@@ -51,9 +51,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
             {
                 Row sectionRow = section[(short)VisRowIndices.visRowText];
 
-                // TODO(crhodes)
-                // Handle multiple rows
-
                 row.LeftMargin = sectionRow[VisCellIndices.visTxtBlkLeftMargin].FormulaU;
                 row.TopMargin = sectionRow[VisCellIndices.visTxtBlkTopMargin].FormulaU;
                 row.RightMargin = sectionRow[VisCellIndices.visTxtBlkRightMargin].FormulaU;
@@ -77,7 +74,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
         {
 
             // TODO(crhodes)
-            // Change this to Helpers.RowExists
+            // Change this to Helpers.??SectionExists??.  Need to handle creating if no section
             ValidateSectionExists(shape);
 
             try

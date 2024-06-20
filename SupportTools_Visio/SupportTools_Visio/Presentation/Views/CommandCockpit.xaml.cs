@@ -45,6 +45,14 @@ namespace SupportTools_Visio.Presentation.Views
             set => _instanceCountV = value;
         }
 
+        private static int _instanceCountVP;
+
+        public int InstanceCountVP
+        {
+            get => _instanceCountVP;
+            set => _instanceCountVP = value;
+        }
+
         #endregion
 
         #region Private Methods

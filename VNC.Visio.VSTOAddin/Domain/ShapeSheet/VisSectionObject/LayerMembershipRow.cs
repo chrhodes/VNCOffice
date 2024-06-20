@@ -7,10 +7,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
 {
     public class LayerMembershipRow
     {
-        // TODO(crhodes)
-        // Not clear what this is all about in ShapeSheet
-
-        public string Name { get; set; }
+        public string LayerMember { get; set; }
 
         public static LayerMembershipRow GetRow(Shape shape)
         {
@@ -22,7 +19,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             {
                 Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
 
-                row.Name = sectionRow[VisCellIndices.visLayerMember].FormulaU;
+                row.LayerMember = sectionRow[VisCellIndices.visLayerMember].FormulaU;
             }
             else
             {
@@ -42,7 +39,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
                 {
                     Row sectionRow = section[(short)VisRowIndices.visRowLayerMem];
 
-                    sectionRow[VisCellIndices.visLayerMember].FormulaU = layerMembership.Name;
+                    sectionRow[VisCellIndices.visLayerMember].FormulaU = layerMembership.LayerMember;
                 }
                 else
                 {

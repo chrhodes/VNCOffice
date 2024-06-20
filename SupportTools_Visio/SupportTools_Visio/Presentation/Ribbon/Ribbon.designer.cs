@@ -103,6 +103,7 @@
             this.chkEnableAppEvents = this.Factory.CreateRibbonCheckBox();
             this.chkDisplayEvents = this.Factory.CreateRibbonCheckBox();
             this.chkDisplayChattyEvents = this.Factory.CreateRibbonCheckBox();
+            this.chkDeveloperUIMode = this.Factory.CreateRibbonCheckBox();
             this.grpHelp = this.Factory.CreateRibbonGroup();
             this.btnAddInInfo = this.Factory.CreateRibbonButton();
             this.btnDeveloperMode = this.Factory.CreateRibbonButton();
@@ -681,6 +682,7 @@
             this.rgDebug.Items.Add(this.chkEnableAppEvents);
             this.rgDebug.Items.Add(this.chkDisplayEvents);
             this.rgDebug.Items.Add(this.chkDisplayChattyEvents);
+            this.rgDebug.Items.Add(this.chkDeveloperUIMode);
             this.rgDebug.Label = "Debug";
             this.rgDebug.Name = "rgDebug";
             this.rgDebug.Visible = false;
@@ -720,6 +722,12 @@
             this.chkDisplayChattyEvents.Label = "Display Chatty Events";
             this.chkDisplayChattyEvents.Name = "chkDisplayChattyEvents";
             this.chkDisplayChattyEvents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.chkDisplayChattyEvents_Click);
+            // 
+            // chkDeveloperUIMode
+            // 
+            this.chkDeveloperUIMode.Label = "DeveloperUIMode";
+            this.chkDeveloperUIMode.Name = "chkDeveloperUIMode";
+            this.chkDeveloperUIMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.chkDeveloperUIMode_Click);
             // 
             // grpHelp
             // 
@@ -1664,6 +1672,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddArchitectureBasePages;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCustomUI_Car;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAlignment;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox chkDeveloperUIMode;
     }
 
     partial class ThisRibbonCollection

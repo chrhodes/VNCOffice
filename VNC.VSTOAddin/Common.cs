@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Windows;
 
 namespace VNC.VSTOAddIn
 {
@@ -18,6 +19,12 @@ namespace VNC.VSTOAddIn
         }
 
         public static Boolean DeveloperMode
+        {
+            get;
+            set;
+        }
+
+        public static System.Windows.Visibility DeveloperUIMode
         {
             get;
             set;

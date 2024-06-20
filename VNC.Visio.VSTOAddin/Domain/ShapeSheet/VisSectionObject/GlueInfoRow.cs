@@ -18,9 +18,6 @@ namespace VNC.Visio.VSTOAddIn.Domain
 
             Section section = shape.Section[(short)VisSectionIndices.visSectionObject];
 
-            // TODO(crhodes)
-            // Check RowIndices name
-
             if (Helpers.RowExists(shape, VisSectionIndices.visSectionObject, VisRowIndices.visRowMisc))
             {
 

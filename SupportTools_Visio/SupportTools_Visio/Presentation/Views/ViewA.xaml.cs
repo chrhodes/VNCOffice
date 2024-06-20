@@ -22,7 +22,7 @@ namespace SupportTools_Visio.Presentation.Views
         //{
         //    Int64 startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()}", Common.LOG_CATEGORY);
 
-        //    InstanceCountV++;
+        //    InstanceCountVP++;
         //    InitializeComponent();
 
         //    ViewModel = viewModel;
@@ -38,6 +38,14 @@ namespace SupportTools_Visio.Presentation.Views
         {
             get => _instanceCountV;
             set => _instanceCountV = value;
+        }
+
+        private static int _instanceCountVP;
+
+        public int InstanceCountVP
+        {
+            get => _instanceCountVP;
+            set => _instanceCountVP = value;
         }
 
         #endregion

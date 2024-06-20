@@ -23,7 +23,7 @@ namespace Explore.Presentation.Views
         {
             Int64 startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
-            InstanceCountV++;
+            InstanceCountVP++;
             InitializeComponent();
 
             ViewModel = viewModel;
@@ -39,6 +39,14 @@ namespace Explore.Presentation.Views
         {
             get => _instanceCountV;
             set => _instanceCountV = value;
+        }
+
+        private static int _instanceCountVP;
+
+        public int InstanceCountVP
+        {
+            get => _instanceCountVP;
+            set => _instanceCountVP = value;
         }
 
         #endregion

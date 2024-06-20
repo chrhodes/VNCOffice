@@ -17,14 +17,31 @@
         <dxlc:LayoutGroup 
         	View="Group" Orientation="Vertical" >
             
-                <dxg:GridControl x:Name="dgW" AutoGenerateColumns="AddNew" 
+                <!--<dxg:GridControl x:Name="dgW" AutoGenerateColumns="AddNew" 
                          EnableSmartColumnsGeneration="True" 
                          ItemsSource="{Binding Rows}"
                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                         Height="200">-->
+                <dxg:GridControl x:Name="dgW" AutoGenerateColumns="None"
+                         ItemsSource="{Binding Rows}"
+                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                          Height="200">
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn FieldName="Name"/>
+                        <dxg:GridColumn FieldName="Description" />
+                        <dxg:GridColumn FieldName="Address"  />
+                        <dxg:GridColumn FieldName="SubAddress"  />
+                        <dxg:GridColumn FieldName="ExtraInfo"  />
+                        <dxg:GridColumn FieldName="Frame"  />
+                        <dxg:GridColumn FieldName="SortKey"  />
+                        <dxg:GridColumn FieldName="NewWindow"  />
+                        <dxg:GridColumn FieldName="Default"  />
+                        <dxg:GridColumn FieldName="Invisible"  />
+                    </dxg:GridControl.Columns>                    
                     <dxg:GridControl.View>
                         <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
                     </dxg:GridControl.View>
+
                 </dxg:GridControl>
 
                 <dxlc:LayoutGroup 
