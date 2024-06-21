@@ -866,7 +866,9 @@
     <Compile Include="Presentation\Views\ShapeSheet\VisSectionObject\Alignment.xaml.cs">
       <DependentUpon>Alignment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\Views\ShapeSheet\VisSectionObject\ShapeSheetObjectSection.xaml.cs" />
+    <Compile Include="Presentation\Views\ShapeSheet\VisSectionObject\ShapeSheetObjectSection.xaml.cs">
+      <DependentUpon>ShapeSheetObjectSection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Presentation\Views\ShapeSheet\VisSectionRows\FillGradientStops.xaml.cs">
       <DependentUpon>FillGradientStops.xaml</DependentUpon>
     </Compile>

@@ -191,25 +191,6 @@ namespace SupportTools_Visio
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        DxDockLayoutControl _dxDockLayoutControl;
-
-        public DxDockLayoutControl DxDockLayoutControl
-        {
-            get
-            {
-                if (_dxDockLayoutControl is null)
-                {
-                    _dxDockLayoutControl = new DxDockLayoutControl();
-                }
-
-                return _dxDockLayoutControl;
-            }
-            set
-            {
-                _dxDockLayoutControl = value;
-            }
-        }
-
         private DxThemedWindowHost dxDockLayoutControlHost = null;
 
         private void btnDxDockLayoutControl_Click(object sender, RibbonControlEventArgs e)
@@ -220,28 +201,9 @@ namespace SupportTools_Visio
                 "DxDockLayoutControl Test",
                 Common.DEFAULT_WINDOW_WIDTH_LARGE, Common.DEFAULT_WINDOW_HEIGHT_LARGE,
                 ShowWindowMode.Modeless_Show,
-                DxDockLayoutControl);
+                new DxDockLayoutControl());
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        DxDockLayoutManagerControl _dxDockLayoutControlManager;
-
-        public DxDockLayoutManagerControl DxDockLayoutManagerControl
-        {
-            get
-            {
-                if (_dxDockLayoutControlManager is null)
-                {
-                    _dxDockLayoutControlManager = new DxDockLayoutManagerControl();
-                }
-
-                return _dxDockLayoutControlManager;
-            }
-            set
-            {
-                _dxDockLayoutControlManager = value;
-            }
         }
 
         private DxThemedWindowHost dxDockLayoutManagerControlHost = null;
@@ -254,28 +216,9 @@ namespace SupportTools_Visio
                 "DxDocLayoutManagerControl Test",
                 Common.DEFAULT_WINDOW_WIDTH_LARGE, Common.DEFAULT_WINDOW_HEIGHT_LARGE,
                 ShowWindowMode.Modeless_Show,
-                DxDockLayoutManagerControl);
+                new DxDockLayoutManagerControl());
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
-        }
-
-        Presentation.Views.PrismRegionTest _prismRegionTest;
-
-        public Presentation.Views.PrismRegionTest PrismRegionTest
-        {
-            get
-            {
-                if (_prismRegionTest is null)
-                {
-                    _prismRegionTest = new Presentation.Views.PrismRegionTest();
-                }
-
-                return _prismRegionTest;
-            }
-            set
-            {
-                _prismRegionTest = value;
-            }
         }
 
         private DxThemedWindowHost prismRegionTestHost = null;
@@ -288,7 +231,7 @@ namespace SupportTools_Visio
                 "Prism Region Test", 
                 Common.DEFAULT_WINDOW_WIDTH_LARGE, Common.DEFAULT_WINDOW_HEIGHT_LARGE,
                 ShowWindowMode.Modeless_Show,
-                PrismRegionTest);
+                new PrismRegionTest());
 
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
