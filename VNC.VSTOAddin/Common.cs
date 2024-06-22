@@ -6,7 +6,7 @@ namespace VNC.VSTOAddIn
 {
     public class Common
     {
-        public const string LOG_CATEGORY = "VSTOAddin";
+        public const string LOG_CATEGORY = "VSTOAddIn";
 
         public static Boolean EnableAppEvents = true;  // Custom Header and Footer need this enabled.
         public static Boolean DisplayEvents = false;
