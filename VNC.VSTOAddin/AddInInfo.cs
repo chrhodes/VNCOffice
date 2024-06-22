@@ -23,7 +23,7 @@ namespace VNC.VSTOAddIn
 
         private const string _MODULE_NAME = Common.LOG_CATEGORY + "AddInInfo";
         private const string _NAME = "AddInInfo";
-        private const string _BITMAP_NAME = "AddinInfo.bmp";
+        private const string _BITMAP_NAME = "AddInInfo.bmp";
         private const string _CAPTION = "AddInInfo";
         private const string _TOOL_TIP_TEXT = "Click for AddInInfo";
         private const string _DESCRIPTION = "AddInInfo does ...";
