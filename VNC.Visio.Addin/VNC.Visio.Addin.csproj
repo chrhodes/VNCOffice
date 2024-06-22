@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net48</TargetFrameworks>
+        <TargetFrameworks>net481</TargetFrameworks>
         <UseWPF>true</UseWPF>
         <UseWindowsForms>true</UseWindowsForms>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -41,7 +41,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\VNC.VSTOAddins\VNC.VSTOAddIn.csproj" />
+      <ProjectReference Include="..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />
     </ItemGroup>
 
 </Project>
