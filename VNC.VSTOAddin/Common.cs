@@ -8,7 +8,7 @@ namespace VNC.VSTOAddIn
     {
         public const string LOG_CATEGORY = "VSTOAddIn";
 
-        public static Boolean EnableAppEvents = true;  // Custom Header and Footer need this enabled.
+        public static Boolean EnableAppEvents = false;  // Custom Header and Footer need this enabled.
         public static Boolean DisplayEvents = false;
         public static Boolean DisplayChattyEvents = false;
 
@@ -24,7 +24,7 @@ namespace VNC.VSTOAddIn
             set;
         }
 
-        public static System.Windows.Visibility DeveloperUIMode
+        public static Visibility DeveloperUIMode
         {
             get;
             set;
@@ -70,7 +70,6 @@ namespace VNC.VSTOAddIn
             if (DeveloperMode)
             {
                 WatchWindow.AddOutputLine(message);
-
             }
 
             return Stopwatch.GetTimestamp();

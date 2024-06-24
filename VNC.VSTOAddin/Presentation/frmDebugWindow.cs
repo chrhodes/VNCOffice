@@ -12,10 +12,11 @@ namespace VNC.VSTOAddIn.Presentation
 
         #region Event Handlers
 
-        private void btnClearOutput_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             txtOutput.Clear();
         }
+
 
         //private void frmDebugWindow_FormClosing(object sender, FormClosingEventArgs e)
         //{
@@ -53,5 +54,6 @@ namespace VNC.VSTOAddIn.Presentation
         }
 
         #endregion
+
     }
 }

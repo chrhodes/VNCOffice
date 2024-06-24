@@ -28,33 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnClearOutput = new System.Windows.Forms.Button();
-            this.gbDebugOptions = new System.Windows.Forms.GroupBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.gbDebugOptions.SuspendLayout();
+            this.btnSaveToFile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnClearOutput
+            // btnClear
             // 
-            this.btnClearOutput.Location = new System.Drawing.Point(18, 18);
-            this.btnClearOutput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClearOutput.Name = "btnClearOutput";
-            this.btnClearOutput.Size = new System.Drawing.Size(267, 35);
-            this.btnClearOutput.TabIndex = 7;
-            this.btnClearOutput.Text = "Clear Output";
-            this.btnClearOutput.UseVisualStyleBackColor = true;
-            this.btnClearOutput.Click += new System.EventHandler(this.btnClearOutput_Click);
-            // 
-            // gbDebugOptions
-            // 
-            this.gbDebugOptions.Location = new System.Drawing.Point(18, 82);
-            this.gbDebugOptions.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbDebugOptions.Name = "gbDebugOptions";
-            this.gbDebugOptions.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gbDebugOptions.Size = new System.Drawing.Size(267, 200);
-            this.gbDebugOptions.TabIndex = 8;
-            this.gbDebugOptions.TabStop = false;
-            this.gbDebugOptions.Text = "Debug Options";
+            this.btnClear.Location = new System.Drawing.Point(12, 538);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(81, 23);
+            this.btnClear.TabIndex = 7;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtOutput
             // 
@@ -62,27 +49,34 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtOutput.Location = new System.Drawing.Point(294, 18);
-            this.txtOutput.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtOutput.Location = new System.Drawing.Point(12, 12);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtOutput.Size = new System.Drawing.Size(862, 826);
+            this.txtOutput.Size = new System.Drawing.Size(782, 520);
             this.txtOutput.TabIndex = 6;
+            // 
+            // btnSaveToFile
+            // 
+            this.btnSaveToFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveToFile.Location = new System.Drawing.Point(719, 538);
+            this.btnSaveToFile.Name = "btnSaveToFile";
+            this.btnSaveToFile.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveToFile.TabIndex = 8;
+            this.btnSaveToFile.Text = "Save to File";
+            this.btnSaveToFile.UseVisualStyleBackColor = true;
             // 
             // frmDebugWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 865);
-            this.Controls.Add(this.btnClearOutput);
-            this.Controls.Add(this.gbDebugOptions);
+            this.ClientSize = new System.Drawing.Size(806, 568);
+            this.Controls.Add(this.btnSaveToFile);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.txtOutput);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmDebugWindow";
             this.Text = "frmDebugWindow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDebugWindow_FormClosed);
-            this.gbDebugOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,8 +84,8 @@
 
         #endregion
 
-        internal System.Windows.Forms.Button btnClearOutput;
-        internal System.Windows.Forms.GroupBox gbDebugOptions;
+        internal System.Windows.Forms.Button btnClear;
         internal System.Windows.Forms.TextBox txtOutput;
+        private System.Windows.Forms.Button btnSaveToFile;
     }
 }
