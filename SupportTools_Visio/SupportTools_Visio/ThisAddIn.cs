@@ -184,7 +184,7 @@ namespace SupportTools_Visio
 
                 //_prismApplication = new Application.PrismApp();
 
-                var defaultThemes = Theme.Themes;
+                var defaultThemes = DevExpress.Xpf.Core.Theme.Themes;
                 ApplicationThemeHelper.ApplicationThemeName = "MetropolisDark";
 
                 // Load the resources

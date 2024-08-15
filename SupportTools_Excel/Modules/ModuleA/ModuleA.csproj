@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <PropertyGroup>
-    <TargetFramework>net4.8</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
     <UseWPF>true</UseWPF>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
@@ -23,24 +23,28 @@
    <PackageReference Include="EntityFramework" Version="6.4.4" />
    <PackageReference Include="Prism.Unity" Version="8.1.97" />
    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
-   <PackageReference Include="VNC.Core" Version="2.1.4" />
    </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\..\SupportTools_Excel.Infrastructure\SupportTools_Excel.Core.csproj" />
   </ItemGroup>
    
-  <!-- <ItemGroup> -->
-    <!-- <ProjectReference Include="..\Explore.Core\Explore.Core.csproj" /> -->
-  <!-- </ItemGroup> -->
-  
-  <!--<ItemGroup>
-    <ProjectReference Include="..\..\vnc\VNC.Core\VNC.Core.csproj" />
-    <ProjectReference Include="..\..\vnc\VNC.Logging\VNC.Logging\VNC.Logging.csproj" />
-  </ItemGroup>-->
   <ItemGroup>
     <!-- Workaround for https://github.com/dotnet/wpf/issues/2648#issuecomment-635674683 -->
     <Reference Include="System.Web" />
   </ItemGroup>
+
+    <Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\VNC.Core\VNC.Core.csproj" />
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <PackageReference Include="VNC.Core" Version="2.1.6" />
+            </ItemGroup>
+        </When>
+    </Choose>
 
 </Project>

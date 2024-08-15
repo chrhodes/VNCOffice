@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 using Microsoft.Office.Interop.Visio;
@@ -37,13 +33,14 @@ namespace VNC.Visio.VSTOAddIn
 
             return result;
         }
+
         public static string SafeFileName(string fileName)
         {
             fileName = fileName.Replace("/", "-");
             fileName = fileName.Replace(@"\", "-");
             fileName = fileName.Replace("[", "");
             fileName = fileName.Replace("]", "");
-            fileName = fileName.Replace(" ", "");
+            //fileName = fileName.Replace(" ", "");
             fileName = fileName.Replace(":", "-");
 
             return fileName;
@@ -55,7 +52,8 @@ namespace VNC.Visio.VSTOAddIn
             pageName = pageName.Replace(@"\", "-");
             pageName = pageName.Replace("[", "");
             pageName = pageName.Replace("]", "");
-            pageName = pageName.Replace(" ", "");
+            //pageName = pageName.Replace(" ", "");
+            pageName = pageName.Replace("\n", " ");
             pageName = pageName.Replace(":", "-");
 
             return pageName;

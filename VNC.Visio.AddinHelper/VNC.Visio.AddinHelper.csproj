@@ -20,6 +20,7 @@
         <Copyright>Copyright © VNC 2024</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Description>VNC AddinHelper</Description>
+        <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
     </PropertyGroup>
 
     <ItemGroup>

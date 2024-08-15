@@ -27,15 +27,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            //DxThemedWindowHost.DisplayUserControlInHost(ref _documentPropertiesHost,
-            //    "Document Properties",
-            //    600, 450,
-            //    //Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //    DxThemedWindowHost.ShowWindowMode.Modeless,
-            //    new Presentation.Views.DocumentShapeSheetSection(
-            //        new Presentation.ViewModels.DocumentPropertiesViewModel(),
-            //        new Presentation.Views.DocumentProperties()));
-            DxThemedWindowHost.DisplayUserControlInHost(ref _documentPropertiesHost,
+            if (_documentPropertiesHost is null) _documentPropertiesHost = new DxThemedWindowHost();
+
+            _documentPropertiesHost.DisplayUserControlInHost(
                 "DocumentProperties",
                 650, 550,
                 ShowWindowMode.Modeless_Show,
@@ -66,7 +60,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pagePageLayoutHost,
+            if (_pagePageLayoutHost is null) _pagePageLayoutHost = new DxThemedWindowHost();
+
+            _pagePageLayoutHost.DisplayUserControlInHost(
                 "PageLayout",
                 550, 700,
                 ShowWindowMode.Modeless_Show,
@@ -88,15 +84,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            //DxThemedWindowHost.DisplayUserControlInHost(ref _pagePagePropertiesHost,
-            //    "Page Properties",
-            //    600, 450,
-            //    //Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //    DxThemedWindowHost.ShowWindowMode.Modeless,
-            //    new Presentation.Views.PageShapeSheetSection(
-            //        new Presentation.ViewModels.PagePropertiesViewModel(),
-            //        new Presentation.Views.PageProperties()));
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pagePagePropertiesHost,
+            if (_pagePagePropertiesHost is null) _pagePagePropertiesHost = new DxThemedWindowHost();
+
+            _pagePagePropertiesHost.DisplayUserControlInHost(
                 "PageProperties",
                 600, 575,
                 ShowWindowMode.Modeless_Show,
@@ -117,7 +107,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pagePrintPropertiesHost,
+            if (_pagePrintPropertiesHost is null) _pagePrintPropertiesHost = new DxThemedWindowHost();
+
+            _pagePrintPropertiesHost.DisplayUserControlInHost(
                 "PrintProperties",
                 600, 600,
                 ShowWindowMode.Modeless_Show,
@@ -138,7 +130,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageRulerAndGridsHost,
+            if (_pageRulerAndGridsHost is null) _pageRulerAndGridsHost = new DxThemedWindowHost();
+
+            _pageRulerAndGridsHost.DisplayUserControlInHost(
                 "Ruler & Grid",
                 600, 300,
                 ShowWindowMode.Modeless_Show,
@@ -159,7 +153,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageThemePropertiesHost,
+            if (_pageThemePropertiesHost is null) _pageThemePropertiesHost = new DxThemedWindowHost();
+
+            _pageThemePropertiesHost.DisplayUserControlInHost(
                 "ThemeProperties",
                 600, 400,
                 ShowWindowMode.Modeless_Show,
@@ -184,7 +180,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeOneDEndpointsHost,
+            if (_shapeOneDEndpointsHost is null) _shapeOneDEndpointsHost = new DxThemedWindowHost();
+
+            _shapeOneDEndpointsHost.DisplayUserControlInHost(
                 "1-D Endpoints",
                 600, 300,
                 ShowWindowMode.Modeless_Show,
@@ -205,7 +203,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeThreeDRotationPropertiesHost,
+            if (_shapeThreeDRotationPropertiesHost is null) _shapeThreeDRotationPropertiesHost = new DxThemedWindowHost();
+
+            _shapeThreeDRotationPropertiesHost.DisplayUserControlInHost(
                 "3-D RotationProperties",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -226,7 +226,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeAdditionalEffectPropertiesHost,
+            if (_shapeAdditionalEffectPropertiesHost is null) _shapeAdditionalEffectPropertiesHost = new DxThemedWindowHost();
+
+            _shapeAdditionalEffectPropertiesHost.DisplayUserControlInHost(
                 "AdditionalEffectProperties",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -247,7 +249,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeAdditionalEffectPropertiesHost,
+            if (_shapeAlignmentHost is null) _shapeAlignmentHost = new DxThemedWindowHost();
+
+            _shapeAlignmentHost.DisplayUserControlInHost(
                 "Alignment",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -268,7 +272,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeBevelPropertiesHost,
+            if (_shapeBevelPropertiesHost is null) _shapeBevelPropertiesHost = new DxThemedWindowHost();
+
+            _shapeBevelPropertiesHost.DisplayUserControlInHost(
             "BevelProperties",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -289,7 +295,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeChangeShapeBehaviorHost,
+            if (_shapeChangeShapeBehaviorHost is null) _shapeChangeShapeBehaviorHost = new DxThemedWindowHost();
+
+            _shapeChangeShapeBehaviorHost.DisplayUserControlInHost(
             "ChangeShapeBehavior",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -310,7 +318,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeEventsHost,
+            if (_shapeEventsHost is null) _shapeEventsHost = new DxThemedWindowHost();
+
+            _shapeEventsHost.DisplayUserControlInHost(
             "Events",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -331,7 +341,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeFillFormatHost,
+            if (_shapeFillFormatHost is null) _shapeFillFormatHost = new DxThemedWindowHost();
+
+            _shapeFillFormatHost.DisplayUserControlInHost(
             "FillFormat",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -352,7 +364,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeGlueInfoHost,
+            if (_shapeGlueInfoHost is null) _shapeGlueInfoHost = new DxThemedWindowHost();
+
+            _shapeGlueInfoHost.DisplayUserControlInHost(
             "GlueInfo",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -373,7 +387,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeGradientPropertiesHost,
+            if (_shapeGradientPropertiesHost is null) _shapeGradientPropertiesHost = new DxThemedWindowHost();
+
+            _shapeGradientPropertiesHost.DisplayUserControlInHost(
             "GradientProperties",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -395,7 +411,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeGroupPropertiesHost,
+            if (_shapeGroupPropertiesHost is null) _shapeGroupPropertiesHost = new DxThemedWindowHost();
+
+            _shapeGroupPropertiesHost.DisplayUserControlInHost(
             "GroupProperties",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -416,7 +434,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeImagePropertiesHost,
+            if (_shapeImagePropertiesHost is null) _shapeImagePropertiesHost = new DxThemedWindowHost();
+
+            _shapeImagePropertiesHost.DisplayUserControlInHost(
                 "ImageProperties",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -437,7 +457,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref ssLayerMembership_ShapeSheetSectionHost,
+            if (ssLayerMembership_ShapeSheetSectionHost is null) ssLayerMembership_ShapeSheetSectionHost = new DxThemedWindowHost();
+
+            ssLayerMembership_ShapeSheetSectionHost.DisplayUserControlInHost(
             "LayerMembership",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -458,7 +480,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeLineFormatHost,
+            if (_shapeLineFormatHost is null) _shapeLineFormatHost = new DxThemedWindowHost();
+
+            _shapeLineFormatHost.DisplayUserControlInHost(
                 "LineFormat",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -479,7 +503,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeMiscellaneousHost,
+            if (_shapeMiscellaneousHost is null) _shapeMiscellaneousHost = new DxThemedWindowHost();
+
+            _shapeMiscellaneousHost.DisplayUserControlInHost(
                 "Miscellaneous",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -500,7 +526,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeProtectionHost,
+            if (_shapeProtectionHost is null) _shapeProtectionHost = new DxThemedWindowHost();
+
+            _shapeProtectionHost.DisplayUserControlInHost(
                 "Protection",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -521,7 +549,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeQuickStyleHost,
+            if (_shapeQuickStyleHost is null) _shapeQuickStyleHost = new DxThemedWindowHost();
+
+            _shapeQuickStyleHost.DisplayUserControlInHost(
                 "QuickStyle",
                 600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -542,7 +572,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeLayoutHost,
+            if (_shapeLayoutHost is null) _shapeLayoutHost = new DxThemedWindowHost();
+
+            _shapeLayoutHost.DisplayUserControlInHost(
             "ShapeLayout",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -563,7 +595,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeTransformHost,
+            if (_shapeTransformHost is null) _shapeTransformHost = new DxThemedWindowHost();
+
+            _shapeTransformHost.DisplayUserControlInHost(
                 "ShapeTransform",
                 800, 600,
                 ShowWindowMode.Modeless_Show,
@@ -584,7 +618,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeTextBlockFormatHost,
+            if (_shapeTextBlockFormatHost is null) _shapeTextBlockFormatHost = new DxThemedWindowHost();
+
+            _shapeTextBlockFormatHost.DisplayUserControlInHost(
             "TextBlockFormat",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -605,7 +641,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeTextTransformHost,
+            if (_shapeTextTransformHost is null) _shapeTextTransformHost = new DxThemedWindowHost();
+
+            _shapeTextTransformHost.DisplayUserControlInHost(
             "TextTransform",
             600, 450,
                 ShowWindowMode.Modeless_Show,
@@ -625,7 +663,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeThemePropertiesHost,
+            if (_shapeThemePropertiesHost is null) _shapeThemePropertiesHost = new DxThemedWindowHost();
+
+            _shapeThemePropertiesHost.DisplayUserControlInHost(
                 "Shape ThemeProperties",
                 600, 800,
                 ShowWindowMode.Modeless_Show,
@@ -654,7 +694,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageActionsHost,
+            if (_pageActionsHost is null) _pageActionsHost = new DxThemedWindowHost();
+
+            _pageActionsHost.DisplayUserControlInHost(
                 "Actions (Page)",
                 600, 800,
                 ShowWindowMode.Modeless_Show,
@@ -674,7 +716,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeActionsHost,
+            if (_shapeActionsHost is null) _shapeActionsHost = new DxThemedWindowHost();
+
+            _shapeActionsHost.DisplayUserControlInHost(
                 "Actions (Shape)",
                 600, 800,
                 ShowWindowMode.Modeless_Show,
@@ -698,7 +742,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageActionTagsHost,
+            if (_pageActionTagsHost is null) _pageActionTagsHost = new DxThemedWindowHost();
+
+            _pageActionTagsHost.DisplayUserControlInHost(
                 "ActionsTags (Page)",
                 600, 750,
                 ShowWindowMode.Modeless_Show,
@@ -718,7 +764,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeActionTagsHost,
+            if (_shapeActionTagsHost is null) _shapeActionTagsHost = new DxThemedWindowHost();
+
+            _shapeActionTagsHost.DisplayUserControlInHost(
                 "ActionsTags (Shape)",
                 600, 750,
                 ShowWindowMode.Modeless_Show,
@@ -742,7 +790,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeActionTagsHost,
+            if (_characterHost is null) _characterHost = new DxThemedWindowHost();
+
+            _characterHost.DisplayUserControlInHost(
                 "Character",
                 600, 750,
                 ShowWindowMode.Modeless_Show,
@@ -766,7 +816,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _connectionPointsHost,
+            if (_connectionPointsHost is null) _connectionPointsHost = new DxThemedWindowHost();
+
+            _connectionPointsHost.DisplayUserControlInHost(
                 "ConnectionPoints",
                 600, 750,
                 ShowWindowMode.Modeless_Show,
@@ -790,7 +842,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _controlsHost,
+            if (_controlsHost is null) _controlsHost = new DxThemedWindowHost();
+
+            _controlsHost.DisplayUserControlInHost(
                  "Controls",
                  600, 750,
                  ShowWindowMode.Modeless_Show,
@@ -829,7 +883,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _fillGradientStopsHost,
+            if (_fillGradientStopsHost is null) _fillGradientStopsHost = new DxThemedWindowHost();
+
+            _fillGradientStopsHost.DisplayUserControlInHost(
                  "FillGradientStops",
                  600, 750,
                  ShowWindowMode.Modeless_Show,
@@ -853,7 +909,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _documentHyperLinksHost,
+            if (_documentHyperLinksHost is null) _documentHyperLinksHost = new DxThemedWindowHost();
+
+            _documentHyperLinksHost.DisplayUserControlInHost(
                 "Hyperlinks (Document)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -874,7 +932,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageHyperLinksHost,
+            if (_pageHyperLinksHost is null) _pageHyperLinksHost = new DxThemedWindowHost();
+
+            _pageHyperLinksHost.DisplayUserControlInHost(
                 "Hyperlinks (Page)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -894,7 +954,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeHyperlinksHost,
+            if (_shapeHyperlinksHost is null) _shapeHyperlinksHost = new DxThemedWindowHost();
+
+            _shapeHyperlinksHost.DisplayUserControlInHost(
                 "Hyperlinks (Shape)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -918,7 +980,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageLayersHost,
+            if (_pageLayersHost is null) _pageLayersHost = new DxThemedWindowHost();
+
+            _pageLayersHost.DisplayUserControlInHost(
                 "Layers (Page)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -942,7 +1006,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _lineGradientStopsHost,
+            if (_lineGradientStopsHost is null) _lineGradientStopsHost = new DxThemedWindowHost();
+
+            _lineGradientStopsHost.DisplayUserControlInHost(
                  "LineGradientStops",
                  600, 750,
                  ShowWindowMode.Modeless_Show,
@@ -966,7 +1032,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _paragraphHost,
+            if (_paragraphHost is null) _paragraphHost = new DxThemedWindowHost();
+
+            _paragraphHost.DisplayUserControlInHost(
                 "Paragraph",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -990,7 +1058,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _documentScratchHost,
+            if (_documentScratchHost is null) _documentScratchHost = new DxThemedWindowHost();
+
+            _documentScratchHost.DisplayUserControlInHost(
                 "Scratch (Document)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1010,7 +1080,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageScratchHost,
+            if (_pageScratchHost is null) _pageScratchHost = new DxThemedWindowHost();
+
+            _pageScratchHost.DisplayUserControlInHost(
                 "Scratch (Page)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1030,7 +1102,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeScratchHost,
+            if (_shapeScratchHost is null) _shapeScratchHost = new DxThemedWindowHost();
+
+            _shapeScratchHost.DisplayUserControlInHost(
                 "Scratch (Shape)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1054,7 +1128,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _documentShapeDataHost,
+            if (_documentShapeDataHost is null) _documentShapeDataHost = new DxThemedWindowHost();
+
+            _documentShapeDataHost.DisplayUserControlInHost(
                 "Shape Data (Document)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1074,7 +1150,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageShapeDataHost,
+            if (_pageShapeDataHost is null) _pageShapeDataHost = new DxThemedWindowHost();
+
+            _pageShapeDataHost.DisplayUserControlInHost(
                 "Shape Data (Page)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1094,7 +1172,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeShapeDataHost,
+            if (_shapeShapeDataHost is null) _shapeShapeDataHost = new DxThemedWindowHost();
+
+            _shapeShapeDataHost.DisplayUserControlInHost(
                 "Shape Data (Shape)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1118,7 +1198,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _tabsHost,
+            if (_tabsHost is null) _tabsHost = new DxThemedWindowHost();
+
+            _tabsHost.DisplayUserControlInHost(
                 "Tabs",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1142,7 +1224,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _textFieldsHost,
+            if (_textFieldsHost is null) _textFieldsHost = new DxThemedWindowHost();
+
+            _textFieldsHost.DisplayUserControlInHost(
                 "Tabs",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1166,7 +1250,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _documentUserDefinedCellsHost,
+            if (_documentUserDefinedCellsHost is null) _documentUserDefinedCellsHost = new DxThemedWindowHost();
+
+            _documentUserDefinedCellsHost.DisplayUserControlInHost(
                 "User-Defined Cells (Document)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1186,7 +1272,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _pageUserDefinedCellsHost,
+            if (_pageUserDefinedCellsHost is null) _pageUserDefinedCellsHost = new DxThemedWindowHost();
+
+            _pageUserDefinedCellsHost.DisplayUserControlInHost(
                 "User-Defined Cells (Page)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
@@ -1206,7 +1294,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref _shapeUserDefinedCellsHost,
+            if (_shapeUserDefinedCellsHost is null) _shapeUserDefinedCellsHost = new DxThemedWindowHost();
+
+            _shapeUserDefinedCellsHost.DisplayUserControlInHost(
                 "User-Defined Cells (Shape)",
                 800, 700,
                 ShowWindowMode.Modeless_Show,
