@@ -11,6 +11,7 @@ using VNC.Core;
 using System.Text.RegularExpressions;
 using DevExpress.XtraRichEdit.Unicode.TextAnalyzer;
 using Microsoft.Office.Interop.Visio;
+using System.Reflection;
 
 namespace SupportTools_Visio.Actions
 {
@@ -1132,26 +1133,50 @@ namespace SupportTools_Visio.Actions
 
         public static void ToggleLayerVisibility(Visio.Application app, string doc, string page, string shape, string shapeu)
         {
-            VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0})",
-                System.Reflection.MethodInfo.GetCurrentMethod().Name));
+            VNCVisioAddIn.Common.DisplayInDebugWindow($"{MethodInfo.GetCurrentMethod().Name}");
 
             Visio.Shape activeShape = app.ActivePage.Shapes[shape];
+            Page activePage = app.ActivePage;
+
+            ToggleLayerSetting(activePage, activeShape, VisCellIndices.visLayerVisible);
+            //string layerName = activeShape.CellsU["Prop.Layer"].ResultStrU[0];
+
+            //foreach (Visio.Layer layer in activePage.Layers)
+            //{
+
+            //    VNCVisioAddIn.Common.DisplayInDebugWindow(layer.Name);
+
+            //    if (layer.Name.ToLower() == layerName.ToLower())
+            //    {
+            //        var currentState = layer.CellsC[(short)Visio.VisCellIndices.visLayerVisible].ResultIU;
+            //        string newState = null;
+
+            //        newState = (currentState == 0) ? "1" : "0";
+
+            //        //bool state = !bool.Parse(.ToString());
+            //        layer.CellsC[(short)Visio.VisCellIndices.visLayerVisible].Formula = newState;
+            //        activeShape.CellsU["Prop.Visible"].FormulaU = newState;
+            //    }
+            //}
+        }
+
+        public static void ToggleLayerSetting(Page activePage, Shape activeShape, VisCellIndices visCell)
+        {
             string layerName = activeShape.CellsU["Prop.Layer"].ResultStrU[0];
 
-            foreach (Visio.Layer layer in app.ActivePage.Layers)
+            foreach (Visio.Layer layer in activePage.Layers)
             {
-
                 VNCVisioAddIn.Common.DisplayInDebugWindow(layer.Name);
 
                 if (layer.Name.ToLower() == layerName.ToLower())
                 {
-                    var currentState = layer.CellsC[(short)Visio.VisCellIndices.visLayerVisible].ResultIU;
+                    var currentState = layer.CellsC[(short)visCell].ResultIU;
                     string newState = null;
 
                     newState = (currentState == 0) ? "1" : "0";
 
                     //bool state = !bool.Parse(.ToString());
-                    layer.CellsC[(short)Visio.VisCellIndices.visLayerVisible].Formula = newState;
+                    layer.CellsC[(short)visCell].Formula = newState;
                     activeShape.CellsU["Prop.Visible"].FormulaU = newState;
                 }
             }

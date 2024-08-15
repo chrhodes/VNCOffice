@@ -23,7 +23,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref commandCockpitHost,
+            if (commandCockpitHost is null) commandCockpitHost = new DxThemedWindowHost();
+
+            commandCockpitHost.DisplayUserControlInHost(
                 "Command Cockpit (XML Commands)",
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,
@@ -41,7 +43,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref linqToExcelHost,
+            if (linqToExcelHost is null) linqToExcelHost = new DxThemedWindowHost();
+
+            linqToExcelHost.DisplayUserControlInHost(
                 "Linq to Excel",
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,
@@ -57,7 +61,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref duplicatePageHost,
+            if (duplicatePageHost is null) duplicatePageHost = new DxThemedWindowHost();
+
+            duplicatePageHost.DisplayUserControlInHost(
             "Duplicate Page",
             Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
             //Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
@@ -73,7 +79,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref renamePagesHost,
+            if (renamePagesHost is null) renamePagesHost = new DxThemedWindowHost();
+
+            renamePagesHost.DisplayUserControlInHost(
                 "Rename Paqe(s)",
                 Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
                 ShowWindowMode.Modeless_Show,
@@ -89,7 +97,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref movePagesHost,
+            if (movePagesHost is null) movePagesHost = new DxThemedWindowHost();
+
+            movePagesHost.DisplayUserControlInHost(
                 "Move Paqe(s)",
                 Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
                 ShowWindowMode.Modeless_Show,
@@ -105,7 +115,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref editControlRowsHost,
+            if (editControlRowsHost is null) editControlRowsHost = new DxThemedWindowHost();
+
+            editControlRowsHost.DisplayUserControlInHost(
                 "Edit Control Rows",
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,
@@ -116,12 +128,13 @@ namespace SupportTools_Visio
 
         public static DxThemedWindowHost editParagraphHost = null;
 
-        //public static VNC.Core.Xaml.Presentation.WindowHost editControlPointsHost = null;
         private void btnEditParagraph_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref editParagraphHost,
+            if (editParagraphHost is null) editParagraphHost = new DxThemedWindowHost();
+
+            editParagraphHost.DisplayUserControlInHost(
                 "Edit Paragraph",
                 300, 600,
                 ShowWindowMode.Modeless_Show,
@@ -130,12 +143,9 @@ namespace SupportTools_Visio
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        private EditControlPoints editControlPointsUC = null;
+        //private EditControlPoints editControlPointsUC = null;
 
-        public static DxThemedWindowHost editTextHost = null;
-
-        // static VNC.Core.Xaml.Presentation.WindowHost editTextHost = null;
-        private Presentation.Views.EditText editTextUC = null;
+        //private Presentation.Views.EditText editTextUC = null;
 
         public static DxThemedWindowHost editControlPointsHost = null;
 
@@ -143,7 +153,9 @@ namespace SupportTools_Visio
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref editControlPointsHost,
+            if (editControlPointsHost is null) editControlPointsHost = new DxThemedWindowHost();
+
+            editControlPointsHost.DisplayUserControlInHost(
                 "Edit Shape Control Points Text",
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,
@@ -152,11 +164,15 @@ namespace SupportTools_Visio
             Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
+        public static DxThemedWindowHost editTextHost = null;
+
         private void btnEditText_Click(object sender, RibbonControlEventArgs e)
         {
             Int64 startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref editTextHost,
+            if (editTextHost is null) editTextHost = new DxThemedWindowHost();
+
+            editTextHost.DisplayUserControlInHost(
                 "Edit Text",
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,
@@ -176,7 +192,9 @@ namespace SupportTools_Visio
             //    (Explore.Presentation.ViewModels.CarMainViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(Explore.Presentation.ViewModels.CarMainViewModel))
             //);
 
-            DxThemedWindowHost.DisplayUserControlInHost(ref carMainHost,
+            if (carMainHost is null) carMainHost = new DxThemedWindowHost();
+
+            carMainHost.DisplayUserControlInHost(
                 "CarMain",
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,

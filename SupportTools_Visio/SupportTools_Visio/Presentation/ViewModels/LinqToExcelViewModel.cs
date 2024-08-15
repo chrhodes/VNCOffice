@@ -205,7 +205,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
         XL.Application xlApp = new XL.Application();
 
         XL.Workbook wb = xlApp.Workbooks.Open(workBookName);
-        XL.Worksheet ws = wb.Sheets[workSheetName];
+        XL.Worksheet ws = (XL.Worksheet)wb.Sheets[workSheetName];
         XL.ListObject lo = ws.ListObjects[tableName];
         XL.ListColumns listColumns = lo.ListColumns;
         XL.ListRows listRows = lo.ListRows;
@@ -388,7 +388,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             XL.Application xlApp = new XL.Application();
 
             XL.Workbook wb = xlApp.Workbooks.Open(@"B:\Publish\SupportTools_Visio\TestData.xlsx");
-            XL.Worksheet ws = wb.Sheets[1];
+            XL.Worksheet ws = (XL.Worksheet)wb.Sheets[1];
             XL.Range rng = ws.UsedRange;
 
             int rows = rng.Rows.Count;
@@ -398,7 +398,7 @@ namespace SupportTools_Visio.Presentation.ViewModels
             {
                 for (int j = 1; j <= cols; j++)
                 {
-                    VNCVisioAddIn.Common.WriteToWatchWindow(rng.Cells[i, j].Value2.ToString());
+                    VNCVisioAddIn.Common.WriteToWatchWindow(((XL.Range)rng.Cells[i, j]).Value2.ToString());
                 }
             }
 

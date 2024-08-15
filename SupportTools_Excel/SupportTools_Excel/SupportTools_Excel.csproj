@@ -993,10 +993,6 @@
       <Project>{88bdcdd4-816b-4a4a-8df6-72fe2644714c}</Project>
       <Name>ModuleOptions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modules\ModuleA\ModuleA.csproj">
-      <Project>{3d9a8549-a7a8-4df9-829e-aeae7ecacaca}</Project>
-      <Name>ModuleA</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SupportTools_Excel.Infrastructure\SupportTools_Excel.Core.csproj">
       <Project>{bb1193ec-4836-4850-a4c4-0cd639ec39f5}</Project>
       <Name>SupportTools_Excel.Core</Name>
