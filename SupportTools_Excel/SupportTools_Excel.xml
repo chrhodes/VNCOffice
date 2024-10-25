@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Support_Tools>
+	<Excel_Config>
+		<ActiveDirectories>
+			<ADDomain Name="VNC.LOCAL" DNSHostName="vncdc1.vnc.local" DefaultNamingContext="DC=vnc,DC=local"/>
+			<ADDomain Name="VNCDEV.LOCAL" DNSHostName="vncdevc1.vnc.local" DefaultNamingContext="DC=vncdev,DC=local"/>
+		</ActiveDirectories>
+		<DBInstanceList>
+			<!-- Be careful with database names.  Case matters. -->
+			<Environment Name="VNC">
+				<Instance Server="VNCSQL" IPv4Address=""  Instance="" Port="" />
+				<Instance Server="VNCSQL" IPv4Address="10.0.100.21"  Instance="" Port="" />
+				<Instance Server="" IPv4Address="10.0.100.21"  Instance="SQL2014" Port="" />
+				<Instance Server="VNCSQL" IPv4Address="10.0.100.21"  Instance="SQL2016" Port="" />
+				<Instance Server="" IPv4Address="10.0.100.21"  Instance="" Port="1514" />					
+				<Instance Server="" IPv4Address="10.0.100.21"  Instance="" Port="1516" />				
+			</Environment>
+		</DBInstanceList>
+		<EnvironmentList>
+			<Environment Name="Production"	Path="\\XXX\Production\xxx_Reporting" />
+			<Environment Name="Staging"		Path="\\XXX\QA_Staging\xxx_Reporting" />
+			<Environment Name="Test"		Path="\\XXX\ITEST\xxx_Reporting" />
+			<Environment Name="Dev"			Path="\\XXX\IDEV\M_Treaty_Reporting" />
+		</EnvironmentList>
+
+    <XXX>
+      <yyy Name="Foo" Uri="http://foo"/>
+      <yyy Name="Bar" Uri="http://bar"/>
+    </XXX>
+	</Excel_Config>
+
+</Support_Tools>
