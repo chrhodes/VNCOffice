@@ -1,6 +1,6 @@
 ﻿namespace VNC.Visio.VSTOAddIn
 {
-    public class Common : VNC.VSTOAddIn.Common
+    public class Common : VNC.Core.Common
     {
         new public const string LOG_CATEGORY = "VNCVisioVSTOAddIn";
         //        public static Microsoft.Office.Interop.Visio.Application VisioApplication { get; set; }

@@ -54,8 +54,12 @@
     </ItemGroup> 
 
     <ItemGroup>
-      <ProjectReference Include="..\VNC.VSTOAddin\VNC.VSTOAddin.csproj" />
-    </ItemGroup>
+      <PackageReference Include="VNC.Core" Version="2.1.7" />
+    </ItemGroup> 
+
+    <!--<ItemGroup>
+      <ProjectReference Include="..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />
+    </ItemGroup>-->
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
         <!-- Uncoment next line to switch to ProjectReference(s) -->
@@ -67,14 +71,10 @@
     </PropertyGroup>
 
     <Choose>
-        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
-            <ItemGroup>
-                <ProjectReference Include="..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
-            </ItemGroup>
-        </When>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'" />
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <PackageReference Include="VNC.Core" Version="2.1.6" />
+                <PackageReference Include="VNC.Core" Version="2.1.7" />
             </ItemGroup>
         </When>
     </Choose>

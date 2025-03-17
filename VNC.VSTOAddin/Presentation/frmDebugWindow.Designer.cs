@@ -1,4 +1,4 @@
-﻿namespace VNC.VSTOAddIn.Presentation
+﻿namespace VisioAddInTemplate.Presentation
 {
     partial class frmDebugWindow
     {

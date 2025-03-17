@@ -249,7 +249,7 @@ Global
 		{BB1193EC-4836-4850-A4C4-0CD639EC39F5} = {21D67098-2181-4E9C-AC42-B75D18C8391C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Common.NetCore.6.3.0\lib\NET45;packages\EnterpriseLibrary.Logging.NetCore.6.3.2\lib\NET45
 		SolutionGuid = {B53995B5-300E-4344-9884-E3A482ED16D2}
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Logging.6.0.1304.0\lib\NET45;packages\EnterpriseLibrary.Common.NetCore.6.3.0\lib\NET45;packages\EnterpriseLibrary.Logging.NetCore.6.3.2\lib\NET45
 	EndGlobalSection
 EndGlobal
