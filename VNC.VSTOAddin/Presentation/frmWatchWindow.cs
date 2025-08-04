@@ -12,7 +12,7 @@ namespace VNC.VSTOAddIn.Presentation
             InitializeComponent();
         }
 
-        internal void AddOutputLine(string outputLine)
+        public void AddOutputLine(string outputLine)
         {
             txtOutput.AppendText(outputLine + Environment.NewLine);
 
