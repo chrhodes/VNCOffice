@@ -80,6 +80,11 @@
       <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -1002,6 +1007,10 @@
     <ProjectReference Include="..\Modules\Explore\Explore.csproj">
       <Project>{2c063f33-f4f1-40df-b485-a7dc21154300}</Project>
       <Name>Explore</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ModuleA\ModuleA.csproj">
+      <Project>{3d9a8549-a7a8-4df9-829e-aeae7ecacaca}</Project>
+      <Name>ModuleA</Name>
     </ProjectReference>
     <ProjectReference Include="..\SupportTools_Visio.Core\SupportTools_Visio.Core.csproj">
       <Project>{bb1193ec-4836-4850-a4c4-0cd639ec39f5}</Project>

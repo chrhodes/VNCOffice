@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace VNC.VSTOAddIn
 {
-    public class Common
+    public class Common  // : VNC.Core.Common
     {
         public const string LOG_CATEGORY = "VSTOAddIn";
 
@@ -79,15 +79,15 @@ namespace VNC.VSTOAddIn
         {
             if (DeveloperMode)
             {
-                WatchWindow.AddOutputLine(message + "-" + (Stopwatch.GetTimestamp() - startTicks) / Stopwatch.Frequency);
+                WatchWindow.AddOutputLine(message + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
             }
 
             return Stopwatch.GetTimestamp();
         }
 
-        public static long WriteToDebugWindow(string message)
+        public static long WriteToDebugWindow(string message, Boolean force = false)
         {
-            if (DeveloperMode)
+            if (DeveloperMode || force)
             {
                 DebugWindow.AddOutputLine(message);
             }
@@ -95,12 +95,11 @@ namespace VNC.VSTOAddIn
             return Stopwatch.GetTimestamp();
         }
 
-        public static long WriteToDebugWindow(string message, long startTicks)
+        public static long WriteToDebugWindow(string message, long startTicks, Boolean force = false)
         {
-
-            if (DeveloperMode)
+            if (DeveloperMode || force)
             {
-                DebugWindow.AddOutputLine(message + "-" + (Stopwatch.GetTimestamp() - startTicks) / Stopwatch.Frequency);
+                DebugWindow.AddOutputLine(message + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
             }
 
             return Stopwatch.GetTimestamp();
