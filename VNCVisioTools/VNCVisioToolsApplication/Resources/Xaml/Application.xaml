@@ -31,11 +31,11 @@
         <!--<ResourceDictionary Source="AutoHideGroup_Styles.xaml"/>-->
         
         <!--This might be for EOL-->
-        <!--<ResourceDictionary Source="ColumnHeader_Styles.xaml"/>
+        <!--<ResourceDictionary Source="ColumnHeader_Styles.xaml"/>-->
         <ResourceDictionary Source="Layout_Styles.xaml"/>
 
-        <ResourceDictionary Source="Display_StylesAndTemplates.xaml" />
-        <ResourceDictionary Source="ToolBoxResources.xaml" />-->
+        <!--<ResourceDictionary Source="Display_StylesAndTemplates.xaml" />-->
+        <!--<ResourceDictionary Source="ToolBoxResources.xaml" />-->
 
         <!-- TODO(crhodes)
          This works to pull in xaml from a referenced project.
@@ -51,18 +51,18 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--<Style x:Key="dxlcGroup" TargetType="dxlc:LayoutGroup">
-        --><!--<Setter Property="TitleBackground" Value="White"/>--><!--
+        <Setter Property="TitleBackground" Value="White"/>
         <Setter Property="Background" Value="White"/>
-        --><!--<Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>--><!--
-    </Style>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    </Style>-->
 
     <Style x:Key="dxlcGroupBox" TargetType="dxlc:GroupBox">
         <Setter Property="TitleBackground" Value="White"/>
         <Setter Property="Background" Value="White"/>
     </Style>
     
-    <Style x:Key="dxlcGroupBoxOptions" TargetType="dxlc:GroupBox">
+    <!--<Style x:Key="dxlcGroupBoxOptions" TargetType="dxlc:GroupBox">
         <Setter Property="TitleBackground" Value="White"/>
         <Setter Property="Background" Value="LightGray"/>
     </Style>

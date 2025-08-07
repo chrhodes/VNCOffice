@@ -2,7 +2,7 @@
 using Prism.Modularity;
 using Prism.Regions;
 
-//using SupportTools_Visio.Presentation.ViewModels;
+//using VNCVisioToolsApplication.Presentation.ViewModels;
 
 using Unity;
 
@@ -10,7 +10,7 @@ using VNC;
 
 namespace VNCVisioToolsApplication.Modules
 {
-    public class SupportTools_VisioModule : IModule
+    public class VNCVisioToolsApplicationModule : IModule
     {
         // 01
         public void RegisterTypes(IContainerRegistry containerRegistry)

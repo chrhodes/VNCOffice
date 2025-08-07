@@ -34,7 +34,6 @@ namespace VNCVisioToolsApplication.Actions
 
         #endregion
 
-
         #region Main Function Routines
 
         public static void Add_IDandTextSupport_ToSelection()

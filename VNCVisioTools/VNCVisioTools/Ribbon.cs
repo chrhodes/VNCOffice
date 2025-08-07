@@ -26,6 +26,5 @@ namespace VNCVisioTools
         {
             Int64 startTicks = Common.WriteToDebugWindow("Ribbon_Load()", true);
         }
-
     }
 }

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFrameworks>net481</TargetFrameworks>
         <ImplicitUsings>disable</ImplicitUsings>
-        <UseWPF>true</UseWPF>
+        <!--<UseWPF>true</UseWPF>-->
         <UseWindowsForms>true</UseWindowsForms>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
         <AssemblyName>VNC.VSTOAddIn</AssemblyName>
@@ -21,7 +21,7 @@
         <PackageTags>vsto;mvvm</PackageTags>
         <PackageIcon>VNC.png</PackageIcon>
         <Authors>Christopher Rhodes</Authors>
-        <Copyright>Copyright © VNC 2023</Copyright>
+        <Copyright>Copyright © VNC 2025</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Description>VNC VSTO AddIn Helper</Description>
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>

@@ -23,6 +23,13 @@ namespace VNCVisioToolsApplication.Visio
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
+            // NOTE(crhodes)
+            // We need to update VNC.Core as VNCCoreLogging and VNCLogging are null
+            // We started initializing them in 3.0+
+
+            VNC.Core.Common.VNCCoreLogging = new VNC.Core.VNCLoggingConfig();
+            VNC.Core.Common.VNCLogging = new VNC.Core.VNCLoggingConfig();
+
             CreateXamlApplication();
 
             InitializePrism();

@@ -376,6 +376,74 @@ namespace VNC.Visio.VSTOAddIn
             }
         }
 
+        public static short GetVisPropType(string value)
+        {
+            short visPropType = 0;
+
+            switch (value)
+            {
+                case "VisCellVals.visPropTypeBool":
+                case "3":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeBool;
+                    break;
+
+                case "VisCellVals.visPropTypeCurrency":
+                case "7":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeCurrency;
+                    break;
+
+                case "VisCellVals.visPropTypeDate":
+                case "5":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeDate;
+                    break;
+
+                case "VisCellVals.visPropTypeDuration":
+                case "6":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeDuration;
+                    break;
+
+                case "VisCellVals.visPropTypeListFix":
+                case "1":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeListFix;
+                    break;
+
+                case "VisCellVals.visPropTypeListVar":
+                case "4":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeListVar;
+                    break;
+
+                case "VisCellVals.visPropTypeNumber":
+                case "2":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeNumber;
+                    break;
+
+                case "VisCellVals.visPropTypeString":
+                case "0":
+                    visPropType = (short)MSVisio.VisCellVals.visPropTypeString;
+                    break;
+
+                default:
+                    Common.WriteToWatchWindow(string.Format("Unrecognized VisPropType >{0}<", value));
+
+                    break;
+            }
+
+            return visPropType;
+        }
+
+        public static string GetShapePropertyAsString(MSVisio.Shape activeShape, string property)
+        {
+            string propertyName = "Prop." + property;
+            string result = "";
+
+            if (activeShape.CellExistsU[propertyName, 0] != 0)
+            {
+                result = activeShape.CellsU[propertyName].ResultStrU[MSVisio.VisUnitCodes.visUnitsString];
+            }
+
+            return result;
+        }
+
         public static bool LoadStencil(MSVisio.Application app, string stencilName)
         {
             bool result = false;
@@ -562,8 +630,6 @@ namespace VNC.Visio.VSTOAddIn
                 Common.WriteToDebugWindow(ex.ToString(), force: true);
             }
         }
-
-
 
         public static Boolean RowExists(
             MSVisio.Shape shape,

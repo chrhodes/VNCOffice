@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <None Remove="Resources\Xaml\Application.xaml" />
+    <None Remove="Resources\Xaml\Layout_Styles.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,14 +25,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CalcBinding" Version="2.5.2" />
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
     <PackageReference Include="stdole" Version="17.14.40260" />
+    <PackageReference Include="VNC.AZDO" Version="2.0.1" />
+    <PackageReference Include="VNC.CodeAnalysis" Version="2.0.0" />
+    <PackageReference Include="VNC.WPF.Presentation.Dx" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Page Include="Resources\Xaml\Application.xaml">
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\Xaml\Layout_Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
 
@@ -44,6 +52,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Presentation\Views\" />
+  </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net481|AnyCPU'">
         <!-- Uncoment next line to switch to ProjectReference(s) -->
          <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> 
@@ -52,8 +64,9 @@
     <Choose>
         <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <ProjectReference Include="..\..\VNC.Visio.VSTOAddin\VNC.Visio.VSTOAddIn.csproj" />
-                <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />
+                <ProjectReference Include="..\VNCVisioToolsApplication.Core\VNCVisioToolsApplication.Core.csproj" />                  
+                <ProjectReference Include="..\..\VNC.Visio.VSTOAddin\VNC.Visio.VSTOAddIn.csproj" />           
+                <!--<ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />-->
             </ItemGroup>
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">

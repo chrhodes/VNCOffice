@@ -103,7 +103,7 @@ namespace VNCVisioToolsApplication
 
             Int64 startTicks = Common.WriteToDebugWindow("ConfigureModuleCatalog()", true);
 
-            moduleCatalog.AddModule(typeof(SupportTools_VisioModule));
+            moduleCatalog.AddModule(typeof(VNCVisioToolsApplicationModule));
 
             //moduleCatalog.AddModule(typeof(ModuleA.ModuleAModule));
 

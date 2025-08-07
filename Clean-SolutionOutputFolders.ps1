@@ -1,18 +1,10 @@
 
 $folders = @(
-    # "VNC.ActiveDirectoryHelper"
-    # , "VNC.AssemblyHelper\VNC.AssemblyHelper"
-    # , "VNC.AZDO"
-    # , "VNC.AZDOHelper"
-    # , "VNC.CodeAnalysis\VNC.CodeAnalysis"
-    # , "VNC.Core"
-    # , "VNC.HttpHelper"
-    # , "VNC.Logging\VNC.Logging"
-    # , "VNC.VNC.SMOHelper"
-    # , "VNC.SPHelper\VNC.SPHelper"
-    # , "VNC.TFSHelper\VNC.TFSHelper"
-    # , "VNC.WPF.Presentation"
-    # , "VNC.WPF.Presentation.Dx"
+    "VNC.Visio.VSTOAddIn"
+    , "VNC.VSTOAddin"
+    , "VNCVisioTools"
+    , "VNCVisioToolsApplication"
+    , "VNCVisioToolsApplication.Core"    
     )
 
 foreach ($folder in $folders)
