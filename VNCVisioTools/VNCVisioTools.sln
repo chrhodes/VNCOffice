@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.Visio.VSTOAddIn", "..\V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCVisioToolsApplication.Core", "VNCVisioToolsApplication.Core\VNCVisioToolsApplication.Core.csproj", "{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCShapeSheet", "VNSShapeSheet\VNCShapeSheet.csproj", "{21FCC6AF-ECF3-48F7-84EC-F69068952DE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCShapeSheetApplication", "VNCShapeSheetApplication\VNCShapeSheetApplication.csproj", "{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21FCC6AF-ECF3-48F7-84EC-F69068952DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21FCC6AF-ECF3-48F7-84EC-F69068952DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21FCC6AF-ECF3-48F7-84EC-F69068952DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21FCC6AF-ECF3-48F7-84EC-F69068952DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
