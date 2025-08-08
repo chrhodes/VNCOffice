@@ -5,6 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Presentation\Views\CommandCockpit.xaml" />
+    <None Remove="Presentation\Views\DuplicatePage.xaml" />
+    <None Remove="Presentation\Views\EditControlPoints.xaml" />
+    <None Remove="Presentation\Views\EditControlRows.xaml" />
+    <None Remove="Presentation\Views\EditParagraph.xaml" />
+    <None Remove="Presentation\Views\EditText.xaml" />
+    <None Remove="Presentation\Views\MovePage.xaml" />
+    <None Remove="Presentation\Views\PrismRegionTest.xaml" />
+    <None Remove="Presentation\Views\RenamePage.xaml" />
+    <None Remove="Presentation\Views\ViewA.xaml" />
+    <None Remove="Presentation\Views\ViewB.xaml" />
+    <None Remove="Presentation\Views\ViewC1.xaml" />
+    <None Remove="Presentation\Views\ViewC2.xaml" />
     <None Remove="Resources\Xaml\Application.xaml" />
     <None Remove="Resources\Xaml\Layout_Styles.xaml" />
   </ItemGroup>
@@ -34,6 +47,45 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Include="Presentation\Views\CommandCockpit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\DuplicatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\EditControlPoints.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\EditControlRows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\EditParagraph.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\EditText.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\MovePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\PrismRegionTest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\RenamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ViewA.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ViewB.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ViewC1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ViewC2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Xaml\Application.xaml">
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -50,10 +102,6 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="WindowsBase" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Presentation\Views\" />
   </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net481|AnyCPU'">

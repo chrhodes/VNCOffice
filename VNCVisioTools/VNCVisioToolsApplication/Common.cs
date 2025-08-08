@@ -10,7 +10,7 @@ namespace VNCVisioToolsApplication
     {
         new public const string LOG_CATEGORY = "VNCVisioToolsApplication";
 
-        public const string cCONFIG_FILE = @"C:\temp\SupportTools_Visio.xml";
+        public const string cCONFIG_FILE = @"C:\temp\VNCVisioToolsApplication.xml";
 
         public static Events.VisioAppEvents AppEvents;
         public static Events.AddInApplicationEvents AddInApplicationEvents;

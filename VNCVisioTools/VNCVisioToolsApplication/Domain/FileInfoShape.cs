@@ -71,7 +71,7 @@ namespace VNCVisioToolsApplication.Domain
             return sb.ToString();
         }
 
-        //void CreateMethodShapes(Visio.Page page, Visio.Shape shape)
+        //void CreateMethodShapes(MSVisio.Page page, MSVisio.Shape shape)
         //{
         //    ProcessOperation(sb, DisplayMethodStatementWalkerVB);
         //}

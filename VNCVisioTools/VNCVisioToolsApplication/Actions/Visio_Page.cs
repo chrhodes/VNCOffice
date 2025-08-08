@@ -177,8 +177,8 @@ namespace VNCVisioToolsApplication.Actions
                 //foreach (MSVisio.Shape shape in linkPage.Shapes)
                 //{
                 //    // TODO: Make this smarter about only using IsNavigationLink shapes
-                //    shape.Copy(Visio.VisCutCopyPasteCodes.visCopyPasteNoTranslate);
-                //    page.Paste(Visio.VisCutCopyPasteCodes.visCopyPasteNoTranslate);
+                //    shape.Copy(MSVisio.VisCutCopyPasteCodes.visCopyPasteNoTranslate);
+                //    page.Paste(MSVisio.VisCutCopyPasteCodes.visCopyPasteNoTranslate);
                 //}
 
                 // Typically we don't print the stuff on the navigation layer.

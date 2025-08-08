@@ -48,7 +48,7 @@ namespace VNCVisioToolsApplication.Actions
 
                 //if (WorkItemType == "")
                 //{
-                //    WorkItemType = shape.CellsU["Prop.PageName"].ResultStr[Visio.VisUnitCodes.visUnitsString];
+                //    WorkItemType = shape.CellsU["Prop.PageName"].ResultStr[MSVisio.VisUnitCodes.visUnitsString];
                 //}
             }
 
@@ -72,7 +72,7 @@ namespace VNCVisioToolsApplication.Actions
 
             //if (WorkItemType == "")
             //{
-            //    WorkItemType = shape.CellsU["Prop.PageName"].ResultStr[Visio.VisUnitCodes.visUnitsString];
+            //    WorkItemType = shape.CellsU["Prop.PageName"].ResultStr[MSVisio.VisUnitCodes.visUnitsString];
             //}
 
             // All the other properties are populated when getting fields from the WorkItem

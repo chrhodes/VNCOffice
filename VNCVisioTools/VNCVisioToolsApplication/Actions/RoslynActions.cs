@@ -113,11 +113,11 @@ namespace VNCVisioToolsApplication.Actions
 
                 //// OK.  Now we have a list of Method Names.  Let's add shapes for each of them.
 
-                //Visio.Master methodMaster = app.Documents[@"API.vssx"].Masters[@"Roslyn SuperFile"];
+                //MSVisio.Master methodMaster = app.Documents[@"API.vssx"].Masters[@"Roslyn SuperFile"];
 
                 //foreach (string methodName in methodNames)
                 //{
-                //    Visio.Shape newMethod = activePage.Drop(methodMaster, 5.0, 5.0);
+                //    MSVisio.Shape newMethod = activePage.Drop(methodMaster, 5.0, 5.0);
                 //    newMethod.CellsU["Prop.MethodName"].FormulaU = methodName.WrapInDblQuotes();
                 //}
             }

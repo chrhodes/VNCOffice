@@ -18,15 +18,15 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CommandCockpit()
         {
-            //if (commandCockpitHost is null) commandCockpitHost = new DxThemedWindowHost();
+            if (commandCockpitHost is null) commandCockpitHost = new DxThemedWindowHost();
 
-            //commandCockpitHost.DisplayUserControlInHost(
-            //    "Command Cockpit (XML Commands)",
-            //    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //    ShowWindowMode.Modeless_Show,
-            //    //(CommandCockpitViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpitViewModel))
-            //    (CommandCockpit)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpit))
-            //);
+            commandCockpitHost.DisplayUserControlInHost(
+                "Command Cockpit (XML Commands)",
+                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                ShowWindowMode.Modeless_Show,
+                //(CommandCockpitViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpitViewModel))
+                (CommandCockpit)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpit))
+            );
         }
 
         //public static DxThemedWindowHost linqToExcelHost = null;
@@ -47,94 +47,94 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DuplicatePage()
         {
-            //if (duplicatePageHost is null) duplicatePageHost = new DxThemedWindowHost();
+            if (duplicatePageHost is null) duplicatePageHost = new DxThemedWindowHost();
 
-            //duplicatePageHost.DisplayUserControlInHost(
-            //"Duplicate Page",
-            //Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            ////Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //ShowWindowMode.Modeless_Show,
-            //new Presentation.Views.DuplicatePage(new DuplicatePageViewModel()));
+            duplicatePageHost.DisplayUserControlInHost(
+            "Duplicate Page",
+            Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+            //Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+            ShowWindowMode.Modeless_Show,
+            new Presentation.Views.DuplicatePage(new DuplicatePageViewModel()));
         }
 
         public static DxThemedWindowHost renamePagesHost = null;
 
         public static void RenamePages()
         {
-            //if (renamePagesHost is null) renamePagesHost = new DxThemedWindowHost();
+            if (renamePagesHost is null) renamePagesHost = new DxThemedWindowHost();
 
-            //renamePagesHost.DisplayUserControlInHost(
-            //    "Rename Paqe(s)",
-            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            //    ShowWindowMode.Modeless_Show,
-            //    (RenamePageViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(RenamePageViewModel))
-            //);
+            renamePagesHost.DisplayUserControlInHost(
+                "Rename Paqe(s)",
+                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+                ShowWindowMode.Modeless_Show,
+                (RenamePageViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(RenamePageViewModel))
+            );
         }
 
         public static DxThemedWindowHost movePagesHost = null;
 
         public static void MovePages()
         {
-            //if (movePagesHost is null) movePagesHost = new DxThemedWindowHost();
+            if (movePagesHost is null) movePagesHost = new DxThemedWindowHost();
 
-            //movePagesHost.DisplayUserControlInHost(
-            //    "Move Paqe(s)",
-            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            //    ShowWindowMode.Modeless_Show,
-            //    (MovePageViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(MovePageViewModel))
-            //);
+            movePagesHost.DisplayUserControlInHost(
+                "Move Paqe(s)",
+                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+                ShowWindowMode.Modeless_Show,
+                (MovePageViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(MovePageViewModel))
+            );
         }
 
         public static DxThemedWindowHost editControlRowsHost = null;
 
         public static void EditControlRows()
         {
-            //if (editControlRowsHost is null) editControlRowsHost = new DxThemedWindowHost();
+            if (editControlRowsHost is null) editControlRowsHost = new DxThemedWindowHost();
 
-            //editControlRowsHost.DisplayUserControlInHost(
-            //    "Edit Control Rows",
-            //    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //    ShowWindowMode.Modeless_Show,
-            //    new Presentation.Views.EditControlRows(new EditControlRowsViewModel()));
+            editControlRowsHost.DisplayUserControlInHost(
+                "Edit Control Rows",
+                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.EditControlRows(new EditControlRowsViewModel()));
         }
 
         public static DxThemedWindowHost editParagraphHost = null;
 
         public static void EditParagraph()
         {
-            //if (editParagraphHost is null) editParagraphHost = new DxThemedWindowHost();
+            if (editParagraphHost is null) editParagraphHost = new DxThemedWindowHost();
 
-            //editParagraphHost.DisplayUserControlInHost(
-            //    "Edit Paragraph",
-            //    300, 600,
-            //    ShowWindowMode.Modeless_Show,
-            //    new Presentation.Views.EditParagraph(new EditParagraphViewModel()));
+            editParagraphHost.DisplayUserControlInHost(
+                "Edit Paragraph",
+                300, 600,
+                ShowWindowMode.Modeless_Show,
+                new Presentation.Views.EditParagraph(new EditParagraphViewModel()));
         }
 
         public static DxThemedWindowHost editControlPointsHost = null;
 
         public static void EditControlPoints()
         {
-            //if (editControlPointsHost is null) editControlPointsHost = new DxThemedWindowHost();
+            if (editControlPointsHost is null) editControlPointsHost = new DxThemedWindowHost();
 
-            //editControlPointsHost.DisplayUserControlInHost(
-            //    "Edit Shape Control Points Text",
-            //    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //    ShowWindowMode.Modeless_Show,
-            //    new EditControlPoints());
+            editControlPointsHost.DisplayUserControlInHost(
+                "Edit Shape Control Points Text",
+                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                ShowWindowMode.Modeless_Show,
+                new EditControlPoints());
         }
 
         public static DxThemedWindowHost editTextHost = null;
 
         public static void EditText()
         {
-            //if (editTextHost is null) editTextHost = new DxThemedWindowHost();
+            if (editTextHost is null) editTextHost = new DxThemedWindowHost();
 
-            //editTextHost.DisplayUserControlInHost(
-            //    "Edit Text",
-            //    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //    ShowWindowMode.Modeless_Show,
-            //    new EditText(new EditTextViewModel()));
+            editTextHost.DisplayUserControlInHost(
+                "Edit Text",
+                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                ShowWindowMode.Modeless_Show,
+                new EditText(new EditTextViewModel()));
         }
 
         public static DxThemedWindowHost carMainHost = null;

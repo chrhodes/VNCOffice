@@ -1,9 +1,15 @@
 ﻿using System.Reflection;
 using System.Windows;
 
+using Prism.Events;
+using Prism.Services.Dialogs;
+
 using VNC.Core.Presentation;
 using VNC.WPF.Presentation.Dx.Views;
 using VNC.WPF.Presentation.Views;
+
+using VNCVisioToolsApplication.Presentation.ViewModels;
+using VNCVisioToolsApplication.Presentation.Views;
 
 namespace VNCVisioToolsApplication.Actions
 {
@@ -196,13 +202,13 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            //if (prismRegionTestHost is null) prismRegionTestHost = new DxThemedWindowHost();
+            if (prismRegionTestHost is null) prismRegionTestHost = new DxThemedWindowHost();
 
-            //prismRegionTestHost.DisplayUserControlInHost(
-            //    "Prism Region Test",
-            //    Common.DEFAULT_WINDOW_WIDTH_LARGE, Common.DEFAULT_WINDOW_HEIGHT_LARGE,
-            //    ShowWindowMode.Modeless_Show,
-            //    new PrismRegionTest());
+            prismRegionTestHost.DisplayUserControlInHost(
+                "Prism Region Test",
+                Common.DEFAULT_WINDOW_WIDTH_LARGE, Common.DEFAULT_WINDOW_HEIGHT_LARGE,
+                ShowWindowMode.Modeless_Show,
+                new PrismRegionTest());
         }
 
         #endregion WPF UI Events
@@ -215,21 +221,21 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            //if (vncMVVM_VAVM1st_Host is null) vncMVVM_VAVM1st_Host = new DxThemedWindowHost();
+            if (vncMVVM_VAVM1st_Host is null) vncMVVM_VAVM1st_Host = new DxThemedWindowHost();
 
-            //// NOTE(crhodes)
-            //// Wire things up ourselves - ViewModel First - with a little help from DI.
+            // NOTE(crhodes)
+            // Wire things up ourselves - ViewModel First - with a little help from DI.
 
-            //vncMVVM_VAVM1st_Host.DisplayUserControlInHost(
-            //    "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
-            //    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-            //    ShowWindowMode.Modeless_Show,
-            //    new ViewAViewModel(
-            //        new ViewA(),
-            //        (IEventAggregator)Common.ApplicationBootstrapper.Container.Resolve(typeof(EventAggregator)),
-            //        (DialogService)Common.ApplicationBootstrapper.Container.Resolve(typeof(DialogService))
-            //    )
-            //);
+            vncMVVM_VAVM1st_Host.DisplayUserControlInHost(
+                "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
+                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                ShowWindowMode.Modeless_Show,
+                new ViewAViewModel(
+                    new ViewA(),
+                    (IEventAggregator)Common.ApplicationBootstrapper.Container.Resolve(typeof(EventAggregator)),
+                    (DialogService)Common.ApplicationBootstrapper.Container.Resolve(typeof(DialogService))
+                )
+            );
         }
 
         public static DxThemedWindowHost vncMVVM_VA_Host = null;
@@ -238,18 +244,18 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            //if (vncMVVM_VA_Host is null) vncMVVM_VA_Host = new DxThemedWindowHost();
-            //// NOTE(crhodes)
-            //// This does not wire View to ViewModel
-            //// Because we HAVE NOT Registered ViewAViewModel in SupportTools_VisioModules
-            //// Parameterless ViewA() constructor is called.
+            if (vncMVVM_VA_Host is null) vncMVVM_VA_Host = new DxThemedWindowHost();
+            // NOTE(crhodes)
+            // This does not wire View to ViewModel
+            // Because we HAVE NOT Registered ViewAViewModel in VNCVisioToolsApplicationModules
+            // Parameterless ViewA() constructor is called.
 
-            //vncMVVM_VA_Host.DisplayUserControlInHost(
-            //    "MVVM ViewA First - No Registrations - DI Resolve",
-            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            //    ShowWindowMode.Modeless_Show,
-            //    (ViewA)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewA))
-            //);
+            vncMVVM_VA_Host.DisplayUserControlInHost(
+                "MVVM ViewA First - No Registrations - DI Resolve",
+                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+                ShowWindowMode.Modeless_Show,
+                (ViewA)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewA))
+            );
         }
 
         public static DxThemedWindowHost vncMVVM_VAVMDI_Host = null;
@@ -258,18 +264,18 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            //if (vncMVVM_VAVMDI_Host is null) vncMVVM_VAVMDI_Host = new DxThemedWindowHost();
+            if (vncMVVM_VAVMDI_Host is null) vncMVVM_VAVMDI_Host = new DxThemedWindowHost();
 
-            //// NOTE(crhodes)
-            //// This does wire View to ViewModel
-            //// Because ViewModel is passed a View (DI) and wires itself to View
+            // NOTE(crhodes)
+            // This does wire View to ViewModel
+            // Because ViewModel is passed a View (DI) and wires itself to View
 
-            //vncMVVM_VAVMDI_Host.DisplayUserControlInHost(
-            //    "MVVM ViewAViewModel First (ViewModel is passed new View) - DI Resolve",
-            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            //    ShowWindowMode.Modeless_Show,
-            //    (ViewAViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewAViewModel))
-            //);
+            vncMVVM_VAVMDI_Host.DisplayUserControlInHost(
+                "MVVM ViewAViewModel First (ViewModel is passed new View) - DI Resolve",
+                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+                ShowWindowMode.Modeless_Show,
+                (ViewAViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewAViewModel))
+            );
         }
 
         public static DxThemedWindowHost vncMVVM_VB_Host = null;
@@ -278,18 +284,18 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            //if (vncMVVM_VB_Host is null) vncMVVM_VB_Host = new DxThemedWindowHost();
+            if (vncMVVM_VB_Host is null) vncMVVM_VB_Host = new DxThemedWindowHost();
 
-            //// NOTE(crhodes)
-            //// This does wire View to ViewModel
-            //// Because we have Registered ViewBViewModel in SupportTools_VisioModules
+            // NOTE(crhodes)
+            // This does wire View to ViewModel
+            // Because we have Registered ViewBViewModel in VNCVisioToolsApplicationModules
 
-            //vncMVVM_VB_Host.DisplayUserControlInHost(
-            //    "MVVM ViewB First (View is passed new ViewModel) DI Resolve",
-            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            //    ShowWindowMode.Modeless_Show,
-            //    (ViewB)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewB))
-            //);
+            vncMVVM_VB_Host.DisplayUserControlInHost(
+                "MVVM ViewB First (View is passed new ViewModel) DI Resolve",
+                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+                ShowWindowMode.Modeless_Show,
+                (ViewB)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewB))
+            );
         }
 
         public static DxThemedWindowHost vncMVVM_VC1_Host = null;
@@ -298,19 +304,19 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            //if (vncMVVM_VC1_Host is null) vncMVVM_VC1_Host = new DxThemedWindowHost();
+            if (vncMVVM_VC1_Host is null) vncMVVM_VC1_Host = new DxThemedWindowHost();
 
-            //// NOTE(crhodes)
-            //// This does wire View to ViewModel
-            //// C1 has C1() and C1(ViewModel) constructors. No DI Registrations
-            //// NB.  AutoWireViewModel=false
+            // NOTE(crhodes)
+            // This does wire View to ViewModel
+            // C1 has C1() and C1(ViewModel) constructors. No DI Registrations
+            // NB.  AutoWireViewModel=false
 
-            //vncMVVM_VC1_Host.DisplayUserControlInHost(
-            //    "MVVM ViewC1 First.  ViewC1 has C1() and C1(ViewModel) constructors. No DI Registrations",
-            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            //    ShowWindowMode.Modeless_Show,
-            //    (ViewC1)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC1))
-            //);
+            vncMVVM_VC1_Host.DisplayUserControlInHost(
+                "MVVM ViewC1 First.  ViewC1 has C1() and C1(ViewModel) constructors. No DI Registrations",
+                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+                ShowWindowMode.Modeless_Show,
+                (ViewC1)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC1))
+            );
         }
 
         public static DxThemedWindowHost vncMVVM_VC2_Host = null;
@@ -319,19 +325,19 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            //if (vncMVVM_VC2_Host is null) vncMVVM_VC2_Host = new DxThemedWindowHost();
+            if (vncMVVM_VC2_Host is null) vncMVVM_VC2_Host = new DxThemedWindowHost();
 
-            //// NOTE(crhodes)
-            //// This does wire View to ViewModel
-            //// Because we have removed the default ViewC2 Constructor
-            //// and Registered ViewCViewModel in SupportTools_VisioModules
+            // NOTE(crhodes)
+            // This does wire View to ViewModel
+            // Because we have removed the default ViewC2 Constructor
+            // and Registered ViewCViewModel in VNCVisioToolsApplicationModules
 
-            //vncMVVM_VC2_Host.DisplayUserControlInHost(
-            //    "MVVM ViewC2 First (View is passed new ViewModel) DI Resolve",
-            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-            //    ShowWindowMode.Modeless_Show,
-            //    (ViewC2)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC2))
-            //);
+            vncMVVM_VC2_Host.DisplayUserControlInHost(
+                "MVVM ViewC2 First (View is passed new ViewModel) DI Resolve",
+                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+                ShowWindowMode.Modeless_Show,
+                (ViewC2)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC2))
+            );
         }
 
         #endregion
