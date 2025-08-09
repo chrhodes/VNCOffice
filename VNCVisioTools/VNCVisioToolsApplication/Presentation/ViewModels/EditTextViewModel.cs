@@ -14,28 +14,22 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
     {
         public DelegateCommand DoSomething { get; private set; }
         public DelegateCommand<string> DoSomethingElse { get; private set; }
-        public TextBlockFormatWrapper TextBlockFormat
+        public VNCVisioAddIn.Presentation.ModelWrappers.TextBlockFormatWrapper TextBlockFormat
         { 
             get => textBlockFormat; 
             set => textBlockFormat = value; 
         }
-        //private string message = "Fox Lady";
-        //public string Message
-        //{ 
-        //    get => message; 
-        //    set => message = value; 
-        //}
 
         public string Message { get; set; } = "Dr. Natalie Rene Rhodes";
 
-        private TextBlockFormatWrapper textBlockFormat;
+        private VNCVisioAddIn.Presentation.ModelWrappers.TextBlockFormatWrapper textBlockFormat;
 
         public EditTextViewModel()
         {
             DoSomething = new DelegateCommand(OnDoSomethingExecute, OnDoSomethingCanExecute);
             DoSomethingElse = new DelegateCommand<string>(OnDoSomethingElseExecute, OnDoSomethingElseCanExecute);
             //DoSomething = new DelegateCommand(OnDoSomethingExecute);
-            TextBlockFormat = new TextBlockFormatWrapper(new VNCVisioAddIn.Domain.TextBlockFormatRow());
+            TextBlockFormat = new VNCVisioAddIn.Presentation.ModelWrappers.TextBlockFormatWrapper(new VNCVisioAddIn.Domain.TextBlockFormatRow());
         }
 
         public void OnDoSomethingExecute()

@@ -1,0 +1,104 @@
+﻿<UserControl
+    x:Class="VNCShapeSheetApplication.Presentation.Views.FillFormat"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="FillForeground">
+                <dxe:TextEdit Text="{Binding FillForegnd}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShdwForegnd">
+                <dxe:TextEdit Text="{Binding ShdwForegnd}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeShdwType">
+                <dxe:TextEdit Text="{Binding ShapeShdwType}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="FillForegndTrans">
+                <dxe:TextEdit Text="{Binding FillForegndTrans}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShdwForegndTrans">
+                <dxe:TextEdit Text="{Binding ShdwForegndTrans}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeShdwObliqueAngle">
+                <dxe:TextEdit Text="{Binding ShapeShdwObliqueAngle}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="FillBkgnd">
+                <dxe:TextEdit Text="{Binding FillBkgnd}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShdwPattern">
+                <dxe:TextEdit Text="{Binding ShdwPattern}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="ShapeShdwScaleFactor">
+                <dxe:TextEdit Text="{Binding ShapeShdwScaleFactor}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="FillBkgndTrans">
+                <dxe:TextEdit Text="{Binding FillBkgndTrans}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeShdwOffsetX">
+                <dxe:TextEdit Text="{Binding ShapeShdwOffsetX}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="FillBkgndOffsetY">
+                <dxe:TextEdit Text="{Binding ShapeShdwOffsetY}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeShdwBlur">
+                <dxe:TextEdit Text="{Binding ShapeShdwBlur}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="FillPattern">
+                <dxe:TextEdit Text="{Binding FillPattern}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ShapeShdwShow">
+                <dxe:TextEdit Text="{Binding ShapeShdwShow}"
+    	                          ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+    
+</UserControl>

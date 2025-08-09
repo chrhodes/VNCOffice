@@ -1,0 +1,107 @@
+﻿<UserControl
+    x:Class="VNCShapeSheetApplication.Presentation.Views.Miscellaneous"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+                    
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+            
+            <dxlc:LayoutItem Label="NoObjHandles">
+                <dxe:TextEdit Text="{Binding NoObjHandles}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="NoCtlHandle">
+                <dxe:TextEdit Text="{Binding NoCtlHandle}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="NoAlignBox">
+                <dxe:TextEdit Text="{Binding NoAlignBox}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="NonPrinting">
+                <dxe:TextEdit Text="{Binding NonPrinting}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LangID">
+                <dxe:TextEdit Text="{Binding LangID}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="HideText">
+                <dxe:TextEdit Text="{Binding HideText}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="UpdateAlignBox">
+                <dxe:TextEdit Text="{Binding UpdateAlignBox}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DynFeedback">
+                <dxe:TextEdit Text="{Binding DynFeedback}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="NoLiveDynamics">
+                <dxe:TextEdit Text="{Binding NoLiveDynamics}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Calendar">
+                <dxe:TextEdit Text="{Binding Calendar}"
+    	                ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+                    
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+                        
+            <dxlc:LayoutItem Label="ObjType">
+                <dxe:TextEdit Text="{Binding ObjType}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="IsDropSource">
+                <dxe:TextEdit Text="{Binding IsDropSource}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Comment">
+                <dxe:TextEdit Text="{Binding Comment}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DropOnPageScale">
+                <dxe:TextEdit Text="{Binding DropOnPageScale}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LocalizeMerge">
+                <dxe:TextEdit Text="{Binding LocalizeMerge}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="NoProofing">
+                <dxe:TextEdit Text="{Binding NoProofing}"
+    	                        ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+                    
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>

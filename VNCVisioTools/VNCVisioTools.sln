@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCShapeSheet", "VNSShapeSh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCShapeSheetApplication", "VNCShapeSheetApplication\VNCShapeSheetApplication.csproj", "{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.WPF.Presentation", "..\..\VNCDevelopment\VNC.WPF.Presentation\VNC.WPF.Presentation.csproj", "{324942C3-E447-2775-B5D8-D594C9891F9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFBD1442-F929-4911-BCE9-3C12EFFEFE93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{324942C3-E447-2775-B5D8-D594C9891F9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324942C3-E447-2775-B5D8-D594C9891F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324942C3-E447-2775-B5D8-D594C9891F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324942C3-E447-2775-B5D8-D594C9891F9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

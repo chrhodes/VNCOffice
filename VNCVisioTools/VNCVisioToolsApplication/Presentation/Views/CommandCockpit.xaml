@@ -31,8 +31,6 @@
     </d:DesignerProperties.DesignStyle>
 
     <UserControl.Resources>
-        <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsToListOfStringConverter" />
-        <localc:SelectedItemsConverter x:Key="SelectedItemsConverter" />
         <localc:XElementToStringConverter x:Key="XElementToStringConverter" />
         <localc:SelectedItemsToVisioCommandWrapperConverter x:Key="SelectedItemsToVisioCommandWrapperConverter" />
 

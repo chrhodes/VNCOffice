@@ -1,0 +1,93 @@
+﻿<UserControl
+    x:Class="VNCShapeSheetApplication.Presentation.Views.LineGradientStops"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <!-- <dxlc:LayoutItem Label="BevelTopType"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelTopType}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelTopWidth"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelTopWidth}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelTopHeight"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelTopHeight}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelBottomType"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelBottomType}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelBottomWidth"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelBottomWidth}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelBottomHeight"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelBottomHeight}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelDepthColor"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelDepthColor}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+            <!-- <dxlc:LayoutItem Label="BevelDepthSize"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelDepthSize}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelContourColor"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelContourColor}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelContourSize"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelContourSize}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelMaterialType"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelMaterialType}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelLightingType"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelLightingType}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+            <!-- <dxlc:LayoutItem Label="BevelLightingAngle"> -->
+                <!-- <dxe:TextEdit Text="{Binding BevelLightingAngle}" -->
+    	                          <!-- ToolTip="tooltip" /> -->
+            <!-- </dxlc:LayoutItem> -->
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+</UserControl>

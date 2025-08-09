@@ -29,7 +29,7 @@
     </d:DesignerProperties.DesignStyle>
 
     <UserControl.Resources>
-        <localc:SelectedItemsConverter x:Key="SelectedItemsConverter" />
+
     </UserControl.Resources>
 
     <dxlc:LayoutControl x:Name="layoutItems" 

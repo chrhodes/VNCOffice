@@ -35,7 +35,7 @@ namespace VNCShapeSheet
 
             // NOTE(crhodes)
             // Initialize the AddInApplication.
-            // This creates the WPF/Prism Environment in a VisioPrismAddInApplication.
+            // This creates the WPF/Prism Environment in a VisioAddInApplication.
 
             AddInApplication.InitializeApplication();
 

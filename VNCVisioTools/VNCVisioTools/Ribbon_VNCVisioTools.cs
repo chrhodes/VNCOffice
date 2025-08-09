@@ -29,6 +29,7 @@ namespace VNCVisioTools
                 Common.WriteToDebugWindow(ex.Message, force: true);
             }
         }
+
         private void btnAddFooter_Click(object sender, RibbonControlEventArgs e)
         {
             try

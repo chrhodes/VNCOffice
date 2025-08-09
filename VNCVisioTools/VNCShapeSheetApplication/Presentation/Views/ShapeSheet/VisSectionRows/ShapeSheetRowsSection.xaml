@@ -1,0 +1,66 @@
+﻿<UserControl
+    x:Class="VNCShapeSheetApplication.Presentation.Views.ShapeSheetRowsSection"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    
+    xmlns:local="clr-namespace:VNCShapeSheetApplication.Presentation.Views"
+    mc:Ignorable="d" 
+
+d:DesignWidth="300" >
+
+    <!--<dxlc:LayoutControl x:Name="layoutControl" 
+                        Orientation="Vertical" 
+                        Background="White" >-->
+    <dxlc:LayoutGroup Orientation="Vertical" >
+
+        <dxlc:LayoutGroup Header="Configuration"
+	        View="GroupBox" Orientation="Vertical" 
+	        VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+	        IsCollapsible="True"  IsCollapsed="False" >
+
+            <dxlc:LayoutGroup 
+                View="Group"  Orientation="Vertical" 
+                Style="{StaticResource ConfigurationLayoutGroup}" >
+
+                <ContentControl x:Name="ssSectionUserControl" />
+                
+                <Button Content="{Binding LoadButtonContent}" 
+                        Command="{Binding LoadCurrentSettings}" />
+
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup Header="Actions"
+	            View="GroupBox" Orientation="Vertical" 
+	            VerticalAlignment="Bottom" HorizontalAlignment="Stretch"
+	            IsCollapsible="True"  IsCollapsed="False" >
+
+            <dxlc:LayoutGroup 
+                View="Group"  Orientation="Vertical" 
+                Style="{StaticResource ActionLayoutGroup}">
+
+                <Button Content="{Binding UpdateButtonContent}" 
+                        Command="{Binding UpdateSettings}"/>
+                
+                <dxlc:LayoutItem>
+                    <Button 
+                		Command="{Binding ExportSettings }"
+                		Content="{Binding ExportSettingsContent, FallbackValue='ExportSettings' }"
+                		ToolTip="{Binding ExportSettingsToolTip, FallbackValue='ExportSettings ToolTip' }" />
+                </dxlc:LayoutItem>
+                
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutGroup>
+
+        <local:SelectedShapesInfo VerticalAlignment="Bottom"/>
+
+    </dxlc:LayoutGroup>
+
+</UserControl>

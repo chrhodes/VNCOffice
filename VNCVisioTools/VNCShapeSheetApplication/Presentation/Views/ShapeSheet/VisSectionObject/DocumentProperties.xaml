@@ -1,0 +1,78 @@
+﻿<UserControl
+    x:Class="VNCShapeSheetApplication.Presentation.Views.DocumentProperties"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="PreviewQuality">
+                <dxe:TextEdit Text="{Binding PreviewQuality}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="OutputFormat">
+                <dxe:TextEdit Text="{Binding OutputFormat}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="PreviewScope">
+                <dxe:TextEdit Text="{Binding PreviewScope}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="LockPreview">
+                <dxe:TextEdit Text="{Binding LockPreview}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="AddMarkup">
+                <dxe:TextEdit Text="{Binding AddMarkup}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="ViewMarkup">
+                <dxe:TextEdit Text="{Binding ViewMarkup}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DocLangID">
+                <dxe:TextEdit Text="{Binding DocLangID}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DocLockReplace">
+                <dxe:TextEdit Text="{Binding DocLockReplace}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="NoCoauth">
+                <dxe:TextEdit Text="{Binding NoCoauth}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="DocLockDuplicatePage">
+                <dxe:TextEdit Text="{Binding DocLockDuplicatePage}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+</UserControl>

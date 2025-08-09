@@ -1,0 +1,95 @@
+﻿<UserControl
+    x:Class="VNCShapeSheetApplication.Presentation.Views.Controls"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"    
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:local="clr-namespace:VNCShapeSheetApplication.Presentation.Views"
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutGroup 
+    	View="Group" Orientation="Horizontal" >
+    
+        <dxlc:LayoutGroup 
+        	View="Group" Orientation="Vertical" >
+            
+                <dxg:GridControl x:Name="dgW" AutoGenerateColumns="AddNew" 
+                         EnableSmartColumnsGeneration="True" 
+                         ItemsSource="{Binding Controls}"
+                         SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                         Height="200">
+                    <dxg:GridControl.View>
+                        <dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+                    </dxg:GridControl.View>
+                </dxg:GridControl>
+
+                <dxlc:LayoutGroup 
+                    View="Group" Orientation="Horizontal"
+                    DataContext="{Binding SelectedItem}">
+
+                    <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+                        <dxlc:LayoutItem Label="Name">
+                            <dxe:TextEdit Text="{Binding Name}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="X">
+                            <dxe:TextEdit Text="{Binding X}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="Y">
+                            <dxe:TextEdit Text="{Binding Y}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="XDynamics">
+                        <dxe:TextEdit Text="{Binding XDynamics}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="YDynamics">
+                        <dxe:TextEdit Text="{Binding YDynamics}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+ 
+                    </dxlc:LayoutGroup>
+
+                    <dxlc:LayoutGroup 
+                    	View="Group" Orientation="Vertical" >
+
+                        <dxlc:LayoutItem Label="XBehavior">
+                        <dxe:TextEdit Text="{Binding XBehavior}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="YBehavior">
+                        <dxe:TextEdit Text="{Binding YBehavior}"
+    	                          ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="CanGlue">
+                            <dxe:TextEdit Text="{Binding CanGlue}"
+    	                              ToolTip="tooltip" />
+                            </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="Tip">
+                            <dxe:TextEdit Text="{Binding Tip}"
+    	                              ToolTip="tooltip" />
+                        </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+
+                </dxlc:LayoutGroup>
+            
+            </dxlc:LayoutGroup>
+        
+    </dxlc:LayoutGroup>
+
+</UserControl>

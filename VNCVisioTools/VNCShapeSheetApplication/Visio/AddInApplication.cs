@@ -23,17 +23,20 @@ namespace VNCShapeSheetApplication.Visio
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
-            // NOTE(crhodes)
+            // TODO(crhodes)
             // We need to update VNC.Core as VNCCoreLogging and VNCLogging are null
             // We started initializing them in 3.0+
 
             VNC.Core.Common.VNCCoreLogging = new VNC.Core.VNCLoggingConfig();
             VNC.Core.Common.VNCLogging = new VNC.Core.VNCLoggingConfig();
 
+            VNC.Core.Common.VNCLogging.ApplicationStart = true;
+
+            Log.APPLICATION_START("VNCShapeSheetApplication", Common.LOG_CATEGORY);
+
             CreateXamlApplication();
 
             InitializePrism();
-
 
             Common.WriteToDebugWindow("InitializeWPFApplication()-Exit", startTicks, true);
         }

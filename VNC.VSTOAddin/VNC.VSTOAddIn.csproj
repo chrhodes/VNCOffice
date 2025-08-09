@@ -47,6 +47,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Reference Include="PresentationCore" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Compile Update="Presentation\frmDebugWindow.cs">
         <SubType>Form</SubType>
       </Compile>

@@ -310,15 +310,15 @@ namespace VNCShapeSheetApplication.Actions
                 activeWindow.Page = page;
                 page.Paste(VisCutCopyPasteCodes.visCopyPasteNoTranslate);
 
-                //Globals.ThisAddIn.Application.Windows.ItemEx["Navigation Links"].Activate();
-                //Globals.ThisAddIn.Application.ActiveWindow.SelectAll();
-                //Globals.ThisAddIn.Application.ActiveWindow.Selection.Copy();
-                //Globals.ThisAddIn.Application.Windows.ItemEx["Navigation Links"].Activate();
+                //Common.VisioApplication.Windows.ItemEx["Navigation Links"].Activate();
+                //Common.VisioApplication.ActiveWindow.SelectAll();
+                //Common.VisioApplication.ActiveWindow.Selection.Copy();
+                //Common.VisioApplication.Windows.ItemEx["Navigation Links"].Activate();
 
 
-                //Visio.Page linkPage = Globals.ThisAddIn.Application.ActiveDocument.Pages["Navigation Links"];
+                //Visio.Page linkPage = Common.VisioApplication.ActiveDocument.Pages["Navigation Links"];
                 //linkPage.Application.
-                //Globals.ThisAddIn.Application.
+                //Common.VisioApplication.
                 //Common.WriteToDebugWindow(string.Format("  Copying {0} links", linkPage.Shapes.Count));
 
                 //foreach (Visio.Shape shape in linkPage.Shapes)

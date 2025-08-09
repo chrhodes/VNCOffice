@@ -2,14 +2,10 @@
 
 using Prism.Commands;
 
-using VNCVisioToolsApplication.Presentation.ModelWrappers;
-
-using MSVisio = Microsoft.Office.Interop.Visio;
-
 using VNC;
 using VNC.Core.Mvvm;
-using Microsoft.Office.Interop.Visio;
-using VNCVisioToolsApplication.Actions;
+
+using MSVisio = Microsoft.Office.Interop.Visio;
 using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
@@ -43,7 +39,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
         public DelegateCommand UpdateSettings { get; private set; }
         public DelegateCommand LoadCurrentSettings { get; private set; }
 
-        public ParagraphWrapper Paragraph { get; set; }
+        public VNCVisioAddIn.Presentation.ModelWrappers.ParagraphWrapper Paragraph { get; set; }
 
         //{ 
         //    get => textBlockFormat; 
@@ -74,7 +70,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
             // TODO(crhodes)
             // Decide if we want defaults
-            Paragraph = new ParagraphWrapper(new VNCVisioAddIn.Domain.ParagraphRow());
+            Paragraph = new VNCVisioAddIn.Presentation.ModelWrappers.ParagraphWrapper(new VNCVisioAddIn.Domain.ParagraphRow());
         }
 
         public void OnUpdateSettingsExecute()
@@ -119,7 +115,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
             foreach (MSVisio.Shape shape in selection)
             {
-                Paragraph = new ParagraphWrapper(VNC.Visio.VSTOAddIn.Domain.ParagraphRow.GetRow(shape));
+                Paragraph = new VNCVisioAddIn.Presentation.ModelWrappers.ParagraphWrapper(VNCVisioAddIn.Domain.ParagraphRow.GetRow(shape));
                 OnPropertyChanged("Paragraph");
             }
         }

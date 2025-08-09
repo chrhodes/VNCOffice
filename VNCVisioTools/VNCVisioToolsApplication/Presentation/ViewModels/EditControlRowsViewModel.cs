@@ -44,7 +44,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
         public DelegateCommand UpdateSettings { get; private set; }
         public DelegateCommand LoadCurrentSettings { get; private set; }
 
-        public ControlsRowWrapper ControlRow { get; set; }
+        public VNCVisioAddIn.Presentation.ModelWrappers.ControlsRowWrapper ControlRow { get; set; }
 
         //{ 
         //    get => textBlockFormat; 
@@ -120,7 +120,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
             foreach (MSVisio.Shape shape in selection)
             {
-                ControlRow = new ControlsRowWrapper(VNC.Visio.VSTOAddIn.Domain.ControlsRow.GetRow(shape));
+                ControlRow = new VNCVisioAddIn.Presentation.ModelWrappers.ControlsRowWrapper(VNCVisioAddIn.Domain.ControlsRow.GetRow(shape));
                 OnPropertyChanged("ControlRow");
             }
         }

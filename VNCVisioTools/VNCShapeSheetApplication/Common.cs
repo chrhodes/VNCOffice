@@ -8,9 +8,9 @@ namespace VNCShapeSheetApplication
 {
     public class Common : VNC.VSTOAddIn.Common
     {
-        new public const string LOG_CATEGORY = "VNCVisioToolsApplication";
+        new public const string LOG_CATEGORY = "VNCShapeSheetApplication";
 
-        public const string cCONFIG_FILE = @"C:\temp\VNCVisioToolsApplication.xml";
+        public const string cCONFIG_FILE = @"C:\temp\VNC.Visio.VSTOAddIn.xml";
 
         public static Events.VisioAppEvents AppEvents;
         public static Events.AddInApplicationEvents AddInApplicationEvents;

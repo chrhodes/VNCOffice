@@ -5,6 +5,53 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Presentation\Views\ShapeSheet\StyleProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\TextTransformContent.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\AdditionalEffectProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\Alignment.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\BevelProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\ChangeShapeBehavior.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\DocumentProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\Events.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\FillFormat.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\GlueInfo.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\GradientProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\GroupProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\ImageProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\LayerMembership.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\LineFormat.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\Miscellaneous.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\OneDEndPoints.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\PageLayout.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\PageProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\PrintProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\Protection.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\QuickStyle.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\RulerAndGrid.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\ShapeLayout.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\ShapeSheetObjectSection.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\ShapeTransform.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\TextBlockFormat.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\TextTransform.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\ThemeProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionObject\ThreeDRotationProperties.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\Actions.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\ActionTags.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\Character.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\ConnectionPoints.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\Controls.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\FillGradientStops.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\GeometryRow.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\Hyperlinks.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\Layers.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\LineGradientStops.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\Scratch.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\SelectedShapesInfo.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\ShapeData.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\ShapeSheetRowsSection.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\Tabs.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\TextFields.xaml" />
+    <None Remove="Presentation\Views\ShapeSheet\VisSectionRows\UserDefinedCells.xaml" />
     <None Remove="Resources\Xaml\Application.xaml" />
   </ItemGroup>
 
@@ -43,9 +90,154 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Include="Presentation\Views\ShapeSheet\StyleProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\TextTransformContent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\AdditionalEffectProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\Alignment.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\BevelProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\ChangeShapeBehavior.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\DocumentProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\Events.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\FillFormat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\GlueInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\GradientProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\GroupProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\ImageProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\LayerMembership.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\LineFormat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\Miscellaneous.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\OneDEndPoints.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\PageLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\PageProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\PrintProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\Protection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\QuickStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\RulerAndGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\ShapeLayout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\ShapeSheetObjectSection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\ShapeTransform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\TextBlockFormat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\TextTransform.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\ThemeProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionObject\ThreeDRotationProperties.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\Actions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\ActionTags.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\Character.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\ConnectionPoints.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\FillGradientStops.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\GeometryRow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\Hyperlinks.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\Layers.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\LineGradientStops.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\Scratch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\SelectedShapesInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\ShapeData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\ShapeSheetRowsSection.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\Tabs.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\TextFields.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Presentation\Views\ShapeSheet\VisSectionRows\UserDefinedCells.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Xaml\Application.xaml">
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\Xaml\Layout_Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
 

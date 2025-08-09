@@ -1,0 +1,78 @@
+﻿<UserControl
+    x:Class="VNCShapeSheetApplication.Presentation.Views.RulerAndGrid"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"    
+    mc:Ignorable="d" 
+>
+    <dxlc:LayoutControl 
+        View="Group" Orientation="Horizontal" 
+        DataContext="{Binding Info}">
+
+        <dxlc:LayoutGroup 
+                	    View="Group" Orientation="Vertical" >
+
+            <dxlc:LayoutItem Label="XRulerOrigin">
+                <dxe:TextEdit Text="{Binding XRulerOrigin}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="XRulerDensity">
+                <dxe:TextEdit Text="{Binding XRulerDensity}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="XGridOrigin">
+                <dxe:TextEdit Text="{Binding XGridOrigin}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="XGridDensity">
+                <dxe:TextEdit Text="{Binding XGridDensity}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="XGridSpacing">
+                <dxe:TextEdit Text="{Binding XGridSpacing}"
+    	                      ToolTip="XGridSpacing" />
+            </dxlc:LayoutItem>
+
+        </dxlc:LayoutGroup>
+
+        <dxlc:LayoutGroup 
+            View="Group" Orientation="Vertical" >
+            
+            <dxlc:LayoutItem Label="YRulerOrigin">
+                <dxe:TextEdit Text="{Binding YRulerOrigin}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="YRulerDensity">
+                <dxe:TextEdit Text="{Binding YRulerDensity}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="YGridOrigin">
+                <dxe:TextEdit Text="{Binding YGridOrigin}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="YGridDensity">
+                <dxe:TextEdit Text="{Binding YGridDensity}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="YGridSpacing">
+                <dxe:TextEdit Text="{Binding YGridSpacing}"
+    	                      ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+            
+        </dxlc:LayoutGroup>
+
+    </dxlc:LayoutControl>
+
+</UserControl>
