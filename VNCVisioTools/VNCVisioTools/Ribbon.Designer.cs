@@ -116,10 +116,11 @@
             this.rcbDisplayEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDisplayChattyEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDeveloperUIMode = this.Factory.CreateRibbonCheckBox();
+            this.rcbUILaunchApproaches = this.Factory.CreateRibbonCheckBox();
             this.grpHelp = this.Factory.CreateRibbonGroup();
             this.btnAddInInfo = this.Factory.CreateRibbonButton();
             this.btnDeveloperMode = this.Factory.CreateRibbonButton();
-            this.tabUILaunch = this.Factory.CreateRibbonTab();
+            this.rtUILaunchApproaches = this.Factory.CreateRibbonTab();
             this.rgUILaunch = this.Factory.CreateRibbonGroup();
             this.btnThemedWindowHostModeless = this.Factory.CreateRibbonButton();
             this.btnThemedWindowHostModal = this.Factory.CreateRibbonButton();
@@ -150,7 +151,7 @@
             this.rgDocumentBasePages.SuspendLayout();
             this.rgDebug.SuspendLayout();
             this.grpHelp.SuspendLayout();
-            this.tabUILaunch.SuspendLayout();
+            this.rtUILaunchApproaches.SuspendLayout();
             this.rgUILaunch.SuspendLayout();
             this.rgWPFUI.SuspendLayout();
             this.rgMVVMExamples.SuspendLayout();
@@ -705,6 +706,7 @@
             this.rgDebug.Items.Add(this.rcbDisplayEvents);
             this.rgDebug.Items.Add(this.rcbDisplayChattyEvents);
             this.rgDebug.Items.Add(this.rcbDeveloperUIMode);
+            this.rgDebug.Items.Add(this.rcbUILaunchApproaches);
             this.rgDebug.Label = "Debug";
             this.rgDebug.Name = "rgDebug";
             this.rgDebug.Visible = false;
@@ -751,6 +753,13 @@
             this.rcbDeveloperUIMode.Name = "rcbDeveloperUIMode";
             this.rcbDeveloperUIMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbToggleDeveloperUIMode_Click);
             // 
+            // rcbUILaunchApproaches
+            // 
+            this.rcbUILaunchApproaches.Label = "UILaunchApproaches";
+            this.rcbUILaunchApproaches.Name = "rcbUILaunchApproaches";
+            this.rcbUILaunchApproaches.SuperTip = "Display UILaunchApproaches Ribbon Group";
+            this.rcbUILaunchApproaches.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbUILaunchApproaches_Click);
+            // 
             // grpHelp
             // 
             this.grpHelp.Items.Add(this.btnAddInInfo);
@@ -770,13 +779,13 @@
             this.btnDeveloperMode.Name = "btnDeveloperMode";
             this.btnDeveloperMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnToggleDeveloperMode_Click);
             // 
-            // tabUILaunch
+            // rtUILaunchApproaches
             // 
-            this.tabUILaunch.Groups.Add(this.rgUILaunch);
-            this.tabUILaunch.Groups.Add(this.rgWPFUI);
-            this.tabUILaunch.Groups.Add(this.rgMVVMExamples);
-            this.tabUILaunch.Label = "UI Launch Approaches";
-            this.tabUILaunch.Name = "tabUILaunch";
+            this.rtUILaunchApproaches.Groups.Add(this.rgUILaunch);
+            this.rtUILaunchApproaches.Groups.Add(this.rgWPFUI);
+            this.rtUILaunchApproaches.Groups.Add(this.rgMVVMExamples);
+            this.rtUILaunchApproaches.Label = "UI Launch Approaches";
+            this.rtUILaunchApproaches.Name = "rtUILaunchApproaches";
             // 
             // rgUILaunch
             // 
@@ -934,7 +943,7 @@
             this.RibbonType = "Microsoft.Visio.Drawing";
             this.Tabs.Add(this.tab1);
             this.Tabs.Add(this.rtVisioAddInTemplate);
-            this.Tabs.Add(this.tabUILaunch);
+            this.Tabs.Add(this.rtUILaunchApproaches);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
@@ -956,8 +965,8 @@
             this.rgDebug.PerformLayout();
             this.grpHelp.ResumeLayout(false);
             this.grpHelp.PerformLayout();
-            this.tabUILaunch.ResumeLayout(false);
-            this.tabUILaunch.PerformLayout();
+            this.rtUILaunchApproaches.ResumeLayout(false);
+            this.rtUILaunchApproaches.PerformLayout();
             this.rgUILaunch.ResumeLayout(false);
             this.rgUILaunch.PerformLayout();
             this.rgWPFUI.ResumeLayout(false);
@@ -1047,7 +1056,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnDuplicatePage;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnMovePages;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnCustomUI_Car;
-        private Microsoft.Office.Tools.Ribbon.RibbonTab tabUILaunch;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgUILaunch;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnThemedWindowHostModeless;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnThemedWindowHostModal;
@@ -1068,6 +1076,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVNC_MVVM_VB1st;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVNC_MVVM_VC11st;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVNC_MVVM_VC21st;
+        internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox rcbUILaunchApproaches;
+        internal Microsoft.Office.Tools.Ribbon.RibbonTab rtUILaunchApproaches;
     }
 
     partial class ThisRibbonCollection

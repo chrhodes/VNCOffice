@@ -34,7 +34,7 @@ namespace VNCVisioTools
             Common.VisioApplication = Globals.ThisAddIn.Application;
 
             // NOTE(crhodes)
-            // Initiaze the AddInApplication.
+            // Initialize the AddInApplication.
             // This creates the WPF/Prism Environment in a VisioPrismAddInApplication.
 
             AddInApplication.InitializeApplication();
@@ -50,12 +50,14 @@ namespace VNCVisioTools
         void InitializeRibbonUI()
         {
             Globals.Ribbons.Ribbon.rgDebug.Visible = Common.DeveloperMode = false;
-
-            Globals.Ribbons.Ribbon.rcbEnableAppEvents.Checked = Common.EnableAppEvents = false;
+            Globals.Ribbons.Ribbon.rtUILaunchApproaches.Visible = false;
 
             // NOTE(crhodes)
             // No need to display during normal operation.
             // More for understanding what Visio is doing during development.
+
+            Globals.Ribbons.Ribbon.rcbEnableAppEvents.Checked = Common.EnableAppEvents = false;
+
             Globals.Ribbons.Ribbon.rcbDisplayEvents.Checked = Common.DisplayEvents = false;
             Globals.Ribbons.Ribbon.rcbDisplayChattyEvents.Checked = Common.DisplayChattyEvents = false;
         }

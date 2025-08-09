@@ -70,6 +70,39 @@ namespace VNCVisioToolsApplication.Actions
             Common.VisioApplication.EndUndoScope(undoScope, true);
         }
 
+        
+    //'Enable diagram services
+    //Dim DiagramServices As Integer
+    //DiagramServices = ActiveDocument.DiagramServicesEnabled
+    //ActiveDocument.DiagramServicesEnabled = visServiceVersion140 + visServiceVersion150
+
+    //Dim UndoScopeID1 As Long
+    //UndoScopeID1 = Application.BeginUndoScope("Header and Footer")
+    //Application.ActiveDocument.HeaderLeft = ""
+    //Application.ActiveDocument.HeaderCenter = ""
+    //Application.ActiveDocument.HeaderRight = ""
+    //Application.ActiveDocument.HeaderMargin(visInches) = 0.25
+    //Application.ActiveDocument.FooterLeft = "&f&e"
+    //Application.ActiveDocument.FooterCenter = ""
+    //Application.ActiveDocument.FooterRight = ""
+    //Application.ActiveDocument.FooterMargin(visInches) = 0.25
+    //Application.ActiveDocument.HeaderFooterColor = 0
+    //Dim oFont2 As StdFont
+    //Set oFont2 = Application.ActiveDocument.HeaderFooterFont
+    //oFont2.Name = "Calibri"
+    //oFont2.Bold = False
+    //oFont2.Italic = False
+    //oFont2.Underline = False
+    //oFont2.Strikethrough = False
+    //oFont2.Weight = 400
+    //oFont2.Size = 12
+    //oFont2.CharSet = 0
+    //Set Application.ActiveDocument.HeaderFooterFont = oFont2
+    //Application.EndUndoScope UndoScopeID1, True
+
+    //'Restore diagram services
+    //ActiveDocument.DiagramServicesEnabled = DiagramServices
+
         public static void AddFooter()
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
@@ -87,6 +120,8 @@ namespace VNCVisioToolsApplication.Actions
             doc.FooterLeft = "&f&e";
             doc.FooterCenter = "";
             doc.FooterRight = "&d &p-&P";
+
+            //Method not found: 'stdole.IFontDisp Microsoft.Office.Interop.Visio.IVDocument.get_HeaderFooterFont()'.
 
             var font = doc.HeaderFooterFont;
 

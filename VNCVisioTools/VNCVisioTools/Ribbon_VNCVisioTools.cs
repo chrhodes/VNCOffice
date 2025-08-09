@@ -14,7 +14,7 @@ namespace VNCVisioTools
         // Should all the calls be wrapped in a try/catch like btnGetDocumentInfo_Click?
 
         //wrap all calls to Visio_* in try/catch to prevent exceptions from crashing the add-in.
-        //Use Common.WriteToDebugWindow(ex.Message, force:true) to handle excep        #region Document Actions Events
+        //Use Common.WriteToDebugWindow(ex.Message, force:true) to handle exceptions        #region Document Actions Events
 
         #region Document Action Events
 
@@ -821,6 +821,11 @@ namespace VNCVisioTools
             
             // TODO(crhodes)
             // This is for changing the visibility of MVVM stuff. 
+        }
+
+        private void rcbUILaunchApproaches_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.Ribbons.Ribbon.rtUILaunchApproaches.Visible = Globals.Ribbons.Ribbon.rcbUILaunchApproaches.Checked;
         }
 
         #endregion

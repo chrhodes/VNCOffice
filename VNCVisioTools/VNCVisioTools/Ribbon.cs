@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using Microsoft.Office.Tools.Ribbon;
-
-using Visio = Microsoft.Office.Interop.Visio;
 
 namespace VNCVisioTools
 {
@@ -26,5 +21,6 @@ namespace VNCVisioTools
         {
             Int64 startTicks = Common.WriteToDebugWindow("Ribbon_Load()", true);
         }
+
     }
 }
