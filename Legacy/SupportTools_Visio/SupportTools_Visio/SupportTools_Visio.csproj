@@ -992,10 +992,6 @@
     <Resource Include="Resources\Images\WatchWindow.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\VNC.ExcelHelper\VNC.ExcelHelper.csproj">
-      <Project>{29e804e7-29d1-4b67-8802-efa0e9332911}</Project>
-      <Name>VNC.ExcelHelper</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\VNC.Visio.VSTOAddin\VNC.Visio.VSTOAddIn.csproj">
       <Project>{aed58d4e-6267-4cb7-b402-9a66724aa40e}</Project>
       <Name>VNC.Visio.VSTOAddIn</Name>
