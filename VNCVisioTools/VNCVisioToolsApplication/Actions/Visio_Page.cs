@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Windows;
 
-using EnvDTE;
+//using EnvDTE;
 
 using VNC.Core;
 

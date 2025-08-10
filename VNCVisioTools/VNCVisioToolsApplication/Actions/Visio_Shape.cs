@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Reflection;
 using System.Text;
 
-using EnvDTE;
+//using EnvDTE;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
 using VNCVisioAddIn = VNC.Visio.VSTOAddIn;

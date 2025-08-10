@@ -40,7 +40,6 @@
   <ItemGroup>
     <PackageReference Include="CalcBinding" Version="2.5.2" />
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
-    <PackageReference Include="stdole" Version="17.14.40260" />
     <PackageReference Include="VNC.AZDO" Version="2.0.1" />
     <PackageReference Include="VNC.CodeAnalysis" Version="2.0.0" />
     <PackageReference Include="VNC.WPF.Presentation.Dx" Version="2.1.2" />
@@ -100,6 +99,9 @@
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Visio.dll</HintPath>
     </Reference>
     <Reference Include="PresentationFramework" />
+    <Reference Include="stdole">
+      <HintPath>C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\stdole.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="WindowsBase" />
   </ItemGroup>

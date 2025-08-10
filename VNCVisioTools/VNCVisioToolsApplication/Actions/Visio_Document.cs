@@ -56,7 +56,7 @@ namespace VNCVisioToolsApplication.Actions
 
             if (doc == null)
             {
-                System.Windows.Forms.MessageBox.Show("No ActiveDocument");
+                MessageBox.Show("No ActiveDocument");
                 return;
             }
 
@@ -70,38 +70,7 @@ namespace VNCVisioToolsApplication.Actions
             Common.VisioApplication.EndUndoScope(undoScope, true);
         }
 
-        
-    //'Enable diagram services
-    //Dim DiagramServices As Integer
-    //DiagramServices = ActiveDocument.DiagramServicesEnabled
-    //ActiveDocument.DiagramServicesEnabled = visServiceVersion140 + visServiceVersion150
 
-    //Dim UndoScopeID1 As Long
-    //UndoScopeID1 = Application.BeginUndoScope("Header and Footer")
-    //Application.ActiveDocument.HeaderLeft = ""
-    //Application.ActiveDocument.HeaderCenter = ""
-    //Application.ActiveDocument.HeaderRight = ""
-    //Application.ActiveDocument.HeaderMargin(visInches) = 0.25
-    //Application.ActiveDocument.FooterLeft = "&f&e"
-    //Application.ActiveDocument.FooterCenter = ""
-    //Application.ActiveDocument.FooterRight = ""
-    //Application.ActiveDocument.FooterMargin(visInches) = 0.25
-    //Application.ActiveDocument.HeaderFooterColor = 0
-    //Dim oFont2 As StdFont
-    //Set oFont2 = Application.ActiveDocument.HeaderFooterFont
-    //oFont2.Name = "Calibri"
-    //oFont2.Bold = False
-    //oFont2.Italic = False
-    //oFont2.Underline = False
-    //oFont2.Strikethrough = False
-    //oFont2.Weight = 400
-    //oFont2.Size = 12
-    //oFont2.CharSet = 0
-    //Set Application.ActiveDocument.HeaderFooterFont = oFont2
-    //Application.EndUndoScope UndoScopeID1, True
-
-    //'Restore diagram services
-    //ActiveDocument.DiagramServicesEnabled = DiagramServices
 
         public static void AddFooter()
         {
@@ -111,30 +80,64 @@ namespace VNCVisioToolsApplication.Actions
 
             MSVisio.Document doc = app.ActiveDocument;
 
+            if (doc == null)
+            {
+                MessageBox.Show("No ActiveDocument");
+                return;
+            }
+
             // TODO: Add some stuff to read from config file with a dialog to default the selection
 
-            //doc.HeaderLeft = "";
-            //doc.HeaderCenter = "&n";
-            //doc.HeaderRight = "";
+            int undoScope = Common.VisioApplication.BeginUndoScope("AddFooter");
 
             doc.FooterLeft = "&f&e";
             doc.FooterCenter = "";
             doc.FooterRight = "&d &p-&P";
 
+            //var a = doc.Fonts;
+
+            //stdole.StdFontClass newFont = new stdole.StdFontClass();
+
+            //newFont.Na
+
+
+            //stdole.IFontDisp hff = doc.HeaderFooterFont;
+
             //Method not found: 'stdole.IFontDisp Microsoft.Office.Interop.Visio.IVDocument.get_HeaderFooterFont()'.
 
             var font = doc.HeaderFooterFont;
 
-            font.Size = (decimal)8;
+            font.Name = "Calibri";
+            font.Bold = false;
+            font.Italic = false;
+            font.Underline = false;
+            font.Strikethrough = false;
+
+            font.Size = (decimal)6;
 
             doc.HeaderFooterFont = font;
 
-            var size = doc.HeaderFooterFont.Size;
+            //var size = doc.HeaderFooterFont.Size;
 
-            //doc.HeaderMargin = 0.13;
-            //doc.FooterMargin = 0.13;
-            doc.HeaderMargin[MSVisio.VisUnitCodes.visDrawingUnits] = 0.13;
-            doc.FooterMargin[MSVisio.VisUnitCodes.visDrawingUnits] = 0.13;
+            // HACK(crhodes)
+            // This is from Recorded Macro
+
+            //Dim oFont2 As StdFont
+            //Set oFont2 = Application.ActiveDocument.HeaderFooterFont
+            //oFont2.Name = "Calibri"
+            //oFont2.Bold = False
+            //oFont2.Italic = False
+            //oFont2.Underline = False
+            //oFont2.Strikethrough = False
+            //oFont2.Weight = 400
+            //oFont2.Size = 12
+            //oFont2.CharSet = 0
+            //Set Application.ActiveDocument.HeaderFooterFont = oFont2
+
+
+            doc.FooterMargin[MSVisio.VisUnitCodes.visInches] = 0.13;
+
+            Common.VisioApplication.EndUndoScope(undoScope, true);
         }
 
         public static void AddHeader()
@@ -145,7 +148,15 @@ namespace VNCVisioToolsApplication.Actions
 
             MSVisio.Document doc = app.ActiveDocument;
 
+            if (doc == null)
+            {
+                MessageBox.Show("No ActiveDocument");
+                return;
+            }
+
             // TODO: Add some stuff to read from config file with a dialog to default the selection
+
+            int undoScope = Common.VisioApplication.BeginUndoScope("AddHeader");
 
             doc.HeaderLeft = "";
             doc.HeaderCenter = "";
@@ -163,6 +174,9 @@ namespace VNCVisioToolsApplication.Actions
 
             var size = doc.HeaderFooterFont.Size;
 
+            doc.HeaderMargin[MSVisio.VisUnitCodes.visInches] = 0.13;
+
+            Common.VisioApplication.EndUndoScope(undoScope, true);
         }
 
         public static void AddNavigationLinks()
