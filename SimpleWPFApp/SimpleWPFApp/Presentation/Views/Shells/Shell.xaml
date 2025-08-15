@@ -1,0 +1,55 @@
+﻿<Window
+    x:Class="SimpleWPFApp.Presentation.Views.Shell"
+    x:Name="thisControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+
+    xmlns:views="clr-namespace:SimpleWPFApp.Presentation.Views"
+    xmlns:viewModels="clr-namespace:SimpleWPFApp.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:SimpleWPFApp.Core"    
+
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
+
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="False"
+
+    Title="{Binding Title}"
+    Background="{StaticResource ShellBackground}"
+
+    d:DesignWidth="1200" d:DesignHeight="800"
+    d:DesignStyle="{StaticResource vncDesignStyleW}"
+    SizeChanged="thisControl_SizeChanged"
+ >
+<!-- xmlns:converters="clr-namespace:SimpleWPFApp.Presentation.Converters"  -->
+     <!-- <d:DesignerProperties.DesignStyle> -->
+        <!-- <Style TargetType="Window"> -->
+            <!-- <Setter Property="Background" Value="White" /> -->
+        <!-- </Style> -->
+    <!-- </d:DesignerProperties.DesignStyle> -->
+
+    <!-- d:DesignWidth="1200" d:DesignHeight="800" -->
+
+    <DockPanel>
+
+        <views:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
+        <ContentControl DockPanel.Dock="Bottom" Grid.Row="2" prism:RegionManager.RegionName="{x:Static core:RegionNames.StatusBarRegion}" />
+
+        <ContentControl DockPanel.Dock="Top" prism:RegionManager.RegionName="{x:Static core:RegionNames.RibbonRegion}" />
+
+        <ContentControl prism:RegionManager.RegionName="{x:Static core:RegionNames.MainRegion}" />
+
+    </DockPanel>
+
+</Window>

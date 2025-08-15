@@ -1,0 +1,69 @@
+﻿<vncmvvm:ViewBase
+    x:Class="DemoAndTestLogging2.Presentation.Views.ViewD"
+    x:Name="thisControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+
+    xmlns:views="clr-namespace:DemoAndTestLogging2.Presentation.Views"
+    xmlns:viewModels="clr-namespace:DemoAndTestLogging2.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:DemoAndTestLogging2.Core;assembly=DemoAndTestLogging2.Core"
+
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncenum="clr-namespace:VNC.Core.Xaml.Enums;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
+
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="False"
+
+    Background="{StaticResource ViewDBackground}"
+
+    d:DesignWidth="200" d:DesignHeight="125"
+    d:DesignStyle="{StaticResource vncDesignStyleUC}"
+
+    SizeChanged="thisControl_SizeChanged"
+>
+    <!--xmlns:converters="clr-namespace:DemoAndTestLogging2.Presentation.Converters"-->
+    <!-- <d:DesignerProperties.DesignStyle> -->
+        <!-- <Style TargetType="UserControl"> -->
+            <!-- <Setter Property="Background" Value="White" /> -->
+        <!-- </Style> -->
+    <!-- </d:DesignerProperties.DesignStyle> -->
+
+    <!-- d:DesignWidth="400" d:DesignHeight="400" -->
+
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+
+    <DockPanel>
+
+        <views:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="ViewD - AutoWireViewModel=False" />
+                <TextBlock Text="tbViewMessage.DataContext = this;" />
+                <TextBlock Text="{Binding Message}" />
+                <TextBlock Text="{Binding MessageD}" />
+                <TextBlock Text="{Binding ViewMessage}" />
+                <TextBlock x:Name="tbViewMessage"  Text="{Binding ViewMessage}" />
+            </StackPanel>
+
+        </Grid>
+
+    </DockPanel>
+
+</vncmvvm:ViewBase>
