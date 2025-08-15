@@ -1,3 +1,0 @@
-﻿DemoAndTestLogging5\Domain\Lookups
-
-Notes for using this template
