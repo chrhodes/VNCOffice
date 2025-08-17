@@ -65,7 +65,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (windowHostLocal is null) windowHostLocal = new WindowHost();
+            if (windowHostLocal is null) windowHostLocal = new WindowHost(Common.EventAggregator);
 
             windowHostLocal.DisplayUserControlInHost(
                 "WindowHost (local) Test",
@@ -127,7 +127,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (cylonHost is null) cylonHost = new WindowHost();
+            if (cylonHost is null) cylonHost = new WindowHost(Common.EventAggregator);
 
             cylonHost.DisplayUserControlInHost(
                 "I am a Cylon loaded by name",
@@ -142,7 +142,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (cylonHost2 is null) cylonHost2 = new WindowHost();
+            if (cylonHost2 is null) cylonHost2 = new WindowHost(Common.EventAggregator);
 
             cylonHost2.DisplayUserControlInHost(
                 "I am a Cylon loaded by type",

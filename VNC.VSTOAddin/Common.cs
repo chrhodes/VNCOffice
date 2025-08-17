@@ -4,9 +4,9 @@ using System.Windows;
 
 namespace VNC.VSTOAddIn
 {
-    public class Common  // : VNC.Core.Common
+    public class Common : VNC.Core.Common
     {
-        public const string LOG_CATEGORY = "VSTOAddIn";
+        public new const string LOG_CATEGORY = "VSTOAddIn";
 
         public static Boolean EnableAppEvents = false;  // Custom Header and Footer need this enabled.
         public static Boolean DisplayEvents = false;
@@ -18,17 +18,17 @@ namespace VNC.VSTOAddIn
             set;
         }
 
-        public static Boolean DeveloperMode
-        {
-            get;
-            set;
-        }
+        //public static Boolean DeveloperMode
+        //{
+        //    get;
+        //    set;
+        //}
 
-        public static Visibility DeveloperUIMode
-        {
-            get;
-            set;
-        }
+        //public static Visibility DeveloperUIMode
+        //{
+        //    get;
+        //    set;
+        //}
 
         private static Presentation.frmDebugWindow _DebugWindow;
         public static Presentation.frmDebugWindow DebugWindow

@@ -34,7 +34,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
         public void OnDoSomethingExecute()
         {
-            Log.Trace("Enter", Common.LOG_CATEGORY);
+            Log.TRACE("Enter", Common.LOG_CATEGORY);
             // Wrap a big, OMG, what have I done ???, undo around the whole thing !!!
 
             int undoScope = Common.VisioApplication.BeginUndoScope("AddConnectionPoints");
@@ -44,7 +44,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
             Actions.Visio_Shape.UpdateTextSections(TextBlockFormat.Model);
 
             Common.VisioApplication.EndUndoScope(undoScope, true);
-            Log.Trace("Exit", Common.LOG_CATEGORY);
+            Log.TRACE("Exit", Common.LOG_CATEGORY);
         }
 
         public Boolean OnDoSomethingCanExecute()

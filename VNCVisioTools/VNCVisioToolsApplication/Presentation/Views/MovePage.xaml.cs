@@ -56,7 +56,7 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         //private void btnExecuteCommand_Click(object sender, RoutedEventArgs e)
         //{
-        //    Log.Trace("Enter", Common.LOG_CATEGORY, 0);
+        //    Log.TRACE("Enter", Common.LOG_CATEGORY, 0);
         //    // Wrap a big, OMG, what have I done ???, undo around the whole thing !!!
 
         //    int undoScope = Common.VisioApplication.BeginUndoScope("ParseCommand");
@@ -69,7 +69,7 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         //    Common.VisioApplication.EndUndoScope(undoScope, true);
 
-        //    Log.Trace("Exit", Common.LOG_CATEGORY);
+        //    Log.TRACE("Exit", Common.LOG_CATEGORY);
         //}
 
         //private void cbeDefaultPatterns_SelectedIndexChanged(object sender, RoutedEventArgs e)

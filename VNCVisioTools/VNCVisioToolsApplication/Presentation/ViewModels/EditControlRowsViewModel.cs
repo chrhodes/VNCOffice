@@ -80,7 +80,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
         public void OnUpdateSettingsExecute()
         {
-            Log.Trace("Enter", Common.LOG_CATEGORY);
+            Log.TRACE("Enter", Common.LOG_CATEGORY);
             // Wrap a big, OMG, what have I done ???, undo around the whole thing !!!
 
             int undoScope = Common.VisioApplication.BeginUndoScope("UpdateControlRow");
@@ -99,7 +99,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
             }
 
             Common.VisioApplication.EndUndoScope(undoScope, true);
-            Log.Trace("Exit", Common.LOG_CATEGORY);
+            Log.TRACE("Exit", Common.LOG_CATEGORY);
         }
 
         public Boolean OnUpdateSettingsCanExecute()

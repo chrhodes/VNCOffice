@@ -13,6 +13,8 @@
 
         <!-- The order is important as things must be declared before used. -->
 
+        <ResourceDictionary Source="Display_StylesAndTemplates.xaml" />
+        
         <ResourceDictionary Source="Layout_Styles.xaml"/>
 
         <!-- TODO(crhodes)

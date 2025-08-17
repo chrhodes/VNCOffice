@@ -20,7 +20,7 @@ namespace VNC.VSTOAddIn.Presentation
             {
                 // TODO(crhodes)
                 // Handlel where to send logging output
-                //Log.Trace(outputLine, Common.LOG_CATEGORY);
+                //Log.TRACE(outputLine, Common.LOG_CATEGORY);
             }
         }
 

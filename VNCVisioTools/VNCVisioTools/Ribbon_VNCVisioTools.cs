@@ -759,7 +759,22 @@ namespace VNCVisioTools
 
         private void btnDisplayAddInInfo_Click(object sender, RibbonControlEventArgs e)
         {
-            VNC.VSTOAddIn.AddInInfo.DisplayInfo();
+            // NOTE(crhodes)
+            // This is for the old approach
+            //VNC.VSTOAddIn.AddInInfo.DisplayInfo();
+
+            // NOTE(crhodes)
+            // This is for the new approach
+
+            try
+            {
+                Visio_Application.DisplayAddInInfo();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+
         }
 
         private void btnToggleDeveloperMode_Click(object sender, RibbonControlEventArgs e)
@@ -818,9 +833,17 @@ namespace VNCVisioTools
 
         private void rcbToggleDeveloperUIMode_Click(object sender, RibbonControlEventArgs e)
         {
-            
             // TODO(crhodes)
             // This is for changing the visibility of MVVM stuff. 
+
+            try
+            {
+                Visio_Application.DeveloperModeUI(rcbDeveloperUIMode.Checked);
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
         }
 
         private void rcbUILaunchApproaches_Click(object sender, RibbonControlEventArgs e)

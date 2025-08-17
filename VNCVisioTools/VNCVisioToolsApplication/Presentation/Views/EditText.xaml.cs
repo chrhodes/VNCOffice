@@ -20,30 +20,30 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         public EditText(EditTextViewModel viewModel)
         {
-            Log.Trace("Enter", Common.LOG_CATEGORY);
+            Log.TRACE("Enter", Common.LOG_CATEGORY);
             InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
             //LoadControlContents();
-            Log.Trace("Exit", Common.LOG_CATEGORY);
+            Log.TRACE("Exit", Common.LOG_CATEGORY);
         }
 
         //private void UserControl_Loaded(object sender, RoutedEventArgs e)
         //{
-        //    Log.Trace("Enter", Common.LOG_CATEGORY);
-        //    //VNC.Log.Trace("", Common.LOG_APPNAME, 0);
+        //    Log.TRACE("Enter", Common.LOG_CATEGORY);
+        //    //VNC.Log.TRACE("", Common.LOG_APPNAME, 0);
         //    //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
         //    //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
-        //    Log.Trace("Exit", Common.LOG_CATEGORY);
+        //    Log.TRACE("Exit", Common.LOG_CATEGORY);
         //}
 
         //private void UserControl_Unloaded(object sender, RoutedEventArgs e)
         //{
-        //    Log.Trace("Enter", Common.LOG_CATEGORY);
-        //    //VNC.Log.Trace("", Common.LOG_APPNAME, 0);
+        //    Log.TRACE("Enter", Common.LOG_CATEGORY);
+        //    //VNC.Log.TRACE("", Common.LOG_APPNAME, 0);
         //    //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
         //    //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
-        //    Log.Trace("Exit", Common.LOG_CATEGORY);
+        //    Log.TRACE("Exit", Common.LOG_CATEGORY);
         //}
 
         #endregion
@@ -114,8 +114,8 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         //private void btnDoSomething_Click(object sender, RoutedEventArgs e)
         //{
-        //    Log.Trace("Enter", Common.LOG_CATEGORY);
-        //    //VNC.Log.Trace("", Common.LOG_APPNAME, 0);
+        //    Log.TRACE("Enter", Common.LOG_CATEGORY);
+        //    //VNC.Log.TRACE("", Common.LOG_APPNAME, 0);
         //    // Wrap a big, OMG, what have I done ???, undo around the whole thing !!!
 
         //    int undoScope = Common.VisioApplication.BeginUndoScope("AddConnectionPoints");

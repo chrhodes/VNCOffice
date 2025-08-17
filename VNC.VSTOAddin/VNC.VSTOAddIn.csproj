@@ -47,6 +47,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
       <Reference Include="PresentationCore" />
     </ItemGroup>
 

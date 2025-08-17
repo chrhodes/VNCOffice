@@ -516,7 +516,7 @@ namespace VNCVisioToolsApplication.Actions
         public static void RenamePages(string searchExpression, string replacementExpression,
             RegexOptions regexOptions = RegexOptions.None)
         {
-            VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
+            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
 
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 

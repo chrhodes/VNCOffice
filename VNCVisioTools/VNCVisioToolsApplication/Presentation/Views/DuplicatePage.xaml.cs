@@ -21,7 +21,7 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         public DuplicatePage()
         {
-            long startTicks = Log.Trace("Enter", Common.LOG_CATEGORY);
+            long startTicks = Log.TRACE("Enter", Common.LOG_CATEGORY);
 
             InitializeComponent();
 
@@ -34,12 +34,12 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
             InitializeView();
 
-            Log.Trace("Exit", Common.LOG_CATEGORY, startTicks);
+            Log.TRACE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         public DuplicatePage(IDuplicatePageViewModel viewModel)
         {
-            long startTicks = Log.Trace("Enter", Common.LOG_CATEGORY);
+            long startTicks = Log.TRACE("Enter", Common.LOG_CATEGORY);
 
             InitializeComponent();
 
@@ -47,7 +47,7 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
             InitializeView();
 
-            Log.Trace("Exit", Common.LOG_CATEGORY, startTicks);
+            Log.TRACE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeView()

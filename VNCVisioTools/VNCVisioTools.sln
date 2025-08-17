@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{20780886-A859-4371-8D60-2E9D9D2F276B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.Core", "..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj", "{1928BC7A-D1F6-A566-A8E6-E808D4DAB9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.Logging", "..\..\VNCDevelopment\VNC.Logging\VNC.Logging\VNC.Logging.csproj", "{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +65,14 @@ Global
 		{324942C3-E447-2775-B5D8-D594C9891F9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{324942C3-E447-2775-B5D8-D594C9891F9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{324942C3-E447-2775-B5D8-D594C9891F9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1928BC7A-D1F6-A566-A8E6-E808D4DAB9FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1928BC7A-D1F6-A566-A8E6-E808D4DAB9FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1928BC7A-D1F6-A566-A8E6-E808D4DAB9FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1928BC7A-D1F6-A566-A8E6-E808D4DAB9FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 
 using Prism.Events;
+using Prism.Ioc;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
 
@@ -11,6 +12,10 @@ namespace VNCVisioToolsApplication
         new public const string LOG_CATEGORY = "VNCVisioToolsApplication";
 
         public const string cCONFIG_FILE = @"C:\temp\VNCVisioToolsApplication.xml";
+
+        public static IContainerProvider Container;
+
+        //public static Shell? CurrentShell;
 
         public static Events.VisioAppEvents AppEvents;
         public static Events.AddInApplicationEvents AddInApplicationEvents;

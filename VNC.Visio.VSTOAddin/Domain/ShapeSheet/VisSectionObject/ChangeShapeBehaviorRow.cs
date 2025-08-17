@@ -57,7 +57,7 @@ namespace VNC.Visio.VSTOAddIn.Domain
             }
             catch (Exception ex)
             {
-                Log.Error(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_CATEGORY);
             }
         }
     }

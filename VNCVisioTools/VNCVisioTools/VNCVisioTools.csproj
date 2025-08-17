@@ -241,6 +241,14 @@
     <Folder Include="Resources\Xaml\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj">
+      <Project>{1928bc7a-d1f6-a566-a8e6-e808d4dab9fd}</Project>
+      <Name>VNC.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Logging\VNC.Logging\VNC.Logging.csproj">
+      <Project>{1396838b-1e2a-a2f4-bb0f-3e3848fe4c2a}</Project>
+      <Name>VNC.Logging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj">
       <Project>{1cc80f79-387b-0e6b-af64-919fef85a636}</Project>
       <Name>VNC.VSTOAddIn</Name>

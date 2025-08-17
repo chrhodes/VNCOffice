@@ -1,11 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+using Prism.Events;
+
 using VNC;
+using VNC.Core.Events;
+
+using VNCVisioToolsApplication.Actions;
 
 namespace VNCVisioToolsApplication.Visio
 {
@@ -17,18 +23,21 @@ namespace VNCVisioToolsApplication.Visio
 
         public static void InitializeApplication()
         {
-            //Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks;
+            startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
-            Int64 startTicks = Common.WriteToDebugWindow("InitializeWPFApplication()", true);
+            startTicks = Common.WriteToDebugWindow("InitializeWPFApplication()", true);
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
-            // NOTE(crhodes)
-            // We need to update VNC.Core as VNCCoreLogging and VNCLogging are null
-            // We started initializing them in 3.0+
+            //// NOTE(crhodes)
+            //// We need to update VNC.Core as VNCCoreLogging and VNCLogging are null
+            //// We started initializing them in 3.0+
 
-            VNC.Core.Common.VNCCoreLogging = new VNC.Core.VNCLoggingConfig();
-            VNC.Core.Common.VNCLogging = new VNC.Core.VNCLoggingConfig();
+            //VNC.Core.Common.VNCCoreLogging = new VNC.Core.VNCLoggingConfig();
+            //VNC.Core.Common.VNCLogging = new VNC.Core.VNCLoggingConfig();
+
+            GetAndSetInformation();
 
             CreateXamlApplication();
 
@@ -116,7 +125,7 @@ namespace VNCVisioToolsApplication.Visio
                 MessageBox.Show(ex.InnerException.ToString());
             }
 
-            //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
             Common.WriteToDebugWindow("InitializeWPFApplication()-Exit", startTicks, true);
         }
 
@@ -126,6 +135,31 @@ namespace VNCVisioToolsApplication.Visio
         /// Creates Xaml Resources collection in System.Windows.Application
         /// for use in Hosted applications without App.Xaml
         /// </summary>
+
+        private static void GetAndSetInformation()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+
+            // Get Information about VNC.Core
+
+            Common.SetVersionInfoVNCCore();
+
+            var appFileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+
+            // Get Information about ourselves
+
+            Common.SetVersionInfoApplication(Assembly.GetExecutingAssembly(), appFileVersionInfo);
+
+            // TODO(crhodes)
+            // Add new VNC.Core.Information InformationXXX
+            // for other Assemblies that should provide Info 
+            // in SimpleWPFApp.Common
+            // 
+            // Extend Views\AppVersionInfo.xaml as needed
+
+            if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+        }
 
         private static void CreateXamlApplication()
         {
@@ -184,6 +218,10 @@ namespace VNCVisioToolsApplication.Visio
 
             Common.ApplicationBootstrapper = new Bootstrapper();
             Common.ApplicationBootstrapper.Run();
+
+            Common.EventAggregator = (IEventAggregator)Common.Container.Resolve(typeof(IEventAggregator));
+            Visio_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
+            Visio_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
             Common.WriteToDebugWindow("InitializePrism()-Exit", startTicks, true);
         }

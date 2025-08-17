@@ -1,5 +1,7 @@
 ﻿using System;
 
+using VNC;
+
 using VNCVisioToolsApplication.Visio;
 
 namespace VNCVisioTools
@@ -8,7 +10,9 @@ namespace VNCVisioTools
     {
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            Int64 startTicks = Common.WriteToDebugWindow("ThisAddIn_Startup()", true);
+            Int64 startTicks;
+            startTicks = Log.APPLICATION_INITIALIZE("ThisAddIn_Startup()", Common.LOG_CATEGORY);
+            startTicks = Common.WriteToDebugWindow("ThisAddIn_Startup()", true);
 
             InitializeRibbonUI();
 

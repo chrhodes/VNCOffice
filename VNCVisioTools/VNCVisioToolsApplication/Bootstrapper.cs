@@ -157,6 +157,8 @@ namespace VNCVisioToolsApplication
 
             //Log.APPLICATION_INITIALIZE("Exit (null)", Common.LOG_CATEGORY, startTicks);
 
+            Common.Container = Container;
+
             Common.WriteToDebugWindow("CreateShell()", true);
 
             return null;

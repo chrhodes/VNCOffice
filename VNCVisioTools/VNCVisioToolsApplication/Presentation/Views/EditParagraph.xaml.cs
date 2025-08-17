@@ -14,11 +14,11 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         public EditParagraph(EditParagraphViewModel viewModel)
         {
-            Log.Trace("Enter", Common.LOG_CATEGORY);
+            Log.TRACE("Enter", Common.LOG_CATEGORY);
             InitializeComponent();
             _viewModel = viewModel;
             DataContext = _viewModel;
-            Log.Trace("Exit", Common.LOG_CATEGORY);
+            Log.TRACE("Exit", Common.LOG_CATEGORY);
         }
 
         #endregion

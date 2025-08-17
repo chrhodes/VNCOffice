@@ -35,7 +35,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddDefaultLayers()
         {
-            VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
+            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
 
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
@@ -194,7 +194,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AutoSizePageOff()
         {
-            VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
+            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
 
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
@@ -212,7 +212,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AutoSizePageOn()
         {
-            VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
+            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
 
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 

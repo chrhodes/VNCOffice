@@ -41,7 +41,7 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         private void btnExecuteCommand_Click(object sender, RoutedEventArgs e)
         {
-            VNC.Log.Trace("", Common.LOG_CATEGORY, 0);
+            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
             // Wrap a big, OMG, what have I done ???, undo around the whole thing !!!
 
             int undoScope = Common.VisioApplication.BeginUndoScope("ParseCommand");
