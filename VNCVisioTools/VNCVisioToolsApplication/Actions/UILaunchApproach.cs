@@ -23,7 +23,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (themedWindowHostModal is null) themedWindowHostModal = new DxThemedWindowHost();
+            if (themedWindowHostModal is null) themedWindowHostModal = new DxThemedWindowHost(Common.EventAggregator);
 
             themedWindowHostModal.DisplayUserControlInHost(
                 "ThemedWindowHost (Modal)",
@@ -37,7 +37,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (themedWindowHostModeless is null) themedWindowHostModeless = new DxThemedWindowHost();
+            if (themedWindowHostModeless is null) themedWindowHostModeless = new DxThemedWindowHost(Common.EventAggregator);
 
             themedWindowHostModeless.DisplayUserControlInHost(
                 "ThemedWindowHost (Modeless)",
@@ -89,7 +89,7 @@ namespace VNCVisioToolsApplication.Actions
 
             if (host is null)
             {
-                host = new DxThemedWindowHost();
+                host = new DxThemedWindowHost(Common.EventAggregator);
                 host.Height = Common.DEFAULT_WINDOW_HEIGHT_SMALL;
                 host.Width = Common.DEFAULT_WINDOW_WIDTH_SMALL;
                 host.Title = title;
@@ -157,7 +157,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (dxLayoutControlHost is null) dxLayoutControlHost = new DxThemedWindowHost();
+            if (dxLayoutControlHost is null) dxLayoutControlHost = new DxThemedWindowHost(Common.EventAggregator);
 
             dxLayoutControlHost.DisplayUserControlInHost(
                 "DxLayoutControl Test",
@@ -172,7 +172,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (dxDockLayoutControlHost is null) dxDockLayoutControlHost = new DxThemedWindowHost();
+            if (dxDockLayoutControlHost is null) dxDockLayoutControlHost = new DxThemedWindowHost(Common.EventAggregator);
 
             dxDockLayoutControlHost.DisplayUserControlInHost(
                 "DxDockLayoutControl Test",
@@ -187,7 +187,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (dxDockLayoutManagerControlHost is null) dxDockLayoutManagerControlHost = new DxThemedWindowHost();
+            if (dxDockLayoutManagerControlHost is null) dxDockLayoutManagerControlHost = new DxThemedWindowHost(Common.EventAggregator);
 
             dxDockLayoutManagerControlHost.DisplayUserControlInHost(
                 "DxDocLayoutManagerControl Test",
@@ -202,7 +202,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (prismRegionTestHost is null) prismRegionTestHost = new DxThemedWindowHost();
+            if (prismRegionTestHost is null) prismRegionTestHost = new DxThemedWindowHost(Common.EventAggregator);
 
             prismRegionTestHost.DisplayUserControlInHost(
                 "Prism Region Test",
@@ -221,7 +221,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (vncMVVM_VAVM1st_Host is null) vncMVVM_VAVM1st_Host = new DxThemedWindowHost();
+            if (vncMVVM_VAVM1st_Host is null) vncMVVM_VAVM1st_Host = new DxThemedWindowHost(Common.EventAggregator);
 
             // NOTE(crhodes)
             // Wire things up ourselves - ViewModel First - with a little help from DI.
@@ -244,7 +244,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (vncMVVM_VA_Host is null) vncMVVM_VA_Host = new DxThemedWindowHost();
+            if (vncMVVM_VA_Host is null) vncMVVM_VA_Host = new DxThemedWindowHost(Common.EventAggregator);
             // NOTE(crhodes)
             // This does not wire View to ViewModel
             // Because we HAVE NOT Registered ViewAViewModel in VNCVisioToolsApplicationModules
@@ -264,7 +264,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (vncMVVM_VAVMDI_Host is null) vncMVVM_VAVMDI_Host = new DxThemedWindowHost();
+            if (vncMVVM_VAVMDI_Host is null) vncMVVM_VAVMDI_Host = new DxThemedWindowHost(Common.EventAggregator);
 
             // NOTE(crhodes)
             // This does wire View to ViewModel
@@ -284,7 +284,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (vncMVVM_VB_Host is null) vncMVVM_VB_Host = new DxThemedWindowHost();
+            if (vncMVVM_VB_Host is null) vncMVVM_VB_Host = new DxThemedWindowHost(Common.EventAggregator);
 
             // NOTE(crhodes)
             // This does wire View to ViewModel
@@ -304,7 +304,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (vncMVVM_VC1_Host is null) vncMVVM_VC1_Host = new DxThemedWindowHost();
+            if (vncMVVM_VC1_Host is null) vncMVVM_VC1_Host = new DxThemedWindowHost(Common.EventAggregator);
 
             // NOTE(crhodes)
             // This does wire View to ViewModel
@@ -325,7 +325,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
-            if (vncMVVM_VC2_Host is null) vncMVVM_VC2_Host = new DxThemedWindowHost();
+            if (vncMVVM_VC2_Host is null) vncMVVM_VC2_Host = new DxThemedWindowHost(Common.EventAggregator);
 
             // NOTE(crhodes)
             // This does wire View to ViewModel

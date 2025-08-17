@@ -3,26 +3,37 @@
     <PropertyGroup>
         <TargetFrameworks>net481</TargetFrameworks>
         <UseWPF>true</UseWPF>
-        <UseWindowsForms>true</UseWindowsForms>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <AssemblyName>VNC.Visio.VSTOAddIn</AssemblyName>
         <RootNamespace>VNC.Visio.VSTOAddIn</RootNamespace>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>VNC.snk</AssemblyOriginatorKeyFile>
         <VersionPrefix>1.0.0</VersionPrefix>
-        <VersionSuffix>Development</VersionSuffix>
-        <FileVersion>2025.08.15A</FileVersion>
+        <VersionSuffix>Release</VersionSuffix>
+        <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+        <FileVersion>2025.08.15</FileVersion>
+        <Description>VNC Visio VSTO AddIn Helper</Description>
+        <LangVersion>12.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+    </PropertyGroup>
+
+    <!-- This is for NuGet Packages -->
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageVersion>1.0.0</PackageVersion>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageProjectUrl>https://github.com/chrhodes/vncoffice</PackageProjectUrl>
         <RepositoryUrl>https://github.com/chrhodes/vncoffice</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
-        <PackageTags>vsto;mvvm;visio</PackageTags>
-        <PackageIcon>VNC.png</PackageIcon>        
+        <PackageTags></PackageTags>
+        <PackageIcon>VNC.png</PackageIcon>
         <Authors>Christopher Rhodes</Authors>
+        <Company>VNC</Company>
         <Copyright>Copyright © VNC 2025</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <Description>VNC Visio VSTO AddIn</Description>
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
     </PropertyGroup>
 
@@ -36,7 +47,7 @@
             <Isolated>false</Isolated>
             <EmbedInteropTypes>true</EmbedInteropTypes>
         </COMReference>
-    </ItemGroup> 
+    </ItemGroup>
 
     <ItemGroup>
         <None Include="LICENSE">
@@ -47,11 +58,11 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-        <None Include="..\VNC.png">
+        <None Include="VNC.png">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-    </ItemGroup> 
+    </ItemGroup>
 
     <ItemGroup>
       <Compile Update="Properties\Settings.Designer.cs">
@@ -68,14 +79,9 @@
       </None>
     </ItemGroup> 
 
-    <!--<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-windows|AnyCPU'">
-        --><!-- Uncoment next line to switch to ProjectReference(s) --><!--
-         <DefineConstants>$(DefineConstants);VNCLOGGING;VNCPROJECTREF</DefineConstants> 
-    </PropertyGroup>-->
-
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
         <!-- Uncoment next line to switch to ProjectReference(s) -->
-        <DefineConstants>$(DefineConstants);VNCLOGGING;VNCPROJECTREF</DefineConstants>
+        <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>
     </PropertyGroup>
 
     <Choose>

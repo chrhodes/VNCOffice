@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.Core", "..\..\VNCDevelo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.Logging", "..\..\VNCDevelopment\VNC.Logging\VNC.Logging\VNC.Logging.csproj", "{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.WPF.Presentation.Dx", "..\..\VNCDevelopment\VNC.WPF.Presentation.Dx\VNC.WPF.Presentation.Dx.csproj", "{2D38B0AA-4AC9-AA52-37BD-B2059C565A6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D38B0AA-4AC9-AA52-37BD-B2059C565A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D38B0AA-4AC9-AA52-37BD-B2059C565A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D38B0AA-4AC9-AA52-37BD-B2059C565A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D38B0AA-4AC9-AA52-37BD-B2059C565A6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{E53A66CD-22EE-82B1-6D20-6719C1FAD6AB} = {95883EA8-5D12-4755-B6DF-4C6AEE4E411D}
 		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5} = {837FDFF7-92CD-4A51-B3D2-D9937BFE06C2}
 		{324942C3-E447-2775-B5D8-D594C9891F9A} = {20780886-A859-4371-8D60-2E9D9D2F276B}
+		{2D38B0AA-4AC9-AA52-37BD-B2059C565A6F} = {20780886-A859-4371-8D60-2E9D9D2F276B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88D6A487-6EF3-49BD-8762-15847B872DD8}

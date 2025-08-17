@@ -2,13 +2,14 @@
 
     <PropertyGroup>
         <TargetFrameworks>net481</TargetFrameworks>
-        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>   
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>YYYY.MM.DDA</FileVersion>
-        <Description>describe assembly</Description>
-        <!--<Nullable>enable</Nullable>-->
+        <FileVersion>2025.08.17</FileVersion>
+        <Description>VNCVisioToolsApplication Core</Description>
+        <LangVersion>12.0</LangVersion>
+        <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
     </PropertyGroup>
 
@@ -46,9 +47,9 @@
         <!-- <DefineConstants>TRACE;LOGGING;VNCTYPES;VNCEF</DefineConstants> -->
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net481|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
       <!-- Uncoment next line to switch to ProjectReference(s) -->
-      <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> -->
+       <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> 
     </PropertyGroup>
 
     <Choose>
@@ -59,7 +60,7 @@
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <PackageReference Include="VNC.Core" Version="2.1.6" />
+                <PackageReference Include="VNC.Core" Version="3.2.0" />
             </ItemGroup>
         </When>
     </Choose>

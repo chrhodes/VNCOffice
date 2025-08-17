@@ -41,12 +41,12 @@
 
         <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
 
-         <Border Grid.Row ="1" Grid.ColumnSpan="2" BorderBrush="Red" BorderThickness="2" Margin="2" DockPanel.Dock="Bottom"
+         <Border BorderBrush="Red" BorderThickness="2" Margin="2" DockPanel.Dock="Bottom"
                 VerticalAlignment="Top" HorizontalAlignment="Stretch">
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0">
                 <Label Content="RuntimeVersion:" FontWeight="Bold" Margin="0,0,2,0" />
-                <Label Content="{Binding InformationApplication.RuntimeVersion}" HorizontalAlignment="Center" />
+                <Label x:Name="lblRunTimeVersion" Content="{Binding RuntimeVersion}" HorizontalAlignment="Center" />
             </StackPanel>
 
         </Border>
@@ -54,9 +54,11 @@
         <ScrollViewer>
         <StackPanel Orientation="Vertical">
 
-            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" MinWidth="500" HorizontalAlignment="Stretch">
+            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" 
+                    MinWidth="500" HorizontalAlignment="Stretch">
 
-                <StackPanel Orientation="Vertical" Margin="2" DataContext="{Binding InformationApplication}" >
+                <StackPanel x:Name="spApplication"  
+                            Orientation="Vertical" Margin="2" DataContext="{Binding InformationApplication}" >
                     <vncviews:AssemblyInformation />
                     <vncviews:FileInformation />
                 </StackPanel>
@@ -65,22 +67,73 @@
 
             <!-- TODO(crhodes)
              Add sections below for additional assemblies
+             
+             Use GAI
             -->
 
-            <!-- <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" MinWidth="500" HorizontalAlignment="Stretch"> -->
+            <!--VNC.Visio.VSTOAddIn-->
+            
+             <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" 
+                     MinWidth="500" HorizontalAlignment="Stretch">
 
-                <!-- <StackPanel Orientation="Vertical" Margin="2" DataContext="{Binding InformationApplicationCore}" > -->
-                    <!-- <vncviews:AssemblyInformation /> -->
-                    <!-- <vncviews:FileInformation /> -->
-                <!-- </StackPanel> -->
+                    <StackPanel x:Name="spVNCVisioVSTOAddIn" 
+                                Orientation="Vertical" Margin="2" 
+                                DataContext="{Binding InformationVNCVisioVSTOAddIn}" > 
+                     <vncviews:AssemblyInformation /> 
+                     <vncviews:FileInformation /> 
+                 </StackPanel> 
 
-            <!-- </Border> -->
+             </Border> 
+            
+            <!--  VNC.VSTOAddIn -->
 
-            <!--VNCCore-->
+            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2"
+                    MinWidth="500" HorizontalAlignment="Stretch">
 
-            <Border Grid.Column="1" BorderBrush="Red" BorderThickness="2" Margin="2" MinWidth="500" HorizontalAlignment="Stretch">
+                <StackPanel x:Name="spVNCVSTOAddIn" 
+                            Orientation="Vertical" Margin="2" 
+                            DataContext="{Binding InformationVNCVSTOAddIn}" > 
+                    <vncviews:AssemblyInformation /> 
+                    <vncviews:FileInformation /> 
+                </StackPanel> 
 
-                <StackPanel Orientation="Vertical" Margin="2" DataContext="{Binding InformationVNCCore}">
+            </Border> 
+            
+            <!--  VNC.Wpf.Presentation.Dx -->
+
+            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2"
+                MinWidth="500" HorizontalAlignment="Stretch">
+
+                <StackPanel x:Name="spVNCWpfPresentationDx" 
+                            Orientation="Vertical" Margin="2" 
+                            DataContext="{Binding InformationVNCWpfPresentationDx}" >
+                    <vncviews:AssemblyInformation />
+                    <vncviews:FileInformation />
+                </StackPanel>
+
+            </Border>
+
+            <!--  VNC.Wpf.Presentation -->
+
+            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2"
+                MinWidth="500" HorizontalAlignment="Stretch">
+
+                <StackPanel x:Name="spVNCWpfPresentation" 
+                            Orientation="Vertical" Margin="2" 
+                            DataContext="{Binding InformationVNCWpfPresentation}" >
+                    <vncviews:AssemblyInformation />
+                    <vncviews:FileInformation />
+                </StackPanel>
+
+            </Border>
+
+            <!--VNC.Core-->
+
+            <Border Grid.Column="1" BorderBrush="Red" BorderThickness="2" Margin="2" 
+                    MinWidth="500" HorizontalAlignment="Stretch">
+
+                <StackPanel x:Name="spVNCCore" Orientation="Vertical" Margin="2" 
+                            DataContext="{Binding InformationVNCCore}">
                     <vncviews:AssemblyInformation />
                     <vncviews:FileInformation />
                 </StackPanel>

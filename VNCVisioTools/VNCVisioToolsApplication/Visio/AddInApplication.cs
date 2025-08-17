@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+using DevExpress.Data;
+
 using Prism.Events;
 
 using VNC;
@@ -151,12 +153,66 @@ namespace VNCVisioToolsApplication.Visio
 
             Common.SetVersionInfoApplication(Assembly.GetExecutingAssembly(), appFileVersionInfo);
 
+            // Add Information about the other assemblies in our application
+
             // TODO(crhodes)
-            // Add new VNC.Core.Information InformationXXX
+            // Gather VNC.Core.Information InformationXXX
             // for other Assemblies that should provide Info 
-            // in SimpleWPFApp.Common
+            // listed in VNCVisioToolsApplication.Common
+            //
+            // Use GAI
             // 
             // Extend Views\AppVersionInfo.xaml as needed
+            // Update Views\AppVersionInfo.xaml.cs InitializeViewModel()
+
+            var VNCVisioVSTOAddInAssembly = Assembly.GetAssembly(typeof(VNC.Visio.VSTOAddIn.Common));
+
+            if (VNCVisioVSTOAddInAssembly is not null)
+            {
+                var VNCVisioVSTOAddInAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCVisioVSTOAddInAssembly.Location);
+
+                Common.InformationVNCVisioVSTOAddIn = Common.GetInformation(
+                    VNCVisioVSTOAddInAssembly,
+                    VNCVisioVSTOAddInAssemblyFileVersionInfo);
+            }
+
+            var VNCVSTOAddInAssembly = Assembly.GetAssembly(typeof(VNC.VSTOAddIn.Common));
+
+            if (VNCVSTOAddInAssembly is not null)
+            {
+                var VNCVSTOAddInAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCVSTOAddInAssembly.Location);
+
+                Common.InformationVNCVSTOAddIn = Common.GetInformation(
+                    VNCVSTOAddInAssembly,
+                    VNCVSTOAddInAssemblyFileVersionInfo);
+            }
+
+            var VNCWpfPresentationAssembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Common));
+
+            if (VNCWpfPresentationAssembly is not null)
+            {
+                var VNCWpfPresentationAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCWpfPresentationAssembly.Location);
+
+                Common.InformationVNCWpfPresentation = Common.GetInformation(
+                    VNCWpfPresentationAssembly,
+                    VNCWpfPresentationAssemblyFileVersionInfo);
+            }
+
+            var VNCWpfPresentationDxAssembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Dx.Common));
+
+            if (VNCWpfPresentationDxAssembly is not null)
+            {
+                var VNCWpfPresentationDxAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo(VNCWpfPresentationDxAssembly.Location);
+
+                Common.InformationVNCWpfPresentationDx = Common.GetInformation(
+                    VNCWpfPresentationDxAssembly,
+                    VNCWpfPresentationDxAssemblyFileVersionInfo);
+            }
+            
 
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }

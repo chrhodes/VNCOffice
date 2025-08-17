@@ -18,18 +18,6 @@ namespace VNC.VSTOAddIn
             set;
         }
 
-        //public static Boolean DeveloperMode
-        //{
-        //    get;
-        //    set;
-        //}
-
-        //public static Visibility DeveloperUIMode
-        //{
-        //    get;
-        //    set;
-        //}
-
         private static Presentation.frmDebugWindow _DebugWindow;
         public static Presentation.frmDebugWindow DebugWindow
         {

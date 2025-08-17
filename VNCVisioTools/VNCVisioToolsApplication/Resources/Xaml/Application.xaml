@@ -49,8 +49,7 @@
 
     <Style x:Key="DebugStyle">
         <Setter Property="Rectangle.Fill" Value="OrangeRed" />
-    </Style>-->
-    
+    </Style>-->  
    
 
 </ResourceDictionary>

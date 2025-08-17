@@ -93,15 +93,25 @@ namespace VNCVisioToolsApplication.Presentation.Views
             // HACK(crhodes)
             // Figure out what to do here as there is no current shell in an AddIn
 
-            InformationApplication = Common.InformationApplication;
-            InformationApplicationCore = Common.InformationApplicationCore;
+            //InformationApplication = Common.InformationApplication;
+            //InformationApplicationCore = Common.InformationApplicationCore;
 
-            //TODO(crhodes)
-            // Add additional Information InformationXXX for other assemblies
+            ////TODO(crhodes)
+            //// Add additional Information InformationXXX for other assemblies
 
-            InformationVNCCore = Common.InformationVNCCore;
+            //InformationVNCCore = Common.InformationVNCCore;
 
-            DataContext = this;
+            spApplication.DataContext = Common.InformationApplication;
+            lblRunTimeVersion.DataContext = Common.InformationApplication;
+
+            spVNCVSTOAddIn.DataContext = Common.InformationVNCVSTOAddIn;
+            spVNCVisioVSTOAddIn.DataContext = Common.InformationVNCVisioVSTOAddIn;
+            spVNCWpfPresentation.DataContext = Common.InformationVNCWpfPresentation;
+            spVNCWpfPresentationDx.DataContext = Common.InformationVNCWpfPresentationDx;
+
+            spVNCCore.DataContext = Common.InformationVNCCore;
+            //DataContext = VNC.Core.Common;
+            //DataContext = this;
             //DataContext = Common.CurrentShell.ViewModel;
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
@@ -123,21 +133,21 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         #region Fields and Properties (none)
 
-        public Information InformationApplication
-        {
-            get;
-            set;
-        }
-        public Information InformationApplicationCore
-        {
-            get;
-            set;
-        }
+        //public Information InformationApplication
+        //{
+        //    get;
+        //    set;
+        //}
+        //public Information InformationApplicationCore
+        //{
+        //    get;
+        //    set;
+        //}
 
-        //TODO(crhodes)
-        // Add additional Information InformationXXX for other assemblies
+        ////TODO(crhodes)
+        //// Add additional Information InformationXXX for other assemblies
 
-        public Information InformationVNCCore { get; set; }
+        //public Information InformationVNCCore { get; set; }
 
         #endregion
 

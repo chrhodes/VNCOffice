@@ -13,9 +13,25 @@ namespace VNCVisioToolsApplication
 
         public const string cCONFIG_FILE = @"C:\temp\VNCVisioToolsApplication.xml";
 
+        // NOTE(crhodes)
+        // Add new VNC.Core.Information? InformationXXX
+        // for other Assemblies that are used as part of the application.
+        //
+        // Initialize GetAndSetInformation() in AddInApplication.cs 
+        //
+        // Extend Views\AppVersionInfo.xaml as needed
+        //  Add new properties
+        //  Update InitializeViewModel()
+
+        //public static VNC.Core.Information? InformationVNCVisioToolsApplicationCore;
+
+        public static VNC.Core.Information? InformationVNCVisioVSTOAddIn;
+        public static VNC.Core.Information? InformationVNCVSTOAddIn;
+        public static VNC.Core.Information? InformationVNCWpfPresentation;
+        public static VNC.Core.Information? InformationVNCWpfPresentationDx;
+
         public static IContainerProvider Container;
 
-        //public static Shell? CurrentShell;
 
         public static Events.VisioAppEvents AppEvents;
         public static Events.AddInApplicationEvents AddInApplicationEvents;
