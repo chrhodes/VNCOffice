@@ -11,7 +11,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2025.08.17</FileVersion>
+        <FileVersion>2025.08.18</FileVersion>
         <Description>VNC Visio VSTO AddIn Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>

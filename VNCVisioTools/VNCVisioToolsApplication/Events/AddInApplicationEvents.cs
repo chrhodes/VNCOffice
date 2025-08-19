@@ -76,7 +76,7 @@ namespace VNCVisioToolsApplication.Events
             }
             catch (Exception ex)
             {
-                //Log.ERROR(ex, Common.LOG_CATEGORY);
+                //Log.Error(ex, Common.LOG_CATEGORY);
             }
         }
 
@@ -101,13 +101,13 @@ namespace VNCVisioToolsApplication.Events
         {
             //VNC.Log.Debug("", Common.LOG_CATEGORY, 0);
 
-            Common.WriteToDebugWindow($"{MethodInfo.GetCurrentMethod().Name}()", true);
+            Common.WriteToDebugWindow($"{MethodInfo.GetCurrentMethod().Name}()");
 
             try
             {
                 for (int i = 0; i < context.Count(); i++)
                 {
-                    Common.WriteToDebugWindow($"  ci[{i}]:>{context[i]}", true);
+                    Common.WriteToDebugWindow($"  ci[{i}]:>{context[i]}");
                 }
 
                 // The QueueMarkerEvent provides context information for each event along with user information (action).
@@ -118,7 +118,7 @@ namespace VNCVisioToolsApplication.Events
                 string page = context[1].Substring(6);      // "/page="
                 string shape = context[2].Substring(7);     // "/shape="
 
-                Common.WriteToDebugWindow($" doc: >{doc}<  page: >{page}<  shape: >{shape}<", true);
+                Common.WriteToDebugWindow($" doc: >{doc}<  page: >{page}<  shape: >{shape}<");
 
                 // QueueMarkerEvent from Pages does not have a shapeu
 
@@ -127,13 +127,13 @@ namespace VNCVisioToolsApplication.Events
                 if (context.Count() > 3)
                 {
                     shapeu = context[3].Substring(8);    // "/shapeu="
-                    Common.WriteToDebugWindow($"   shapeu:>{shapeu}<", true);
+                    Common.WriteToDebugWindow($"   shapeu:>{shapeu}<");
                 }
 
                 string args = context[4].Replace("%20", " ");   // Embedded spaces
                 var actionArgs = args.Split(',');
 
-                Common.WriteToDebugWindow($"    actionArgs:>{actionArgs[0]}<", true);
+                Common.WriteToDebugWindow($"    actionArgs:>{actionArgs[0]}<");
 
                 // TODO:
                 // Add new case statement for each unique "<Action>"
@@ -181,7 +181,7 @@ namespace VNCVisioToolsApplication.Events
             }
             catch (Exception ex)
             {
-                //Log.ERROR(ex, Common.LOG_CATEGORY);
+                //Log.Error(ex, Common.LOG_CATEGORY);
             }
         }
     }

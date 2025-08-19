@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-using Prism.Events;
+﻿using Prism.Events;
 using Prism.Ioc;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
@@ -12,6 +10,11 @@ namespace VNCVisioToolsApplication
         new public const string LOG_CATEGORY = "VNCVisioToolsApplication";
 
         public const string cCONFIG_FILE = @"C:\temp\VNCVisioToolsApplication.xml";
+
+        public static Events.VisioAppEvents AppEvents;
+        public static Events.AddInApplicationEvents AddInApplicationEvents;
+
+        public static MSVisio.Application VisioApplication { get; set; }
 
         // NOTE(crhodes)
         // Add new VNC.Core.Information? InformationXXX
@@ -32,14 +35,8 @@ namespace VNCVisioToolsApplication
 
         public static IContainerProvider Container;
 
-
-        public static Events.VisioAppEvents AppEvents;
-        public static Events.AddInApplicationEvents AddInApplicationEvents;
-
         public static IEventAggregator EventAggregator = new EventAggregator();
         public static VNCVisioToolsApplication.Bootstrapper ApplicationBootstrapper;
-
-        public static MSVisio.Application VisioApplication { get; set; }
 
         internal const int DEFAULT_WINDOW_WIDTH_LARGE = 1800;
         internal const int DEFAULT_WINDOW_HEIGHT_LARGE = 1200;

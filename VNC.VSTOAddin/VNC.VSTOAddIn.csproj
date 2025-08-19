@@ -12,7 +12,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2025.08.17</FileVersion>
+        <FileVersion>2025.08.18</FileVersion>
         <Description>VNC VSTO AddIn Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -54,12 +54,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="VNC.AssemblyHelper" Version="2.0.0" />
+      <PackageReference Include="VNC.AssemblyHelper" Version="3.2.0" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
         <!-- Uncoment next line to switch to ProjectReference(s) -->
-        <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>
+        <!--<DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>-->
     </PropertyGroup>
 
     <Choose>
@@ -74,6 +74,20 @@
             </ItemGroup>
         </When>
     </Choose>
+
+    <!--We save a copy as Visual Studio messes with the project file when we use the GUI to add references.-->
+    <!--<Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <PackageReference Include="VNC.Core" Version="3.2.0" />
+            </ItemGroup>
+        </When>
+    </Choose>-->    
 
     <ItemGroup>
       <Reference Include="PresentationCore" />

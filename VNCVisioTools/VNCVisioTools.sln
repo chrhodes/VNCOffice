@@ -3,27 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.36105.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCVisioTools", "VNCVisioTools\VNCVisioTools.csproj", "{FBBEE8D9-CCBA-43CE-A183-56E1C915B607}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCVisioTools", "VNCVisioTools\VNCVisioTools.csproj", "{A985CC14-8A73-4977-94E8-6E1653737A5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCVisioToolsApplication", "VNCVisioToolsApplication\VNCVisioToolsApplication.csproj", "{5672D2C5-3D6F-4E98-B816-DEA63F719BB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCVisioToolsApplication", "VNCVisioToolsApplication\VNCVisioToolsApplication.csproj", "{FE428CC6-B31D-47A7-928B-6301D5D2BB91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCVisioToolsApplication.Core", "VNCVisioToolsApplication.Core\VNCVisioToolsApplication.Core.csproj", "{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainServices", "DomainServices", "{3AE825FE-F23B-4328-9BAC-930E9C114C65}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{95883EA8-5D12-4755-B6DF-4C6AEE4E411D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationServices", "ApplicationServices", "{2B2743D0-B88D-4A94-BBB1-4119CF235F43}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{837FDFF7-92CD-4A51-B3D2-D9937BFE06C2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{5DCAB2D9-4104-4054-9325-351AB35CED64}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{0DB30215-BA1C-478E-A2C2-58E80649C04B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{20780886-A859-4371-8D60-2E9D9D2F276B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCVisioToolsApplication.Core", "VNCVisioToolsApplication.Core\VNCVisioToolsApplication.Core.csproj", "{64E99CF4-3D62-40B8-97DB-5036582CC1D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,28 +15,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FBBEE8D9-CCBA-43CE-A183-56E1C915B607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBBEE8D9-CCBA-43CE-A183-56E1C915B607}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBBEE8D9-CCBA-43CE-A183-56E1C915B607}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBBEE8D9-CCBA-43CE-A183-56E1C915B607}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5672D2C5-3D6F-4E98-B816-DEA63F719BB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5672D2C5-3D6F-4E98-B816-DEA63F719BB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5672D2C5-3D6F-4E98-B816-DEA63F719BB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5672D2C5-3D6F-4E98-B816-DEA63F719BB3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A985CC14-8A73-4977-94E8-6E1653737A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A985CC14-8A73-4977-94E8-6E1653737A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A985CC14-8A73-4977-94E8-6E1653737A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A985CC14-8A73-4977-94E8-6E1653737A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE428CC6-B31D-47A7-928B-6301D5D2BB91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE428CC6-B31D-47A7-928B-6301D5D2BB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE428CC6-B31D-47A7-928B-6301D5D2BB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE428CC6-B31D-47A7-928B-6301D5D2BB91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64E99CF4-3D62-40B8-97DB-5036582CC1D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64E99CF4-3D62-40B8-97DB-5036582CC1D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64E99CF4-3D62-40B8-97DB-5036582CC1D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64E99CF4-3D62-40B8-97DB-5036582CC1D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{FBBEE8D9-CCBA-43CE-A183-56E1C915B607} = {20780886-A859-4371-8D60-2E9D9D2F276B}
-		{5672D2C5-3D6F-4E98-B816-DEA63F719BB3} = {95883EA8-5D12-4755-B6DF-4C6AEE4E411D}
-		{6EF9D044-6ABA-480E-9BA1-3D6771A2FED5} = {837FDFF7-92CD-4A51-B3D2-D9937BFE06C2}
-	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {88D6A487-6EF3-49BD-8762-15847B872DD8}
+		SolutionGuid = {30B2AD7A-1D3F-4571-B311-5CAF9CB9F0C1}
 	EndGlobalSection
 EndGlobal

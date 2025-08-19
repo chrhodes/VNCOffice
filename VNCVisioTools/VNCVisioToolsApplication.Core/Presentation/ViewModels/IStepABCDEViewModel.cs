@@ -1,11 +1,11 @@
 ﻿using VNC.Core.Mvvm;
 
-namespace PAEF1.Presentation.ViewModels
+namespace VNCVisioToolsApplication.Presentation.ViewModels
 {
     public interface IStepABCDEViewModel : IViewModel
     {
         // TODO(crhodes)
-        // Add items here that the $customTYPE$ViewModel must support
+        // Add items here that the IStepABCDEViewModel must support
         // to enable all the binding demands of the View
     }
 }

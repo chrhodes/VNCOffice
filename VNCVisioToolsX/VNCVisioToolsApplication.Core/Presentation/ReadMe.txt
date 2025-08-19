@@ -1,0 +1,7 @@
+﻿VNCVisioToolsApplication\Presentation\
+VNCVisioToolsApplication\Presentation\Converters\
+VNCVisioToolsApplication\Presentation\ModelWrappers\
+VNCVisioToolsApplication\Presentation\ViewModels\
+VNCVisioToolsApplication\Presentation\Views\
+
+Notes for using this template

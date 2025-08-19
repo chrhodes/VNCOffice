@@ -341,6 +341,5 @@ namespace VNCVisioToolsApplication.Actions
         }
 
         #endregion
-
     }
 }

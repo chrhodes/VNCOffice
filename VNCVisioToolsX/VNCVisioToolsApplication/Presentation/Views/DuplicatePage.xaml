@@ -1,0 +1,158 @@
+﻿<UserControl
+    x:Class="VNCVisioToolsApplication.Presentation.Views.DuplicatePage"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	mc:Ignorable="d" 
+	
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:prism="http://prismlibrary.com/"
+
+	xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding" 	
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"    
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    
+    xmlns:local="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
+	
+	xmlns:localc="clr-namespace:VNCVisioToolsApplication.Presentation.Converters"
+    xmlns:localv="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
+    xmlns:localvm="clr-namespace:VNCVisioToolsApplication.Presentation.ViewModels"
+        
+
+    Background="WhiteSmoke"
+    d:DesignHeight="400" d:DesignWidth="600"
+>
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+<!-- 
+	Can Declare ViewModel here
+	or pass in to constructor.  
+	See DuplicatePage.xaml.cs
+-->
+<!-- Wire up in Constructor -->
+<!--		
+<UserControl.DataContext>
+	<localvm:DuplicatePageViewModel />
+</UserControl.DataContext>
+-->
+	<dxlc:LayoutControl Orientation="Vertical">
+
+		<dxlc:LayoutGroup 
+  			View="Group" Orientation="Horizontal" >
+            
+            <dxlc:LayoutItem Label="CurrentPage Name" LabelPosition="Top">
+                <dxe:TextEdit Text="{ Binding CurrentPageName }"
+						ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+
+            <dxlc:LayoutItem Label="Page Index" LabelPosition="Top" 
+                             HorizontalAlignment="Right">
+                <dxe:TextEdit Text="{ Binding CurrentPageIndex }"
+						ToolTip="tooltip" />
+            </dxlc:LayoutItem>
+        </dxlc:LayoutGroup>
+ 
+        <dxlc:LayoutItem>
+            <Button 
+        		Command="{Binding LoadPageCommand }"
+        		Content="{Binding LoadPageContent, FallbackValue='LoadPage' }"
+        		ToolTip="{Binding LoadPageToolTip, FallbackValue='LoadPage ToolTip' }" />
+        </dxlc:LayoutItem>
+        
+        <dxlc:LayoutItem Label="NewPage Name">
+            <dxe:TextEdit Text="{ Binding NewPageName }"
+						ToolTip="tooltip" />
+        </dxlc:LayoutItem>
+   
+        <dxlc:LayoutItem>
+            <Button 
+        		Command="{Binding SavePageCommand }"
+        		Content="{Binding SavePageContent, FallbackValue='SavePage' }"
+        		ToolTip="{Binding SavePageToolTip, FallbackValue='SavePage ToolTip»' }" />
+        </dxlc:LayoutItem>
+
+       <dxlc:LayoutGroup x:Name="lgMain" Header="Group Name"
+            View="GroupBox" Orientation="Vertical" 
+            GroupBoxStyle="{StaticResource dxlcGroupBox}"                                  
+            IsCollapsible="True"  IsCollapsed="False"
+            ToolTip="Say something about this Layout Group">
+        	
+			<dxlc:LayoutGroup 
+				View="Group" Orientation="Horizontal" >
+		
+				<dxlc:LayoutGroup 
+					View="Group" Orientation="Vertical" >
+				
+						<!--<dxg:GridControl AutoGenerateColumns="AddNew" 
+								 EnableSmartColumnsGeneration="True" 
+								 ItemsSource="{ Binding Rows }"
+								 SelectedItem="{ Binding SelectedItem, Mode=TwoWay }"
+								 Height="200">
+							<dxg:GridControl.View>
+								<dxg:TableView AllowPerPixelScrolling="True" ShowTotalSummary="True"/>
+							</dxg:GridControl.View>
+						</dxg:GridControl>-->
+					
+					<!--<dxlc:LayoutItem Label="Select a Color" LabelPosition="Top">
+						<dxe:ComboBoxEdit 
+								EditValue="{ Binding
+									Path=SelectedFruits,
+									Mode=TwoWay,
+									UpdateSourceTrigger=PropertyChanged,
+									Converter={StaticResource SelectedItemsConverter} }" > 
+							<dxe:ComboBoxEdit.StyleSettings>
+								<dxe:CheckedComboBoxStyleSettings />
+							</dxe:ComboBoxEdit.StyleSettings>
+							<dxe:ComboBoxEditItem Content="Red" IsSelected="True"/>
+							<dxe:ComboBoxEditItem Content="Yellow" IsSelected="False"/>
+							<dxe:ComboBoxEditItem Content="Green" IsSelected="False"/>
+							<dxe:ComboBoxEditItem Content="Blue" IsSelected="False"/>
+						</dxe:ComboBoxEdit>
+					</dxlc:LayoutItem>-->					
+			   
+					<!--<dxlc:LayoutGroup 
+							View="Group" Orientation="Vertical"
+							DataContext="{Binding SelectedItem}">
+
+							<dxlc:LayoutItem Label="StringProperty">
+								<dxe:TextEdit Text="{ Binding StringProperty }"
+										ToolTip="tooltip" />
+							</dxlc:LayoutItem>
+
+							<dxlc:LayoutItem Label="IntProperty">
+								<dxe:TextEdit Text="{Binding IntProperty}"
+										ToolTip="tooltip" />
+							</dxlc:LayoutItem>
+						
+					</dxlc:LayoutGroup>-->
+
+					<!--<dxlc:LayoutItem>
+						<Button
+							Command="{ Binding DoSomethingCommand }"
+							Content="{ Binding DoSomethingContent, FallbackValue='DoSomething' }"
+							ToolTip="{ Binding DoSomethingToolTip }"/>
+					</dxlc:LayoutItem>-->
+
+
+
+				</dxlc:LayoutGroup>
+			
+			</dxlc:LayoutGroup>
+		
+		</dxlc:LayoutGroup>
+
+        <dxe:TextEdit Text="{ Binding Message }" VerticalAlignment="Bottom">
+            <!--<i:Interaction.Triggers>
+								<i:EventTrigger EventName="MouseDoubleClick">
+									<prism:InvokeCommandAction Command="{Binding Path=Message_DoubleClick_Command}"/>
+								</i:EventTrigger>
+							</i:Interaction.Triggers>-->
+        </dxe:TextEdit>
+
+    </dxlc:LayoutControl>
+
+</UserControl>
