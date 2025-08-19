@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net481</TargetFrameworks>
@@ -11,28 +11,14 @@
       <VersionPrefix>1.0.0</VersionPrefix>
       <VersionSuffix>Development</VersionSuffix>
       <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-      <FileVersion>2025.08.17</FileVersion>
+      <FileVersion>2025.08.19</FileVersion>
       <Description>VNCVisioToolsApplication</Description>
       <LangVersion>12.0</LangVersion>
       <Nullable>enable</Nullable>
       <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Domain\FileInfoShape.cs" />
-  </ItemGroup>
 
-  <!--<ItemGroup>
-    <Compile Remove="Domain\ClassInfoShape.cs" />
-    <Compile Remove="Domain\FileInfoShape.cs" />
-    <Compile Remove="Domain\MethodInfoShape.cs" />
-    <Compile Remove="Domain\OffsetDirection.cs" />
-    <Compile Remove="Domain\QueryWorkItemInfoShape.cs" />
-    <Compile Remove="Domain\WorkItemOffset.cs" />
-    <Compile Remove="Domain\WorkItemOffsets.cs" />
-    <Compile Remove="Domain\WorkItemQueryShapeInfo.cs" />
-    <Compile Remove="Domain\WorkItemShapeInfo.cs" />
-  </ItemGroup>-->
 
     <!-- This is for NuGet Packages -->
 
@@ -53,7 +39,7 @@
         <!-- <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages> -->
     <!-- </PropertyGroup>     -->
 
-    <ItemGroup>
+    <!--<ItemGroup>
         <None Include="LICENSE">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
@@ -66,19 +52,7 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-    </ItemGroup>
-    
-  <!--<ItemGroup>
-    <COMReference Include="Microsoft.Office.Interop.Visio">
-      <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>16</VersionMinor>
-      <VersionMajor>4</VersionMajor>
-      <Guid>00021a98-0000-0000-c000-000000000046</Guid>
-      <Lcid>0</Lcid>
-      <Isolated>false</Isolated>
-      <EmbedInteropTypes>true</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>-->
+    </ItemGroup>-->
 
   <ItemGroup>
     <Content Include="Resources\Icons\VisioAddin.ico">
@@ -99,6 +73,18 @@
     <Folder Include="Presentation\Views\UserControls\" />
   </ItemGroup>
 
+    <ItemGroup>
+        <Compile Remove="Domain\ClassInfoShape.cs" />
+        <Compile Remove="Domain\FileInfoShape.cs" />
+        <Compile Remove="Domain\MethodInfoShape.cs" />
+        <Compile Remove="Domain\OffsetDirection.cs" />
+        <Compile Remove="Domain\QueryWorkItemInfoShape.cs" />
+        <Compile Remove="Domain\WorkItemOffset.cs" />
+        <Compile Remove="Domain\WorkItemOffsets.cs" />
+        <Compile Remove="Domain\WorkItemQueryShapeInfo.cs" />
+        <Compile Remove="Domain\WorkItemShapeInfo.cs" />
+    </ItemGroup>
+    
   <ItemGroup>
     <PackageReference Include="CalcBinding" Version="2.5.2" />      
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
@@ -108,6 +94,18 @@
     <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.2.0" />
   </ItemGroup>
 
+    <!--<ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Visio">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>16</VersionMinor>
+      <VersionMajor>4</VersionMajor>
+      <Guid>00021a98-0000-0000-c000-000000000046</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>-->
+    
     <ItemGroup>
         <Reference Include="Microsoft.Office.Interop.Visio">
             <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Visio.dll</HintPath>
@@ -157,6 +155,16 @@
                 <!-- <PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" /> -->
               <!-- </ItemGroup>         -->
         <!-- </When> -->
-    <!-- </Choose> -->    
+    <!-- </Choose> -->
+
+    <!--This updates the file version to the current date.-->
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)'=='Release'">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; -Verbose $(ProjectFileName)" />
+    </Target>
+
+    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot; -Verbose $(ProjectFileName)" />
+    </Target>-->    
     
 </Project>

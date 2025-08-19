@@ -101,8 +101,11 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
             //InformationVNCCore = Common.InformationVNCCore;
 
-            spApplication.DataContext = Common.InformationApplication;
-            lblRunTimeVersion.DataContext = Common.InformationApplication;
+            spVNCVisioTools.DataContext = Common.InformationVNCVisioTools;
+            lblRunTimeVersion.DataContext = Common.InformationVNCVisioTools;
+
+            spVNCVisioToolsApplication.DataContext = Common.InformationVNCVisioToolsApplication;
+            spVNCVisioToolsApplicationCore.DataContext = Common.InformationVNCVisioToolsApplicationCore;
 
             spVNCVSTOAddIn.DataContext = Common.InformationVNCVSTOAddIn;
             spVNCVisioVSTOAddIn.DataContext = Common.InformationVNCVisioVSTOAddIn;
@@ -110,10 +113,7 @@ namespace VNCVisioToolsApplication.Presentation.Views
             spVNCWpfPresentationDx.DataContext = Common.InformationVNCWpfPresentationDx;
 
             spVNCCore.DataContext = Common.InformationVNCCore;
-            //DataContext = VNC.Core.Common;
-            //DataContext = this;
-            //DataContext = Common.CurrentShell.ViewModel;
-
+  
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 

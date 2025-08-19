@@ -54,18 +54,41 @@
         <ScrollViewer>
         <StackPanel Orientation="Vertical">
 
-            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" 
-                    MinWidth="500" HorizontalAlignment="Stretch">
 
-                <StackPanel x:Name="spApplication"  
-                            Orientation="Vertical" Margin="2" DataContext="{Binding InformationApplication}" >
+            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" 
+                MinWidth="500" HorizontalAlignment="Stretch">
+
+                <StackPanel x:Name="spVNCVisioTools"  
+                        Orientation="Vertical" Margin="2" DataContext="{Binding InformationVNCVisioTools}" >
+                    <vncviews:AssemblyInformation />
+                    <vncviews:FileInformation />
+                </StackPanel>
+
+            </Border>
+            
+            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" 
+                MinWidth="500" HorizontalAlignment="Stretch">
+
+                    <StackPanel x:Name="spVNCVisioToolsApplication"  
+                            Orientation="Vertical" Margin="2" DataContext="{Binding InformationVNCVisioToolsApplication}" >
                     <vncviews:AssemblyInformation />
                     <vncviews:FileInformation />
                 </StackPanel>
 
             </Border>
 
-            <!-- TODO(crhodes)
+            <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" 
+                MinWidth="500" HorizontalAlignment="Stretch">
+
+                    <StackPanel x:Name="spVNCVisioToolsApplicationCore"  
+                            Orientation="Vertical" Margin="2" DataContext="{Binding InformationVNCVisioToolsApplicationCore}" >
+                        <vncviews:AssemblyInformation />
+                        <vncviews:FileInformation />
+                    </StackPanel>
+
+                </Border>
+
+                <!-- TODO(crhodes)
              Add sections below for additional assemblies
              
              Use GAI

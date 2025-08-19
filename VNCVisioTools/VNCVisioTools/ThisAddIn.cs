@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 using VNC;
 
@@ -13,6 +14,8 @@ namespace VNCVisioTools
             Int64 startTicks;
             startTicks = Log.APPLICATION_INITIALIZE("ThisAddIn_Startup()", Common.LOG_CATEGORY);
             startTicks = Common.WriteToDebugWindow("ThisAddIn_Startup()", true);
+
+            GetAssemblyInfo();
 
             InitializeRibbonUI();
 
@@ -51,7 +54,7 @@ namespace VNCVisioTools
             Common.WriteToDebugWindow("ThisAddIn_Shutdown()", true);
         }
 
-        void InitializeRibbonUI()
+        private void InitializeRibbonUI()
         {
             Globals.Ribbons.Ribbon.rgDebug.Visible = Common.DeveloperMode = false;
             Globals.Ribbons.Ribbon.rtUILaunchApproaches.Visible = false;
@@ -64,6 +67,23 @@ namespace VNCVisioTools
 
             Globals.Ribbons.Ribbon.rcbDisplayEvents.Checked = Common.DisplayEvents = false;
             Globals.Ribbons.Ribbon.rcbDisplayChattyEvents.Checked = Common.DisplayChattyEvents = false;
+        }
+
+        private void GetAssemblyInfo()
+        {
+            // Get Information about ourselves
+
+            var VNCVisioToolsAssembly = Assembly.GetExecutingAssembly();
+
+            if (VNCVisioToolsAssembly != null)
+            {
+                var VNCVisioToolsAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCVisioToolsAssembly.Location);
+
+                Common.InformationVNCVisioTools = Common.GetInformation(
+                    VNCVisioToolsAssembly,
+                    VNCVisioToolsAssemblyFileVersionInfo);
+            }
         }
 
         #region VSTO generated code

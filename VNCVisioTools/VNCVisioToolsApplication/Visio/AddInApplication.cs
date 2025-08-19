@@ -58,11 +58,35 @@ namespace VNCVisioToolsApplication.Visio
 
             Common.SetVersionInfoVNCCore();
 
-            var appFileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+            //var appFileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location);
+
+            //Common.SetVersionInfoApplication(Assembly.GetExecutingAssembly(), appFileVersionInfo);
 
             // Get Information about ourselves
 
-            Common.SetVersionInfoApplication(Assembly.GetExecutingAssembly(), appFileVersionInfo);
+            var VNCVisioToolsApplicationAssembly = Assembly.GetExecutingAssembly();
+
+            if (VNCVisioToolsApplicationAssembly != null)
+            {
+                var VNCVisioToolsApplicationAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCVisioToolsApplicationAssembly.Location);
+
+                Common.InformationVNCVisioToolsApplication = Common.GetInformation(
+                    VNCVisioToolsApplicationAssembly,
+                    VNCVisioToolsApplicationAssemblyFileVersionInfo);
+            }
+
+            var VNCVisioToolsApplicationCoreAssembly = Assembly.GetAssembly(typeof(VNCVisioToolsApplication.Core.RegionNames));
+
+            if (VNCVisioToolsApplicationCoreAssembly is not null)
+            {
+                var VNCVisioToolsApplicationCoreAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo(VNCVisioToolsApplicationCoreAssembly.Location);
+
+                Common.InformationVNCVisioToolsApplicationCore = Common.GetInformation(
+                    VNCVisioToolsApplicationCoreAssembly,
+                    VNCVisioToolsApplicationCoreAssemblyFileVersionInfo);
+            }           
 
             // Add Information about the other assemblies in our application
 
