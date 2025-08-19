@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 using MSVisio = Microsoft.Office.Interop.Visio;
 
 using VNCVisioAddIn = VNC.Visio.VSTOAddIn;

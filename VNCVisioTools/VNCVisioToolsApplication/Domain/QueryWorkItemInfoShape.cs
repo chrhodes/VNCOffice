@@ -1,5 +1,3 @@
-using System;
-
 using MSVisio = Microsoft.Office.Interop.Visio;
 using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 

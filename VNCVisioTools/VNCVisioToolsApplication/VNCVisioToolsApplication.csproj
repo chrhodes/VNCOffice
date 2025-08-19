@@ -11,14 +11,12 @@
       <VersionPrefix>1.0.0</VersionPrefix>
       <VersionSuffix>Development</VersionSuffix>
       <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-      <FileVersion>2025.08.19</FileVersion>
+      <FileVersion>2025.08.19.1</FileVersion>
       <Description>VNCVisioToolsApplication</Description>
       <LangVersion>12.0</LangVersion>
       <Nullable>enable</Nullable>
       <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
-
-
 
     <!-- This is for NuGet Packages -->
 
@@ -73,16 +71,9 @@
     <Folder Include="Presentation\Views\UserControls\" />
   </ItemGroup>
 
+    <!--Having problems with this file and VNC.CodeAnalysis, so removing it for now.-->
     <ItemGroup>
-        <Compile Remove="Domain\ClassInfoShape.cs" />
         <Compile Remove="Domain\FileInfoShape.cs" />
-        <Compile Remove="Domain\MethodInfoShape.cs" />
-        <Compile Remove="Domain\OffsetDirection.cs" />
-        <Compile Remove="Domain\QueryWorkItemInfoShape.cs" />
-        <Compile Remove="Domain\WorkItemOffset.cs" />
-        <Compile Remove="Domain\WorkItemOffsets.cs" />
-        <Compile Remove="Domain\WorkItemQueryShapeInfo.cs" />
-        <Compile Remove="Domain\WorkItemShapeInfo.cs" />
     </ItemGroup>
     
   <ItemGroup>
@@ -93,19 +84,7 @@
     <PackageReference Include="VNC.WPF.Presentation" Version="3.2.0" />
     <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.2.0" />
   </ItemGroup>
-
-    <!--<ItemGroup>
-    <COMReference Include="Microsoft.Office.Interop.Visio">
-      <WrapperTool>tlbimp</WrapperTool>
-      <VersionMinor>16</VersionMinor>
-      <VersionMajor>4</VersionMajor>
-      <Guid>00021a98-0000-0000-c000-000000000046</Guid>
-      <Lcid>0</Lcid>
-      <Isolated>false</Isolated>
-      <EmbedInteropTypes>true</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>-->
-    
+   
     <ItemGroup>
         <Reference Include="Microsoft.Office.Interop.Visio">
             <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Visio.dll</HintPath>
