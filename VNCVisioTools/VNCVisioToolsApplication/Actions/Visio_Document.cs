@@ -70,8 +70,6 @@ namespace VNCVisioToolsApplication.Actions
             Common.VisioApplication.EndUndoScope(undoScope, true);
         }
 
-
-
         public static void AddFooter()
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");

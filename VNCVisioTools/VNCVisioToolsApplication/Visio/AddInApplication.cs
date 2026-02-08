@@ -21,7 +21,7 @@ namespace VNCVisioToolsApplication.Visio
             Int64 startTicks;
             startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
-            startTicks = Common.WriteToDebugWindow("InitializeWPFApplication()", true);
+            startTicks = Common.WriteToDebugWindow("InitializeApplication()", true);
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
@@ -39,7 +39,7 @@ namespace VNCVisioToolsApplication.Visio
             InitializePrism();
 
             Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-            Common.WriteToDebugWindow("InitializeWPFApplication()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("InitializeApplication()-Exit", startTicks, true);
         }
 
         /// <summary>

@@ -86,7 +86,7 @@
                         <vncviews:FileInformation />
                     </StackPanel>
 
-                </Border>
+            </Border>
 
                 <!-- TODO(crhodes)
              Add sections below for additional assemblies

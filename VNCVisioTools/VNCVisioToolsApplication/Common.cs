@@ -26,9 +26,6 @@ namespace VNCVisioToolsApplication
         //  Add new properties
         //  Update InitializeViewModel()
 
-        // NOTE(crhodes)
-        // If we want this we have to set it from VNCVisioTools.ThisAddIn_Startup
-
         public static VNC.Core.Information? InformationVNCVisioTools;
         public static VNC.Core.Information? InformationVNCVisioToolsApplication;
 
@@ -38,6 +35,9 @@ namespace VNCVisioToolsApplication
         public static VNC.Core.Information? InformationVNCVSTOAddIn;
         public static VNC.Core.Information? InformationVNCWpfPresentation;
         public static VNC.Core.Information? InformationVNCWpfPresentationDx;
+
+        // NOTE(crhodes)
+        // If we want this we have to set it from VNCVisioTools.ThisAddIn_Startup
 
         public static IContainerProvider Container;
 

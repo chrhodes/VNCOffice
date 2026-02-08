@@ -10,7 +10,7 @@ using VNC.Core.Mvvm;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {
-    public class AboutViewModel : EventViewModelBase, IAboutViewModel
+    public class AboutViewModel : EventViewModelBase, IAboutViewModel, IInstanceCountVM
     {
         #region Constructors, Initialization, and Load
 
@@ -21,10 +21,10 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
+            InstanceCountVM++;
+
             // TODO(crhodes)
             // Save constructor parameters here
-
-            InstanceCountVM++;
 
             InitializeViewModel();
 
@@ -89,6 +89,18 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
         #region Private Methods (none)
 
 
+
+        #endregion
+
+        #region IInstanceCountVM
+
+        private static int _instanceCountVM;
+
+        public int InstanceCountVM
+        {
+            get => _instanceCountVM;
+            set => _instanceCountVM = value;
+        }
 
         #endregion
     }

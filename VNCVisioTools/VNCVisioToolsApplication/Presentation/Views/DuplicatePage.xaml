@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<vncmvvm:ViewBase
     x:Class="VNCVisioToolsApplication.Presentation.Views.DuplicatePage"    
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,21 +6,28 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	mc:Ignorable="d" 
 	
-    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-    xmlns:prism="http://prismlibrary.com/"
-
 	xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding" 	
 
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"    
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
     
-    xmlns:local="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
-	
-	xmlns:localc="clr-namespace:VNCVisioToolsApplication.Presentation.Converters"
-    xmlns:localv="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
-    xmlns:localvm="clr-namespace:VNCVisioToolsApplication.Presentation.ViewModels"
-        
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+
+    xmlns:views="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
+    xmlns:viewModels="clr-namespace:VNCVisioToolsApplication.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:VNCVisioToolsApplication.Core;assembly=VNCVisioToolsApplication.Core"
+
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncenum="clr-namespace:VNC.Core.Xaml.Enums;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
+
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="False"        
 
     Background="WhiteSmoke"
     d:DesignHeight="400" d:DesignWidth="600"
@@ -155,4 +162,4 @@
 
     </dxlc:LayoutControl>
 
-</UserControl>
+</vncmvvm:ViewBase>

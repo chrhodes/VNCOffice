@@ -9,7 +9,7 @@ using VNC.Core;
 
 namespace VNCVisioToolsApplication.Presentation.Views
 {
-    public partial class AppVersionInfo : ViewBase
+    public partial class AppVersionInfo : ViewBase, IInstanceCountV
     {
         #region Constructors, Initialization, and Load
 
@@ -178,6 +178,26 @@ namespace VNCVisioToolsApplication.Presentation.Views
         #region Private Methods (none)
 
 
+
+        #endregion
+
+        #region IInstanceCount
+
+        private static int _instanceCountV;
+
+        public int InstanceCountV
+        {
+            get => _instanceCountV;
+            set => _instanceCountV = value;
+        }
+
+        private static int _instanceCountVP;
+
+        public int InstanceCountVP
+        {
+            get => _instanceCountVP;
+            set => _instanceCountVP = value;
+        }
 
         #endregion
     }

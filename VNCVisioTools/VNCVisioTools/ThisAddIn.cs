@@ -46,6 +46,7 @@ namespace VNCVisioTools
 
             AddInApplication.InitializeApplication();
 
+            Log.APPLICATION_INITIALIZE("ThisAddIn_Startup()", Common.LOG_CATEGORY, startTicks);
             Common.WriteToDebugWindow("ThisAddIn_Startup() Exit", startTicks, true);
         }
 

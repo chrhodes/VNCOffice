@@ -14,7 +14,7 @@ using MSVisio = Microsoft.Office.Interop.Visio;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {
-    public class DuplicatePageViewModel : ViewModelBase, IDuplicatePageViewModel
+    public class DuplicatePageViewModel : ViewModelBase, IDuplicatePageViewModel, IInstanceCountVM
     {
         #region Constructors and Load
 
@@ -24,7 +24,13 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
         public DuplicatePageViewModel()
         {
-            long startTicks = Log.TRACE("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+
+            InstanceCountVM++;
+
+            // TODO(crhodes)
+            // Save constructor parameters here
 
             // TODO(crhodes)
             // Decide if we want defaults
@@ -32,7 +38,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
             InitializeViewModel();
 
-            Log.TRACE("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         // ViewModel First
@@ -40,17 +46,27 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
         public DuplicatePageViewModel(DuplicatePage view) : base(view)
         {
-            long startTicks = Log.TRACE("Enter", Common.LOG_CATEGORY);
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+
+            InstanceCountVM++;
+
+            // TODO(crhodes)
+            // Save constructor parameters here
 
             InitializeViewModel();
 
-            Log.TRACE("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
         {
-            // TODO(crhodes)
-            // Initialize any controls and/or properties that need to be
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
+
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
 
             Message_DoubleClick_Command = new DelegateCommand(Message_DoubleClick);
 
@@ -61,6 +77,8 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
             UpdateCurrentPage();
 
             //InitializeRows();
+
+            if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void UpdateCurrentPage()
@@ -275,5 +293,16 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
         #endregion Commands
 
+        #region IInstanceCountVM
+
+        private static int _instanceCountVM;
+
+        public int InstanceCountVM
+        {
+            get => _instanceCountVM;
+            set => _instanceCountVM = value;
+        }
+
+        #endregion
     }
 }

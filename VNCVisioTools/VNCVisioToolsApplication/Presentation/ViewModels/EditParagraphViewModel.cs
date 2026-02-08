@@ -10,48 +10,9 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {
-
-    public class ItemInfo
+    public class EditParagraphViewModel : ViewModelBase, IEditTextViewModel, IInstanceCountVM
     {
-        public string Content { get; set; }
-        public string Value { get; set; }
-    }
-
-    public class EditParagraphViewModel : ViewModelBase, IEditTextViewModel
-    {
-        public System.Collections.ObjectModel.ObservableCollection<ItemInfo> HorizontalAlignmentChoices { get; set; }
-
-
-        ItemInfo _selectedHorizontalAlignmentItem;
-        public ItemInfo SelectedHorizontalAlignmentItem
-        {
-            get
-            {
-                return _selectedHorizontalAlignmentItem;
-            }
-            set
-            {
-                _selectedHorizontalAlignmentItem = value;
-                Paragraph.HAlign = value.Value;
-            }
-        }
-
-        public DelegateCommand UpdateSettings { get; private set; }
-        public DelegateCommand LoadCurrentSettings { get; private set; }
-
-        public VNCVisioAddIn.Presentation.ModelWrappers.ParagraphWrapper Paragraph { get; set; }
-
-        //{ 
-        //    get => textBlockFormat; 
-        //    set => textBlockFormat = value; 
-        //}
-        //private string message = "Fox Lady";
-        //public string Message
-        //{ 
-        //    get => message; 
-        //    set => message = value; 
-        //}
-
+        #region Constructors, Initialization, and Load
 
         public EditParagraphViewModel()
         {
@@ -72,6 +33,52 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
             // Decide if we want defaults
             Paragraph = new VNCVisioAddIn.Presentation.ModelWrappers.ParagraphWrapper(new VNCVisioAddIn.Domain.ParagraphRow());
         }
+
+        #endregion
+
+        #region Enums (None)
+
+
+        #endregion
+
+        #region Structures (None)
+
+
+        #endregion
+
+        #region Fields and Properties
+
+        public System.Collections.ObjectModel.ObservableCollection<ItemInfo> HorizontalAlignmentChoices { get; set; }
+
+
+        ItemInfo _selectedHorizontalAlignmentItem;
+        public ItemInfo SelectedHorizontalAlignmentItem
+        {
+            get
+            {
+                return _selectedHorizontalAlignmentItem;
+            }
+            set
+            {
+                _selectedHorizontalAlignmentItem = value;
+                Paragraph.HAlign = value.Value;
+            }
+        }
+
+        public VNCVisioAddIn.Presentation.ModelWrappers.ParagraphWrapper Paragraph { get; set; }
+
+        #endregion
+
+        #region Event Handlers (None)
+
+
+        #endregion
+
+        #region Commands
+
+        #region UpdateSettings
+
+        public DelegateCommand UpdateSettings { get; private set; }
 
         public void OnUpdateSettingsExecute()
         {
@@ -105,10 +112,16 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
             return true;
         }
 
+        #endregion
+
+        #region LoadCurrentSettings
+
+        public DelegateCommand LoadCurrentSettings { get; private set; }
+
         void OnLoadCurrentSettingsExecute()
         {
             MSVisio.Application app = Common.VisioApplication;
-            
+
             MSVisio.Selection selection = app.ActiveWindow.Selection;
 
             // Verify only one shape, for now just grab first.
@@ -128,9 +141,43 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
             return true;
         }
 
+        #endregion
+
+        #endregion
+
+        #region Public Methods (None)
+
         public void SomeMethod()
         {
-            
+
         }
+
+        #endregion
+
+        #region Protected Methods (None)
+
+
+        #endregion
+
+        #region Private Methods (None)
+
+
+        #endregion
+
+
+
+
+
+        #region IInstanceCountVM
+
+        private static int _instanceCountVM;
+
+        public int InstanceCountVM
+        {
+            get => _instanceCountVM;
+            set => _instanceCountVM = value;
+        }
+
+        #endregion
     }
 }

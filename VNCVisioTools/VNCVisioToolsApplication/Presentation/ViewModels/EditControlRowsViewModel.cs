@@ -15,68 +15,87 @@ using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {
-
-    //public class ItemInfo
-    //{
-    //    public string Content { get; set; }
-    //    public string Value { get; set; }
-    //}
-
-    public class EditControlRowsViewModel : ViewModelBase, IEditTextViewModel
+    public class EditControlRowsViewModel : ViewModelBase, IEditTextViewModel, IInstanceCountVM
     {
+
+        #region Constructors, Initialization, and Load
+
+        public EditControlRowsViewModel()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+
+            InstanceCountVM++;
+
+            // TODO(crhodes)
+            // Save constructor parameters here
+
+            InitializeViewModel();
+
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
+        }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
+
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
+
+            UpdateSettings = new DelegateCommand(OnUpdateSettingsExecute, OnUpdateSettingsCanExecute);
+            LoadCurrentSettings = new DelegateCommand(OnLoadCurrentSettingsExecute, OnLoadCurrentSettingsCanExecute);
+
+            if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region Enums (None)
+
+
+        #endregion
+
+        #region Structures (None)
+
+
+        #endregion
+
+        #region Fields and Properties (None)
+
+
+        #endregion
+
+        #region Event Handlers (None)
+
+
+        #endregion
+
+        #region Commands (None)
+
+        #endregion
+
+        #region Public Methods (None)
+
+
+        #endregion
+
+        #region Protected Methods (None)
+
+
+        #endregion
+
+        #region Private Methods (None)
+
+
+        #endregion
         public System.Collections.ObjectModel.ObservableCollection<VNCVisioAddIn.Domain.ControlsRow> ControlRows { get; set; }
-
-
-        //ItemInfo _selectedHorizontalAlignmentItem;
-        //public ItemInfo SelectedHorizontalAlignmentItem
-        //{
-        //    get
-        //    {
-        //        return _selectedHorizontalAlignmentItem;
-        //    }
-        //    set
-        //    {
-        //        _selectedHorizontalAlignmentItem = value;
-        //        Paragraph.HAlign = value.Value;
-        //    }
-        //}
 
         public DelegateCommand UpdateSettings { get; private set; }
         public DelegateCommand LoadCurrentSettings { get; private set; }
 
         public VNCVisioAddIn.Presentation.ModelWrappers.ControlsRowWrapper ControlRow { get; set; }
-
-        //{ 
-        //    get => textBlockFormat; 
-        //    set => textBlockFormat = value; 
-        //}
-        //private string message = "Fox Lady";
-        //public string Message
-        //{ 
-        //    get => message; 
-        //    set => message = value; 
-        //}
-
-
-        public EditControlRowsViewModel()
-        {
-            UpdateSettings = new DelegateCommand(OnUpdateSettingsExecute, OnUpdateSettingsCanExecute);
-            LoadCurrentSettings = new DelegateCommand(OnLoadCurrentSettingsExecute, OnLoadCurrentSettingsCanExecute);
-
-            //HorizontalAlignmentChoices = new System.Collections.ObjectModel.ObservableCollection<ItemInfo>()
-            //{
-            //    new ItemInfo(){ Content="Left", Value="0"}
-            //    , new ItemInfo(){ Content="Center", Value="1"}
-            //    , new ItemInfo(){ Content="Right", Value="2"}
-            //    , new ItemInfo(){ Content="TextControlBound", Value="=IF(Controls.Row_1 > Width, 0, IF(Controls.Row_1 < 0, 2, 1))"}
-            //    , new ItemInfo(){ Content="Foo", Value="Bar"}
-            //};
-
-
-            // TODO(crhodes)
-            // Decide if we want defaults
-            //Paragraph = new ParagraphWrapper(new Domain.Paragraph());
-        }
 
         public void OnUpdateSettingsExecute()
         {
@@ -137,5 +156,17 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
         {
             
         }
+
+        #region IInstanceCountVM
+
+        private static int _instanceCountVM;
+
+        public int InstanceCountVM
+        {
+            get => _instanceCountVM;
+            set => _instanceCountVM = value;
+        }
+
+        #endregion
     }
 }

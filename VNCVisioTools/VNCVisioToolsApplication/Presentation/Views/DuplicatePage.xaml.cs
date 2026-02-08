@@ -1,13 +1,14 @@
-﻿using System.Windows.Controls;
+﻿using DevExpress.Data.Browsing;
 
 using VNC;
 using VNC.Core.Mvvm;
+
 using VNCVisioToolsApplication.Core;
 using VNCVisioToolsApplication.Presentation.ViewModels;
 
 namespace VNCVisioToolsApplication.Presentation.Views
 {
-    public partial class DuplicatePage : UserControl, IView
+    public partial class DuplicatePage : ViewBase, IInstanceCountV
     {
         #region Constructors and Load
 
@@ -60,19 +61,69 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         #endregion
 
-        #region Properties
+        #region Enums (none)
 
-        private IViewModel _viewModel;
 
-        public IViewModel ViewModel
+
+        #endregion
+
+        #region Structures (none)
+
+
+
+        #endregion
+
+        #region Fields and Properties (none)
+
+
+
+        #endregion
+
+        #region Event Handlers (none)
+
+
+
+        #endregion
+
+        #region Commands (none)
+
+
+        #endregion
+
+        #region Public Methods (none)
+
+
+
+        #endregion
+
+        #region Protected Methods (none)
+
+
+
+        #endregion
+
+        #region Private Methods (none)
+
+
+
+        #endregion
+
+        #region IInstanceCount
+
+        private static int _instanceCountV;
+
+        public int InstanceCountV
         {
-            get { return _viewModel; }
+            get => _instanceCountV;
+            set => _instanceCountV = value;
+        }
 
-            set
-            {
-                _viewModel = value;
-                DataContext = _viewModel;
-            }
+        private static int _instanceCountVP;
+
+        public int InstanceCountVP
+        {
+            get => _instanceCountVP;
+            set => _instanceCountVP = value;
         }
 
         #endregion

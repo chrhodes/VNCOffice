@@ -11,7 +11,7 @@
       <VersionPrefix>1.0.0</VersionPrefix>
       <VersionSuffix>Development</VersionSuffix>
       <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-      <FileVersion>2025.08.19</FileVersion>
+      <FileVersion>2025.08.20</FileVersion>
       <Description>VNCVisioToolsApplication</Description>
       <LangVersion>12.0</LangVersion>
       <Nullable>enable</Nullable>

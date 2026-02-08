@@ -49,6 +49,5 @@ namespace VNCVisioToolsApplication.Presentation.Views
         }
 
         #endregion
-
     }
 }

@@ -35,6 +35,22 @@ namespace VNCVisioToolsApplication.Presentation.Views
             Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
+        #region Private Methods
+
+        //private void LoadControlContents()
+        //{
+        //    try
+        //    {
+        //        visioCommand_Picker.PopulateControlFromFile(Common.cCONFIG_FILE);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
+        //}
+
+        #endregion
+
         #region IInstanceCount
 
         private static int _instanceCountV;
@@ -54,30 +70,5 @@ namespace VNCVisioToolsApplication.Presentation.Views
         }
 
         #endregion
-
-        #region Private Methods
-
-        //private void LoadControlContents()
-        //{
-        //    try
-        //    {
-        //        visioCommand_Picker.PopulateControlFromFile(Common.cCONFIG_FILE);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.ToString());
-        //    }
-        //}
-
-        #endregion
-
-        //public void visioCommand_Picker_ControlChanged()
-        //{
-        //    //var command = visioCommand_Picker.Command;
-        //    //teCommandElements.Text = command.ToString();
-        //    //ParseCommand(command);
-        //}
-
-
     }
 }
