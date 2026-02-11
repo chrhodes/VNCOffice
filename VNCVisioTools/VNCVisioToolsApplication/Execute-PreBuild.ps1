@@ -1,13 +1,13 @@
-<# 
+<#
 
-.SYNOPSIS 
-A brief description of the function or script. 
+.SYNOPSIS
+A brief description of the function or script.
 This keyword can be used only once in each topic.
 
 .DESCRIPTION
 A detailed description of the function or script.
 This keyword can be used only once in each topic
-		
+
 .PARAMETER firstNamedArgument
 The description of a parameter. You can include a Parameter keyword for
 each parameter in the function or script syntax.
@@ -16,7 +16,7 @@ The Parameter keywords can appear in any order in the comment block, but
 the function or script syntax determines the order in which the parameters
 (and their descriptions) appear in Help topic. To change the order,
 change the syntax.
- 
+
 You can also specify a parameter description by placing a comment in the
 function or script syntax immediately before the parameter variable name.
 If you use both a syntax comment and a Parameter keyword, the description
@@ -47,7 +47,7 @@ The name of a related topic. Repeat this keyword for each related topic.
 This content appears in the Related Links section of the Help topic.
 
 The Link keyword content can also include a Uniform Resource Identifier
-(URI) to an online version of the same Help topic. The online version 
+(URI) to an online version of the same Help topic. The online version
 opens when you use the Online parameter of Get-Help. The URI must begin
 with "http" or "https".
 
@@ -69,21 +69,22 @@ Execute-PreBuild.ps1
 
 #>
 
-##############################################    
+##############################################
 # Script Level Parameters.
 ##############################################
 
+[CmdletBinding()]
 param
 (
-    [string] $ProjectFileName,
-    [string] $Configuration, 
-    [string] $Platform,
-	[string] $TargetName,
-    [switch] $Contents,
-    [switch] $Verbose
+    [string] $ProjectFileName
+    , [string] $TargetName
+    , [string] $Configuration
+    , [string] $Platform
+    , [switch] $Contents
+    # , [switch] $Verbose
 )
 
-##############################################    
+##############################################
 # Script Level Variables
 ##############################################
 
@@ -110,103 +111,34 @@ function Main
     if ($SCRIPT:Verbose)
     {
         "SCRIPTNAME         = $SCRIPTNAME"
-		"SCRIPTPATH         = $SCRIPTPATH"
-		"CURRENTDIRECTORY   = $CURRENTDIRECTORY"
-		
+        "SCRIPTPATH         = $SCRIPTPATH"
+        "CURRENTDIRECTORY   = $CURRENTDIRECTORY"
+
         "ProjectFileName    = $ProjectFileName"
+        "TargetName         = $TargetName"
         "Configuration      = $Configuration"
         "Platform           = $Platform"
-        "TargetName         = $TargetName"
 
-		"`$Verbose           = $Verbose"
+        "`$Verbose          = $Verbose"
     }
-    
+
     Set-Location $CURRENTDIRECTORY
 
-    UpdateFileVersion
-   
-    # $message = "Ending   " + $SCRIPTNAME + ": " + (Get-Date)
-    # LogMessage $message "Main" "Info"
+    Write-Verbose "Calling Update-MSBuildFileVersion $ProjectFileName"
+    
+    Update-MSBuildFileVersion $ProjectFileName
 }
 
 ##############################
 # Internal Functions
 ##############################
 
-function UpdateFileVersion()
-{
-    $message = "Updating FileVersion"
-    LogMessage $message "Info"
-
-    # Read the existing project file
-
-    # This does not preserve the whitespace
-    #[xml]$xmlDoc = Get-Content $ProjectFileName
-
-    # Opening like this does
-    
-    $xmlDoc = [xml]::new()
-    $xmlDoc.PreserveWhitespace = $true
-    $xmlDoc.Load($ProjectFileName)
-
-    $currentFileVersion = $xmlDoc.Project.PropertyGroup.FileVersion
-    $existingFileVersion = $xmlDoc.Project.PropertyGroup[0].FileVersion
-
-    $propertyGroups = $xmlDoc.SelectNodes("//Project/PropertyGroup")
-
-    if ($propertyGroups.Count -ne 1)
-    {
-        Write-Output "Project file has multiple PropertyGroups"
-        # exit
-    }
-
-    # Is there an existing property?
-    $currentFileVersion2 = $propertyGroups[0].SelectSingleNode("FileVersion")
-    # if ($node) {
-    # Write-Output "Project already has TreatWarningsAsErrors set to $($node.InnerText)"
-    # exit
-    # }
-
-    # $currentFileVersion2 = (Select-Xml //ns:FileVersion $ProjectFileName -Namespace @{ ns='http://schemas.microsoft.com/developer/msbuild/2003' })[0].Node
-
-    LogMessage "existingFileVerison >$($existingFileVersion)<  currentFileVersion >$($currentFileVersion)<  currentFileVersion2 >$($currentFileVersion2.InnerText)<" "Info"
-
-    [string]$currentDate = Get-Date -Format "yyyy.MM.dd"
-
-    LogMessage "CurrentDate >$($currentDate)<" "Info"
-
-    # This doesn't work because there are multiple PropertyGroups
-
-    # $xmlDoc.Project.PropertyGroup.FileVersion = $currentDate
-
-    # This works
-    $propertyGroups[0].SelectSingleNode("FileVersion").InnerText = $currentDate
-
-    # This does not work
-    # $xmlDoc.Project.PropertyGroup[0].FileVersion.InnerText = $currentDate
-
-    # If it was one specific element you can just do like so:
-    #$xmlDoc.config.button.command = "C:\Prog32\folder\test.jar"
-    # however this wont work since there are multiple elements
-
-    # Since there are multiple elements that need to be 
-    # changed use a foreach loop
-    #foreach ($element in $xmlDoc.config.button)
-    #{
-    #    $element.command = "C:\Prog32\folder\test.jar"
-    #}
-    
-    # Then you can save that back to the xml file
-
-    $xmlDoc.Save($ProjectFileName)
-}
-
 if ($SCRIPT:Contents)
 {
-	$myInvocation.MyCommand.ScriptBlock
-	exit
+    $myInvocation.MyCommand.ScriptBlock
+    exit
 }
-	
+
 # Call the main function.  Use Dot Sourcing to ensure executed in Script scope.
 
 . Main

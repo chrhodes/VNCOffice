@@ -1,13 +1,13 @@
-<# 
+<#
 
-.SYNOPSIS 
-A brief description of the function or script. 
+.SYNOPSIS
+A brief description of the function or script.
 This keyword can be used only once in each topic.
 
 .DESCRIPTION
 A detailed description of the function or script.
 This keyword can be used only once in each topic
-		
+
 .PARAMETER firstNamedArgument
 The description of a parameter. You can include a Parameter keyword for
 each parameter in the function or script syntax.
@@ -16,7 +16,7 @@ The Parameter keywords can appear in any order in the comment block, but
 the function or script syntax determines the order in which the parameters
 (and their descriptions) appear in Help topic. To change the order,
 change the syntax.
- 
+
 You can also specify a parameter description by placing a comment in the
 function or script syntax immediately before the parameter variable name.
 If you use both a syntax comment and a Parameter keyword, the description
@@ -47,7 +47,7 @@ The name of a related topic. Repeat this keyword for each related topic.
 This content appears in the Related Links section of the Help topic.
 
 The Link keyword content can also include a Uniform Resource Identifier
-(URI) to an online version of the same Help topic. The online version 
+(URI) to an online version of the same Help topic. The online version
 opens when you use the Online parameter of Get-Help. The URI must begin
 with "http" or "https".
 
@@ -67,25 +67,25 @@ command includes the Functionality parameter of Get-Help.
 Execute-PostBuild.ps1
 #>
 
-##############################################    
+##############################################
 # Script Level Parameters.
 ##############################################
 
+[CmdletBinding()]
 param
 (
-    [string] $ProjectFileName,
-    [string] $Configuration, 
-    [string] $Platform,
-	[string] $TargetName,
-    [switch] $Contents,
-    [switch] $Verbose
+    [string] $ProjectFileName
+    , [string] $TargetName
+    , [string] $PackageVersion
+    # , [string] $Configuration
+    # , [string] $Platform
+    # , [switch] $Contents
+    # , [switch] $Verbose
 )
 
-##############################################    
+##############################################
 # Script Level Variables
 ##############################################
-
-$UsePLLog = $false
 
 $SCRIPTNAME = $myInvocation.InvocationName
 $SCRIPTPATH = & { $myInvocation.ScriptName }
@@ -104,37 +104,19 @@ function Main
         "CURRENTDIRECTORY   = $CURRENTDIRECTORY"
 
         "ProjectFileName    = $ProjectFileName"
-        "Configuration      = $Configuration"
-        "Platform           = $Platform"
         "TargetName         = $TargetName"
-
-		"`$Verbose           = $Verbose"
+        "PackageVersion     = $PackageVersion"
     }
 
     Set-Location $CURRENTDIRECTORY
-    
-    Func1
-    
-    $message = "Ending   " + $SCRIPTNAME + ": " + (Get-Date)
-    LogMessage $message "Main" "Info"
+
+    Write-Verbose "Update-VNCNugetPackage $ProjectFileName $TargetName $PackageVersion"
+    Update-VNCNugetPackage $ProjectFileName $TargetName $PackageVersion
 }
 
 ##############################
 # Internal Functions
 ##############################
-
-function Func1()
-{
-    $message = "Func1"
-    LogMessage $message "Info"
-
-}
-
-if ($SCRIPT:Contents)
-{
-	$myInvocation.MyCommand.ScriptBlock
-	exit
-}
 
 # Call the main function.  Use Dot Sourcing to ensure executed in Script scope.
 
