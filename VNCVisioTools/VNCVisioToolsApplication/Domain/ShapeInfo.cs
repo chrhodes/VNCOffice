@@ -1,6 +1,6 @@
 using MSVisio = Microsoft.Office.Interop.Visio;
 
-namespace VNCVisioToolsApplication.Actions
+namespace VNCVisioToolsApplication.Domain
 {
     public class ShapeInfo
     {

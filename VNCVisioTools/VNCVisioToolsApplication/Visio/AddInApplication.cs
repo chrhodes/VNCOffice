@@ -19,9 +19,8 @@ namespace VNCVisioToolsApplication.Visio
         public static void InitializeApplication()
         {
             Int64 startTicks;
-            startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-
             startTicks = Common.WriteToDebugWindow("InitializeApplication()", true);
+            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);      
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
@@ -38,8 +37,8 @@ namespace VNCVisioToolsApplication.Visio
 
             InitializePrism();
 
-            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
             Common.WriteToDebugWindow("InitializeApplication()-Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         /// <summary>
@@ -52,7 +51,7 @@ namespace VNCVisioToolsApplication.Visio
         private static void GetAndSetInformation()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             // Get Information about VNC.Core
 
@@ -149,14 +148,14 @@ namespace VNCVisioToolsApplication.Visio
             }
             
 
-            if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void CreateXamlApplication()
         {
-            //Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-
-            Int64 startTicks = Common.WriteToDebugWindow("CreateXamlApplication()", true);
+            Int64 startTicks = 0;
+            //startTicks = Common.WriteToDebugWindow("CreateXamlApplication()", true);
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             try
             {
@@ -199,13 +198,14 @@ namespace VNCVisioToolsApplication.Visio
                 Common.DeveloperMode = false;
             }
 
-            //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-            Common.WriteToDebugWindow("CreateXamlApplication()-Exit", startTicks, true);
+            //Common.WriteToDebugWindow("CreateXamlApplication()-Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void InitializePrism()
         {
-            Int64 startTicks = Common.WriteToDebugWindow("InitializePrism()", true);
+            Int64 startTicks = 0;            
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);            
 
             Common.ApplicationBootstrapper = new Bootstrapper();
             Common.ApplicationBootstrapper.Run();
@@ -214,13 +214,13 @@ namespace VNCVisioToolsApplication.Visio
             Visio_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
             Visio_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
-            Common.WriteToDebugWindow("InitializePrism()-Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void UnLoadXamlApplicationResources()
         {
-            //Int64 startTicks = Log.APPLICATION_END("Enter", Common.LOG_CATEGORY);
-            Int64 startTicks = Common.WriteToDebugWindow("UnLoadXamlApplicationResources()", true);
+            Int64 startTicks =0;
+            if (Common.VNCLogging.ApplicationEnd) startTicks = Log.APPLICATION_END("Enter", Common.LOG_CATEGORY);
 
             try
             {
@@ -242,8 +242,7 @@ namespace VNCVisioToolsApplication.Visio
                 Common.DeveloperMode = false;
             }
 
-            //Log.APPLICATION_END("Exit", Common.LOG_CATEGORY, startTicks);
-            Common.WriteToDebugWindow("Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Exit", Common.LOG_CATEGORY, startTicks);
         }
     }
 }

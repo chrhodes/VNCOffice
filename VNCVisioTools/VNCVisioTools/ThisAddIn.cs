@@ -12,7 +12,7 @@ namespace VNCVisioTools
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             Int64 startTicks;
-            startTicks = Log.APPLICATION_INITIALIZE("ThisAddIn_Startup()", Common.LOG_CATEGORY);
+            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter", Common.LOG_CATEGORY);
             startTicks = Common.WriteToDebugWindow("ThisAddIn_Startup()", true);
 
             GetAssemblyInfo();
@@ -46,17 +46,21 @@ namespace VNCVisioTools
 
             AddInApplication.InitializeApplication();
 
-            Log.APPLICATION_INITIALIZE("ThisAddIn_Startup()", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START("Exit", Common.LOG_CATEGORY, startTicks);
             Common.WriteToDebugWindow("ThisAddIn_Startup() Exit", startTicks, true);
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Enter/Exit()", Common.LOG_CATEGORY);
             Common.WriteToDebugWindow("ThisAddIn_Shutdown()", true);
         }
 
         private void InitializeRibbonUI()
         {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+
             Globals.Ribbons.Ribbon.rgDebug.Visible = Common.DeveloperMode = false;
             Globals.Ribbons.Ribbon.rtUILaunchApproaches.Visible = false;
 
@@ -68,10 +72,15 @@ namespace VNCVisioTools
 
             Globals.Ribbons.Ribbon.rcbDisplayEvents.Checked = Common.DisplayEvents = false;
             Globals.Ribbons.Ribbon.rcbDisplayChattyEvents.Checked = Common.DisplayChattyEvents = false;
+
+            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void GetAssemblyInfo()
         {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+
             // Get Information about ourselves
 
             var VNCVisioToolsAssembly = Assembly.GetExecutingAssembly();
@@ -85,6 +94,8 @@ namespace VNCVisioTools
                     VNCVisioToolsAssembly,
                     VNCVisioToolsAssemblyFileVersionInfo);
             }
+
+            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #region VSTO generated code

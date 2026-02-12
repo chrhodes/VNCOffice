@@ -254,6 +254,18 @@
     </Compile>
     <AppDesigner Include="Properties\" />
     <None Include="VisioAddIn_TemporaryKey.pfx" />
+    <None Include="vnccoreloggingconfig-Debug.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="vnccoreloggingconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="vncloggingconfig-Debug.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="vncloggingconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Icons\VisioAddin.ico">

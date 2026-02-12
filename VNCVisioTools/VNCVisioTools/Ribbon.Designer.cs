@@ -52,7 +52,6 @@
             this.btnAddTableOfContents = this.Factory.CreateRibbonButton();
             this.btnAddHeader = this.Factory.CreateRibbonButton();
             this.btnAddFooter = this.Factory.CreateRibbonButton();
-            this.btnAddDefaultLayers = this.Factory.CreateRibbonButton();
             this.btnRemoveLayers = this.Factory.CreateRibbonButton();
             this.btnSortAllPages = this.Factory.CreateRibbonButton();
             this.btnDisplayPageNames = this.Factory.CreateRibbonButton();
@@ -64,6 +63,10 @@
             this.btnPrintPages = this.Factory.CreateRibbonButton();
             this.btnDeletePages = this.Factory.CreateRibbonButton();
             this.btnSavePages = this.Factory.CreateRibbonButton();
+            this.rgDocumentBasePages = this.Factory.CreateRibbonGroup();
+            this.btnAddArchitectureBasePages = this.Factory.CreateRibbonButton();
+            this.btnAddBackgroundPages = this.Factory.CreateRibbonButton();
+            this.btnAddDefaultLayers = this.Factory.CreateRibbonButton();
             this.rgPageActions = this.Factory.CreateRibbonGroup();
             this.btnGetPageInfo = this.Factory.CreateRibbonButton();
             this.btnUpdatePageNameShapesPage = this.Factory.CreateRibbonButton();
@@ -107,8 +110,6 @@
             this.btnDuplicatePage = this.Factory.CreateRibbonButton();
             this.btnMovePages = this.Factory.CreateRibbonButton();
             this.btnCustomUI_Car = this.Factory.CreateRibbonButton();
-            this.rgDocumentBasePages = this.Factory.CreateRibbonGroup();
-            this.btnAddArchitectureBasePages = this.Factory.CreateRibbonButton();
             this.rgDebug = this.Factory.CreateRibbonGroup();
             this.btnDebugWindow = this.Factory.CreateRibbonButton();
             this.btnWatchWindow = this.Factory.CreateRibbonButton();
@@ -144,11 +145,11 @@
             this.tab1.SuspendLayout();
             this.rtVisioAddInTemplate.SuspendLayout();
             this.rgDocumentActions.SuspendLayout();
+            this.rgDocumentBasePages.SuspendLayout();
             this.rgPageActions.SuspendLayout();
             this.rgLayerActions.SuspendLayout();
             this.rgShapeActions.SuspendLayout();
             this.rgCustomUI.SuspendLayout();
-            this.rgDocumentBasePages.SuspendLayout();
             this.rgDebug.SuspendLayout();
             this.grpHelp.SuspendLayout();
             this.rtUILaunchApproaches.SuspendLayout();
@@ -172,11 +173,11 @@
             // rtVisioAddInTemplate
             // 
             this.rtVisioAddInTemplate.Groups.Add(this.rgDocumentActions);
+            this.rtVisioAddInTemplate.Groups.Add(this.rgDocumentBasePages);
             this.rtVisioAddInTemplate.Groups.Add(this.rgPageActions);
             this.rtVisioAddInTemplate.Groups.Add(this.rgLayerActions);
             this.rtVisioAddInTemplate.Groups.Add(this.rgShapeActions);
             this.rtVisioAddInTemplate.Groups.Add(this.rgCustomUI);
-            this.rtVisioAddInTemplate.Groups.Add(this.rgDocumentBasePages);
             this.rtVisioAddInTemplate.Groups.Add(this.rgDebug);
             this.rtVisioAddInTemplate.Groups.Add(this.grpHelp);
             this.rtVisioAddInTemplate.Label = "VNCVisioTools";
@@ -190,7 +191,6 @@
             this.rgDocumentActions.Items.Add(this.btnAddTableOfContents);
             this.rgDocumentActions.Items.Add(this.btnAddHeader);
             this.rgDocumentActions.Items.Add(this.btnAddFooter);
-            this.rgDocumentActions.Items.Add(this.btnAddDefaultLayers);
             this.rgDocumentActions.Items.Add(this.btnRemoveLayers);
             this.rgDocumentActions.Items.Add(this.btnSortAllPages);
             this.rgDocumentActions.Items.Add(this.btnDisplayPageNames);
@@ -253,13 +253,6 @@
             this.btnAddFooter.Name = "btnAddFooter";
             this.btnAddFooter.ScreenTip = "Add Footer to all Pages";
             this.btnAddFooter.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddFooter_Click);
-            // 
-            // btnAddDefaultLayers
-            // 
-            this.btnAddDefaultLayers.Label = "+ DefaultLayers";
-            this.btnAddDefaultLayers.Name = "btnAddDefaultLayers";
-            this.btnAddDefaultLayers.ScreenTip = "Add Default Layers to all Pages";
-            this.btnAddDefaultLayers.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddDefaultLayers_Click);
             // 
             // btnRemoveLayers
             // 
@@ -337,6 +330,35 @@
             this.btnSavePages.Name = "btnSavePages";
             this.btnSavePages.SuperTip = "Save all Pages listed on current Page to Image";
             this.btnSavePages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnSavePages_Click);
+            // 
+            // rgDocumentBasePages
+            // 
+            this.rgDocumentBasePages.Items.Add(this.btnAddArchitectureBasePages);
+            this.rgDocumentBasePages.Items.Add(this.btnAddBackgroundPages);
+            this.rgDocumentBasePages.Items.Add(this.btnAddDefaultLayers);
+            this.rgDocumentBasePages.Label = "Document Base Pages";
+            this.rgDocumentBasePages.Name = "rgDocumentBasePages";
+            // 
+            // btnAddArchitectureBasePages
+            // 
+            this.btnAddArchitectureBasePages.Label = "+ Architecture Base Pages";
+            this.btnAddArchitectureBasePages.Name = "btnAddArchitectureBasePages";
+            this.btnAddArchitectureBasePages.SuperTip = "Adds Base Pages for Architectural Diagrams";
+            this.btnAddArchitectureBasePages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddArchitectureBasePages_Click);
+            // 
+            // btnAddBackgroundPages
+            // 
+            this.btnAddBackgroundPages.Label = "+ Background Pages";
+            this.btnAddBackgroundPages.Name = "btnAddBackgroundPages";
+            this.btnAddBackgroundPages.ScreenTip = "Adds Default Background Pages";
+            this.btnAddBackgroundPages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddBackgroundPages_Click);
+            // 
+            // btnAddDefaultLayers
+            // 
+            this.btnAddDefaultLayers.Label = "+ DefaultLayers";
+            this.btnAddDefaultLayers.Name = "btnAddDefaultLayers";
+            this.btnAddDefaultLayers.ScreenTip = "Add Layers from Default Layers to all Pages";
+            this.btnAddDefaultLayers.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddDefaultLayers_Click);
             // 
             // rgPageActions
             // 
@@ -686,18 +708,6 @@
             this.btnCustomUI_Car.SuperTip = "Load CarMain from Explore module";
             this.btnCustomUI_Car.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCustomUI_Car_Click);
             // 
-            // rgDocumentBasePages
-            // 
-            this.rgDocumentBasePages.Items.Add(this.btnAddArchitectureBasePages);
-            this.rgDocumentBasePages.Label = "Document Base Pages";
-            this.rgDocumentBasePages.Name = "rgDocumentBasePages";
-            // 
-            // btnAddArchitectureBasePages
-            // 
-            this.btnAddArchitectureBasePages.Label = "+ Architecture Base Pages";
-            this.btnAddArchitectureBasePages.Name = "btnAddArchitectureBasePages";
-            this.btnAddArchitectureBasePages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddArchitectureBasePages_Click);
-            // 
             // rgDebug
             // 
             this.rgDebug.Items.Add(this.btnDebugWindow);
@@ -951,6 +961,8 @@
             this.rtVisioAddInTemplate.PerformLayout();
             this.rgDocumentActions.ResumeLayout(false);
             this.rgDocumentActions.PerformLayout();
+            this.rgDocumentBasePages.ResumeLayout(false);
+            this.rgDocumentBasePages.PerformLayout();
             this.rgPageActions.ResumeLayout(false);
             this.rgPageActions.PerformLayout();
             this.rgLayerActions.ResumeLayout(false);
@@ -959,8 +971,6 @@
             this.rgShapeActions.PerformLayout();
             this.rgCustomUI.ResumeLayout(false);
             this.rgCustomUI.PerformLayout();
-            this.rgDocumentBasePages.ResumeLayout(false);
-            this.rgDocumentBasePages.PerformLayout();
             this.rgDebug.ResumeLayout(false);
             this.rgDebug.PerformLayout();
             this.grpHelp.ResumeLayout(false);
@@ -1078,6 +1088,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVNC_MVVM_VC21st;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox rcbUILaunchApproaches;
         internal Microsoft.Office.Tools.Ribbon.RibbonTab rtUILaunchApproaches;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddBackgroundPages;
     }
 
     partial class ThisRibbonCollection

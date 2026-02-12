@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -43,6 +44,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayAddInInfo()
         {
+            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+
             if (_aboutHost is null) _aboutHost = new WindowHost(Common.EventAggregator);
 
             _aboutHost.InformationApplication = Common.InformationApplication;
@@ -73,7 +76,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayInfo()
         {
-            Common.WriteToDebugWindow($"{System.Reflection.MethodInfo.GetCurrentMethod().Name}");
+            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -126,7 +129,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static MSVisio.Document GetActiveDocument()
         {
-            Common.WriteToDebugWindow($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -135,7 +138,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static List<MSVisio.Document> GetOpenDocuments()
         {
-            Common.WriteToDebugWindow($"{System.Reflection.MethodBase.GetCurrentMethod().Name}");
+            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -151,8 +154,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void LayerManager()
         {
-            Common.WriteToDebugWindow(string.Format("{0}({1})",
-                System.Reflection.MethodInfo.GetCurrentMethod().Name, "TODO: Not Implemented"));
+            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}(TODO: Not Implemented)");
 
             // TODO(CHR): Launch WPF Layer Manager Window
         }

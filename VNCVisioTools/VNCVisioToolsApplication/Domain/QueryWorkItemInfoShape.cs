@@ -1,7 +1,7 @@
 using MSVisio = Microsoft.Office.Interop.Visio;
 using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
 
-namespace VNCVisioToolsApplication.Actions
+namespace VNCVisioToolsApplication.Domain
 {
     public class QueryWorkItemInfoShape : WorkItemShapeInfo
     {

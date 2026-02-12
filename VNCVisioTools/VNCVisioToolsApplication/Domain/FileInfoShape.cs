@@ -17,7 +17,6 @@ namespace VNCVisioToolsApplication.Domain
     {
         delegate StringBuilder SearchTreeCommand(StringBuilder sb, SyntaxTree tree);
 
-
         #region Constructors and Load
 
         public FileInfoShape(MSVisio.Shape activeShape)

@@ -9,7 +9,6 @@ using System.Windows;
 
 using VNC.Core;
 
-
 using VNC;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
@@ -222,10 +221,12 @@ namespace VNCVisioToolsApplication.Actions
 
             AutoSizePageOn(page);
         }
+        
         public static void AutoSizePageOn(MSVisio.Page page)
         {
             page.AutoSize = true;
         }
+        
         public static void CreateActivityPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] args)
         {
             string pageLevel = null;

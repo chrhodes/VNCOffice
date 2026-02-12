@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Threading;
 
 using Microsoft.Office.Tools.Ribbon;
+
+using VNC;
 
 namespace VNCVisioTools
 {
@@ -13,14 +16,30 @@ namespace VNCVisioTools
             : base(Globals.Factory.GetRibbonFactory())
         {
             InitializeComponent();
+#if DEBUG
+            Common.InitializeLogging(debugConfig: true);
+#else
+            Common.InitializeLogging();
+#endif
+            Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("Ribbon()", true);
+            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Initialize SignalR", Common.LOG_CATEGORY);
 
-            Int64 startTicks = Common.WriteToDebugWindow("Ribbon()", true);
+            // NOTE(crhodes)
+            // If don't delay a bit here, the SignalR logging infrastructure does not initialize quickly enough
+            // and the first few log messages are missed.
+            // NB.  All are properly recored in the log file.
+
+            Thread.Sleep(250);
+
+            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
 
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
-            Int64 startTicks = Common.WriteToDebugWindow("Ribbon_Load()", true);
+            Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("Ribbon_Load()", true);
+            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
-
     }
 }

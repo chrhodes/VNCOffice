@@ -30,6 +30,7 @@ namespace VNCVisioToolsApplication.Actions
         const double cTOC_PageLink_Height = 0.125;
         const double cTOC_PageLink_Initial_yLoc = 8.125;
         const double cTOC_PageLink_Width = 1.0;
+
         #endregion
 
         #region Events
@@ -45,6 +46,105 @@ namespace VNCVisioToolsApplication.Actions
         #endregion
 
         #region Main Methods
+
+        public static void AddArchitectureBasePages()
+        {
+            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+
+            MSVisio.Application app = Common.VisioApplication;
+
+            MSVisio.Page page = null;
+            MSVisio.Document archStencil = null;
+            MSVisio.Master archMaster = null;
+
+            int undoScope = Common.VisioApplication.BeginUndoScope("AddArchitectureBasePages");
+
+            var architecturePages = new string[] {
+                "Clean Architecture 1",
+                "Clean Architecture 2",
+                "Clean Architecture 3",
+                "Clean Architecture 4" };
+
+            // Delete any existing Architecture Base Pages
+
+            foreach (var existingPage in architecturePages)
+            {
+                try
+                {
+                    page = app.ActiveDocument.Pages[existingPage];
+                    // We found a page, delete it.  Not much luck iterating across shapes and clearing page - See ClearPage()
+
+                    page.Delete(0);
+                    //ClearPage(page);
+                    // Need to delete all the stuff.
+                }
+                catch (Exception ex)
+                {
+                    // Maybe log that we found an existing page
+                    //Common.WriteToDebugWindow(ex.ToString(), force:true);
+                }
+            }
+
+            var archStencilName = "API.vssx";
+
+            try
+            {
+                archStencil = app.Documents[archStencilName];
+            }
+            catch (Exception ex)
+            {
+                // Open Stencil
+                app.Documents.OpenEx(archStencilName, (short)MSVisio.VisOpenSaveArgs.visOpenRO + (short)MSVisio.VisOpenSaveArgs.visOpenDocked);
+
+                archStencil = app.Documents[archStencilName];
+            }
+
+            // Assume 11 x 8.5 Landscape page
+
+            try
+            {
+                page = Common.VisioApplication.ActiveDocument.Pages.Add();
+                archMaster = archStencil.Masters["Clean Arch 1 - Page Base"];
+
+                page.NameU = "Clean Architecture 1";
+                page.Background = 1;
+                page.Drop(archMaster, 5.5, 4.325);
+
+                page = Common.VisioApplication.ActiveDocument.Pages.Add();
+                archMaster = archStencil.Masters["Clean Arch 2 - Page Base"];
+
+                page.NameU = "Clean Architecture 2";
+                page.Background = 1;
+                page.Drop(archMaster, 5.5, 4.325);
+
+                page = Common.VisioApplication.ActiveDocument.Pages.Add();
+                archMaster = archStencil.Masters["Clean Arch 3 - Page Base"];
+
+                page.NameU = "Clean Architecture 3";
+                page.Background = 1;
+                page.Drop(archMaster, 5.5, 4.325);
+
+                page = Common.VisioApplication.ActiveDocument.Pages.Add();
+                archMaster = archStencil.Masters["Clean Arch 4 - Page Base"];
+
+                page.NameU = "Clean Architecture 4";
+                page.Background = 1;
+                page.Drop(archMaster, 5.5, 4.325);
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            Common.VisioApplication.EndUndoScope(undoScope, true);
+        }
+
+        public static void AddBackgroundPages()
+        {
+            Visio_Page.CreatePage(pageName: "Navigation Links", backgroundPageName: "", isBackground: 1);
+            Visio_Page.CreatePage(pageName: "Page Base", backgroundPageName: "", isBackground: 1);
+            Visio_Page.CreatePage(pageName: "Default Layers", backgroundPageName: "", isBackground: 1);
+        }
 
         public static void AddDefaultLayers()
         {
@@ -200,6 +300,52 @@ namespace VNCVisioToolsApplication.Actions
             }
 
             Common.VisioApplication.EndUndoScope(undoScope, true);
+        }
+
+        public static void CreatePluralSightCourseFileFromShape(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
+        {
+            int i = 0;
+
+            MSVisio.Page currentPage = app.ActivePage;
+            MSVisio.Document currentDocument = app.ActiveDocument;
+            MSVisio.Shape activeShape = app.ActivePage.Shapes[shape];
+            string shapePageName = "COURSENAME";
+            string shapeAuthor = "AUTHOR";
+
+            try
+            {
+                if (activeShape.CellExistsU["Prop.PageName", 0] != 0)
+                {
+                    shapePageName = activeShape.CellsU["Prop.PageName"].ResultStrU[MSVisio.VisUnitCodes.visUnitsString];
+                }
+
+                if (activeShape.CellExistsU["Prop.Author", 0] != 0)
+                {
+                    shapeAuthor = activeShape.CellsU["Prop.Author"].ResultStrU[MSVisio.VisUnitCodes.visUnitsString];
+                }
+
+                string templateName = "CHR Notes - PluralSight Course - Subject - Author.vstx";
+                app.Documents.AddEx(templateName, MSVisio.VisMeasurementSystem.visMSDefault, 0, 0);
+
+                app.ActivePage.Drop(activeShape, (short)5.5, (short)4.25);
+
+                string fileName = $"CHR Notes - PluralSight Course - {shapePageName} - {shapeAuthor}.vsdx";
+
+                SaveFileDialog saveFileDiaglog = new SaveFileDialog();
+
+                saveFileDiaglog.FileName = fileName;
+                saveFileDiaglog.InitialDirectory = @"B:\CHR Notes\PluralSight";
+
+                DialogResult result = saveFileDiaglog.ShowDialog();
+
+                fileName = saveFileDiaglog.FileName;
+
+                app.ActiveDocument.SaveAsEx(fileName, (short)MSVisio.VisOpenSaveArgs.visSaveAsWS);
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         public static void CreateTableOfContents()
@@ -660,143 +806,6 @@ namespace VNCVisioToolsApplication.Actions
 
         #region Private Methods
 
-        public static void AddArchitectureBasePages()
-        {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
-
-            MSVisio.Application app = Common.VisioApplication;
-
-            MSVisio.Page page = null;
-            MSVisio.Document archStencil = null;
-            MSVisio.Master archMaster = null;
-
-            int undoScope = Common.VisioApplication.BeginUndoScope("AddArchitectureBasePages");
-
-            var architecturePages = new string[] {
-                "Clean Architecture 1",
-                "Clean Architecture 2",
-                "Clean Architecture 3",
-                "Clean Architecture 4" };
-
-            // Delete any existing Architecture Base Pages
-
-            foreach (var existingPage in architecturePages)
-            {
-                try
-                {
-                    page = app.ActiveDocument.Pages[existingPage];
-                    // We found a page, delete it.  Not much luck iterating across shapes and clearing page - See ClearPage()
-
-                    page.Delete(0);
-                    //ClearPage(page);
-                    // Need to delete all the stuff.
-                }
-                catch (Exception ex)
-                {
-                    // Maybe log that we found an existing page
-                    //Common.WriteToDebugWindow(ex.ToString(), force:true);
-                }
-            }
-
-            var archStencilName = "API.vssx";
-
-            try
-            {
-                archStencil = app.Documents[archStencilName];
-            }
-            catch (Exception ex)
-            {
-                // Open Stencil
-                app.Documents.OpenEx(archStencilName, (short)MSVisio.VisOpenSaveArgs.visOpenRO + (short)MSVisio.VisOpenSaveArgs.visOpenDocked);
-
-                archStencil = app.Documents[archStencilName];
-            }
-
-            // Assume 11 x 8.5 Landscape page
-
-            try
-            {
-                page = Common.VisioApplication.ActiveDocument.Pages.Add();
-                archMaster = archStencil.Masters["Clean Arch 1 - Page Base"];
-
-                page.NameU = "Clean Architecture 1";
-                page.Background = 1;
-                page.Drop(archMaster, 5.5, 4.325);
-
-                page = Common.VisioApplication.ActiveDocument.Pages.Add();
-                archMaster = archStencil.Masters["Clean Arch 2 - Page Base"];
-
-                page.NameU = "Clean Architecture 2";
-                page.Background = 1;
-                page.Drop(archMaster, 5.5, 4.325);
-
-                page = Common.VisioApplication.ActiveDocument.Pages.Add();
-                archMaster = archStencil.Masters["Clean Arch 3 - Page Base"];
-
-                page.NameU = "Clean Architecture 3";
-                page.Background = 1;
-                page.Drop(archMaster, 5.5, 4.325);
-
-                page = Common.VisioApplication.ActiveDocument.Pages.Add();
-                archMaster = archStencil.Masters["Clean Arch 4 - Page Base"];
-
-                page.NameU = "Clean Architecture 4";
-                page.Background = 1;
-                page.Drop(archMaster, 5.5, 4.325);
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-            Common.VisioApplication.EndUndoScope(undoScope, true);
-        }
-
-        public static void CreatePluralSightCourseFileFromShape(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
-        {
-            int i = 0;
-
-            MSVisio.Page currentPage = app.ActivePage;
-            MSVisio.Document currentDocument = app.ActiveDocument;
-            MSVisio.Shape activeShape = app.ActivePage.Shapes[shape];
-            string shapePageName = "COURSENAME";
-            string shapeAuthor = "AUTHOR";
-
-            try
-            {
-                if (activeShape.CellExistsU["Prop.PageName", 0] != 0)
-                {
-                    shapePageName = activeShape.CellsU["Prop.PageName"].ResultStrU[MSVisio.VisUnitCodes.visUnitsString];
-                }
-
-                if (activeShape.CellExistsU["Prop.Author", 0] != 0)
-                {
-                    shapeAuthor = activeShape.CellsU["Prop.Author"].ResultStrU[MSVisio.VisUnitCodes.visUnitsString];
-                }
-
-                string templateName = "CHR Notes - PluralSight Course - Subject - Author.vstx";
-                app.Documents.AddEx(templateName, MSVisio.VisMeasurementSystem.visMSDefault, 0, 0);
-
-                app.ActivePage.Drop(activeShape, (short)5.5, (short)4.25);
-
-                string fileName = $"CHR Notes - PluralSight Course - {shapePageName} - {shapeAuthor}.vsdx";
-
-                SaveFileDialog saveFileDiaglog = new SaveFileDialog();
-
-                saveFileDiaglog.FileName = fileName;
-                saveFileDiaglog.InitialDirectory = @"B:\CHR Notes\PluralSight";
-
-                DialogResult result = saveFileDiaglog.ShowDialog();
-
-                fileName = saveFileDiaglog.FileName;
-
-                app.ActiveDocument.SaveAsEx(fileName, (short)MSVisio.VisOpenSaveArgs.visSaveAsWS);
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
 
         private static void AddPageLinkToTOCPage(MSVisio.Page pageTOC, MSVisio.Page page, double xLoc, double yLoc)
         {
@@ -881,6 +890,7 @@ namespace VNCVisioToolsApplication.Actions
             System.Diagnostics.Debug.WriteLine(string.Format("Shapes on Page: {0}", page.Shapes.Count));
 
         }
+
         #endregion
     }
 }

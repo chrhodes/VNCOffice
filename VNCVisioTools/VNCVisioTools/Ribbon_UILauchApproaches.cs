@@ -10,8 +10,10 @@ namespace VNCVisioTools
 
         #region UI Launch Events
 
-        //wrap all calls to UILaunchApproach in try/catch to prevent exceptions from crashing the add-in.
-        //Use Common.WriteToDebugWindow(ex.Message, force:true) to handle exception
+        // NOTE(crhodes)
+        // Wrap all calls to Visio_* in try/catch to prevent exceptions from crashing the add-in.
+        // Use Common.WriteToDebugWindow(ex.Message, force:true) to handle exceptions
+        // Should we also use VNC.Log??
 
         private void btnThemedWindowHostModal_Click(object sender, RibbonControlEventArgs e)
         {

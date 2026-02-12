@@ -10,11 +10,10 @@ namespace VNCVisioTools
     {
         #region EventHandlers
 
-        // TODO(crhodes)
-        // Should all the calls be wrapped in a try/catch like btnGetDocumentInfo_Click?
-
-        //wrap all calls to Visio_* in try/catch to prevent exceptions from crashing the add-in.
-        //Use Common.WriteToDebugWindow(ex.Message, force:true) to handle exceptions        #region Document Actions Events
+        // NOTE(crhodes)
+        // Wrap all calls to Visio_* in try/catch to prevent exceptions from crashing the add-in.
+        // Use Common.WriteToDebugWindow(ex.Message, force:true) to handle exceptions
+        // Should we also use VNC.Log??
 
         #region Document Action Events
 
@@ -753,6 +752,18 @@ namespace VNCVisioTools
             }
         }
 
+        private void btnAddBackgroundPages_Click(object sender, RibbonControlEventArgs e)
+        {
+            try
+            {
+                Visio_Document.AddBackgroundPages();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
         #endregion
 
         #region Help Events
@@ -854,6 +865,5 @@ namespace VNCVisioTools
         #endregion
 
         #endregion
-
     }
 }
