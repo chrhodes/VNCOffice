@@ -1,0 +1,195 @@
+﻿<vncmvvm:ViewBase
+    x:Class="VNCVisioToolsApplication.Presentation.Views.CommandCockpit"
+    x:Name="thisXMLCommands"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:local="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
+    
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol" 
+
+    xmlns:localc="clr-namespace:VNCVisioToolsApplication.Presentation.Converters"
+    xmlns:views="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
+    xmlns:viewModels="clr-namespace:VNCVisioToolsApplication.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:VNCVisioToolsApplication.Core;assembly=VNCVisioToolsApplication.Core"
+    prism:ViewModelLocator.AutoWireViewModel="False"
+    mc:Ignorable="d"
+
+    d:DesignStyle="{StaticResource vncDesignStyle}"
+>
+    <!--xmlns:core="clr-namespace:VNCVisioToolsApplication.Core;assembly=VNCVisioToolsApplication.Core"-->
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+
+    <UserControl.Resources>
+        <localc:XElementToStringConverter x:Key="XElementToStringConverter" />
+        <localc:SelectedItemsToVisioCommandWrapperConverter x:Key="SelectedItemsToVisioCommandWrapperConverter" />
+
+        <!--<DataTemplate x:Key="dataTemplateCommand">
+            <StackPanel>
+                <Label Content="{Binding XPath=@Name}" />
+            </StackPanel>
+        </DataTemplate>-->
+
+        <DataTemplate x:Key="dataTemplateCommand">
+            <Border BorderThickness="1" BorderBrush="Coral" >
+                <Grid>
+                <StackPanel Orientation="Horizontal" Margin="2" >
+                    <Border BorderBrush="White" BorderThickness="1" Padding="3">
+                        <Label Content="{Binding Path=Attribute[Name].Value}" MinWidth="150" />
+                    </Border>
+                    <Border Background="#FF636363" BorderBrush="Red" BorderThickness="1" Padding="3" >
+                        <Label Content="{Binding Path=Attribute[Description].Value}"  />
+                    </Border>
+                </StackPanel>
+                </Grid>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <!--<UserControl.DataContext>
+        <localvm:QueriesViewModel />
+    </UserControl.DataContext>-->
+
+    <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" Margin="4,20,-4,-20">
+        <dxlc:LayoutItem             
+                Label="Welcome to the evolving Commands Editor" 
+                LabelPosition="Top"/>
+
+        <!--<dxlc:LayoutItem Label="Select Sections to Add" 
+                         LabelPosition="Top">
+            
+        <views:wucVisioCommand_Picker x:Name="visioCommand_Picker" 
+                                      ControlChanged="visioCommand_Picker_ControlChanged"/>
+
+        </dxlc:LayoutItem>-->
+
+        <dxlc:LayoutGroup View="GroupBox" Orientation="Horizontal" Header="Select Command" VerticalAlignment="Top"  >
+            <dxe:ComboBoxEdit x:Name="cbeVisioCommands" HorizontalContentAlignment="Stretch"
+        		ItemsSource="{Binding VisioCommands}"
+                ItemTemplate="{StaticResource dataTemplateCommand}"                              
+                EditValue="{Binding
+                	Path=SelectedCommand,
+                    Mode=TwoWay,
+                    UpdateSourceTrigger=PropertyChanged,
+                    Converter={StaticResource XElementToStringConverter}, 
+                    ConverterParameter='Name'}" >
+                <dxe:ComboBoxEdit.StyleSettings>
+                    <!--<dxe:CheckedTokenComboBoxStyleSettings/>-->
+                    <!--<dxe:CheckedComboBoxStyleSettings/>-->
+                    <dxe:RadioComboBoxStyleSettings/>
+                    <!--<dxe:RadioTokenComboBoxStyleSettings/>-->
+                    <!--<dxe:TokenComboBoxStyleSettings/>-->       
+                </dxe:ComboBoxEdit.StyleSettings>
+                <!--<dxe:ComboBoxEditItem Content="Red" />
+                <dxe:ComboBoxEditItem Content="Green" />
+                <dxe:ComboBoxEditItem Content="Blue" />-->
+            </dxe:ComboBoxEdit>
+          
+            <dxlc:LayoutItem HorizontalAlignment="Right">
+                <Button 
+            		Command="{Binding ReloadXmlCommand }"
+            		Content="{Binding ReloadXmlContent, FallbackValue='...' }"
+            		ToolTip="{Binding ReloadXmlToolTip, FallbackValue='ReloadXml ToolTip' }" />
+            </dxlc:LayoutItem>
+ 
+        </dxlc:LayoutGroup>
+
+        <!--<dxlc:LayoutItem Label="Select Command"
+         	LabelPosition="Top">
+            <dxe:ComboBoxEdit x:Name="cbeVisioCommands"
+        		ItemsSource="{Binding VisioCommands}"
+                ItemTemplate="{StaticResource dataTemplateCommand}"                                     
+                EditValue="{Binding
+                	Path=SelectedCommand,
+                    Mode=TwoWay,
+                    UpdateSourceTrigger=PropertyChanged,
+                    Converter={StaticResource SelectedItemsConverter} }"
+        >
+                <dxe:ComboBoxEdit.StyleSettings>
+                    --><!--<dxe:CheckedTokenComboBoxStyleSettings/>-->
+                    <!--<dxe:CheckedComboBoxStyleSettings/>--><!--
+                    <dxe:RadioComboBoxStyleSettings/>
+                    --><!--<dxe:RadioTokenComboBoxStyleSettings/>-->
+                    <!--<dxe:TokenComboBoxStyleSettings/>--><!--
+                </dxe:ComboBoxEdit.StyleSettings>
+                --><!--<dxe:ComboBoxEditItem Content="Red" />
+                <dxe:ComboBoxEditItem Content="Green" />
+                <dxe:ComboBoxEditItem Content="Blue" />--><!--
+            </dxe:ComboBoxEdit>
+        </dxlc:LayoutItem>-->
+
+        <!-- NOTE(crhodes)
+         THis Works 
+        -->
+        <dxlc:LayoutItem>
+            <dxe:TextEdit Text="{Binding SelectedCommand.Attribute[Description].Value}"/>
+        </dxlc:LayoutItem>
+        
+        <!-- NOTE(crhodes)
+         THis Works
+        -->
+        <dxlc:LayoutItem>
+            <dxe:TextEdit Text="{Binding SelectedCommand, 
+                Converter={StaticResource XElementToStringConverter},
+                ConverterParameter='Description'}"/>
+        </dxlc:LayoutItem>
+
+        <!-- NOTE(crhodes)
+         With no parameters, this returns entire element as string
+        -->
+        <dxlc:LayoutItem>
+            <dxe:TextEdit Text="{Binding SelectedCommand,
+                Converter={StaticResource XElementToStringConverter}}"/>
+        </dxlc:LayoutItem>
+
+        <!--<dxlc:LayoutItem>
+            <dxe:TextEdit Text="{Binding SelectedCommand, Converter={StaticResource SelectedItemConverter}}"/>
+        </dxlc:LayoutItem>-->
+
+        <dxlc:LayoutItem>
+            <Button 
+        		Command="{Binding ExecuteCommand }"
+        		Content="{Binding ExecuteContent, FallbackValue='Execute' }"
+        		ToolTip="{Binding ExecuteToolTip, FallbackValue='Execute ToolTip' }" />
+        </dxlc:LayoutItem>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <TextBlock Text="XMLCommands" />
+                <TextBlock Text="{Binding Message}" />
+                <Button Content="Say Hello"
+                    Command="{Binding SayHelloCommand}" />
+            </StackPanel>
+
+            <!-- This is useful for debugging V VM constructor issues -->
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" >
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisXMLCommands, Path=InstanceCountV}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="VM:" />
+                    <Label Content="{Binding InstanceCountVM}" />
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+    </dxlc:LayoutControl>
+
+</vncmvvm:ViewBase>

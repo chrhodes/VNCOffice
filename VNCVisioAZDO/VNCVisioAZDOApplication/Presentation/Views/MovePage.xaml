@@ -1,0 +1,88 @@
+﻿<vncmvvm:ViewBase
+    x:Class="VNCVisioToolsApplication.Presentation.Views.MovePage"
+    x:Name="thisMovePage"    
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"   
+    
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+
+    xmlns:localc="clr-namespace:VNCVisioToolsApplication.Presentation.Converters"
+    xmlns:localv="clr-namespace:VNCVisioToolsApplication.Presentation.Views"
+    xmlns:localvm="clr-namespace:VNCVisioToolsApplication.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:VNCVisioToolsApplication.Core;assembly=VNCVisioToolsApplication.Core"
+
+    prism:ViewModelLocator.AutoWireViewModel="False"
+    mc:Ignorable="d"
+    >
+    <!--xmlns:core="clr-namespace:VNCVisioToolsApplication.Core;assembly=VNCVisioToolsApplication.Core"-->
+    <d:DesignerProperties.DesignStyle>
+        <Style TargetType="UserControl">
+            <Setter Property="Background" Value="White" />
+        </Style>
+    </d:DesignerProperties.DesignStyle>
+
+    <UserControl.Resources>
+
+    </UserControl.Resources>
+
+    <dxlc:LayoutControl x:Name="layoutItems" 
+                        Orientation="Vertical" 
+>
+        <dxlc:LayoutItem 
+	            Label="Select Target Document"
+ 	            LabelPosition="Top">
+            <dxe:ComboBoxEdit x:Name="cbeOpenDocuments"
+                              ItemsSource="{Binding OpenDrawings}"
+                EditValue="{Binding
+                	Path=SelectedDrawing,
+                    Mode=TwoWay,
+					UpdateSourceTrigger=PropertyChanged }" >
+                <dxe:ComboBoxEdit.StyleSettings>
+                    <dxe:ComboBoxStyleSettings/>
+                    <!--<dxe:CheckedTokenComboBoxStyleSettings/>-->
+                    <!--<dxe:CheckedComboBoxStyleSettings/>-->
+                    <!--<dxe:RadioComboBoxStyleSettings/>-->
+                    <!--<dxe:RadioTokenComboBoxStyleSettings/>-->
+                    <!--<dxe:TokenComboBoxStyleSettings/>-->
+                </dxe:ComboBoxEdit.StyleSettings>
+            </dxe:ComboBoxEdit>
+        </dxlc:LayoutItem>
+
+        <!--<dxlc:LayoutItem>
+            <Button x:Name="btnExecuteCommand" 
+                        Content="Execute Command" 
+                        Click="btnExecuteCommand_Click"/>
+        </dxlc:LayoutItem>-->
+
+        <dxlc:LayoutItem>
+            <Button 
+        		Command="{Binding MovePagesCommand }"
+        		Content="{Binding MovePagesContent, FallbackValue='MovePages' }"
+        		ToolTip="{Binding MovePagesToolTip, FallbackValue='MovePages ToolTip' }" />
+        </dxlc:LayoutItem>
+
+        <dxlc:LayoutGroup 
+        	View="Group" Orientation="Vertical" >
+
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="{Binding Message}" />
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="V:" />
+                    <Label Content="{Binding ElementName=thisMovePage, Path=InstanceCountV}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Label Content="VM:" />
+                    <Label Content="{Binding InstanceCountVM}" />
+                </StackPanel>
+            </StackPanel>
+        </dxlc:LayoutGroup>
+    </dxlc:LayoutControl>
+
+</vncmvvm:ViewBase>

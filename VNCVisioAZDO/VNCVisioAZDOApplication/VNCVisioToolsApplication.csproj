@@ -1,0 +1,186 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net481</TargetFrameworks>
+      <UseWPF>true</UseWPF>
+      <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+      <AssemblyName>VNCVisioToolsApplication</AssemblyName>
+      <RootNamespace>VNCVisioToolsApplication</RootNamespace>
+      <!--<SignAssembly>true</SignAssembly>
+      <AssemblyOriginatorKeyFile>VNC.snk</AssemblyOriginatorKeyFile>-->
+      <VersionPrefix>1.0.0</VersionPrefix>
+      <VersionSuffix>Development</VersionSuffix>
+      <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+      <FileVersion>2026.02.12</FileVersion>
+      <Description>VNCVisioToolsApplication</Description>
+      <LangVersion>12.0</LangVersion>
+      <Nullable>enable</Nullable>
+      <ImplicitUsings>disable</ImplicitUsings>
+      <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>  
+  </PropertyGroup>
+
+    <!-- This is for NuGet Packages -->
+
+    <!-- <PropertyGroup> -->
+        <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild> -->
+        <!-- <PackageVersion>1.0.0</PackageVersion> -->
+        <!-- <PackageLicenseFile>LICENSE</PackageLicenseFile> -->
+        <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
+        <!-- <PackageProjectUrl>https://github.com/chrhodes/vncoffice</PackageProjectUrl> -->
+        <!-- <RepositoryUrl>https://github.com/chrhodes/vncoffice</RepositoryUrl> -->
+        <!-- <RepositoryType>Git</RepositoryType> -->
+        <!-- <PackageTags></PackageTags> -->
+        <!-- <PackageIcon>VNC.png</PackageIcon> -->
+        <!-- <Authors>Christopher Rhodes</Authors> -->
+        <!-- <Company>VNC</Company> -->
+        <!-- <Copyright>Copyright © VNC 2025</Copyright> -->
+        <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
+        <!-- <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages> -->
+    <!-- </PropertyGroup>     -->
+
+    <!--<ItemGroup>
+        <None Include="LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="VNC.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>-->
+
+  <ItemGroup>
+    <Content Include="Resources\Icons\VisioAddin.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\VNCDeveloperMotivation.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\DebugWindow.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\WatchWindow.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Presentation\Views\UserControls\" />
+  </ItemGroup>
+
+    <!--Having problems with these files and VNC.CodeAnalysis, so removing them for now.-->
+    <ItemGroup>
+        <Compile Remove="Actions\AZDOActions.cs" />
+        <Compile Remove="Actions\RoslynActions.cs" />
+        <Compile Remove="Domain\AZDOPageLayout.cs" />
+        <Compile Remove="Domain\ClassInfoShape.cs" />
+        <Compile Remove="Domain\FileInfoShape.cs" />
+        <Compile Remove="Domain\MethodInfoShape.cs" />
+        <Compile Remove="Domain\OffsetDirection.cs" />
+        <Compile Remove="Domain\QueryWorkItemInfoShape.cs" />
+        <Compile Remove="Domain\WorkItemOffset.cs" />
+        <Compile Remove="Domain\WorkItemOffsets.cs" />
+        <Compile Remove="Domain\WorkItemQueryShapeInfo.cs" />
+        <Compile Remove="Domain\WorkItemShapeInfo.cs" />
+    </ItemGroup>
+    
+  <ItemGroup>
+    <PackageReference Include="CalcBinding" Version="2.5.2" />      
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+    <PackageReference Include="VNC.AZDO" Version="3.3.0" />
+    <!--<PackageReference Include="VNC.CodeAnalysis" Version="3.3.0" />-->
+    <PackageReference Include="VNC.WPF.Presentation" Version="3.3.0" />
+    <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.3.0" />
+  </ItemGroup>
+
+    <ItemGroup>
+        <!--Babystep toward understanding-->
+        <!--<PackageReference Include="VNC.CodeAnalysis" Version="3.3.0" />-->
+        <PackageReference Include="Crc32.NET" Version="1.2.0" />
+        <PackageReference Include="Microsoft.Build" Version="17.11.48" />
+        <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.11.48" />
+        
+        <!--NOTE(crhodes)
+        These cause problems-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="5.0.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="4.1.4" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="3.11.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="5.0.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.1.4" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="3.11.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="5.0.0" />-->
+        
+        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.3" />
+        <PackageReference Include="System.Formats.Asn1" Version="10.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Microsoft.Office.Interop.Visio">
+            <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Visio.dll</HintPath>
+        </Reference>
+        <Reference Include="PresentationFramework" />
+        <Reference Include="stdole">
+            <HintPath>C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\stdole.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows.Forms" />
+        <Reference Include="WindowsBase" />
+    </ItemGroup>
+
+   <ItemGroup>
+    <ProjectReference Include="..\VNCVisioToolsApplication.Core\VNCVisioToolsApplication.Core.csproj" />
+   </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+        <!-- Uncoment next line to switch to ProjectReference(s) -->
+        <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>  -->
+    </PropertyGroup>
+
+    <Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\..\..\VNCOffice\VNC.Visio.VSTOAddin\VNC.Visio.VSTOAddIn.csproj" />
+                <!--<ProjectReference Include="..\..\..\..\VNCOffice\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />-->
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+              <ItemGroup>
+                <PackageReference Include="VNC.Visio.VSTOAddIn" Version="1.0.0" />
+                <!--<PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" />-->
+              </ItemGroup>        
+        </When>
+    </Choose>
+    
+    <!-- <Choose> -->
+        <!-- <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+            <!-- <ItemGroup> -->
+                <!-- <ProjectReference Include="..\..\..\..\VNCOffice\VNC.Visio.VSTOAddin\VNC.Visio.VSTOAddIn.csproj" /> -->
+                <!-- <ProjectReference Include="..\..\..\..\VNCOffice\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" /> -->
+            <!-- </ItemGroup> -->
+        <!-- </When> -->
+        <!-- <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+              <!-- <ItemGroup> -->
+                <!-- <PackageReference Include="VNC.Visio.VSTOAddIn" Version="1.0.0" /> -->
+                <!-- <PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" /> -->
+              <!-- </ItemGroup>         -->
+        <!-- </When> -->
+    <!-- </Choose> -->
+
+    <!--This updates the file version to the current date.-->
+    
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; $(ProjectFileName)" />
+    </Target>
+
+    <!--<Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)'=='Release'">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; -Verbose $(ProjectFileName)" />
+    </Target>-->
+
+    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot; -Verbose $(ProjectFileName)" />
+    </Target>-->    
+    
+</Project>
