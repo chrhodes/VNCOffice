@@ -4,8 +4,6 @@
     <TargetFrameworks>net481</TargetFrameworks>
       <UseWPF>true</UseWPF>
       <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-      <AssemblyName>VNCVisioToolsApplication</AssemblyName>
-      <RootNamespace>VNCVisioToolsApplication</RootNamespace>
       <!--<SignAssembly>true</SignAssembly>
       <AssemblyOriginatorKeyFile>VNC.snk</AssemblyOriginatorKeyFile>-->
       <VersionPrefix>1.0.0</VersionPrefix>
@@ -74,19 +72,50 @@
 
     <!--Having problems with these files and VNC.CodeAnalysis, so removing them for now.-->
     <ItemGroup>
+        <Compile Remove="Actions\AZDOActions.cs" />
         <Compile Remove="Actions\RoslynActions.cs" />
+        <Compile Remove="Domain\AZDOPageLayout.cs" />
+        <Compile Remove="Domain\ClassInfoShape.cs" />
         <Compile Remove="Domain\FileInfoShape.cs" />
+        <Compile Remove="Domain\MethodInfoShape.cs" />
+        <Compile Remove="Domain\OffsetDirection.cs" />
+        <Compile Remove="Domain\QueryWorkItemInfoShape.cs" />
+        <Compile Remove="Domain\WorkItemOffset.cs" />
+        <Compile Remove="Domain\WorkItemOffsets.cs" />
+        <Compile Remove="Domain\WorkItemQueryShapeInfo.cs" />
+        <Compile Remove="Domain\WorkItemShapeInfo.cs" />
     </ItemGroup>
     
   <ItemGroup>
     <PackageReference Include="CalcBinding" Version="2.5.2" />      
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
-    <PackageReference Include="VNC.AZDO" Version="3.2.0" />
+    <PackageReference Include="VNC.AZDO" Version="3.3.0" />
     <!--<PackageReference Include="VNC.CodeAnalysis" Version="3.3.0" />-->
     <PackageReference Include="VNC.WPF.Presentation" Version="3.3.0" />
     <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.3.0" />
   </ItemGroup>
-   
+
+    <ItemGroup>
+        <!--Babystep toward understanding-->
+        <!--<PackageReference Include="VNC.CodeAnalysis" Version="3.3.0" />-->
+        <PackageReference Include="Crc32.NET" Version="1.2.0" />
+        <PackageReference Include="Microsoft.Build" Version="17.11.48" />
+        <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.11.48" />
+        
+        <!--NOTE(crhodes)
+        These cause problems-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="5.0.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="4.1.4" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="3.11.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="5.0.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.1.4" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="3.11.0" />-->
+        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="5.0.0" />-->
+        
+        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.3" />
+        <PackageReference Include="System.Formats.Asn1" Version="10.0.3" />
+    </ItemGroup>
+
     <ItemGroup>
         <Reference Include="Microsoft.Office.Interop.Visio">
             <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Visio.dll</HintPath>
@@ -139,17 +168,17 @@
     <!-- </Choose> -->
 
     <!--This updates the file version to the current date.-->
-    
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <!--Only run for one Target.  No need to update file twice.
+        Update TargetFramework as needed -->
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(TargetFramework)'=='net481'">
         <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; $(ProjectFileName)" />
     </Target>
 
-    <!--<Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)'=='Release'">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; -Verbose $(ProjectFileName)" />
-    </Target>-->
+    <!--This updates any existing VNC NuGet package.-->
 
-    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot; -Verbose $(ProjectFileName)" />
-    </Target>-->    
+    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Release'">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot;  $(ProjectFileName) $(TargetName) $(PackageVersion)" />
+    </Target>-->
     
 </Project>

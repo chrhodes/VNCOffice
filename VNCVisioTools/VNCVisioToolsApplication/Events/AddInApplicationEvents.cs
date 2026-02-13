@@ -144,67 +144,6 @@ namespace VNCVisioToolsApplication.Events
 
                 switch (actionArgs[0])
                 {
-                    #region AZDOActions
-
-                    case "GetWorkItemInfo":
-                        Actions.AZDOActions.GetWorkItemInfo1(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                        break;
-
-                    case "GetWorkItemInfo2":
-                        Actions.AZDOActions.GetWorkItemInfo2(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                        break;
-
-                    case "GetWorkItemRevisions":
-                        Actions.AZDOActions.GetWorkItemRevisions(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                        break;
-
-                    case "AddLinkedWorkItems":
-                        Actions.AZDOActions.AddLinkedWorkItems1(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                        break;
-
-                    case "AddLinkedWorkItems2":
-                        Actions.AZDOActions.AddLinkedWorkItems2(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                        break;
-
-                    case "AddLinkedWorkItemsExternal":
-                        Actions.AZDOActions.AddLinkedWorkItemsExternal(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                        break;
-
-                    case "QueryWorkItems":
-                        Actions.AZDOActions.QueryWorkItems(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                        break;
-
-                    #endregion
-
-
-                    #region RoslynActions
-
-                    // FIX(crhodes)
-                    // Figure out what is going on with VNC.CodeAnalysis
-                    // Then restore RoslynActions.cs and FileInfoShape.cs - see VNCVisioToolsApplication
-
-                    //case "CreateMethodShapes":
-                    //    Actions.RoslynActions.CreateMethodShapes(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                    //    break;
-
-                    //case "GetClassInfo":
-                    //    Actions.RoslynActions.GetClassInfo(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                    //    break;
-
-                    //case "GetProjectFileInfo":
-                    //    Actions.RoslynActions.GetProjectFileInfo(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                    //    break;
-
-                    //case "GetSolutionFileInfo":
-                    //    Actions.RoslynActions.GetSolutionFileInfo(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                    //    break;
-
-                    //case "GetSourceFileInfo":
-                    //    Actions.RoslynActions.GetSourceFileInfo(app, doc, page, shape, shapeu, actionArgs.Skip(1).ToArray());
-                    //    break;
-
-                    #endregion
-
                     #region Visio_Document Actions
 
                     case "CreatePluralSightCourseFileFromShape":

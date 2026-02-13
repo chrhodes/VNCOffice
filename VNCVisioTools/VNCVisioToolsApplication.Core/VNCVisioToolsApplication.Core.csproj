@@ -3,11 +3,13 @@
     <PropertyGroup>
         <TargetFrameworks>net481</TargetFrameworks>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <!--<SignAssembly>true</SignAssembly>
+        <AssemblyOriginatorKeyFile>VNC.snk</AssemblyOriginatorKeyFile>-->
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
         <FileVersion>2026.02.12</FileVersion>
-        <Description>describe assembly</Description>
+        <Description>Core Elements for VNCVisioToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
@@ -95,19 +97,19 @@
             <!-- </ItemGroup> -->
         <!-- </When> -->
     <!-- </Choose> -->
-    
+
     <!--This updates the file version to the current date.-->
-    
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <!--Only run for one Target.  No need to update file twice.
+        Update TargetFramework as needed -->
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(TargetFramework)'=='net481'">
         <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; $(ProjectFileName)" />
     </Target>
 
-    <!--<Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(Configuration)'=='Release'">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; -Verbose $(ProjectFileName)" />
-    </Target>-->
+    <!--This updates any existing VNC NuGet package.-->
 
-    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot; -Verbose $(ProjectFileName)" />
+    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Release'">
+        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot;  $(ProjectFileName) $(TargetName) $(PackageVersion)" />
     </Target>-->
 
 </Project>
