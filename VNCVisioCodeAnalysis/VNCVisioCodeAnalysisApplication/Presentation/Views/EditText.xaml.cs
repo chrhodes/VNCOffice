@@ -1,0 +1,130 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+
+using Prism.Commands;
+using DevExpress.Mvvm.POCO;
+using VNCVisioToolsApplication.Presentation.ModelWrappers;
+using VNCVisioToolsApplication.Presentation.ViewModels;
+
+using VNC;
+//using System.Windows.Forms;
+
+namespace VNCVisioToolsApplication.Presentation.Views
+{
+    public partial class EditText : UserControl
+    {
+        private readonly EditTextViewModel _viewModel;
+
+        #region Constructors and Load
+
+        public EditText(EditTextViewModel viewModel)
+        {
+            Log.TRACE("Enter", Common.LOG_CATEGORY);
+            InitializeComponent();
+            _viewModel = viewModel;
+            DataContext = _viewModel;
+            //LoadControlContents();
+            Log.TRACE("Exit", Common.LOG_CATEGORY);
+        }
+
+        //private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    Log.TRACE("Enter", Common.LOG_CATEGORY);
+        //    //VNC.Log.TRACE("", Common.LOG_APPNAME, 0);
+        //    //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
+        //    //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
+        //    Log.TRACE("Exit", Common.LOG_CATEGORY);
+        //}
+
+        //private void UserControl_Unloaded(object sender, RoutedEventArgs e)
+        //{
+        //    Log.TRACE("Enter", Common.LOG_CATEGORY);
+        //    //VNC.Log.TRACE("", Common.LOG_APPNAME, 0);
+        //    //VNCVisioAddIn.Common.DisplayInDebugWindow(string.Format("{0}()",
+        //    //    System.Reflection.MethodInfo.GetCurrentMethod().Name));
+        //    Log.TRACE("Exit", Common.LOG_CATEGORY);
+        //}
+
+        #endregion
+
+        //private TextBlockFormat textBlockFormat = new TextBlockFormat();
+        //private TextBlockFormatWrapper textBlockFormat; 
+
+        #region Event Handlers
+
+
+        private void btnInitializeMargins_Click(object sender, RoutedEventArgs e)
+        {
+            //if (textBlockFormat is null)
+            //{
+            //    textBlockFormat = new TextBlockFormat();
+            //}
+
+            string tag = ((Button)sender).Tag.ToString();
+
+            switch (tag)
+            {
+                case "0 pt":
+                    SetMargins(tag);
+                    break;
+
+                case "1 pt":
+                    SetMargins(tag);
+                    break;
+
+                case "2 pt":
+                    SetMargins(tag);
+                    break;
+
+                default:
+                    MessageBox.Show($"Unknown tag: {tag}");
+                    break;
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        //private void LoadControlContents()
+        //{
+        //    try
+        //    {
+        //        //textBlockFormat = new TextBlockFormatWrapper(new Domain.TextBlockFormat());
+        //        //DataContext = textBlockFormat;
+
+        //        //layoutControl.DataContext = textBlockFormat;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.ToString());
+        //    }
+        //}
+
+        void SetMargins(string tag)
+        {
+            _viewModel.TextBlockFormat.TopMargin = tag;
+            _viewModel.TextBlockFormat.BottomMargin = tag;
+            _viewModel.TextBlockFormat.LeftMargin = tag;
+            _viewModel.TextBlockFormat.RightMargin = tag;
+        }
+
+        #endregion
+
+        //private void btnDoSomething_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Log.TRACE("Enter", Common.LOG_CATEGORY);
+        //    //VNC.Log.TRACE("", Common.LOG_APPNAME, 0);
+        //    // Wrap a big, OMG, what have I done ???, undo around the whole thing !!!
+
+        //    int undoScope = Common.VisioApplication.BeginUndoScope("AddConnectionPoints");
+
+        //    // Just need to pass in the model.
+
+        //    Actions.Visio_Shape.UpdateTextSections(_viewModel.TextBlockFormat.Model);
+
+        //    Common.VisioApplication.EndUndoScope(undoScope, true);
+        //}
+    }
+}
