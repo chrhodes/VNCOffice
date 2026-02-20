@@ -29,12 +29,9 @@ namespace VNCVisioToolsApplication
 
         protected override IContainerExtension CreateContainerExtension()
         {
-            Int64 startTicks = 0; 
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
-
-            //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-
+            Int64 startTicks = 0;
             Common.WriteToDebugWindow("CreateContainerExtension()", true);
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);           
 
             return new UnityContainerExtension();
         }
@@ -44,13 +41,10 @@ namespace VNCVisioToolsApplication
         protected override IModuleCatalog CreateModuleCatalog()
         {
             Int64 startTicks = 0;
+            Common.WriteToDebugWindow("CreateModuleCatalog()", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
 
-            //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-
-            Common.WriteToDebugWindow("CreateModuleCatalog()", true);
-
-            return new ConfigurationModuleCatalog();
+             return new ConfigurationModuleCatalog();
         }
 
         // Step 3 - Configure the container

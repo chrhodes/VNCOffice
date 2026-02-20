@@ -22,7 +22,7 @@ namespace VNCVisioTools
             Common.InitializeLogging();
 #endif
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("Ribbon()", true);
+            Common.WriteToDebugWindow("Ribbon()", true);
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Initialize SignalR", Common.LOG_CATEGORY);
 
             // NOTE(crhodes)
@@ -38,7 +38,7 @@ namespace VNCVisioTools
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("Ribbon_Load()", true);
+            Common.WriteToDebugWindow("Ribbon_Load()", true);
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
     }

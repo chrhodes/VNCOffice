@@ -1,5 +1,7 @@
 ﻿using Microsoft.Office.Tools.Ribbon;
 
+using VNC;
+
 using VNCVisioToolsApplication.Actions;
 
 namespace VNCVisioTools
@@ -17,6 +19,8 @@ namespace VNCVisioTools
 
         private void btnThemedWindowHostModal_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.ThemedWindowHostModal();
@@ -29,6 +33,8 @@ namespace VNCVisioTools
 
         private void btnThemedWindowHostModeless_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.ThemedWindowHostModeless();
@@ -41,6 +47,8 @@ namespace VNCVisioTools
 
         private void btnDxWindowHost_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.DxWindowHost();
@@ -53,6 +61,8 @@ namespace VNCVisioTools
 
         private void btnWindowHostLocal_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.WindowHostLocal();
@@ -65,6 +75,8 @@ namespace VNCVisioTools
 
         private void btnWindowHostVNC_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.WindowHostVNC();
@@ -86,6 +98,8 @@ namespace VNCVisioTools
 
         private void btnLaunchCylon_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.LaunchCylon();
@@ -98,6 +112,8 @@ namespace VNCVisioTools
 
         private void btnLaunchCylon2_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.LaunchCylon2();
@@ -110,6 +126,8 @@ namespace VNCVisioTools
 
         private void btnDxLayoutControl_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.DxLayoutControl();
@@ -122,6 +140,8 @@ namespace VNCVisioTools
 
         private void btnDxDockLayoutControl_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.DxDockLayoutControl();
@@ -134,6 +154,8 @@ namespace VNCVisioTools
 
         private void btnDxDockLayoutManagerControl_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.DxDockLayoutManagerControl();
@@ -146,6 +168,8 @@ namespace VNCVisioTools
 
         private void btnPrismRegionTest_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.PrismRegionTest();
@@ -162,6 +186,8 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VAVM1st_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.VNC_MVVM_VAVM1st();
@@ -174,6 +200,8 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VA1st_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.VNC_MVVM_VA1st();
@@ -186,6 +214,8 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VAVM1stDI_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.VNC_MVVM_VAVM1stDI();
@@ -198,6 +228,8 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VB1st_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.VNC_MVVM_VB1st();
@@ -210,6 +242,8 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VC11st_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.VNC_MVVM_VC11st();
@@ -222,6 +256,8 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VC21st_Click(object sender, RibbonControlEventArgs e)
         {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
             try
             {
                 UILaunchApproach.VNC_MVVM_VC21st();

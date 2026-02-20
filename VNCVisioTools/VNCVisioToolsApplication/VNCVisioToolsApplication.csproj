@@ -9,7 +9,7 @@
       <VersionPrefix>1.0.0</VersionPrefix>
       <VersionSuffix>Development</VersionSuffix>
       <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-      <FileVersion>2026.02.12</FileVersion>
+      <FileVersion>2026.02.20</FileVersion>
       <Description>VNCVisioToolsApplication</Description>
       <LangVersion>12.0</LangVersion>
       <Nullable>enable</Nullable>
@@ -31,7 +31,7 @@
         <!-- <PackageIcon>VNC.png</PackageIcon> -->
         <!-- <Authors>Christopher Rhodes</Authors> -->
         <!-- <Company>VNC</Company> -->
-        <!-- <Copyright>Copyright © VNC 2025</Copyright> -->
+        <!-- <Copyright>Copyright © VNC 2025-2026</Copyright> -->
         <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
         <!-- <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages> -->
     <!-- </PropertyGroup>     -->
@@ -69,51 +69,35 @@
   <ItemGroup>
     <Folder Include="Presentation\Views\UserControls\" />
   </ItemGroup>
-
-    <!--Having problems with these files and VNC.CodeAnalysis, so removing them for now.-->
-    <ItemGroup>
-        <Compile Remove="Actions\AZDOActions.cs" />
-        <Compile Remove="Actions\RoslynActions.cs" />
-        <Compile Remove="Domain\AZDOPageLayout.cs" />
-        <Compile Remove="Domain\ClassInfoShape.cs" />
-        <Compile Remove="Domain\FileInfoShape.cs" />
-        <Compile Remove="Domain\MethodInfoShape.cs" />
-        <Compile Remove="Domain\OffsetDirection.cs" />
-        <Compile Remove="Domain\QueryWorkItemInfoShape.cs" />
-        <Compile Remove="Domain\WorkItemOffset.cs" />
-        <Compile Remove="Domain\WorkItemOffsets.cs" />
-        <Compile Remove="Domain\WorkItemQueryShapeInfo.cs" />
-        <Compile Remove="Domain\WorkItemShapeInfo.cs" />
-    </ItemGroup>
-    
+   
   <ItemGroup>
     <PackageReference Include="CalcBinding" Version="2.5.2" />      
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
-    <PackageReference Include="VNC.AZDO" Version="3.3.0" />
-    <!--<PackageReference Include="VNC.CodeAnalysis" Version="3.3.0" />-->
     <PackageReference Include="VNC.WPF.Presentation" Version="3.3.0" />
     <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.3.0" />
+    <PackageReference Include="VNC.Logging.TraceListeners.SignalRListener" Version="3.3.0" />
+      
   </ItemGroup>
 
+    <!--These are from VNC.Logging.TraceListerners.SignalRListener-->
     <ItemGroup>
-        <!--Babystep toward understanding-->
-        <!--<PackageReference Include="VNC.CodeAnalysis" Version="3.3.0" />-->
-        <PackageReference Include="Crc32.NET" Version="1.2.0" />
-        <PackageReference Include="Microsoft.Build" Version="17.11.48" />
-        <PackageReference Include="Microsoft.Build.Tasks.Core" Version="17.11.48" />
+        <!--These all seem fine.-->
+        <!--<PackageReference Include="EnterpriseLibrary.Common.NetCore" Version="6.3.0" />
+        <PackageReference Include="EnterpriseLibrary.Logging.NetCore" Version="6.3.2" />
+        <PackageReference Include="Microsoft.AspNet.Cors" Version="5.3.0" />
+        <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.4.3" />
+        <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.3" />
+        <PackageReference Include="Microsoft.Owin" Version="4.2.3" />
+        <PackageReference Include="Microsoft.Owin.Cors" Version="4.2.3" />
+        <PackageReference Include="Microsoft.Owin.Security" Version="4.2.3" />
+        <PackageReference Include="Microsoft.Windows.Compatibility" Version="10.0.2" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.2" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />-->
         
-        <!--NOTE(crhodes)
-        These cause problems-->
-        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="5.0.0" />-->
-        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="4.1.4" />-->
-        <!--<PackageReference Include="Microsoft.CodeAnalysis" Version="3.11.0" />-->
-        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="5.0.0" />-->
-        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.1.4" />-->
-        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="3.11.0" />-->
-        <!--<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="5.0.0" />-->
-        
-        <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="10.0.3" />
-        <PackageReference Include="System.Formats.Asn1" Version="10.0.3" />
+        <!--One or both of these cause the problem-->
+        <!--<PackageReference Include="Unity" Version="5.11.10" />-->
+        <!--<PackageReference Include="Unity.Interception" Version="5.11.1" />-->
     </ItemGroup>
 
     <ItemGroup>
@@ -168,17 +152,27 @@
     <!-- </Choose> -->
 
     <!--This updates the file version to the current date.-->
-    <!--Only run for one Target.  No need to update file twice.
-        Update TargetFramework as needed -->
+    <!--Only run for one TargetFramework.  No need to run twice. Update TargetFramework as needed.-->
 
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(TargetFramework)'=='net481'">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; $(ProjectFileName)" />
+    <Target Name="MyBeforeBuild" BeforeTargets="BeforeBuild" Condition="'$(TargetFramework)'=='net481'">
+        <!--<Message Text="*** Target BeforeBuild *** ProjectDir $(ProjectDir) ProjectFileName $(ProjectFileName)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** TargetFramework $(TargetFramework) TargetName $(TargetName) TargetPath $(TargetPath) Target $(Target)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** MSBuildThisFile $(MSBuildThisFile) MSBuildThisFileFullPath $(MSBuildThisFileFullPath)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** Package $(Package) PackageName $(PackageName) PackageVersion $(PackageVersion)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** AssemblyName $(AssemblyName) OutDir $(OutDir)" Importance="high" />-->
+        <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-MSBuildFileVersion.ps1 $(MSBuildThisFileFullPath)" />
     </Target>
 
-    <!--This updates any existing VNC NuGet package.-->
+    <!--This deploys a new NuGet package-->
 
-    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Release'">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot;  $(ProjectFileName) $(TargetName) $(PackageVersion)" />
+    <!--<Target Name="MyPack" AfterTargets="Pack" Condition="'$(Configuration)'=='Release'">
+        --><!--<Message Text="*** Target Pack *** ProjectDir $(ProjectDir) ProjectFileName $(ProjectFileName)" Importance="high" />
+        <Message Text="*** Target Pack *** TargetFramework $(TargetFramework) TargetName $(TargetName) TargetPath $(TargetPath) Target $(Target)" Importance="high" />
+        <Message Text="*** Target Pack *** MSBuildThisFile $(MSBuildThisFile) MSBuildThisFileFullPath $(MSBuildThisFileFullPath) MSBuildProjectDirectory $(MSBuildProjectDirectory)" Importance="high" />
+        <Message Text="*** Target Pack *** MSBuildProjectDirectory $(MSBuildProjectDirectory)" Importance="high" />
+        <Message Text="*** Target Pack *** Package $(Package) PackageName $(PackageName) PackageVersion $(PackageVersion)" Importance="high" />
+        <Message Text="*** Target Pack *** AssemblyName $(AssemblyName) OutDir $(OutDir)" Importance="high" />--><!--
+        <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-VNCNuGetPackage.ps1 $(MSBuildProjectDirectory) $(AssemblyName) $(PackageVersion) -v" />
     </Target>-->
     
 </Project>

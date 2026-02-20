@@ -19,7 +19,7 @@ namespace VNCVisioToolsApplication.Visio
         public static void InitializeApplication()
         {
             Int64 startTicks;
-            startTicks = Common.WriteToDebugWindow("InitializeApplication()", true);
+            Common.WriteToDebugWindow("InitializeApplication()", true);
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);      
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
@@ -51,6 +51,7 @@ namespace VNCVisioToolsApplication.Visio
         private static void GetAndSetInformation()
         {
             Int64 startTicks = 0;
+            Common.WriteToDebugWindow("GetAndSetInformation()", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             // Get Information about VNC.Core
@@ -154,7 +155,7 @@ namespace VNCVisioToolsApplication.Visio
         private static void CreateXamlApplication()
         {
             Int64 startTicks = 0;
-            //startTicks = Common.WriteToDebugWindow("CreateXamlApplication()", true);
+            startTicks = Common.WriteToDebugWindow("CreateXamlApplication()", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             try
@@ -198,13 +199,14 @@ namespace VNCVisioToolsApplication.Visio
                 Common.DeveloperMode = false;
             }
 
-            //Common.WriteToDebugWindow("CreateXamlApplication()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("CreateXamlApplication()-Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void InitializePrism()
         {
-            Int64 startTicks = 0;            
+            Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("InitializePrism()", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);            
 
             Common.ApplicationBootstrapper = new Bootstrapper();
@@ -214,6 +216,7 @@ namespace VNCVisioToolsApplication.Visio
             Visio_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
             Visio_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
+            Common.WriteToDebugWindow("InitializePrism()-Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 

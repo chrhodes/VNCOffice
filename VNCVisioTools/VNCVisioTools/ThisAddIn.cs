@@ -12,8 +12,8 @@ namespace VNCVisioTools
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             Int64 startTicks;
-            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter", Common.LOG_CATEGORY);
             startTicks = Common.WriteToDebugWindow("ThisAddIn_Startup()", true);
+            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter", Common.LOG_CATEGORY);            
 
             GetAssemblyInfo();
 
@@ -46,19 +46,20 @@ namespace VNCVisioTools
 
             AddInApplication.InitializeApplication();
 
-            if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START("Exit", Common.LOG_CATEGORY, startTicks);
             Common.WriteToDebugWindow("ThisAddIn_Startup() Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
-            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Enter/Exit()", Common.LOG_CATEGORY);
             Common.WriteToDebugWindow("ThisAddIn_Shutdown()", true);
+            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Enter/Exit()", Common.LOG_CATEGORY);            
         }
 
         private void InitializeRibbonUI()
         {
             Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("InitializeRibbonUI()", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             Globals.Ribbons.Ribbon.rgDebug.Visible = Common.DeveloperMode = false;
@@ -73,12 +74,14 @@ namespace VNCVisioTools
             Globals.Ribbons.Ribbon.rcbDisplayEvents.Checked = Common.DisplayEvents = false;
             Globals.Ribbons.Ribbon.rcbDisplayChattyEvents.Checked = Common.DisplayChattyEvents = false;
 
+            Common.WriteToDebugWindow("InitializeRibbonUI()", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void GetAssemblyInfo()
         {
             Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("GetAssemblyInfo()", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             // Get Information about ourselves
@@ -95,6 +98,7 @@ namespace VNCVisioTools
                     VNCVisioToolsAssemblyFileVersionInfo);
             }
 
+            Common.WriteToDebugWindow("GetAssemblyInfo() Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 

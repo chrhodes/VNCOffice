@@ -8,7 +8,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.02.12</FileVersion>
+        <FileVersion>2026.02.20</FileVersion>
         <Description>Core Elements for VNCVisioToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -29,7 +29,7 @@
         <!-- <PackageIcon>VNC.png</PackageIcon> -->
         <!-- <Authors>Christopher Rhodes</Authors> -->
         <!-- <Company>VNC</Company> -->
-        <!-- <Copyright>Copyright © VNC 2025</Copyright> -->
+        <!-- <Copyright>Copyright © VNC 2025-2026</Copyright> -->
         <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
         <!-- <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages> -->
     <!-- </PropertyGroup> -->
@@ -99,17 +99,27 @@
     <!-- </Choose> -->
 
     <!--This updates the file version to the current date.-->
-    <!--Only run for one Target.  No need to update file twice.
-        Update TargetFramework as needed -->
+    <!--Only run for one TargetFramework.  No need to run twice. Update TargetFramework as needed.-->
 
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(TargetFramework)'=='net481'">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PreBuild.ps1&quot; $(ProjectFileName)" />
+    <Target Name="MyBeforeBuild" BeforeTargets="BeforeBuild" Condition="'$(TargetFramework)'=='net481'">
+        <!--<Message Text="*** Target BeforeBuild *** ProjectDir $(ProjectDir) ProjectFileName $(ProjectFileName)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** TargetFramework $(TargetFramework) TargetName $(TargetName) TargetPath $(TargetPath) Target $(Target)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** MSBuildThisFile $(MSBuildThisFile) MSBuildThisFileFullPath $(MSBuildThisFileFullPath)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** Package $(Package) PackageName $(PackageName) PackageVersion $(PackageVersion)" Importance="high" />
+        <Message Text="*** Target BeforeBuild *** AssemblyName $(AssemblyName) OutDir $(OutDir)" Importance="high" />-->
+        <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-MSBuildFileVersion.ps1 $(MSBuildThisFileFullPath)" />
     </Target>
 
-    <!--This updates any existing VNC NuGet package.-->
+    <!--This deploys a new NuGet package-->
 
-    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Release'">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot;  $(ProjectFileName) $(TargetName) $(PackageVersion)" />
+    <!--<Target Name="MyPack" AfterTargets="Pack" Condition="'$(Configuration)'=='Release'">
+        --><!--<Message Text="*** Target Pack *** ProjectDir $(ProjectDir) ProjectFileName $(ProjectFileName)" Importance="high" />
+        <Message Text="*** Target Pack *** TargetFramework $(TargetFramework) TargetName $(TargetName) TargetPath $(TargetPath) Target $(Target)" Importance="high" />
+        <Message Text="*** Target Pack *** MSBuildThisFile $(MSBuildThisFile) MSBuildThisFileFullPath $(MSBuildThisFileFullPath) MSBuildProjectDirectory $(MSBuildProjectDirectory)" Importance="high" />
+        <Message Text="*** Target Pack *** MSBuildProjectDirectory $(MSBuildProjectDirectory)" Importance="high" />
+        <Message Text="*** Target Pack *** Package $(Package) PackageName $(PackageName) PackageVersion $(PackageVersion)" Importance="high" />
+        <Message Text="*** Target Pack *** AssemblyName $(AssemblyName) OutDir $(OutDir)" Importance="high" />--><!--
+        <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-VNCNuGetPackage.ps1 $(MSBuildProjectDirectory) $(AssemblyName) $(PackageVersion) -v" />
     </Target>-->
 
 </Project>
