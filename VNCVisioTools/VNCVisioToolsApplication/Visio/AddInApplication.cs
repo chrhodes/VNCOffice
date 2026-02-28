@@ -18,7 +18,7 @@ namespace VNCVisioToolsApplication.Visio
 
         public static void InitializeApplication()
         {
-            Int64 startTicks;
+            Int64 startTicks = 0;
             Common.WriteToDebugWindow("InitializeApplication()", true);
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);      
 
