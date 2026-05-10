@@ -28,7 +28,6 @@ namespace VNCVisioToolsApplication
 
         public static VNC.Core.Information? InformationVNCVisioTools;
         public static VNC.Core.Information? InformationVNCVisioToolsApplication;
-
         public static VNC.Core.Information? InformationVNCVisioToolsApplicationCore;
 
         public static VNC.Core.Information? InformationVNCVisioVSTOAddIn;

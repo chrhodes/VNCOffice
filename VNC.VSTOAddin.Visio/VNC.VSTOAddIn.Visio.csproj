@@ -2,8 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>net481</TargetFrameworks>
-        <!--<UseWPF>true</UseWPF>-->
-        <UseWindowsForms>true</UseWindowsForms>
+        <UseWPF>true</UseWPF>
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>VNC.snk</AssemblyOriginatorKeyFile>
@@ -11,11 +10,11 @@
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
         <FileVersion>2026.05.10</FileVersion>
-        <Description>VNC VSTO AddIn Helper</Description>
+        <Description>VNC VSTO AddIn Visio Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
         <ImplicitUsings>disable</ImplicitUsings>
-        <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
+        <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>        
     </PropertyGroup>
 
     <!-- This is for NuGet Packages -->
@@ -32,10 +31,22 @@
         <PackageIcon>VNC.png</PackageIcon>
         <Authors>Christopher Rhodes</Authors>
         <Company>VNC</Company>
-        <Copyright>Copyright © VNC 2025-2026</Copyright>
+        <Copyright>Copyright © VNC 2025</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
-    </PropertyGroup>   
+    </PropertyGroup>
+
+    <ItemGroup>
+        <COMReference Include="Microsoft.Office.Interop.Visio">
+            <WrapperTool>tlbimp</WrapperTool>
+            <VersionMinor>16</VersionMinor>
+            <VersionMajor>4</VersionMajor>
+            <Guid>00021a98-0000-0000-c000-000000000046</Guid>
+            <Lcid>0</Lcid>
+            <Isolated>false</Isolated>
+            <EmbedInteropTypes>true</EmbedInteropTypes>
+        </COMReference>
+    </ItemGroup>
 
     <ItemGroup>
         <None Include="LICENSE">
@@ -53,53 +64,39 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="VNC.AssemblyHelper" Version="3.2.0" />
-    </ItemGroup>
+      <Compile Update="Properties\Settings.Designer.cs">
+        <DesignTimeSharedInput>True</DesignTimeSharedInput>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Settings.settings</DependentUpon>
+      </Compile>
+    </ItemGroup> 
+
+    <ItemGroup>
+      <None Update="Properties\Settings.settings">
+        <Generator>SettingsSingleFileGenerator</Generator>
+        <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      </None>
+    </ItemGroup> 
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
         <!-- Uncoment next line to switch to ProjectReference(s) -->
-        <!--<DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>-->
+        <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>
     </PropertyGroup>
 
     <Choose>
         <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <ProjectReference Include="..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
+                <ProjectReference Include="..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />                
+                <!--<ProjectReference Include="..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />-->                
             </ItemGroup>
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <PackageReference Include="VNC.Core" Version="3.2.0" />
+                <PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" />
+                <!--<PackageReference Include="VNC.Core" Version="3.2.0" />-->
             </ItemGroup>
         </When>
     </Choose>
-
-    <!--We save a copy as Visual Studio messes with the project file when we use the GUI to add references.-->
-    <!--<Choose>
-        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
-            <ItemGroup>
-                <ProjectReference Include="..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
-            </ItemGroup>
-        </When>
-        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
-            <ItemGroup>
-                <PackageReference Include="VNC.Core" Version="3.2.0" />
-            </ItemGroup>
-        </When>
-    </Choose>-->    
-
-    <ItemGroup>
-      <Reference Include="PresentationCore" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Update="Presentation\frmDebugWindow.cs">
-        <SubType>Form</SubType>
-      </Compile>
-      <Compile Update="Presentation\frmWatchWindow.cs">
-        <SubType>Form</SubType>
-      </Compile>
-    </ItemGroup>
 
     <!--This updates the file version to the current date.-->
     <!--Only run for one TargetFramework.  No need to run twice. Update TargetFramework as needed.-->
@@ -112,6 +109,6 @@
 
     <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Release'">
         <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot;  $(ProjectFileName) $(TargetName) $(PackageVersion)" />
-    </Target>-->    
+    </Target>-->
 
 </Project>
