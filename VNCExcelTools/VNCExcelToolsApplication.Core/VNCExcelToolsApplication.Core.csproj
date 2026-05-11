@@ -1,0 +1,109 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net481</TargetFrameworks>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <!-- <SignAssembly>true</SignAssembly> -->
+        <!-- <AssemblyOriginatorKeyFile>VNC.snk</AssemblyOriginatorKeyFile> -->
+        <VersionPrefix>1.0.0</VersionPrefix>
+        <VersionSuffix>development</VersionSuffix>
+        <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+        <FileVersion>2026.05.11</FileVersion>
+        <Description>describe assembly</Description>
+        <LangVersion>12.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
+    </PropertyGroup>
+
+    <!-- This is for NuGet Packages -->
+    <!-- <PropertyGroup> -->
+        <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild> -->
+        <!-- <PackageVersion>1.0.0</PackageVersion> -->
+        <!-- <PackageLicenseFile>LICENSE</PackageLicenseFile> -->
+        <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
+        <!-- <PackageProjectUrl>https://github.com/chrhodes/xxx</PackageProjectUrl> -->
+        <!-- <RepositoryUrl>https://github.com/chrhodes/xxx</RepositoryUrl> -->
+        <!-- <RepositoryType>Git</RepositoryType> -->
+        <!-- <PackageTags></PackageTags> -->
+        <!-- <PackageIcon>VNC.png</PackageIcon> -->
+        <!-- <Authors>Christopher Rhodes</Authors> -->
+        <!-- <Company>VNC</Company> -->
+        <!-- <Copyright>Copyright © VNC 2026</Copyright> -->
+        <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
+    <!-- </PropertyGroup> -->
+
+    <!-- <ItemGroup> -->
+        <!-- <None Include="..\LICENSE"> -->
+            <!-- <Pack>True</Pack> -->
+            <!-- <PackagePath></PackagePath> -->
+        <!-- </None> -->
+        <!-- <None Include="README.md"> -->
+            <!-- <Pack>True</Pack> -->
+            <!-- <PackagePath></PackagePath> -->
+        <!-- </None> -->
+        <!-- <None Include="..\VNC.png"> -->
+            <!-- <Pack>True</Pack> -->
+            <!-- <PackagePath></PackagePath> -->
+        <!-- </None> -->
+    <!-- </ItemGroup> -->
+
+    <!-- This controls some conditional compiles in files that are shared -->
+
+    <PropertyGroup>
+       <!--<DefineConstants>$(DefineConstants);PAEF</DefineConstants>-->
+       <!--<DefineConstants>$(DefineConstants);PA</DefineConstants>-->
+       <!--<DefineConstants>$(DefineConstants);PAS</DefineConstants>-->
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Prism.Core" Version="9.0.537" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+      <!-- Uncomment next line to switch to ProjectReference(s) -->
+      <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> -->
+    </PropertyGroup>
+
+    <Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" />
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <PackageReference Include="VNC.Core" Version="3.4.0" />
+            </ItemGroup>
+        </When>
+    </Choose>
+
+    <!--Keep a copy as Visual Studio will remove things when doing Release builds.-->
+
+    <!-- <Choose> -->
+        <!-- <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+            <!-- <ItemGroup> -->
+                <!-- <ProjectReference Include="..\..\..\VNCDevelopment\VNC.Core\VNC.Core.csproj" /> -->
+            <!-- </ItemGroup> -->
+        <!-- </When> -->
+        <!-- <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+            <!-- <ItemGroup> -->
+                <!-- <PackageReference Include="VNC.Core" Version="3.4.0" /> -->
+            <!-- </ItemGroup> -->
+        <!-- </When> -->
+    <!-- </Choose> -->
+
+    <!--This updates the file version to the current date.-->
+    <!--Only run for one TargetFramework.  No need to run twice. Update TargetFramework as needed.-->
+
+    <Target Name="MyBeforeBuild" BeforeTargets="BeforeBuild" Condition="'$(TargetFramework)'=='net481'">
+        <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-MSBuildFileVersion.ps1 $(MSBuildThisFileFullPath)" />
+    </Target>
+
+    <!--This deploys a new NuGet package-->
+
+    <!-- <Target Name="MyPack" AfterTargets="Pack" Condition="'$(Configuration)'=='Release'"> -->
+        <!-- <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-VNCNuGetPackage.ps1 $(MSBuildProjectDirectory) $(AssemblyName) $(PackageVersion) -v" /> -->
+    <!-- </Target> -->
+
+</Project>

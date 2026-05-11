@@ -1,0 +1,5 @@
+﻿VNCExcelToolsApplication\Persistence\
+VNCExcelToolsApplication\Persistence\Database\
+VNCExcelToolsApplication\Persistence\Database\Migrations\
+
+Notes for using this template

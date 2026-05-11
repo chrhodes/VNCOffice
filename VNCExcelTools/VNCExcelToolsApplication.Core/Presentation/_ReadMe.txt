@@ -1,0 +1,8 @@
+﻿VNCExcelToolsApplication\Presentation\
+
+VNCExcelToolsApplication\Presentation\Converters\
+VNCExcelToolsApplication\Presentation\ModelWrappers\
+VNCExcelToolsApplication\Presentation\ViewModels\
+VNCExcelToolsApplication\Presentation\Views\
+
+Notes for using this template
