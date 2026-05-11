@@ -3,10 +3,10 @@ using System.Windows;
 using System.Windows.Controls;
 
 using Prism;
+using Prism.Container.Unity;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
-using Prism.Unity;
+using Prism.Navigation.Regions;
 
 using VNC;
 using VNC.Core.Mvvm.Prism;

@@ -2,7 +2,7 @@
 using System.Windows;
 
 using Prism.Events;
-using Prism.Services.Dialogs;
+using Prism.Dialogs;
 
 using VNC.Core.Presentation;
 using VNC.WPF.Presentation.Dx.Views;
@@ -10,6 +10,7 @@ using VNC.WPF.Presentation.Views;
 
 using VNCExcelToolsApplication.Presentation.ViewModels;
 using VNCExcelToolsApplication.Presentation.Views;
+using VNC.UIApproaches.Presentation.Views;
 
 namespace VNCExcelToolsApplication.Actions
 {
@@ -226,16 +227,19 @@ namespace VNCExcelToolsApplication.Actions
             // NOTE(crhodes)
             // Wire things up ourselves - ViewModel First - with a little help from DI.
 
-            vncMVVM_VAVM1st_Host.DisplayUserControlInHost(
-                "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
-                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-                ShowWindowMode.Modeless_Show,
-                new ViewAViewModel(
-                    new ViewA(),
-                    (IEventAggregator)Common.ApplicationBootstrapper.Container.Resolve(typeof(EventAggregator)),
-                    (DialogService)Common.ApplicationBootstrapper.Container.Resolve(typeof(DialogService))
-                )
-            );
+            // FIX(crhodes)
+            // Fix
+
+            //vncMVVM_VAVM1st_Host.DisplayUserControlInHost(
+            //    "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
+            //    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+            //    ShowWindowMode.Modeless_Show,
+            //    new ViewAViewModel(
+            //        new ViewA(),
+            //        (IEventAggregator)Common.ApplicationBootstrapper.Container.Resolve(typeof(EventAggregator)),
+            //        (DialogService)Common.ApplicationBootstrapper.Container.Resolve(typeof(DialogService))
+            //    )
+            //);
         }
 
         public static DxThemedWindowHost vncMVVM_VA_Host = null;
@@ -270,12 +274,15 @@ namespace VNCExcelToolsApplication.Actions
             // This does wire View to ViewModel
             // Because ViewModel is passed a View (DI) and wires itself to View
 
-            vncMVVM_VAVMDI_Host.DisplayUserControlInHost(
-                "MVVM ViewAViewModel First (ViewModel is passed new View) - DI Resolve",
-                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-                ShowWindowMode.Modeless_Show,
-                (ViewAViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewAViewModel))
-            );
+            // FIX(crhodes)
+            // Fix
+
+            //vncMVVM_VAVMDI_Host.DisplayUserControlInHost(
+            //    "MVVM ViewAViewModel First (ViewModel is passed new View) - DI Resolve",
+            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+            //    ShowWindowMode.Modeless_Show,
+            //    (ViewAViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewAViewModel))
+            //);
         }
 
         public static DxThemedWindowHost vncMVVM_VB_Host = null;
@@ -311,12 +318,15 @@ namespace VNCExcelToolsApplication.Actions
             // C1 has C1() and C1(ViewModel) constructors. No DI Registrations
             // NB.  AutoWireViewModel=false
 
-            vncMVVM_VC1_Host.DisplayUserControlInHost(
-                "MVVM ViewC1 First.  ViewC1 has C1() and C1(ViewModel) constructors. No DI Registrations",
-                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-                ShowWindowMode.Modeless_Show,
-                (ViewC1)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC1))
-            );
+            // FIX(crhodes)
+            // Fix
+
+            //vncMVVM_VC1_Host.DisplayUserControlInHost(
+            //    "MVVM ViewC1 First.  ViewC1 has C1() and C1(ViewModel) constructors. No DI Registrations",
+            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+            //    ShowWindowMode.Modeless_Show,
+            //    (ViewC1)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC1))
+            //);
         }
 
         public static DxThemedWindowHost vncMVVM_VC2_Host = null;
@@ -332,12 +342,15 @@ namespace VNCExcelToolsApplication.Actions
             // Because we have removed the default ViewC2 Constructor
             // and Registered ViewCViewModel in VNCVisioToolsApplicationModules
 
-            vncMVVM_VC2_Host.DisplayUserControlInHost(
-                "MVVM ViewC2 First (View is passed new ViewModel) DI Resolve",
-                Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
-                ShowWindowMode.Modeless_Show,
-                (ViewC2)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC2))
-            );
+            // FIX(crhodes)
+            // Fix
+
+            //vncMVVM_VC2_Host.DisplayUserControlInHost(
+            //    "MVVM ViewC2 First (View is passed new ViewModel) DI Resolve",
+            //    Common.DEFAULT_WINDOW_WIDTH_SMALL, Common.DEFAULT_WINDOW_HEIGHT_SMALL,
+            //    ShowWindowMode.Modeless_Show,
+            //    (ViewC2)Common.ApplicationBootstrapper.Container.Resolve(typeof(ViewC2))
+            //);
         }
 
         #endregion
