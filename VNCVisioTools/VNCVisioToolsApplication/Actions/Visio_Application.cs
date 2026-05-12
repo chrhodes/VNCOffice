@@ -16,7 +16,7 @@ using VNC.WPF.Presentation.Views;
 using VNCVisioToolsApplication.Presentation.Views;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 namespace VNCVisioToolsApplication.Actions
 {

@@ -8,7 +8,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.09</FileVersion>
+        <FileVersion>2026.05.12</FileVersion>
         <Description>Core Elements for VNCVisioToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -50,7 +50,7 @@
     </ItemGroup>-->
 
     <ItemGroup>
-        <PackageReference Include="Prism.Core" Version="8.1.97" />
+        <PackageReference Include="Prism.Core" Version="9.0.537" />
     </ItemGroup>
 
     <!--<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -78,7 +78,7 @@
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <PackageReference Include="VNC.Core" Version="3.3.0" />
+                <PackageReference Include="VNC.Core" Version="3.4.0" />
             </ItemGroup>
         </When>
     </Choose>
@@ -101,7 +101,7 @@
     <!--This updates the file version to the current date.-->
     <!--Only run for one TargetFramework.  No need to run twice. Update TargetFramework as needed.-->
 
-    <Target Name="MyBeforeBuild" BeforeTargets="BeforeBuild" Condition="'$(TargetFramework)'=='net8.0-windows'">
+    <Target Name="MyBeforeBuild" BeforeTargets="BeforeBuild" Condition="'$(TargetFramework)'=='net481'">
         <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-MSBuildFileVersion.ps1 $(MSBuildThisFileFullPath)" />
     </Target>
 

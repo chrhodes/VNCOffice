@@ -7,7 +7,7 @@ using System.Text;
 //using EnvDTE;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 using VNC.Core;
 

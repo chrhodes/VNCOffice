@@ -11,13 +11,13 @@ using Microsoft.Win32;
 
 using Prism.Commands;
 using Prism.Events;
-using Prism.Services.Dialogs;
+using Prism.Dialogs;
 
 using VNC;
 using VNC.Core.Mvvm;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Prism.Events;
-using Prism.Services.Dialogs;
+using Prism.Dialogs;
 
 using VNCVisioToolsApplication.Presentation.Views;
 

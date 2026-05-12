@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Prism.Events;
-using Prism.Services.Dialogs;
+using Prism.Dialogs;
 
 using VNC;
 using VNC.Core.Mvvm;
@@ -10,7 +10,6 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 {
     public class ViewCViewModel : EventViewModelBase, IViewCViewModel, IInstanceCountVM
     {
-
         #region Constructors, Initialization, and Load
 
         public ViewCViewModel(

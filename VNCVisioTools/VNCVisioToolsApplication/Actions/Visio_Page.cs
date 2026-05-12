@@ -12,7 +12,7 @@ using VNC.Core;
 using VNC;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 namespace VNCVisioToolsApplication.Actions
 {

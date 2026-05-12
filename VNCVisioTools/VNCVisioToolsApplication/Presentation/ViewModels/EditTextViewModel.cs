@@ -6,7 +6,7 @@ using VNCVisioToolsApplication.Presentation.ModelWrappers;
 using VNC;
 using VNC.Core.Mvvm;
 
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {

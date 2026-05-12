@@ -11,7 +11,7 @@ using VNC.Core.Mvvm;
 using Microsoft.Office.Interop.Visio;
 using VNCVisioToolsApplication.Actions;
 using VNCVisioToolsApplication.Domain;
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {

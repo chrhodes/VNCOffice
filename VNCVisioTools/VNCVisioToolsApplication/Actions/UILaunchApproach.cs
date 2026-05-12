@@ -2,7 +2,7 @@
 using System.Windows;
 
 using Prism.Events;
-using Prism.Services.Dialogs;
+using Prism.Dialogs;
 
 using VNC.Core.Presentation;
 using VNC.WPF.Presentation.Dx.Views;
@@ -226,16 +226,19 @@ namespace VNCVisioToolsApplication.Actions
             // NOTE(crhodes)
             // Wire things up ourselves - ViewModel First - with a little help from DI.
 
-            vncMVVM_VAVM1st_Host.DisplayUserControlInHost(
-                "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
-                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
-                ShowWindowMode.Modeless_Show,
-                new ViewAViewModel(
-                    new ViewA(),
-                    (IEventAggregator)Common.ApplicationBootstrapper.Container.Resolve(typeof(EventAggregator)),
-                    (DialogService)Common.ApplicationBootstrapper.Container.Resolve(typeof(DialogService))
-                )
-            );
+            // FIX(crhodes)
+            // Fix
+
+            //vncMVVM_VAVM1st_Host.DisplayUserControlInHost(
+            //    "MVVM ViewAViewModel First (ViewModel is passed new ViewA) - By Hand",
+            //    Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+            //    ShowWindowMode.Modeless_Show,
+            //    new ViewAViewModel(
+            //        new ViewA(),
+            //        (IEventAggregator)Common.ApplicationBootstrapper.Container.Resolve(typeof(EventAggregator)),
+            //        (DialogService)Common.ApplicationBootstrapper.Container.Resolve(typeof(DialogService))
+            //    )
+            //);
         }
 
         public static DxThemedWindowHost vncMVVM_VA_Host = null;
