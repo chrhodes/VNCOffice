@@ -44,13 +44,13 @@
                                                 DockPanel.Dock="Top"
                                                 prism:RegionManager.RegionName="{x:Static infra:RegionNames.ToolBarRegion}" />-->
                 <!-- Stack Panel not supported OOTB.  Needs custom RegionAdapter.  Register with BootStrapper -->
-                <StackPanel
+                <!--<StackPanel
                     DockPanel.Dock="Left"
                     Orientation="Vertical"
                     prism:RegionManager.RegionName="{x:Static infra:RegionNames.ToolBarRegionA}" />
                 <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.EditTextRegion}" DockPanel.Dock="Right"/>
                 <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.EditControlPointsRegion}" DockPanel.Dock="Left"/>
-                <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.ContentRegionA}" DockPanel.Dock="Bottom"/>
+                <ContentControl prism:RegionManager.RegionName="{x:Static infra:RegionNames.ContentRegionA}" DockPanel.Dock="Bottom"/>-->
             </DockPanel>
         </dxlc:LayoutGroup>
     </dxlc:LayoutControl>

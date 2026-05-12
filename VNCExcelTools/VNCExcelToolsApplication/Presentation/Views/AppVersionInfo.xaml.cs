@@ -108,7 +108,7 @@ namespace VNCExcelToolsApplication.Presentation.Views
             spVNCExcelToolsApplicationCore.DataContext = Common.InformationVNCExcelToolsApplicationCore;
 
             spVNCVSTOAddIn.DataContext = Common.InformationVNCExcelTools;
-            spVNCVSTOAddInExcel.DataContext = Common.InformationVSTOAddInExcel;
+            spVNCVSTOAddInExcel.DataContext = Common.InformationVNCVSTOAddInExcel;
 
             spVNCWpfPresentation.DataContext = Common.InformationVNCWpfPresentation;
             spVNCWpfPresentationDx.DataContext = Common.InformationVNCWpfPresentationDx;
