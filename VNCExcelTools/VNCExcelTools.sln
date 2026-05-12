@@ -1,6 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+<<<<<<< HEAD
 VisualStudioVersion = 17.14.37216.2 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCExcelTools", "VNCExcelTools\VNCExcelTools.csproj", "{A29A8CE7-050B-4A76-81C3-574BF65E95D0}"
@@ -12,6 +13,19 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.VSTOAddin.Excel", "..\VNC.VSTOAddIn.Excel\VNC.VSTOAddin.Excel.csproj", "{55B0E6F7-F0F0-4370-563D-494B80D48F31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.VSTOAddin", "..\VNC.VSTOAddin\VNC.VSTOAddin.csproj", "{6B20F08C-746F-855B-EAAB-7D1913E3F28B}"
+=======
+VisualStudioVersion = 17.14.37203.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.VSTOAddin.Excel", "..\VNC.VSTOAddIn.Excel\VNC.VSTOAddin.Excel.csproj", "{E7F83978-8FB1-2050-CA72-611DC0F5958B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.VSTOAddIn", "..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj", "{1CC80F79-387B-0E6B-AF64-919FEF85A636}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCExcelTools", "VNCExcelTools\VNCExcelTools.csproj", "{A29A8CE7-050B-4A76-81C3-574BF65E95D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCExcelToolsApplication", "VNCExcelToolsApplication\VNCExcelToolsApplication.csproj", "{E9564ACA-CEA7-1F1A-6561-2DE490FBB20F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNCExcelToolsApplication.Core", "VNCExcelToolsApplication.Core\VNCExcelToolsApplication.Core.csproj", "{B195E2FE-7991-E1B6-8DC2-FF8801F2B010}"
+>>>>>>> 79cd079f5110cd3675ed81dbde15c14c38d8c6a9
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +33,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD
+=======
+		{E7F83978-8FB1-2050-CA72-611DC0F5958B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7F83978-8FB1-2050-CA72-611DC0F5958B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7F83978-8FB1-2050-CA72-611DC0F5958B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7F83978-8FB1-2050-CA72-611DC0F5958B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CC80F79-387B-0E6B-AF64-919FEF85A636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC80F79-387B-0E6B-AF64-919FEF85A636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC80F79-387B-0E6B-AF64-919FEF85A636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC80F79-387B-0E6B-AF64-919FEF85A636}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 79cd079f5110cd3675ed81dbde15c14c38d8c6a9
 		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Release|Any CPU.Build.0 = Release|Any CPU
+<<<<<<< HEAD
 		{271C1637-8479-D240-E0EF-312276D5ADC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{271C1637-8479-D240-E0EF-312276D5ADC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{271C1637-8479-D240-E0EF-312276D5ADC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,11 +65,25 @@ Global
 		{6B20F08C-746F-855B-EAAB-7D1913E3F28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B20F08C-746F-855B-EAAB-7D1913E3F28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B20F08C-746F-855B-EAAB-7D1913E3F28B}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{E9564ACA-CEA7-1F1A-6561-2DE490FBB20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9564ACA-CEA7-1F1A-6561-2DE490FBB20F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9564ACA-CEA7-1F1A-6561-2DE490FBB20F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9564ACA-CEA7-1F1A-6561-2DE490FBB20F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B195E2FE-7991-E1B6-8DC2-FF8801F2B010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B195E2FE-7991-E1B6-8DC2-FF8801F2B010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B195E2FE-7991-E1B6-8DC2-FF8801F2B010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B195E2FE-7991-E1B6-8DC2-FF8801F2B010}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 79cd079f5110cd3675ed81dbde15c14c38d8c6a9
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+<<<<<<< HEAD
 		SolutionGuid = {3956B7BC-A2E4-4526-BD5D-A445B4F19D92}
+=======
+		SolutionGuid = {07300C61-1782-40D5-91E4-A48953BA639F}
+>>>>>>> 79cd079f5110cd3675ed81dbde15c14c38d8c6a9
 	EndGlobalSection
 EndGlobal
