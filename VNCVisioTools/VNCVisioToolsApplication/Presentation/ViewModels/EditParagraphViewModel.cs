@@ -6,7 +6,7 @@ using VNC;
 using VNC.Core.Mvvm;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 namespace VNCVisioToolsApplication.Presentation.ViewModels
 {
@@ -97,7 +97,7 @@ namespace VNCVisioToolsApplication.Presentation.ViewModels
 
             foreach (MSVisio.Shape shape in selection)
             {
-                VNC.Visio.VSTOAddIn.Domain.ParagraphRow.SetRow(shape, Paragraph.Model);
+                VNC.VSTOAddIn.Visio.Domain.ParagraphRow.SetRow(shape, Paragraph.Model);
             }
 
             Common.VisioApplication.EndUndoScope(undoScope, true);

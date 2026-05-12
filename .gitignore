@@ -1,6 +1,7 @@
 # Ignore Folders until ready to commit
 
-SupportTools_Excel_X/
+VNCExcelTools - Copy/
+SR71/
 
 # Ignore Zip Files
 *.zip

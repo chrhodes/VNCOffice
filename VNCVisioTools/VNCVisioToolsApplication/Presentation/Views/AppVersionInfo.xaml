@@ -94,7 +94,7 @@
              Use GAI
             -->
 
-            <!--VNC.Visio.VSTOAddIn-->
+            <!--VNC.VSTOAddIn.Visio-->
             
              <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2" 
                      MinWidth="500" HorizontalAlignment="Stretch">

@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 using Prism.Commands;
 using Prism.Events;
-using Prism.Services.Dialogs;
+using Prism.Dialogs;
 
 using VNCVisioToolsApplication.Presentation.Views;
 

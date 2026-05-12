@@ -5,7 +5,7 @@ using System.Windows.Controls;
 
 using VNC;
 
-using VNCVisioAddIn = VNC.Visio.VSTOAddIn;
+using VNCVisioAddIn = VNC.VSTOAddIn.Visio;
 
 namespace VNCVisioToolsApplication.Presentation.Views
 {

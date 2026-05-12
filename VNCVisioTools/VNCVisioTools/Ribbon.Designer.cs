@@ -43,7 +43,8 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl7 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl8 = this.Factory.CreateRibbonDropDownItem();
             this.tab1 = this.Factory.CreateRibbonTab();
-            this.rtVisioAddIn = this.Factory.CreateRibbonTab();
+            this.group1 = this.Factory.CreateRibbonGroup();
+            this.rtVisioAddInTemplate = this.Factory.CreateRibbonTab();
             this.rgDocumentActions = this.Factory.CreateRibbonGroup();
             this.btnGetApplicationInfo = this.Factory.CreateRibbonButton();
             this.btnGetDocumentInfo = this.Factory.CreateRibbonButton();
@@ -142,7 +143,7 @@
             this.btnVNC_MVVM_VC11st = this.Factory.CreateRibbonButton();
             this.btnVNC_MVVM_VC21st = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
-            this.rtVisioAddIn.SuspendLayout();
+            this.rtVisioAddInTemplate.SuspendLayout();
             this.rgDocumentActions.SuspendLayout();
             this.rgDocumentBasePages.SuspendLayout();
             this.rgPageActions.SuspendLayout();
@@ -160,21 +161,27 @@
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
+            this.tab1.Groups.Add(this.group1);
             this.tab1.Label = "TabAddIns";
             this.tab1.Name = "tab1";
             // 
-            // rtVisioAddIn
+            // group1
             // 
-            this.rtVisioAddIn.Groups.Add(this.rgDocumentActions);
-            this.rtVisioAddIn.Groups.Add(this.rgDocumentBasePages);
-            this.rtVisioAddIn.Groups.Add(this.rgPageActions);
-            this.rtVisioAddIn.Groups.Add(this.rgLayerActions);
-            this.rtVisioAddIn.Groups.Add(this.rgShapeActions);
-            this.rtVisioAddIn.Groups.Add(this.rgCustomUI);
-            this.rtVisioAddIn.Groups.Add(this.rgDebug);
-            this.rtVisioAddIn.Groups.Add(this.grpHelp);
-            this.rtVisioAddIn.Label = "VNCVisioTools";
-            this.rtVisioAddIn.Name = "rtVisioAddIn";
+            this.group1.Label = "group1";
+            this.group1.Name = "group1";
+            // 
+            // rtVisioAddInTemplate
+            // 
+            this.rtVisioAddInTemplate.Groups.Add(this.rgDocumentActions);
+            this.rtVisioAddInTemplate.Groups.Add(this.rgDocumentBasePages);
+            this.rtVisioAddInTemplate.Groups.Add(this.rgPageActions);
+            this.rtVisioAddInTemplate.Groups.Add(this.rgLayerActions);
+            this.rtVisioAddInTemplate.Groups.Add(this.rgShapeActions);
+            this.rtVisioAddInTemplate.Groups.Add(this.rgCustomUI);
+            this.rtVisioAddInTemplate.Groups.Add(this.rgDebug);
+            this.rtVisioAddInTemplate.Groups.Add(this.grpHelp);
+            this.rtVisioAddInTemplate.Label = "VNCVisioTools";
+            this.rtVisioAddInTemplate.Name = "rtVisioAddInTemplate";
             // 
             // rgDocumentActions
             // 
@@ -945,13 +952,13 @@
             this.Name = "Ribbon";
             this.RibbonType = "Microsoft.Visio.Drawing";
             this.Tabs.Add(this.tab1);
-            this.Tabs.Add(this.rtVisioAddIn);
+            this.Tabs.Add(this.rtVisioAddInTemplate);
             this.Tabs.Add(this.rtUILaunchApproaches);
             this.Load += new Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler(this.Ribbon_Load);
             this.tab1.ResumeLayout(false);
             this.tab1.PerformLayout();
-            this.rtVisioAddIn.ResumeLayout(false);
-            this.rtVisioAddIn.PerformLayout();
+            this.rtVisioAddInTemplate.ResumeLayout(false);
+            this.rtVisioAddInTemplate.PerformLayout();
             this.rgDocumentActions.ResumeLayout(false);
             this.rgDocumentActions.PerformLayout();
             this.rgDocumentBasePages.ResumeLayout(false);
@@ -983,7 +990,8 @@
         #endregion
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonTab rtVisioAddIn;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonTab rtVisioAddInTemplate;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgDocumentActions;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgPageActions;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgLayerActions;

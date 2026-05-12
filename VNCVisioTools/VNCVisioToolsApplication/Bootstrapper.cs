@@ -1,25 +1,18 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-//using ModuleA;
-//using Explore;
 
 using Prism;
+using Prism.Container.Unity;
 using Prism.Ioc;
 using Prism.Modularity;
-using Prism.Regions;
-using Prism.Unity;
-//using VNCVisioToolsApplication.Presentation.ViewModels;
-//using VNCVisioToolsApplication.Presentation.Views;
+using Prism.Navigation.Regions;
 
 using VNC;
 using VNC.Core.Mvvm.Prism;
 using VNC.Core.Services;
 
 using VNCVisioToolsApplication.Modules;
-
-//using VNC.Core.Mvvm;
-//using VNC.Core.Mvvm.Prism;
 
 namespace VNCVisioToolsApplication
 {

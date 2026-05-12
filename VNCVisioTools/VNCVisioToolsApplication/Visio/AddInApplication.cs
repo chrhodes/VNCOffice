@@ -100,7 +100,7 @@ namespace VNCVisioToolsApplication.Visio
             // Extend Views\AppVersionInfo.xaml as needed
             // Update Views\AppVersionInfo.xaml.cs InitializeViewModel()
 
-            var VNCVisioVSTOAddInAssembly = Assembly.GetAssembly(typeof(VNC.Visio.VSTOAddIn.Common));
+            var VNCVisioVSTOAddInAssembly = Assembly.GetAssembly(typeof(VNC.VSTOAddIn.Visio.Common));
 
             if (VNCVisioVSTOAddInAssembly is not null)
             {
