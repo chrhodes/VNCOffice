@@ -49,10 +49,6 @@
         </None>
     </ItemGroup>-->
 
-    <ItemGroup>
-        <PackageReference Include="Prism.Core" Version="9.0.537" />
-    </ItemGroup>
-
     <!--<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <PlatformTarget>AnyCPU</PlatformTarget>
         <DefineConstants>LOGGING</DefineConstants>

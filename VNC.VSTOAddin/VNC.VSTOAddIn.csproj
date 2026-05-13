@@ -53,7 +53,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="VNC.AssemblyHelper" Version="3.3.0" />
+      <PackageReference Include="VNC.AssemblyHelper" Version="3.4.0" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">

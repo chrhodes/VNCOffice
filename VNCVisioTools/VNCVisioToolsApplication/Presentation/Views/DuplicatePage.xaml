@@ -6,8 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	mc:Ignorable="d" 
 	
-	xmlns:cb="clr-namespace:CalcBinding;assembly=CalcBinding" 	
-
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
     xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"    
     xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
