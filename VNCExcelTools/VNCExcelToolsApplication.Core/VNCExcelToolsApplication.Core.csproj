@@ -8,7 +8,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.12</FileVersion>
+        <FileVersion>2026.05.13</FileVersion>
         <Description>describe assembly</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -55,10 +55,6 @@
        <!--<DefineConstants>$(DefineConstants);PA</DefineConstants>-->
        <!--<DefineConstants>$(DefineConstants);PAS</DefineConstants>-->
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Prism.Core" Version="9.0.537" />
-    </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
       <!-- Uncomment next line to switch to ProjectReference(s) -->

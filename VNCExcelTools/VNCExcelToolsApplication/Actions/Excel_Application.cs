@@ -19,7 +19,7 @@ using VNCExcelAddIn = VNC.VSTOAddIn.Excel;
 
 namespace VNCExcelToolsApplication.Actions
 {
-    public class Visio_Application
+    public class Excel_Application
     {
         public static IEventAggregator eventAggregator;
         public static DeveloperModeEvent developerModeEvent;

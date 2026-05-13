@@ -223,8 +223,8 @@ namespace VNCExcelToolsApplication.Excel
             Common.ApplicationBootstrapper.Run();
 
             Common.EventAggregator = (IEventAggregator)Common.Container.Resolve(typeof(IEventAggregator));
-            Visio_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
-            Visio_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
+            Excel_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
+            Excel_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
             Common.WriteToDebugWindow("InitializePrism()-Exit", startTicks, true);
         }

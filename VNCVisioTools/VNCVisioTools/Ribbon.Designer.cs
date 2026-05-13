@@ -46,6 +46,23 @@
             this.group1 = this.Factory.CreateRibbonGroup();
             this.rtVisioAddInTemplate = this.Factory.CreateRibbonTab();
             this.rgDocumentActions = this.Factory.CreateRibbonGroup();
+            this.rgDocumentBasePages = this.Factory.CreateRibbonGroup();
+            this.rgPageActions = this.Factory.CreateRibbonGroup();
+            this.rgLayerActions = this.Factory.CreateRibbonGroup();
+            this.cmbLayers = this.Factory.CreateRibbonComboBox();
+            this.rgShapeActions = this.Factory.CreateRibbonGroup();
+            this.rgCustomUI = this.Factory.CreateRibbonGroup();
+            this.rgDebug = this.Factory.CreateRibbonGroup();
+            this.rcbEnableAppEvents = this.Factory.CreateRibbonCheckBox();
+            this.rcbDisplayEvents = this.Factory.CreateRibbonCheckBox();
+            this.rcbDisplayChattyEvents = this.Factory.CreateRibbonCheckBox();
+            this.rcbDeveloperUIMode = this.Factory.CreateRibbonCheckBox();
+            this.rcbUILaunchApproaches = this.Factory.CreateRibbonCheckBox();
+            this.grpHelp = this.Factory.CreateRibbonGroup();
+            this.rtUILaunchApproaches = this.Factory.CreateRibbonTab();
+            this.rgUILaunch = this.Factory.CreateRibbonGroup();
+            this.rgWPFUI = this.Factory.CreateRibbonGroup();
+            this.rgMVVMExamples = this.Factory.CreateRibbonGroup();
             this.btnGetApplicationInfo = this.Factory.CreateRibbonButton();
             this.btnGetDocumentInfo = this.Factory.CreateRibbonButton();
             this.btnGetStencilInfo = this.Factory.CreateRibbonButton();
@@ -63,11 +80,9 @@
             this.btnPrintPages = this.Factory.CreateRibbonButton();
             this.btnDeletePages = this.Factory.CreateRibbonButton();
             this.btnSavePages = this.Factory.CreateRibbonButton();
-            this.rgDocumentBasePages = this.Factory.CreateRibbonGroup();
             this.btnAddArchitectureBasePages = this.Factory.CreateRibbonButton();
             this.btnAddBackgroundPages = this.Factory.CreateRibbonButton();
             this.btnAddDefaultLayers = this.Factory.CreateRibbonButton();
-            this.rgPageActions = this.Factory.CreateRibbonGroup();
             this.btnGetPageInfo = this.Factory.CreateRibbonButton();
             this.btnUpdatePageNameShapesPage = this.Factory.CreateRibbonButton();
             this.btnAddNavLinks = this.Factory.CreateRibbonButton();
@@ -76,10 +91,8 @@
             this.btnSyncPageNamesPage = this.Factory.CreateRibbonButton();
             this.btnAutoSizePageOn = this.Factory.CreateRibbonButton();
             this.btnAutoSizePageOff = this.Factory.CreateRibbonButton();
-            this.rgLayerActions = this.Factory.CreateRibbonGroup();
             this.btnPageOn = this.Factory.CreateRibbonButton();
             this.btnPageOff = this.Factory.CreateRibbonButton();
-            this.cmbLayers = this.Factory.CreateRibbonComboBox();
             this.btnAllPageOn = this.Factory.CreateRibbonButton();
             this.btnAllPageOff = this.Factory.CreateRibbonButton();
             this.btnLayerManager = this.Factory.CreateRibbonButton();
@@ -87,7 +100,6 @@
             this.btnUnlockBackground = this.Factory.CreateRibbonButton();
             this.btnAddDefaultLayers_Page = this.Factory.CreateRibbonButton();
             this.btnRemoveLayers_Page = this.Factory.CreateRibbonButton();
-            this.rgShapeActions = this.Factory.CreateRibbonGroup();
             this.btnGetShapeInfo = this.Factory.CreateRibbonButton();
             this.btnAddTextControl = this.Factory.CreateRibbonButton();
             this.btnAddIsPageName = this.Factory.CreateRibbonButton();
@@ -100,7 +112,6 @@
             this.btn0PtMargins = this.Factory.CreateRibbonButton();
             this.btn1PtMargins = this.Factory.CreateRibbonButton();
             this.btn2PtMargins = this.Factory.CreateRibbonButton();
-            this.rgCustomUI = this.Factory.CreateRibbonGroup();
             this.btnCommandCockpit = this.Factory.CreateRibbonButton();
             this.btnEditControlRows = this.Factory.CreateRibbonButton();
             this.btnEditParagraph = this.Factory.CreateRibbonButton();
@@ -110,32 +121,21 @@
             this.btnDuplicatePage = this.Factory.CreateRibbonButton();
             this.btnMovePages = this.Factory.CreateRibbonButton();
             this.btnCustomUI_Car = this.Factory.CreateRibbonButton();
-            this.rgDebug = this.Factory.CreateRibbonGroup();
             this.btnDebugWindow = this.Factory.CreateRibbonButton();
             this.btnWatchWindow = this.Factory.CreateRibbonButton();
-            this.rcbEnableAppEvents = this.Factory.CreateRibbonCheckBox();
-            this.rcbDisplayEvents = this.Factory.CreateRibbonCheckBox();
-            this.rcbDisplayChattyEvents = this.Factory.CreateRibbonCheckBox();
-            this.rcbDeveloperUIMode = this.Factory.CreateRibbonCheckBox();
-            this.rcbUILaunchApproaches = this.Factory.CreateRibbonCheckBox();
-            this.grpHelp = this.Factory.CreateRibbonGroup();
-            this.btnAddInInfo = this.Factory.CreateRibbonButton();
-            this.btnDeveloperMode = this.Factory.CreateRibbonButton();
-            this.rtUILaunchApproaches = this.Factory.CreateRibbonTab();
-            this.rgUILaunch = this.Factory.CreateRibbonGroup();
+            this.btnDisplayAddInInfo = this.Factory.CreateRibbonButton();
+            this.btnToggleDeveloperMode = this.Factory.CreateRibbonButton();
             this.btnThemedWindowHostModeless = this.Factory.CreateRibbonButton();
             this.btnThemedWindowHostModal = this.Factory.CreateRibbonButton();
             this.btnWindowHostLocal = this.Factory.CreateRibbonButton();
             this.btnWindowHostVNC = this.Factory.CreateRibbonButton();
             this.btnDxWindowHost = this.Factory.CreateRibbonButton();
-            this.rgWPFUI = this.Factory.CreateRibbonGroup();
             this.btnLaunchCylon = this.Factory.CreateRibbonButton();
             this.btnLaunchCylon2 = this.Factory.CreateRibbonButton();
             this.btnDxDockLayoutManagerControl = this.Factory.CreateRibbonButton();
             this.btnDxLayoutControl = this.Factory.CreateRibbonButton();
             this.btnDxDockLayoutControl = this.Factory.CreateRibbonButton();
             this.btnPrismRegionTest = this.Factory.CreateRibbonButton();
-            this.rgMVVMExamples = this.Factory.CreateRibbonGroup();
             this.btnVNC_MVVM_VAVM1st = this.Factory.CreateRibbonButton();
             this.btnVNC_MVVM_VA1st = this.Factory.CreateRibbonButton();
             this.btnVNC_MVVM_VAVM1stDI = this.Factory.CreateRibbonButton();
@@ -204,6 +204,186 @@
             this.rgDocumentActions.Items.Add(this.btnSavePages);
             this.rgDocumentActions.Label = "Document Actions";
             this.rgDocumentActions.Name = "rgDocumentActions";
+            // 
+            // rgDocumentBasePages
+            // 
+            this.rgDocumentBasePages.Items.Add(this.btnAddArchitectureBasePages);
+            this.rgDocumentBasePages.Items.Add(this.btnAddBackgroundPages);
+            this.rgDocumentBasePages.Items.Add(this.btnAddDefaultLayers);
+            this.rgDocumentBasePages.Label = "Document Base Pages";
+            this.rgDocumentBasePages.Name = "rgDocumentBasePages";
+            // 
+            // rgPageActions
+            // 
+            this.rgPageActions.Items.Add(this.btnGetPageInfo);
+            this.rgPageActions.Items.Add(this.btnUpdatePageNameShapesPage);
+            this.rgPageActions.Items.Add(this.btnAddNavLinks);
+            this.rgPageActions.Items.Add(this.btnPrintPage);
+            this.rgPageActions.Items.Add(this.btnSavePage);
+            this.rgPageActions.Items.Add(this.btnSyncPageNamesPage);
+            this.rgPageActions.Items.Add(this.btnAutoSizePageOn);
+            this.rgPageActions.Items.Add(this.btnAutoSizePageOff);
+            this.rgPageActions.Label = "Page Actions";
+            this.rgPageActions.Name = "rgPageActions";
+            // 
+            // rgLayerActions
+            // 
+            this.rgLayerActions.Items.Add(this.btnPageOn);
+            this.rgLayerActions.Items.Add(this.btnPageOff);
+            this.rgLayerActions.Items.Add(this.cmbLayers);
+            this.rgLayerActions.Items.Add(this.btnAllPageOn);
+            this.rgLayerActions.Items.Add(this.btnAllPageOff);
+            this.rgLayerActions.Items.Add(this.btnLayerManager);
+            this.rgLayerActions.Items.Add(this.btnLockBackground);
+            this.rgLayerActions.Items.Add(this.btnUnlockBackground);
+            this.rgLayerActions.Items.Add(this.btnAddDefaultLayers_Page);
+            this.rgLayerActions.Items.Add(this.btnRemoveLayers_Page);
+            this.rgLayerActions.Label = "Layer Actions";
+            this.rgLayerActions.Name = "rgLayerActions";
+            // 
+            // cmbLayers
+            // 
+            ribbonDropDownItemImpl1.Label = "Navigation";
+            ribbonDropDownItemImpl2.Label = "Header";
+            ribbonDropDownItemImpl3.Label = "Security";
+            ribbonDropDownItemImpl4.Label = "Application";
+            ribbonDropDownItemImpl5.Label = "Level0";
+            ribbonDropDownItemImpl6.Label = "Level1";
+            ribbonDropDownItemImpl7.Label = "Level2";
+            ribbonDropDownItemImpl8.Label = "Notes";
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl1);
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl2);
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl3);
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl4);
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl5);
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl6);
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl7);
+            this.cmbLayers.Items.Add(ribbonDropDownItemImpl8);
+            this.cmbLayers.Label = "Layer";
+            this.cmbLayers.Name = "cmbLayers";
+            this.cmbLayers.Text = null;
+            // 
+            // rgShapeActions
+            // 
+            this.rgShapeActions.Items.Add(this.btnGetShapeInfo);
+            this.rgShapeActions.Items.Add(this.btnAddTextControl);
+            this.rgShapeActions.Items.Add(this.btnAddIsPageName);
+            this.rgShapeActions.Items.Add(this.btnAddHyperLink);
+            this.rgShapeActions.Items.Add(this.btnAddColorSupport);
+            this.rgShapeActions.Items.Add(this.btnMakeLinkableMaster);
+            this.rgShapeActions.Items.Add(this.btnAddIDSupport);
+            this.rgShapeActions.Items.Add(this.btnAddIDAndTextSupport);
+            this.rgShapeActions.Items.Add(this.btnMoveToBackgroundLayer);
+            this.rgShapeActions.Items.Add(this.btn0PtMargins);
+            this.rgShapeActions.Items.Add(this.btn1PtMargins);
+            this.rgShapeActions.Items.Add(this.btn2PtMargins);
+            this.rgShapeActions.Label = "Shape Actions";
+            this.rgShapeActions.Name = "rgShapeActions";
+            // 
+            // rgCustomUI
+            // 
+            this.rgCustomUI.Items.Add(this.btnCommandCockpit);
+            this.rgCustomUI.Items.Add(this.btnEditControlRows);
+            this.rgCustomUI.Items.Add(this.btnEditParagraph);
+            this.rgCustomUI.Items.Add(this.btnEditText);
+            this.rgCustomUI.Items.Add(this.btnEditControlPoints);
+            this.rgCustomUI.Items.Add(this.btnRenamePages);
+            this.rgCustomUI.Items.Add(this.btnDuplicatePage);
+            this.rgCustomUI.Items.Add(this.btnMovePages);
+            this.rgCustomUI.Items.Add(this.btnCustomUI_Car);
+            this.rgCustomUI.Label = "Custom UI";
+            this.rgCustomUI.Name = "rgCustomUI";
+            // 
+            // rgDebug
+            // 
+            this.rgDebug.Items.Add(this.btnDebugWindow);
+            this.rgDebug.Items.Add(this.btnWatchWindow);
+            this.rgDebug.Items.Add(this.rcbEnableAppEvents);
+            this.rgDebug.Items.Add(this.rcbDisplayEvents);
+            this.rgDebug.Items.Add(this.rcbDisplayChattyEvents);
+            this.rgDebug.Items.Add(this.rcbDeveloperUIMode);
+            this.rgDebug.Items.Add(this.rcbUILaunchApproaches);
+            this.rgDebug.Label = "Debug";
+            this.rgDebug.Name = "rgDebug";
+            this.rgDebug.Visible = false;
+            // 
+            // rcbEnableAppEvents
+            // 
+            this.rcbEnableAppEvents.Label = "Enable App Events";
+            this.rcbEnableAppEvents.Name = "rcbEnableAppEvents";
+            this.rcbEnableAppEvents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbEnableAppEvents_Click);
+            // 
+            // rcbDisplayEvents
+            // 
+            this.rcbDisplayEvents.Label = "Display Events";
+            this.rcbDisplayEvents.Name = "rcbDisplayEvents";
+            this.rcbDisplayEvents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbDisplayEvents_Click);
+            // 
+            // rcbDisplayChattyEvents
+            // 
+            this.rcbDisplayChattyEvents.Label = "Display Chatty Events";
+            this.rcbDisplayChattyEvents.Name = "rcbDisplayChattyEvents";
+            this.rcbDisplayChattyEvents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbDisplayChattyEvents_Click);
+            // 
+            // rcbDeveloperUIMode
+            // 
+            this.rcbDeveloperUIMode.Label = "DeveloperUIMode";
+            this.rcbDeveloperUIMode.Name = "rcbDeveloperUIMode";
+            this.rcbDeveloperUIMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbToggleDeveloperUIMode_Click);
+            // 
+            // rcbUILaunchApproaches
+            // 
+            this.rcbUILaunchApproaches.Label = "UILaunchApproaches";
+            this.rcbUILaunchApproaches.Name = "rcbUILaunchApproaches";
+            this.rcbUILaunchApproaches.SuperTip = "Display UILaunchApproaches Ribbon Group";
+            this.rcbUILaunchApproaches.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbUILaunchApproaches_Click);
+            // 
+            // grpHelp
+            // 
+            this.grpHelp.Items.Add(this.btnDisplayAddInInfo);
+            this.grpHelp.Items.Add(this.btnToggleDeveloperMode);
+            this.grpHelp.Label = "Help";
+            this.grpHelp.Name = "grpHelp";
+            // 
+            // rtUILaunchApproaches
+            // 
+            this.rtUILaunchApproaches.Groups.Add(this.rgUILaunch);
+            this.rtUILaunchApproaches.Groups.Add(this.rgWPFUI);
+            this.rtUILaunchApproaches.Groups.Add(this.rgMVVMExamples);
+            this.rtUILaunchApproaches.Label = "UI Launch Approaches";
+            this.rtUILaunchApproaches.Name = "rtUILaunchApproaches";
+            // 
+            // rgUILaunch
+            // 
+            this.rgUILaunch.Items.Add(this.btnThemedWindowHostModeless);
+            this.rgUILaunch.Items.Add(this.btnThemedWindowHostModal);
+            this.rgUILaunch.Items.Add(this.btnWindowHostLocal);
+            this.rgUILaunch.Items.Add(this.btnWindowHostVNC);
+            this.rgUILaunch.Items.Add(this.btnDxWindowHost);
+            this.rgUILaunch.Label = "UI Launch";
+            this.rgUILaunch.Name = "rgUILaunch";
+            // 
+            // rgWPFUI
+            // 
+            this.rgWPFUI.Items.Add(this.btnLaunchCylon);
+            this.rgWPFUI.Items.Add(this.btnLaunchCylon2);
+            this.rgWPFUI.Items.Add(this.btnDxDockLayoutManagerControl);
+            this.rgWPFUI.Items.Add(this.btnDxLayoutControl);
+            this.rgWPFUI.Items.Add(this.btnDxDockLayoutControl);
+            this.rgWPFUI.Items.Add(this.btnPrismRegionTest);
+            this.rgWPFUI.Label = "WPF UI";
+            this.rgWPFUI.Name = "rgWPFUI";
+            // 
+            // rgMVVMExamples
+            // 
+            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VAVM1st);
+            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VA1st);
+            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VAVM1stDI);
+            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VB1st);
+            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VC11st);
+            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VC21st);
+            this.rgMVVMExamples.Label = "MVVM Examples";
+            this.rgMVVMExamples.Name = "rgMVVMExamples";
             // 
             // btnGetApplicationInfo
             // 
@@ -331,14 +511,6 @@
             this.btnSavePages.SuperTip = "Save all Pages listed on current Page to Image";
             this.btnSavePages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnSavePages_Click);
             // 
-            // rgDocumentBasePages
-            // 
-            this.rgDocumentBasePages.Items.Add(this.btnAddArchitectureBasePages);
-            this.rgDocumentBasePages.Items.Add(this.btnAddBackgroundPages);
-            this.rgDocumentBasePages.Items.Add(this.btnAddDefaultLayers);
-            this.rgDocumentBasePages.Label = "Document Base Pages";
-            this.rgDocumentBasePages.Name = "rgDocumentBasePages";
-            // 
             // btnAddArchitectureBasePages
             // 
             this.btnAddArchitectureBasePages.Label = "+ Architecture Base Pages";
@@ -359,19 +531,6 @@
             this.btnAddDefaultLayers.Name = "btnAddDefaultLayers";
             this.btnAddDefaultLayers.ScreenTip = "Add Layers from Default Layers to all Pages";
             this.btnAddDefaultLayers.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddDefaultLayers_Click);
-            // 
-            // rgPageActions
-            // 
-            this.rgPageActions.Items.Add(this.btnGetPageInfo);
-            this.rgPageActions.Items.Add(this.btnUpdatePageNameShapesPage);
-            this.rgPageActions.Items.Add(this.btnAddNavLinks);
-            this.rgPageActions.Items.Add(this.btnPrintPage);
-            this.rgPageActions.Items.Add(this.btnSavePage);
-            this.rgPageActions.Items.Add(this.btnSyncPageNamesPage);
-            this.rgPageActions.Items.Add(this.btnAutoSizePageOn);
-            this.rgPageActions.Items.Add(this.btnAutoSizePageOff);
-            this.rgPageActions.Label = "Page Actions";
-            this.rgPageActions.Name = "rgPageActions";
             // 
             // btnGetPageInfo
             // 
@@ -430,21 +589,6 @@
             this.btnAutoSizePageOff.Name = "btnAutoSizePageOff";
             this.btnAutoSizePageOff.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAutoSizePageOff_Click);
             // 
-            // rgLayerActions
-            // 
-            this.rgLayerActions.Items.Add(this.btnPageOn);
-            this.rgLayerActions.Items.Add(this.btnPageOff);
-            this.rgLayerActions.Items.Add(this.cmbLayers);
-            this.rgLayerActions.Items.Add(this.btnAllPageOn);
-            this.rgLayerActions.Items.Add(this.btnAllPageOff);
-            this.rgLayerActions.Items.Add(this.btnLayerManager);
-            this.rgLayerActions.Items.Add(this.btnLockBackground);
-            this.rgLayerActions.Items.Add(this.btnUnlockBackground);
-            this.rgLayerActions.Items.Add(this.btnAddDefaultLayers_Page);
-            this.rgLayerActions.Items.Add(this.btnRemoveLayers_Page);
-            this.rgLayerActions.Label = "Layer Actions";
-            this.rgLayerActions.Name = "rgLayerActions";
-            // 
             // btnPageOn
             // 
             this.btnPageOn.Label = "Page On";
@@ -456,28 +600,6 @@
             this.btnPageOff.Label = "Page Off";
             this.btnPageOff.Name = "btnPageOff";
             this.btnPageOff.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnPageOff_Click);
-            // 
-            // cmbLayers
-            // 
-            ribbonDropDownItemImpl1.Label = "Navigation";
-            ribbonDropDownItemImpl2.Label = "Header";
-            ribbonDropDownItemImpl3.Label = "Security";
-            ribbonDropDownItemImpl4.Label = "Application";
-            ribbonDropDownItemImpl5.Label = "Level0";
-            ribbonDropDownItemImpl6.Label = "Level1";
-            ribbonDropDownItemImpl7.Label = "Level2";
-            ribbonDropDownItemImpl8.Label = "Notes";
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl1);
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl2);
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl3);
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl4);
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl5);
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl6);
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl7);
-            this.cmbLayers.Items.Add(ribbonDropDownItemImpl8);
-            this.cmbLayers.Label = "Layer";
-            this.cmbLayers.Name = "cmbLayers";
-            this.cmbLayers.Text = null;
             // 
             // btnAllPageOn
             // 
@@ -522,23 +644,6 @@
             this.btnRemoveLayers_Page.Label = "Remove Layers";
             this.btnRemoveLayers_Page.Name = "btnRemoveLayers_Page";
             this.btnRemoveLayers_Page.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnRemoveLayers_Page_Click);
-            // 
-            // rgShapeActions
-            // 
-            this.rgShapeActions.Items.Add(this.btnGetShapeInfo);
-            this.rgShapeActions.Items.Add(this.btnAddTextControl);
-            this.rgShapeActions.Items.Add(this.btnAddIsPageName);
-            this.rgShapeActions.Items.Add(this.btnAddHyperLink);
-            this.rgShapeActions.Items.Add(this.btnAddColorSupport);
-            this.rgShapeActions.Items.Add(this.btnMakeLinkableMaster);
-            this.rgShapeActions.Items.Add(this.btnAddIDSupport);
-            this.rgShapeActions.Items.Add(this.btnAddIDAndTextSupport);
-            this.rgShapeActions.Items.Add(this.btnMoveToBackgroundLayer);
-            this.rgShapeActions.Items.Add(this.btn0PtMargins);
-            this.rgShapeActions.Items.Add(this.btn1PtMargins);
-            this.rgShapeActions.Items.Add(this.btn2PtMargins);
-            this.rgShapeActions.Label = "Shape Actions";
-            this.rgShapeActions.Name = "rgShapeActions";
             // 
             // btnGetShapeInfo
             // 
@@ -628,20 +733,6 @@
             this.btn2PtMargins.ScreenTip = "2 Pt Text Block Margins for selected Shapes";
             this.btn2PtMargins.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btn2PtMargins_Click);
             // 
-            // rgCustomUI
-            // 
-            this.rgCustomUI.Items.Add(this.btnCommandCockpit);
-            this.rgCustomUI.Items.Add(this.btnEditControlRows);
-            this.rgCustomUI.Items.Add(this.btnEditParagraph);
-            this.rgCustomUI.Items.Add(this.btnEditText);
-            this.rgCustomUI.Items.Add(this.btnEditControlPoints);
-            this.rgCustomUI.Items.Add(this.btnRenamePages);
-            this.rgCustomUI.Items.Add(this.btnDuplicatePage);
-            this.rgCustomUI.Items.Add(this.btnMovePages);
-            this.rgCustomUI.Items.Add(this.btnCustomUI_Car);
-            this.rgCustomUI.Label = "Custom UI";
-            this.rgCustomUI.Name = "rgCustomUI";
-            // 
             // btnCommandCockpit
             // 
             this.btnCommandCockpit.Label = "Command Cockpit";
@@ -708,19 +799,6 @@
             this.btnCustomUI_Car.SuperTip = "Load CarMain from Explore module";
             this.btnCustomUI_Car.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnCustomUI_Car_Click);
             // 
-            // rgDebug
-            // 
-            this.rgDebug.Items.Add(this.btnDebugWindow);
-            this.rgDebug.Items.Add(this.btnWatchWindow);
-            this.rgDebug.Items.Add(this.rcbEnableAppEvents);
-            this.rgDebug.Items.Add(this.rcbDisplayEvents);
-            this.rgDebug.Items.Add(this.rcbDisplayChattyEvents);
-            this.rgDebug.Items.Add(this.rcbDeveloperUIMode);
-            this.rgDebug.Items.Add(this.rcbUILaunchApproaches);
-            this.rgDebug.Label = "Debug";
-            this.rgDebug.Name = "rgDebug";
-            this.rgDebug.Visible = false;
-            // 
             // btnDebugWindow
             // 
             this.btnDebugWindow.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -739,73 +817,19 @@
             this.btnWatchWindow.ShowImage = true;
             this.btnWatchWindow.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnWatchWindow_Click);
             // 
-            // rcbEnableAppEvents
+            // btnDisplayAddInInfo
             // 
-            this.rcbEnableAppEvents.Label = "Enable App Events";
-            this.rcbEnableAppEvents.Name = "rcbEnableAppEvents";
-            this.rcbEnableAppEvents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbEnableAppEvents_Click);
+            this.btnDisplayAddInInfo.Label = "AddIn Info";
+            this.btnDisplayAddInInfo.Name = "btnDisplayAddInInfo";
+            this.btnDisplayAddInInfo.SuperTip = "Display AddIn Information";
+            this.btnDisplayAddInInfo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnDisplayAddInInfo_Click);
             // 
-            // rcbDisplayEvents
+            // btnToggleDeveloperMode
             // 
-            this.rcbDisplayEvents.Label = "Display Events";
-            this.rcbDisplayEvents.Name = "rcbDisplayEvents";
-            this.rcbDisplayEvents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbDisplayEvents_Click);
-            // 
-            // rcbDisplayChattyEvents
-            // 
-            this.rcbDisplayChattyEvents.Label = "Display Chatty Events";
-            this.rcbDisplayChattyEvents.Name = "rcbDisplayChattyEvents";
-            this.rcbDisplayChattyEvents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbDisplayChattyEvents_Click);
-            // 
-            // rcbDeveloperUIMode
-            // 
-            this.rcbDeveloperUIMode.Label = "DeveloperUIMode";
-            this.rcbDeveloperUIMode.Name = "rcbDeveloperUIMode";
-            this.rcbDeveloperUIMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbToggleDeveloperUIMode_Click);
-            // 
-            // rcbUILaunchApproaches
-            // 
-            this.rcbUILaunchApproaches.Label = "UILaunchApproaches";
-            this.rcbUILaunchApproaches.Name = "rcbUILaunchApproaches";
-            this.rcbUILaunchApproaches.SuperTip = "Display UILaunchApproaches Ribbon Group";
-            this.rcbUILaunchApproaches.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbUILaunchApproaches_Click);
-            // 
-            // grpHelp
-            // 
-            this.grpHelp.Items.Add(this.btnAddInInfo);
-            this.grpHelp.Items.Add(this.btnDeveloperMode);
-            this.grpHelp.Label = "Help";
-            this.grpHelp.Name = "grpHelp";
-            // 
-            // btnAddInInfo
-            // 
-            this.btnAddInInfo.Label = "AddIn Info";
-            this.btnAddInInfo.Name = "btnAddInInfo";
-            this.btnAddInInfo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnDisplayAddInInfo_Click);
-            // 
-            // btnDeveloperMode
-            // 
-            this.btnDeveloperMode.Label = "Developer Mode";
-            this.btnDeveloperMode.Name = "btnDeveloperMode";
-            this.btnDeveloperMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnToggleDeveloperMode_Click);
-            // 
-            // rtUILaunchApproaches
-            // 
-            this.rtUILaunchApproaches.Groups.Add(this.rgUILaunch);
-            this.rtUILaunchApproaches.Groups.Add(this.rgWPFUI);
-            this.rtUILaunchApproaches.Groups.Add(this.rgMVVMExamples);
-            this.rtUILaunchApproaches.Label = "UI Launch Approaches";
-            this.rtUILaunchApproaches.Name = "rtUILaunchApproaches";
-            // 
-            // rgUILaunch
-            // 
-            this.rgUILaunch.Items.Add(this.btnThemedWindowHostModeless);
-            this.rgUILaunch.Items.Add(this.btnThemedWindowHostModal);
-            this.rgUILaunch.Items.Add(this.btnWindowHostLocal);
-            this.rgUILaunch.Items.Add(this.btnWindowHostVNC);
-            this.rgUILaunch.Items.Add(this.btnDxWindowHost);
-            this.rgUILaunch.Label = "UI Launch";
-            this.rgUILaunch.Name = "rgUILaunch";
+            this.btnToggleDeveloperMode.Label = "Developer Mode";
+            this.btnToggleDeveloperMode.Name = "btnToggleDeveloperMode";
+            this.btnToggleDeveloperMode.SuperTip = "Toggle DeveloperMode UI";
+            this.btnToggleDeveloperMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnToggleDeveloperMode_Click);
             // 
             // btnThemedWindowHostModeless
             // 
@@ -842,17 +866,6 @@
             this.btnDxWindowHost.ScreenTip = "dx:DXWindow";
             this.btnDxWindowHost.SuperTip = "Super TIp";
             this.btnDxWindowHost.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnDxWindowHost_Click);
-            // 
-            // rgWPFUI
-            // 
-            this.rgWPFUI.Items.Add(this.btnLaunchCylon);
-            this.rgWPFUI.Items.Add(this.btnLaunchCylon2);
-            this.rgWPFUI.Items.Add(this.btnDxDockLayoutManagerControl);
-            this.rgWPFUI.Items.Add(this.btnDxLayoutControl);
-            this.rgWPFUI.Items.Add(this.btnDxDockLayoutControl);
-            this.rgWPFUI.Items.Add(this.btnPrismRegionTest);
-            this.rgWPFUI.Label = "WPF UI";
-            this.rgWPFUI.Name = "rgWPFUI";
             // 
             // btnLaunchCylon
             // 
@@ -892,17 +905,6 @@
             this.btnPrismRegionTest.ScreenTip = "Uses SupportTools_Visio ThemedWindowHost";
             this.btnPrismRegionTest.SuperTip = "Calls ShowUserControl";
             this.btnPrismRegionTest.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnPrismRegionTest_Click);
-            // 
-            // rgMVVMExamples
-            // 
-            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VAVM1st);
-            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VA1st);
-            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VAVM1stDI);
-            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VB1st);
-            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VC11st);
-            this.rgMVVMExamples.Items.Add(this.btnVNC_MVVM_VC21st);
-            this.rgMVVMExamples.Label = "MVVM Examples";
-            this.rgMVVMExamples.Name = "rgMVVMExamples";
             // 
             // btnVNC_MVVM_VAVM1st
             // 
@@ -1004,8 +1006,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox rcbDisplayChattyEvents;
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox rcbDeveloperUIMode;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpHelp;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddInInfo;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnDeveloperMode;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnDisplayAddInInfo;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnToggleDeveloperMode;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnGetApplicationInfo;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnGetDocumentInfo;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnGetStencilInfo;

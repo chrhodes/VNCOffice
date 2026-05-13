@@ -1,7 +1,5 @@
 ﻿using System;
 
-//using DevExpress.CodeParser.Diagnostics;
-
 using Microsoft.Office.Tools.Ribbon;
 
 using VNCVisioToolsApplication.Actions;
@@ -910,7 +908,6 @@ namespace VNCVisioTools
             {
                 Common.WriteToDebugWindow(ex.Message, force: true);
             }
-
         }
 
         private void btnToggleDeveloperMode_Click(object sender, RibbonControlEventArgs e)
