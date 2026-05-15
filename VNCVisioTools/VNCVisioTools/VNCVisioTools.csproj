@@ -303,6 +303,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\VNC.VSTOAddin.Visio\VNC.VSTOAddIn.Visio.csproj">
+      <Project>{504d8346-cbbe-9089-fed4-2d0b239efb2d}</Project>
+      <Name>VNC.VSTOAddIn.Visio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddin.csproj">
+      <Project>{1cc80f79-387b-0e6b-af64-919fef85a636}</Project>
+      <Name>VNC.VSTOAddin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VNCVisioToolsApplication\VNCVisioToolsApplication.csproj">
       <Project>{fe428cc6-b31d-47a7-928b-6301d5d2bb91}</Project>
       <Name>VNCVisioToolsApplication</Name>
