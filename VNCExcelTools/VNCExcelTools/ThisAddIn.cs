@@ -41,6 +41,10 @@ namespace VNCExcelTools
             Common.ExcelApplication = Globals.ThisAddIn.Application;
 
             // NOTE(crhodes)
+            // Added this so
+            VNC.VSTOAddIn.Excel.Domain.Excel.ExcelApplication = Globals.ThisAddIn.Application;
+
+            // NOTE(crhodes)
             // Initialize the AddInApplication.
             // This creates the WPF/Prism Environment in a ExcelPrismAddInApplication.
 
@@ -105,8 +109,7 @@ namespace VNCExcelTools
         #region VSTO generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify the contents of this method with the code editor.
         /// </summary>
         private void InternalStartup()
         {

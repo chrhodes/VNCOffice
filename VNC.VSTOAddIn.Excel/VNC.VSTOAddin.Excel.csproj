@@ -9,7 +9,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.13</FileVersion>
+        <FileVersion>2026.05.15</FileVersion>
         <Description>VNC VSTO AddIn Excel Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -58,6 +58,17 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Domain\XlData.cs" />
+    </ItemGroup>
+    
+    <!--If put XlData.cs back in, uncomment the following line-->
+    <ItemGroup>
+      <PackageReference Include="ExcelDataReader.DataSet" Version="3.8.0" />
+      <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+      <PackageReference Include="MicrosoftOfficeCore" Version="15.0.0" />
     </ItemGroup>
 
     <ItemGroup>

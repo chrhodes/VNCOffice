@@ -54,8 +54,10 @@
     <SolidColorBrush x:Key="StepCBackground" Color="#D0E0D0" />
     <SolidColorBrush x:Key="StepDBackground" Color="#D0E0D0" />
     <SolidColorBrush x:Key="StepEBackground" Color="#D0E0D0" />
-    
-        <!-- These are used by SimpleWPFApp -->
+
+    <SolidColorBrush x:Key="FolderMapBackground" Color="#00FF00" />
+
+    <!-- These are used by SimpleWPFApp -->
         <!-- And can be removed if not used. -->
 
     <!-- <SolidColorBrush x:Key="CombinedMainBackground" Color="#00E0F0" /> -->
@@ -72,8 +74,6 @@
     
     <!-- <SolidColorBrush x:Key="Background" Color="#F0E040" /> -->
     <!-- <SolidColorBrush x:Key="DetailBackground" Color="#F0E040" /> -->
-
-
 
     <Style x:Key="uiLoggingFilterCheckEdit" TargetType="dxe:CheckEdit">
         <Setter Property="FontWeight" Value="SemiBold" />

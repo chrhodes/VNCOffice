@@ -14,7 +14,7 @@ namespace VNCExcelToolsApplication
         public static Events.ExcelAppEvents AppEvents;
         public static Events.AddInApplicationEvents AddInApplicationEvents;
 
-        public static MSExcel.Application ExcelApplication { get; set; }
+        public static MSExcel.Application? ExcelApplication { get; set; }
 
         //// NOTE(crhodes)
         //// Add new VNC.Core.Information? InformationXXX
@@ -30,6 +30,7 @@ namespace VNCExcelToolsApplication
         //// If we want this we have to set it from VNCExcelTools.ThisAddIn_Startup
 
         public static VNC.Core.Information? InformationVNCExcelTools;
+
         public static VNC.Core.Information? InformationVNCExcelToolsApplication;
         public static VNC.Core.Information? InformationVNCExcelToolsApplicationCore;
 

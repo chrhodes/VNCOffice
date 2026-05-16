@@ -264,6 +264,14 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\VNC.VSTOAddIn.Excel\VNC.VSTOAddin.Excel.csproj">
+      <Project>{55b0e6f7-f0f0-4370-563d-494b80d48f31}</Project>
+      <Name>VNC.VSTOAddin.Excel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj">
+      <Project>{6b20f08c-746f-855b-eaab-7d1913e3f28b}</Project>
+      <Name>VNC.VSTOAddIn</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VNCExcelToolsApplication\VNCExcelToolsApplication.csproj">
       <Project>{271c1637-8479-d240-e0ef-312276d5adc9}</Project>
       <Name>VNCExcelToolsApplication</Name>

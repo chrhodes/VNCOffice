@@ -44,5 +44,6 @@ namespace VNCExcelTools
             Common.WriteToDebugWindow("Ribbon_Load()", true);
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
+
     }
 }

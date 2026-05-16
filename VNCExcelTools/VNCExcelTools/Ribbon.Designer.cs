@@ -41,6 +41,8 @@
             this.btnAddTableOfContents = this.Factory.CreateRibbonButton();
             this.btnAddHeader = this.Factory.CreateRibbonButton();
             this.btnAddFooter = this.Factory.CreateRibbonButton();
+            this.rgUtilities = this.Factory.CreateRibbonGroup();
+            this.btnFolderMap = this.Factory.CreateRibbonButton();
             this.rgDebug = this.Factory.CreateRibbonGroup();
             this.btnDebugWindow = this.Factory.CreateRibbonButton();
             this.btnWatchWindow = this.Factory.CreateRibbonButton();
@@ -76,6 +78,7 @@
             this.tab1.SuspendLayout();
             this.rtVNCExcelTools.SuspendLayout();
             this.rgDocumentActions.SuspendLayout();
+            this.rgUtilities.SuspendLayout();
             this.rgDebug.SuspendLayout();
             this.grpHelp.SuspendLayout();
             this.rtUILaunchApproaches.SuspendLayout();
@@ -99,6 +102,7 @@
             // rtVNCExcelTools
             // 
             this.rtVNCExcelTools.Groups.Add(this.rgDocumentActions);
+            this.rtVNCExcelTools.Groups.Add(this.rgUtilities);
             this.rtVNCExcelTools.Groups.Add(this.rgDebug);
             this.rtVNCExcelTools.Groups.Add(this.grpHelp);
             this.rtVNCExcelTools.Label = "VNCExcelTools";
@@ -133,6 +137,19 @@
             this.btnAddFooter.Name = "btnAddFooter";
             this.btnAddFooter.ScreenTip = "Add Footer to all Pages";
             this.btnAddFooter.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddFooter_Click);
+            // 
+            // rgUtilities
+            // 
+            this.rgUtilities.Items.Add(this.btnFolderMap);
+            this.rgUtilities.Label = "Utilities";
+            this.rgUtilities.Name = "rgUtilities";
+            // 
+            // btnFolderMap
+            // 
+            this.btnFolderMap.Label = "Folder Map";
+            this.btnFolderMap.Name = "btnFolderMap";
+            this.btnFolderMap.SuperTip = "Create File/Folder Map";
+            this.btnFolderMap.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnFolderMap_Click);
             // 
             // rgDebug
             // 
@@ -238,6 +255,7 @@
             this.btnThemedWindowHostModeless.Name = "btnThemedWindowHostModeless";
             this.btnThemedWindowHostModeless.ScreenTip = "dx:ThemedWindow (Show)";
             this.btnThemedWindowHostModeless.SuperTip = "Super TIp";
+            this.btnThemedWindowHostModeless.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnThemedWindowHostModeless_Click);
             // 
             // btnThemedWindowHostModal
             // 
@@ -245,16 +263,19 @@
             this.btnThemedWindowHostModal.Name = "btnThemedWindowHostModal";
             this.btnThemedWindowHostModal.ScreenTip = "dx:ThemedWindow (ShowDialog)";
             this.btnThemedWindowHostModal.SuperTip = "Super TIp";
+            this.btnThemedWindowHostModal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnThemedWindowHostModal_Click);
             // 
             // btnWindowHostLocal
             // 
             this.btnWindowHostLocal.Label = "Window Host (Local)";
             this.btnWindowHostLocal.Name = "btnWindowHostLocal";
+            this.btnWindowHostLocal.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnWindowHostLocal_Click);
             // 
             // btnWindowHostVNC
             // 
             this.btnWindowHostVNC.Label = "Window Host (VNC)";
             this.btnWindowHostVNC.Name = "btnWindowHostVNC";
+            this.btnWindowHostVNC.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnWindowHostVNC_Click);
             // 
             // btnDxWindowHost
             // 
@@ -262,6 +283,7 @@
             this.btnDxWindowHost.Name = "btnDxWindowHost";
             this.btnDxWindowHost.ScreenTip = "dx:DXWindow";
             this.btnDxWindowHost.SuperTip = "Super TIp";
+            this.btnDxWindowHost.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnDxWindowHost_Click);
             // 
             // rgWPFUI
             // 
@@ -278,27 +300,32 @@
             // 
             this.btnLaunchCylon.Label = "Launch Cylon";
             this.btnLaunchCylon.Name = "btnLaunchCylon";
+            this.btnLaunchCylon.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLaunchCylon_Click);
             // 
             // btnLaunchCylon2
             // 
             this.btnLaunchCylon2.Label = "Launch Cylon 2";
             this.btnLaunchCylon2.Name = "btnLaunchCylon2";
             this.btnLaunchCylon2.ScreenTip = "Uses VNC.Core.Xaml.Presentation.WindowHost";
+            this.btnLaunchCylon2.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLaunchCylon2_Click);
             // 
             // btnDxDockLayoutManagerControl
             // 
             this.btnDxDockLayoutManagerControl.Label = "DxDockLayoutManagerControl";
             this.btnDxDockLayoutManagerControl.Name = "btnDxDockLayoutManagerControl";
+            this.btnDxDockLayoutManagerControl.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnDxDockLayoutManagerControl_Click);
             // 
             // btnDxLayoutControl
             // 
             this.btnDxLayoutControl.Label = "DxLayoutControl";
             this.btnDxLayoutControl.Name = "btnDxLayoutControl";
+            this.btnDxLayoutControl.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnDxLayoutControl_Click);
             // 
             // btnDxDockLayoutControl
             // 
             this.btnDxDockLayoutControl.Label = "DxDockLayoutControl";
             this.btnDxDockLayoutControl.Name = "btnDxDockLayoutControl";
+            this.btnDxDockLayoutControl.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnDxDockLayoutControl_Click);
             // 
             // btnPrismRegionTest
             // 
@@ -306,6 +333,7 @@
             this.btnPrismRegionTest.Name = "btnPrismRegionTest";
             this.btnPrismRegionTest.ScreenTip = "Uses SupportTools_Visio ThemedWindowHost";
             this.btnPrismRegionTest.SuperTip = "Calls ShowUserControl";
+            this.btnPrismRegionTest.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnPrismRegionTest_Click);
             // 
             // rgMVVMExamples
             // 
@@ -323,17 +351,20 @@
             this.btnVNC_MVVM_VAVM1st.Label = "VNC MVVM VAVM 1st";
             this.btnVNC_MVVM_VAVM1st.Name = "btnVNC_MVVM_VAVM1st";
             this.btnVNC_MVVM_VAVM1st.SuperTip = "ViewModel First by Hand";
+            this.btnVNC_MVVM_VAVM1st.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VAVM1st_Click);
             // 
             // btnVNC_MVVM_VA1st
             // 
             this.btnVNC_MVVM_VA1st.Label = "VNC MVVM VA1st (DI)";
             this.btnVNC_MVVM_VA1st.Name = "btnVNC_MVVM_VA1st";
+            this.btnVNC_MVVM_VA1st.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VA1st_Click);
             // 
             // btnVNC_MVVM_VAVM1stDI
             // 
             this.btnVNC_MVVM_VAVM1stDI.Label = "VNC MVVM VAVM 1st (DI)";
             this.btnVNC_MVVM_VAVM1stDI.Name = "btnVNC_MVVM_VAVM1stDI";
             this.btnVNC_MVVM_VAVM1stDI.SuperTip = "ViewAViewModel 1st using DI";
+            this.btnVNC_MVVM_VAVM1stDI.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VAVM1stDI_Click);
             // 
             // btnVNC_MVVM_VB1st
             // 
@@ -341,6 +372,7 @@
             this.btnVNC_MVVM_VB1st.Name = "btnVNC_MVVM_VB1st";
             this.btnVNC_MVVM_VB1st.SuperTip = "ViewB has a parameterless constructor and one that takes a ViewModel and ViewMode" +
     "l is registed with DI";
+            this.btnVNC_MVVM_VB1st.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VB1st_Click);
             // 
             // btnVNC_MVVM_VC11st
             // 
@@ -348,12 +380,14 @@
             this.btnVNC_MVVM_VC11st.Name = "btnVNC_MVVM_VC11st";
             this.btnVNC_MVVM_VC11st.SuperTip = "ViewC has parameterless and parameterized(ViewModel) constructors and is not regi" +
     "stered with DI";
+            this.btnVNC_MVVM_VC11st.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VC11st_Click);
             // 
             // btnVNC_MVVM_VC21st
             // 
             this.btnVNC_MVVM_VC21st.Label = "VNC MVVM VC2 1st (DI)";
             this.btnVNC_MVVM_VC21st.Name = "btnVNC_MVVM_VC21st";
             this.btnVNC_MVVM_VC21st.SuperTip = "ViewC2 has no parameterless constructor and is not Registered with DI";
+            this.btnVNC_MVVM_VC21st.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VC21st_Click);
             // 
             // Ribbon
             // 
@@ -369,6 +403,8 @@
             this.rtVNCExcelTools.PerformLayout();
             this.rgDocumentActions.ResumeLayout(false);
             this.rgDocumentActions.PerformLayout();
+            this.rgUtilities.ResumeLayout(false);
+            this.rgUtilities.PerformLayout();
             this.rgDebug.ResumeLayout(false);
             this.rgDebug.PerformLayout();
             this.grpHelp.ResumeLayout(false);
@@ -426,6 +462,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddTableOfContents;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddHeader;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddFooter;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgUtilities;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnFolderMap;
     }
 
     partial class ThisRibbonCollection

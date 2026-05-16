@@ -64,17 +64,17 @@ namespace VNCExcelToolsApplication.Excel
 
             // Get Information about ourselves
 
-            var VNCExcelTools_Assembly = Assembly.GetExecutingAssembly();
+            //var VNCExcelTools_Assembly = Assembly.GetExecutingAssembly();
 
-            if (VNCExcelTools_Assembly != null)
-            {
-                var VNCExcelTools_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-                    .GetVersionInfo(VNCExcelTools_Assembly.Location);
+            //if (VNCExcelTools_Assembly != null)
+            //{
+            //    var VNCExcelTools_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+            //        .GetVersionInfo(VNCExcelTools_Assembly.Location);
 
-                Common.InformationVNCExcelTools = Common.GetInformation(
-                    VNCExcelTools_Assembly,
-                    VNCExcelTools_AssemblyFileVersionInfo);
-            }
+            //    Common.InformationVNCExcelTools = Common.GetInformation(
+            //        VNCExcelTools_Assembly,
+            //        VNCExcelTools_AssemblyFileVersionInfo);
+            //}
 
             var VNCExcelToolsApplication_Assembly = Assembly.GetAssembly(typeof(VNCExcelToolsApplication.Common));
 

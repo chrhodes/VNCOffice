@@ -1,0 +1,899 @@
+﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Input;
+
+using Prism.Commands;
+using Prism.Dialogs;
+using Prism.Events;
+
+using VNC;
+using VNC.Core.Events;
+using VNC.Core.Mvvm;
+using VNC.Core.Services;
+
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
+
+namespace VNCExcelToolsApplication.Presentation.ViewModels
+{
+    public class FolderMapViewModel : EventViewModelBase, IFolderMapViewModel, IInstanceCountVM
+    {
+        #region Fields (none)
+
+
+
+        #endregion
+
+        #region Constructors, Initialization, and Load
+
+        public FolderMapViewModel(
+            IEventAggregator eventAggregator,
+            IDialogService dialogService) : base(eventAggregator, dialogService)
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+
+            InstanceCountVM++;
+
+            // TODO(crhodes)
+            // Save constructor parameters here
+
+            InitializeViewModel();
+
+            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
+        }
+
+        private void InitializeViewModel()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
+
+            // NOTE(crhodes)
+            // Put things here that initialize the ViewModel
+            // Initialize EventHandlers, Commands, etc.
+
+            SayHelloCommand = new DelegateCommand(
+                SayHello, SayHelloCanExecute);
+
+            Message = "FolderMapViewModel says hello";
+
+            CreateFolderMapCommand = new DelegateCommand(CreateFolderMap, CreateFolderMapCanExecute);
+
+            // If using CommandParameter, figure out TYPE here and below
+            // and remove above declaration
+            //CreateFolderMapCommand = new DelegateCommand<TYPE>(CreateFolderMap, CreateFolderMapCanExecute);
+
+            GroupDownCommand = new DelegateCommand(GroupDown, GroupDownCanExecute);
+
+            // If using CommandParameter, figure out TYPE here and below
+            // and remove above declaration
+            //GroupDownCommand = new DelegateCommand<TYPE>(GroupDown, GroupDownCanExecute);
+
+            GroupDownAllCommand = new DelegateCommand(GroupDownAll, GroupDownAllCanExecute);
+
+            // If using CommandParameter, figure out TYPE here and below
+            // and remove above declaration
+            //GroupDownAllCommand = new DelegateCommand<TYPE>(GroupDownAll, GroupDownAllCanExecute);
+
+            UngroupSelectionCommand = new DelegateCommand(UngroupSelection, UngroupSelectionCanExecute);
+
+            // If using CommandParameter, figure out TYPE here and below
+            // and remove above declaration
+            //UngroupSelectionCommand = new DelegateCommand<TYPE>(UngroupSelection, UngroupSelectionCanExecute);
+            // Start Cut Two - Put this in InitializeViewModel or Constructor
+
+            SearchLeftCommand = new DelegateCommand(SearchLeft, SearchLeftCanExecute);
+            SearchRightCommand = new DelegateCommand(SearchRight, SearchRightCanExecute);
+            SearchUpCommand = new DelegateCommand(SearchUp, SearchUpCanExecute);
+            SearchDownCommand = new DelegateCommand(SearchDown, SearchDownCanExecute);
+
+            // If using CommandParameter, figure out TYPE here and below
+            // and remove above declaration
+            //SearchLeftCommand = new DelegateCommand<TYPE>(SearchLeft, SearchLeftCanExecute);
+
+            if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        #endregion
+
+        #region Enums (none)
+
+
+
+        #endregion
+
+        #region Structures (none)
+
+
+
+        #endregion
+
+        #region Properties (none)
+
+
+
+        #endregion
+
+        #region Event Handlers (none)
+
+
+
+        #endregion
+
+        #region Public Methods (none)
+
+
+
+        #endregion
+
+        #region Commands
+
+        #region SayHello Command
+
+        public ICommand SayHelloCommand { get; private set; }
+
+        private void SayHello()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+
+            Message = "Hello";
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        private bool SayHelloCanExecute()
+        {
+            return true;
+        }
+
+        #endregion
+
+        #region CreateFolderMap Command
+
+        public DelegateCommand? CreateFolderMapCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? CreateFolderMapCommand { get; set; }
+
+        // If displaying UserControl
+        // public static WindowHost _CreateFolderMapHost = null;
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE CreateFolderMapCommandParameter;
+
+        public string CreateFolderMapContent { get; set; } = "CreateFolderMap";
+        public string CreateFolderMapToolTip { get; set; } = "CreateFolderMap ToolTip";
+
+        // Can get fancy and use Resources
+        //public string CreateFolderMapContent { get; set; } = "ViewName_CreateFolderMapContent";
+        //public string CreateFolderMapToolTip { get; set; } = "ViewName_CreateFolderMapContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_CreateFolderMapContent">CreateFolderMap</system:String>
+        //    <system:String x:Key="ViewName_CreateFolderMapContentToolTip">CreateFolderMap ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void CreateFolderMap(TYPE value)
+        public void CreateFolderMap()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called CreateFolderMap";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_CreateFolderMapHost is null) _CreateFolderMapHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<CreateFolderMapEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<CreateFolderMapEvent>().Publish(
+            //      new CreateFolderMapEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class CreateFolderMapEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<CreateFolderMapEvent>().Subscribe(CreateFolderMap);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool CreateFolderMapCanExecute(TYPE value)
+        public bool CreateFolderMapCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #region GroupDown Command
+
+        public DelegateCommand? GroupDownCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? GroupDownCommand { get; set; }
+
+        // If displaying UserControl
+        // public static WindowHost _GroupDownHost = null;
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE GroupDownCommandParameter;
+
+        public string GroupDownContent { get; set; } = "GroupDown";
+        public string GroupDownToolTip { get; set; } = "GroupDown ToolTip";
+
+        // Can get fancy and use Resources
+        //public string GroupDownContent { get; set; } = "ViewName_GroupDownContent";
+        //public string GroupDownToolTip { get; set; } = "ViewName_GroupDownContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_GroupDownContent">GroupDown</system:String>
+        //    <system:String x:Key="ViewName_GroupDownContentToolTip">GroupDown ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void GroupDown(TYPE value)
+        public void GroupDown()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called GroupDown";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_GroupDownHost is null) _GroupDownHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<GroupDownEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<GroupDownEvent>().Publish(
+            //      new GroupDownEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class GroupDownEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<GroupDownEvent>().Subscribe(GroupDown);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool GroupDownCanExecute(TYPE value)
+        public bool GroupDownCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #region GroupDownAll Command
+
+        // If displaying UserControl
+        // public static WindowHost _GroupDownAllHost = null;
+
+        public DelegateCommand? GroupDownAllCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? GroupDownAllCommand { get; set; }
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE GroupDownAllCommandParameter;
+
+        public string GroupDownAllContent { get; set; } = "GroupDownAll";
+        public string GroupDownAllToolTip { get; set; } = "GroupDownAll ToolTip";
+
+        // Can get fancy and use Resources
+        //public string GroupDownAllContent { get; set; } = "ViewName_GroupDownAllContent";
+        //public string GroupDownAllToolTip { get; set; } = "ViewName_GroupDownAllContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_GroupDownAllContent">GroupDownAll</system:String>
+        //    <system:String x:Key="ViewName_GroupDownAllContentToolTip">GroupDownAll ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void GroupDownAll(TYPE value)
+        public void GroupDownAll()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called GroupDownAll";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_GroupDownAllHost is null) _GroupDownAllHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<GroupDownAllEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<GroupDownAllEvent>().Publish(
+            //      new GroupDownAllEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class GroupDownAllEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<GroupDownAllEvent>().Subscribe(GroupDownAll);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool GroupDownAllCanExecute(TYPE value)
+        public bool GroupDownAllCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #region UngroupSelection Command
+
+        // If displaying UserControl
+        // public static WindowHost _UngroupSelectionHost = null;
+
+        public DelegateCommand? UngroupSelectionCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? UngroupSelectionCommand { get; set; }
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE UngroupSelectionCommandParameter;
+
+        public string UngroupSelectionContent { get; set; } = "UngroupSelection";
+        public string UngroupSelectionToolTip { get; set; } = "UngroupSelection ToolTip";
+
+        // Can get fancy and use Resources
+        //public string UngroupSelectionContent { get; set; } = "ViewName_UngroupSelectionContent";
+        //public string UngroupSelectionToolTip { get; set; } = "ViewName_UngroupSelectionContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_UngroupSelectionContent">UngroupSelection</system:String>
+        //    <system:String x:Key="ViewName_UngroupSelectionContentToolTip">UngroupSelection ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void UngroupSelection(TYPE value)
+        public void UngroupSelection()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called UngroupSelection";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_UngroupSelectionHost is null) _UngroupSelectionHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<UngroupSelectionEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<UngroupSelectionEvent>().Publish(
+            //      new UngroupSelectionEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class UngroupSelectionEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<UngroupSelectionEvent>().Subscribe(UngroupSelection);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool UngroupSelectionCanExecute(TYPE value)
+        public bool UngroupSelectionCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #region SearchLeft Command
+
+        // If displaying UserControl
+        // public static WindowHost _SearchLeftHost = null;
+
+        public DelegateCommand? SearchLeftCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? SearchLeftCommand { get; set; }
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE SearchLeftCommandParameter;
+
+        public string SearchLeftContent { get; set; } = "SearchLeft";
+        public string SearchLeftToolTip { get; set; } = "SearchLeft ToolTip";
+
+        // Can get fancy and use Resources
+        //public string SearchLeftContent { get; set; } = "ViewName_SearchLeftContent";
+        //public string SearchLeftToolTip { get; set; } = "ViewName_SearchLeftContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_SearchLeftContent">SearchLeft</system:String>
+        //    <system:String x:Key="ViewName_SearchLeftContentToolTip">SearchLeft ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void SearchLeft(TYPE value)
+        public void SearchLeft()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called SearchLeft";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_SearchLeftHost is null) _SearchLeftHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<SearchLeftEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<SearchLeftEvent>().Publish(
+            //      new SearchLeftEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class SearchLeftEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<SearchLeftEvent>().Subscribe(SearchLeft);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool SearchLeftCanExecute(TYPE value)
+        public bool SearchLeftCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #region SearchRight Command
+
+        // If displaying UserControl
+        // public static WindowHost _SearchRightHost = null;
+
+        public DelegateCommand? SearchRightCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? SearchRightCommand { get; set; }
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE SearchRightCommandParameter;
+
+        public string SearchRightContent { get; set; } = "SearchRight";
+        public string SearchRightToolTip { get; set; } = "SearchRight ToolTip";
+
+        // Can get fancy and use Resources
+        //public string SearchRightContent { get; set; } = "ViewName_SearchRightContent";
+        //public string SearchRightToolTip { get; set; } = "ViewName_SearchRightContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_SearchRightContent">SearchRight</system:String>
+        //    <system:String x:Key="ViewName_SearchRightContentToolTip">SearchRight ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void SearchRight(TYPE value)
+        public void SearchRight()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called SearchRight";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_SearchRightHost is null) _SearchRightHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<SearchRightEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<SearchRightEvent>().Publish(
+            //      new SearchRightEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class SearchRightEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<SearchRightEvent>().Subscribe(SearchRight);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool SearchRightCanExecute(TYPE value)
+        public bool SearchRightCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #region SearchUp Command
+
+        // If displaying UserControl
+        // public static WindowHost _SearchUpHost = null;
+
+        public DelegateCommand? SearchUpCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? SearchUpCommand { get; set; }
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE SearchUpCommandParameter;
+
+        public string SearchUpContent { get; set; } = "SearchUp";
+        public string SearchUpToolTip { get; set; } = "SearchUp ToolTip";
+
+        // Can get fancy and use Resources
+        //public string SearchUpContent { get; set; } = "ViewName_SearchUpContent";
+        //public string SearchUpToolTip { get; set; } = "ViewName_SearchUpContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_SearchUpContent">SearchUp</system:String>
+        //    <system:String x:Key="ViewName_SearchUpContentToolTip">SearchUp ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void SearchUp(TYPE value)
+        public void SearchUp()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called SearchUp";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_SearchUpHost is null) _SearchUpHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<SearchUpEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<SearchUpEvent>().Publish(
+            //      new SearchUpEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class SearchUpEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<SearchUpEvent>().Subscribe(SearchUp);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool SearchUpCanExecute(TYPE value)
+        public bool SearchUpCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #region SearchDown Command
+
+        // If displaying UserControl
+        // public static WindowHost _SearchDownHost = null;
+
+        public DelegateCommand? SearchDownCommand { get; set; }
+        // If using CommandParameter, figure out TYPE here and above
+        // and remove above declaration
+        //public DelegateCommand<TYPE>? SearchDownCommand { get; set; }
+
+        // If using CommandParameter, figure out TYPE here
+        //public TYPE SearchDownCommandParameter;
+
+        public string SearchDownContent { get; set; } = "SearchDown";
+        public string SearchDownToolTip { get; set; } = "SearchDown ToolTip";
+
+        // Can get fancy and use Resources
+        //public string SearchDownContent { get; set; } = "ViewName_SearchDownContent";
+        //public string SearchDownToolTip { get; set; } = "ViewName_SearchDownContentToolTip";
+
+        // Put these in Resource File
+        //    <system:String x:Key="ViewName_SearchDownContent">SearchDown</system:String>
+        //    <system:String x:Key="ViewName_SearchDownContentToolTip">SearchDown ToolTip</system:String>  
+
+        // If using CommandParameter, figure out TYPE here
+        //public void SearchDown(TYPE value)
+        public void SearchDown()
+        {
+            Int64 startTicks = 0;
+            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            // TODO(crhodes)
+            // Do something amazing.
+
+            Message = "Cool, you called SearchDown";
+
+            PublishStatusMessage(Message);
+
+            // If launching a UserControl
+
+            // if (_SearchDownHost is null) _SearchDownHost = new WindowHost();
+            // var userControl = new USERCONTROL();
+
+            // _loggingConfigurationHost.DisplayUserControlInHost(
+            //     "TITLE GOES HERE",
+            //     //Common.DEFAULT_WINDOW_WIDTH,
+            //     //Common.DEFAULT_WINDOW_HEIGHT,
+            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+            //     ShowWindowMode.Modeless_Show,
+            //     userControl);
+
+            // Uncomment this if you are telling someone else to handle this
+
+            // Common.EventAggregator.GetEvent<SearchDownEvent>().Publish();
+
+            // May want EventArgs
+
+            //  EventAggregator.GetEvent<SearchDownEvent>().Publish(
+            //      new SearchDownEventArgs()
+            //      {
+            //            Organization = _collectionMainViewModel.SelectedCollection.Organization,
+            //            Process = _contextMainViewModel.Context.SelectedProcess
+            //      });
+
+            // Start Cut Four - Put this in PrismEvents
+
+            // public class SearchDownEvent : PubSubEvent { }
+
+            // End Cut Four
+
+            // Start Cut Five - Put this in places that listen for event
+
+            //Common.EventAggregator.GetEvent<SearchDownEvent>().Subscribe(SearchDown);
+
+            // End Cut Five
+
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+        }
+
+        // If using CommandParameter, figure out TYPE and fix above
+        //public bool SearchDownCanExecute(TYPE value)
+        public bool SearchDownCanExecute()
+        {
+            // TODO(crhodes)
+            // Add any before button is enabled logic.
+            return true;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Protected Methods (none)
+
+
+
+        #endregion
+
+        #region Private Methods (none)
+
+
+
+        #endregion
+
+        #region IInstanceCountVM
+
+        private static int _instanceCountVM;
+
+        public int InstanceCountVM
+        {
+            get => _instanceCountVM;
+            set => _instanceCountVM = value;
+        }
+
+        #endregion
+    }
+}

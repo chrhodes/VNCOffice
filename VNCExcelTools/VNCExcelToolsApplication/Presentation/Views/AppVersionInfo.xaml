@@ -41,7 +41,7 @@
 
         <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
 
-         <Border BorderBrush="Red" BorderThickness="2" Margin="2" DockPanel.Dock="Bottom"
+        <Border BorderBrush="Red" BorderThickness="2" Margin="2" DockPanel.Dock="Bottom"
                 VerticalAlignment="Top" HorizontalAlignment="Stretch">
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0">
@@ -54,12 +54,12 @@
         <ScrollViewer>
         <StackPanel Orientation="Vertical">
 
-
             <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2"
                 MinWidth="500" HorizontalAlignment="Stretch">
 
                 <StackPanel x:Name="spVNCExcelTools"
-                        Orientation="Vertical" Margin="2" DataContext="{Binding InformationVNCExcelTools}" >
+                        Orientation="Vertical" Margin="2" 
+                            DataContext="{Binding InformationVNCExcelTools}" >
                     <vncviews:AssemblyInformation />
                     <vncviews:FileInformation />
                 </StackPanel>
@@ -69,8 +69,9 @@
             <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2"
                 MinWidth="500" HorizontalAlignment="Stretch">
 
-                    <StackPanel x:Name="spVNCExcelToolsApplication"
-                            Orientation="Vertical" Margin="2" DataContext="{Binding InformationVNCExcelToolsApplication}" >
+                <StackPanel x:Name="spVNCExcelToolsApplication"
+                            Orientation="Vertical" Margin="2" 
+                            DataContext="{Binding InformationVNCExcelToolsApplication}" >
                     <vncviews:AssemblyInformation />
                     <vncviews:FileInformation />
                 </StackPanel>
@@ -80,13 +81,14 @@
             <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2"
                 MinWidth="500" HorizontalAlignment="Stretch">
 
-                    <StackPanel x:Name="spVNCExcelToolsApplicationCore"
-                            Orientation="Vertical" Margin="2" DataContext="{Binding InformationVNCExcelToolsApplicationCore}" >
-                        <vncviews:AssemblyInformation />
-                        <vncviews:FileInformation />
-                    </StackPanel>
+                <StackPanel x:Name="spVNCExcelToolsApplicationCore"
+                            Orientation="Vertical" Margin="2" 
+                            DataContext="{Binding InformationVNCExcelToolsApplicationCore}" >
+                    <vncviews:AssemblyInformation />
+                    <vncviews:FileInformation />
+                </StackPanel>
 
-                </Border>
+            </Border>
 
             <!-- TODO(crhodes)
              Add sections below for additional assemblies
@@ -99,9 +101,9 @@
              <Border Grid.Column="0" BorderBrush="Red" BorderThickness="2" Margin="2"
                      MinWidth="500" HorizontalAlignment="Stretch">
 
-                    <StackPanel x:Name="spVNCVSTOAddInExcel"
-                                Orientation="Vertical" Margin="2"
-                                DataContext="{Binding InformationVNCVSTOAddInExcel}" >
+                <StackPanel x:Name="spVNCVSTOAddInExcel"
+                            Orientation="Vertical" Margin="2"
+                            DataContext="{Binding InformationVNCVSTOAddInExcel}" >
                      <vncviews:AssemblyInformation />
                      <vncviews:FileInformation />
                  </StackPanel>

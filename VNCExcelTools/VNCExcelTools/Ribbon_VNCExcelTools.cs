@@ -64,6 +64,24 @@ namespace VNCExcelTools
 
         #endregion Document Actions Events
 
+        #region Utilities Events
+
+        private void btnFolderMap_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_CustomUI.FolderMap();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        #endregion
+
         #region Help Events
 
         private void btnDisplayAddInInfo_Click(object sender, RibbonControlEventArgs e)
