@@ -238,7 +238,7 @@ namespace SupportTools_Excel.Actions
 			        workSheet = (Worksheet)workbook.Worksheets.Add();
 		        }
 
-		        ((Range)workSheet.Cells[_HEADING_ROW, _FOLDER_INFO_COL]).Value = "Cummulative Folder Count";
+		        ((Range)workSheet.Cells[_HEADING_ROW, _FOLDER_INFO_COL]).Value = "Cumulative Folder Count";
 		        ((Range)workSheet.Cells[_HEADING_ROW, _FOLDER_INFO_COL + 1]).Value = "Cummulative File Count";
 		        ((Range)workSheet.Cells[_HEADING_ROW, _FOLDER_INFO_COL + 2]).Value = "Cummulative Size";
                                

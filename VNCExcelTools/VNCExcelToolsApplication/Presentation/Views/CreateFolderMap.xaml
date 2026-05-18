@@ -39,7 +39,7 @@
     d:DesignStyle="{StaticResource vncDesignStyleUC}"
 
     SizeChanged="thisControl_SizeChanged"
-    Height="800"
+    Height="850"
 >
     <!--xmlns:converters="clr-namespace:VNCExcelToolsApplication.Presentation.Converters"-->
 
@@ -160,7 +160,7 @@
                         </dxlc:LayoutItem> -->
                         <!--<dxlc:LayoutItem Label="Limit Levels">-->
                         	<dxe:SpinEdit x:Name="seFolderLimitLevels" 
-                        		Value="{Binding FolderLimitLevels, Mode=TwoWay}" />
+                        		Value="{Binding FolderLimitLevel, Mode=TwoWay}" />
                         <!--</dxlc:LayoutItem>-->
                         <!--<dxlc:LayoutItem Label="LimitLevels">
                             <dxe:SpinEdit 
@@ -183,6 +183,42 @@
                     	    IsChecked="{Binding ShowFiles}"/>
                 <!--</dxlc:LayoutItem>-->
 
+                <dxlc:LayoutGroup x:Name="lgFonts" Header="Fonts"
+                	View="GroupBox" Orientation="Horizontal" 
+                	VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                	IsCollapsible="True"  IsCollapsed="False">
+
+                    <dxlc:LayoutItem Label="Default FontSize" HorizontalAlignment="Left">
+                        <dxe:SpinEdit x:Name="seDefaultFontSize" HorizontalAlignment="Left"
+                    		Value="{Binding DefaultFontSize, Mode=TwoWay}" />
+                    </dxlc:LayoutItem>
+                    
+                    <dxlc:LayoutItem Label="Folder FontSize" HorizontalAlignment="Left">
+                    	<dxe:SpinEdit x:Name="seFolderFontSize" 
+                    		Value="{Binding FolderFontSize, Mode=TwoWay}" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="File FontSize" HorizontalAlignment="Left">
+                        <dxe:SpinEdit x:Name="seFileFontSize" 
+                    		Value="{Binding FileFontSize, Mode=TwoWay}" />
+                    </dxlc:LayoutItem>
+
+                    <!--<dxlc:LayoutItem Label="FolderFontSize">
+                        <dxe:SpinEdit 
+                            Value="{Binding FolderFontSize, Mode=TwoWay}" 
+                            Increment=".005"    
+                            MinValue="{Binding MinVoltageChangeTrigger, Mode=OneWay}" 
+                            MaxValue="{Binding MaxVoltageChangeTrigger, Mode=OneWay}" 
+                            Mask="F3" MaskType="Numeric" MaskUseAsDisplayFormat="True"
+                            IsFloatValue="True" 
+                            ToolTip="Change Trigger in Volts"/>
+                    </dxlc:LayoutItem> -->
+                    
+
+
+
+                </dxlc:LayoutGroup>
+                
                 <dxlc:LayoutGroup x:Name="lgInclusionMatchingRules" Header="Inclusion Matching Rules"
                     View="GroupBox" Orientation="Horizontal" 
                     VerticalAlignment="Top" HorizontalAlignment="Stretch"
@@ -327,18 +363,21 @@
                     <dxlc:LayoutItem Label="Months Since Created">
                         <dxe:SpinEdit x:Name="seMonthsSinceCreated" HorizontalAlignment="Left"
                                       IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
-                        		      Value="{Binding MonthsSincedCreated, Mode=TwoWay}" />
+                                      MinValue="1"
+                        		      Value="{Binding MonthsSinceCreated, Mode=TwoWay}" />
                     </dxlc:LayoutItem>
 
                     <dxlc:LayoutItem Label="Months Since Written">
                         <dxe:SpinEdit x:Name="seMonthsSinceWritten" HorizontalAlignment="Left"
                                       IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                                      MinValue="1"
                         		      Value="{Binding MonthsSinceWritten, Mode=TwoWay}" />
                     </dxlc:LayoutItem>
 
                     <dxlc:LayoutItem Label="Months Since Accessed">
                         <dxe:SpinEdit x:Name="seMonthsSinceAccessed" HorizontalAlignment="Left"
                                       IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                                      MinValue="1"
                         		      Value="{Binding MonthsSinceAccessed, Mode=TwoWay}" />
                     </dxlc:LayoutItem>
                 </dxlc:LayoutGroup>
@@ -389,7 +428,7 @@
                     <dxlc:LayoutItem HorizontalAlignment="Left">
                         <dxe:CheckEdit x:Name="ceIllegalCharacters"
                             Content="Check for Illegal Characters" 
-                            IsChecked="False"/>
+                            IsChecked="{Binding CheckForIllegalCharacters}"/>
                     </dxlc:LayoutItem>
 
                     <dxlc:LayoutItem Label="Illegal Characters Color" HorizontalAlignment="Right">
@@ -416,24 +455,24 @@
                 <dxlc:LayoutGroup View="Group" Orientation="Horizontal" >
                     
                     <dxlc:LayoutItem HorizontalAlignment="Left">
-                        <dxe:CheckEdit x:Name="ceCheckPathLength"
-                            Content="Check Path Length" 
+                        <dxe:CheckEdit x:Name="ceCheckFileNameLength"
+                            Content="Check File Name Length" 
                             IsChecked="False"/>
                     </dxlc:LayoutItem>
 
-                    <dxlc:LayoutItem Label="Illegal Path Length Color" HorizontalAlignment="Right">
+                    <dxlc:LayoutItem Label="Illegal File Name Length Color" HorizontalAlignment="Right">
                         <dxe:PopupColorEdit HorizontalAlignment="Right" Width="100"
-                                        IsEnabled="{Binding IsEnabled, ElementName=ceCheckPathLength}"
-                                        Color="{Binding IllegalPathLengthColor, Mode=TwoWay}" >
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceCheckFileNameLength}"
+                                        Color="{Binding IllegalFileNameLengthColor, Mode=TwoWay}" >
                         </dxe:PopupColorEdit>
                     </dxlc:LayoutItem>
                     
                 </dxlc:LayoutGroup>
 
                 <dxlc:LayoutItem Label="Maximum File Name Length" Margin="20,0,0,0">
-                    <dxe:TextEdit x:Name="teMaxPathLength" HorizontalAlignment="Left"
-                                Text="{Binding MaxPathLength}"
-                            	ToolTip="{Binding MaxPathLengthToolTip }"/>
+                    <dxe:TextEdit x:Name="teMaxFileNameLength" HorizontalAlignment="Left"
+                                Text="{Binding MaxFileNameLength}"
+                            	ToolTip="{Binding MaxFileNameLengthToolTip }"/>
                 </dxlc:LayoutItem>
 
             </dxlc:LayoutGroup>
