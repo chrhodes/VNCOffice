@@ -84,9 +84,9 @@
                 <dxlc:LayoutItem>
                     <!-- Second form uses CommandParameter -->
                     <Button 
-            		Command="{Binding CreateFolderMapCommand }"
-            		Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }"
-            		ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" />
+            		    Command="{Binding CreateFolderMapCommand }"
+            		    Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }"
+            		    ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" />
                     <!-- <dxlc:LayoutItem> -->
                     <!-- <Button -->
                     <!-- Command="{Binding CreateFolderMapCommand}" -->
@@ -102,9 +102,9 @@
                     <!-- Second form uses CommandParameter -->
                     <dxlc:LayoutItem>
                         <Button 
-                		Command="{Binding GroupDownCommand }"
-                		Content="{Binding GroupDownContent, FallbackValue='GroupDown' }"
-                		ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" />
+                		    Command="{Binding GroupDownCommand }"
+                		    Content="{Binding GroupDownContent, FallbackValue='GroupDown' }"
+                		    ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" />
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                     <!-- <Button -->

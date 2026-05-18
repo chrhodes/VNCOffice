@@ -1,0 +1,486 @@
+﻿<vncmvvm:ViewBase
+    x:Class="VNCExcelToolsApplication.Presentation.Views.CreateFolderMap"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    mc:Ignorable="d"
+
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:i1="http://schemas.microsoft.com/xaml/behaviors"
+    
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"     
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dxdb="http://schemas.devexpress.com/winfx/2008/xaml/demobase"
+    xmlns:dxdo="http://schemas.devexpress.com/winfx/2008/xaml/docking"  
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+    xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"    
+
+    xmlns:views="clr-namespace:VNCExcelToolsApplication.Presentation.Views"
+    xmlns:viewModels="clr-namespace:VNCExcelToolsApplication.Presentation.ViewModels"
+
+    xmlns:core="clr-namespace:VNCExcelToolsApplication.Core;assembly=VNCExcelToolsApplication.Core"
+
+    xmlns:vnccore="clr-namespace:VNC.Core;assembly=VNC.Core"
+    xmlns:vncenum="clr-namespace:VNC.Core.Xaml.Enums;assembly=VNC.Core"
+    xmlns:vncmvvm="clr-namespace:VNC.Core.Mvvm;assembly=VNC.Core"
+    xmlns:vncviews="clr-namespace:VNC.WPF.Presentation.Views;assembly=VNC.WPF.Presentation"
+    xmlns:vncconverters="clr-namespace:VNC.WPF.Presentation.Converters;assembly=VNC.WPF.Presentation"
+
+    xmlns:prism="http://prismlibrary.com/"
+    prism:ViewModelLocator.AutoWireViewModel="False"
+
+    Background="{StaticResource CreateFolderMapBackground}"
+
+    d:DesignWidth="600" d:DesignHeight="800
+    "
+    d:DesignStyle="{StaticResource vncDesignStyleUC}"
+
+    SizeChanged="thisControl_SizeChanged"
+    Height="800"
+>
+    <!--xmlns:converters="clr-namespace:VNCExcelToolsApplication.Presentation.Converters"-->
+
+    <!-- Move this to Resources\Xaml\Display_StylesAndTemplates.xaml -->
+    <!-- <SolidColorBrush x:Key="CreateFolderMapBackground" Color="#00FF00" /> -->
+
+    <!-- <d:DesignerProperties.DesignStyle> -->
+        <!-- <Style TargetType="UserControl"> -->
+            <!-- <Setter Property="Background" Value="White" /> -->
+        <!-- </Style> -->
+    <!-- </d:DesignerProperties.DesignStyle> -->
+
+    <!-- <vncmvvm:ViewBase.Resources> -->
+        <!-- <localc:SelectedItemsToListOfStringConverter x:Key="SelectedItemsToListOfStringConverter" /> -->
+        <!-- <localc:SelectedItemsConverter x:Key="SelectedItemsConverter" /> -->
+        <!-- <localc:SelectedItemsToWorkItemQueryWrapperConverter x:Key="SelectedItemsToCreateFolderMapWrapperConverter" /> -->
+        <!-- <DataTemplate x:Key="dataTemplateCreateFolderMap"> -->
+            <!-- <StackPanel> -->
+                <!-- <Label Content="{Binding XPath=@Name}" /> -->
+            <!-- </StackPanel> -->
+        <!-- </DataTemplate> -->
+
+        <!-- <DataTemplate x:Key="dataTemplateCreateFolderMapX"> -->
+            <!-- <StackPanel> -->
+                <!-- <Label Content="{Binding Name}" /> -->
+            <!-- </StackPanel> -->
+        <!-- </DataTemplate> -->
+    <!-- </vnccore:ViewBase.Resources> -->
+
+    <!-- Can declare ViewModel in Xaml -->
+    <!-- <UserControl.DataContext> -->
+        <!-- <localvm:CreateFolderMapViewModel /> -->
+    <!-- </UserControl.DataContext> -->
+
+    <!-- Simple Layout using Grid -->
+
+    <DockPanel Margin="5">
+
+        <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
+
+        <dxlc:LayoutControl x:Name="layoutItems" Orientation="Vertical" Background="#FFFFFF">
+            
+            <dxlc:LayoutGroup Header="Folder Selection"
+                View="GroupBox" Orientation="Horizontal" VerticalAlignment="Top"
+                IsCollapsible="True"  IsCollapsed="False">
+                
+                <dxlc:LayoutItem Label="StartingFolder" LabelPosition="Top" VerticalAlignment="Stretch"  >
+                <!-- Hopefully we don't use the first one anymore! 
+                    <dxe:TextEdit x:Name="teStartingFolder"
+                		Text="{Binding StartingFolder}"
+                    	ToolTip="tooltip"
+                     	MouseDoubleClick="teStartingFolder_MouseDoubleClick" />
+                -->
+                    <dxe:TextEdit
+                		Text="{Binding StartingFolder }"
+                    	ToolTip="{Binding StartingFolderToolTip }">
+                        <!--<i1:Interaction.Triggers>
+                            <i1:EventTrigger EventName="MouseDoubleClick">
+                                <prism:InvokeCommandAction Command="{Binding Path=StartingFolder_DoubleClick_Command}"/>
+                             </i1:EventTrigger>
+                        </i1:Interaction.Triggers>-->
+                    </dxe:TextEdit>
+                </dxlc:LayoutItem>
+                
+                <!-- Second form uses CommandParameter -->
+                <dxlc:LayoutItem  VerticalAlignment="Stretch" HorizontalAlignment="Right">
+                    <Button Width="100"
+                        Command="{Binding PickStartingFolderCommand }"
+
+                		ToolTip="{Binding PickStartingFolderToolTip, FallbackValue='PickStartingFolder ToolTip' }">
+                        <TextBlock 
+                            TextWrapping="Wrap" TextAlignment="Center"
+                            Text="{Binding PickStartingFolderContent, FallbackValue='Pick Starting Folder' }">
+
+                        </TextBlock>
+                    </Button>
+                </dxlc:LayoutItem>
+                <!-- <dxlc:LayoutItem> -->
+                    <!-- <Button -->
+                        <!-- Command="{Binding PickStartingFolderCommand}" -->
+                        <!-- CommandParameter="{Binding PickStartingFolderCommandParameter}" -->
+                        <!-- Content="{Binding PickStartingFolderContent, FallbackValue='PickStartingFolder' }" -->
+                        <!-- ToolTip="{Binding PickStartingFolderToolTip, FallbackValue='PickStartingFolder ToolTip' }" /> -->
+                        <!-- <Button.Background> -->
+                            <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
+                        <!-- </Button.Background> -->
+                <!-- </dxlc:LayoutItem> -->          
+                
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Header="Folder Map Content"
+                View="GroupBox" Orientation="Vertical" 
+                VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                IsCollapsible="True"  IsCollapsed="False">
+
+                <dxlc:LayoutGroup View="Group" Orientation="Horizontal" >
+                    <!--<dxlc:LayoutItem Label="Show Folders" >-->
+                    <dxe:CheckEdit x:Name="ceShowFolders" 
+                                Content="Show Folders"
+                                HorizontalAlignment="Left"
+                    	        IsChecked="{Binding ShowFolders}"/>
+                    <!--</dxlc:LayoutItem>-->
+
+                    <!--<dxlc:LayoutItem Label="Skip Empty Folders">-->
+                    <dxe:CheckEdit x:Name="ceSkipEmptyFolders" 
+                                Content="Skip Empty Folders"
+                                HorizontalAlignment="Left"
+                    	        IsChecked="{Binding SkipEmptyFolders}"/>
+                    <!--</dxlc:LayoutItem>-->
+
+                    <dxlc:LayoutGroup View="Group" Orientation="Horizontal" HorizontalAlignment="Right" >
+                        <dxe:CheckEdit x:Name="ceLimitLevels" 
+                                    Content="Limit Levels"                                   
+                   	                IsChecked="{Binding LimitLevels}"/>
+                        <!--<dxlc:LayoutItem Label="LimitLevels">
+                        	<dxe:SpinEdit x:Name="seLimitLevels" 
+                        		Value="1" />
+                        </dxlc:LayoutItem> -->
+                        <!--<dxlc:LayoutItem Label="Limit Levels">-->
+                        	<dxe:SpinEdit x:Name="seFolderLimitLevels" 
+                        		Value="{Binding FolderLimitLevels, Mode=TwoWay}" />
+                        <!--</dxlc:LayoutItem>-->
+                        <!--<dxlc:LayoutItem Label="LimitLevels">
+                            <dxe:SpinEdit 
+                                Value="{Binding LimitLevels, Mode=TwoWay}" 
+                                Increment=".005"    
+                                MinValue="{Binding MinVoltageChangeTrigger, Mode=OneWay}" 
+                                MaxValue="{Binding MaxVoltageChangeTrigger, Mode=OneWay}" 
+                                Mask="F3" MaskType="Numeric" MaskUseAsDisplayFormat="True"
+                                IsFloatValue="True" 
+                                ToolTip="Change Trigger in Volts"/>
+                        </dxlc:LayoutItem> -->
+
+                    </dxlc:LayoutGroup>
+                    
+                </dxlc:LayoutGroup>
+               
+                <!--<dxlc:LayoutItem Label="Show Files">-->
+                <dxe:CheckEdit x:Name="ceShowFiles" 
+                            Content="Show Files"
+                    	    IsChecked="{Binding ShowFiles}"/>
+                <!--</dxlc:LayoutItem>-->
+
+                <dxlc:LayoutGroup x:Name="lgInclusionMatchingRules" Header="Inclusion Matching Rules"
+                    View="GroupBox" Orientation="Horizontal" 
+                    VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                    IsCollapsible="True"  IsCollapsed="False">
+
+                    <dxlc:LayoutGroup Orientation="Vertical">
+
+                        <dxlc:LayoutItem HorizontalAlignment="Left">
+                            <dxe:CheckEdit x:Name="ceFolderMatchUsingRegEx"
+                                Content="Folder Match Using RegEx" 
+                                IsChecked="{Binding FolderMatchUsingRegEx}"/>
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="Folder Highlight Color" 
+                                     IsEnabled="{Binding IsEnabled, ElementName=ceFolderMapRegEx}">
+                            <dxe:PopupColorEdit HorizontalAlignment="Left"
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceFolderMapRegEx}"
+                                        Color="{Binding FolderHighlightColor, Mode=TwoWay}" 
+                                        DisplayMode="Color">
+                            </dxe:PopupColorEdit>
+                        </dxlc:LayoutItem>
+
+                        <!--<dxlc:LayoutItem Label="Folder RexEx Pattern" LabelPosition="Top"
+                                     IsEnabled="{Binding IsEnabled, ElementName=ceFolderMapRegEx}">
+                            <dxe:TextEdit x:Name="teRegExFolderHilightMatch" 
+                                  ToolTip="Illegal Folder Characters Tooltip." />
+                        </dxlc:LayoutItem>-->
+
+                        <dxlc:LayoutItem Label="FolderRegExPattern" LabelPosition="Top"
+                                         IsEnabled="{Binding IsEnabled, ElementName=ceFolderMapRegEx}">
+
+                            <dxe:TextEdit
+                        		Text="{Binding FolderRegExPattern }"
+                            	ToolTip="{Binding FolderRegExPatternToolTip }">
+                                <!--<i1:Interaction.Triggers>
+                                    <i1:EventTrigger EventName="MouseDoubleClick">
+                                        <prism:InvokeCommandAction Command="{Binding Path=FolderRegExPattern_DoubleClick_Command}"/>
+                                    </i1:EventTrigger>
+                                </i1:Interaction.Triggers>-->
+                            </dxe:TextEdit>
+                        </dxlc:LayoutItem>
+
+                    </dxlc:LayoutGroup>
+
+                    <dxlc:LayoutGroup Orientation="Vertical">
+
+                        <dxlc:LayoutItem HorizontalAlignment="Left">
+                            <dxe:CheckEdit x:Name="ceFileMatchUsingRegEx"
+                            Content="File Match Using RegEx" 
+                            IsChecked="{Binding FileMatchUsingRegEx}"/>
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="File Highlight Color"
+                                      Visibility="{Binding IsEnabled, ElementName=ceFileMatchUsingRegEx}">
+                            <dxe:PopupColorEdit HorizontalAlignment="Left"
+                                IsEnabled="{Binding IsEnabled, ElementName=ceFileMatchUsingRegEx}"
+                                Color="{Binding FileHighlightColor, Mode=TwoWay}" 
+                                DisplayMode="Color">
+                            </dxe:PopupColorEdit>
+                        </dxlc:LayoutItem>
+
+                        <dxlc:LayoutItem Label="File RexEx Pattern" LabelPosition="Top"
+                                     IsEnabled="{Binding IsEnabled, ElementName=ceFileMatchUsingRegEx}">
+                            <dxe:TextEdit
+                        		Text="{Binding FileRegExPattern }"
+                            	ToolTip="{Binding FileRegExPatternToolTip }">
+                            </dxe:TextEdit>
+
+                        </dxlc:LayoutItem>
+
+                    </dxlc:LayoutGroup>
+
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+
+            <!--<dxlc:LayoutGroup Header="Inclusion Matching Rules"
+                View="GroupBox" Orientation="Horizontal" 
+                VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                IsCollapsible="True"  IsCollapsed="False">
+
+                <dxlc:LayoutGroup Orientation="Vertical">
+
+                    <dxlc:LayoutItem HorizontalAlignment="Left">
+                        <dxe:CheckEdit x:Name="ceRegExMatchFolder"
+                            Content="RegEx Match Folder" 
+                            IsChecked="False"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Folder Highlight Color" 
+                                     IsEnabled="{Binding IsEnabled, ElementName=ceRegExMatchFolder}">
+                        <Button HorizontalAlignment="Right">
+
+                        </Button>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Folder RexEx Pattern" LabelPosition="Top"
+                                     IsEnabled="{Binding IsEnabled, ElementName=ceRegExMatchFolder}">
+                        <dxe:TextEdit x:Name="teRegExFolderHilightMatch" 
+                                  ToolTip="Illegal Folder Characters Tooltip." />
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup Orientation="Vertical">
+
+                    <dxlc:LayoutItem HorizontalAlignment="Left">
+                        <dxe:CheckEdit x:Name="ceRegExMatchFile"
+                            Content="RegEx Match File" 
+                            IsChecked="False"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="File Highlight Color"
+                                      Visibility="{Binding IsEnabled, ElementName=ceRegExMatchFile}">
+                        <Button HorizontalAlignment="Right">
+
+                        </Button>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="File RexEx Pattern" LabelPosition="Top"
+                                     IsEnabled="{Binding IsEnabled, ElementName=ceRegExMatchFile}">
+                        <dxe:TextEdit x:Name="teRegExFileHilightMatch" 
+                              ToolTip="RegEx File Tooltip." />
+                    </dxlc:LayoutItem>
+
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>-->
+
+            <dxlc:LayoutGroup Header="Date Information"
+                View="GroupBox" Orientation="Horizontal" 
+                VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                IsCollapsible="True"  IsCollapsed="False">
+
+                <dxlc:LayoutGroup View="Group" Orientation="Vertical" >
+                    <dxlc:LayoutItem HorizontalAlignment="Left">
+                        <dxe:CheckEdit x:Name="ceColorCodeDates"
+                            Content="Color Code Dates" 
+                            IsChecked="False"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Months Since Created">
+                        <dxe:SpinEdit x:Name="seMonthsSinceCreated" HorizontalAlignment="Left"
+                                      IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                        		      Value="{Binding MonthsSincedCreated, Mode=TwoWay}" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Months Since Written">
+                        <dxe:SpinEdit x:Name="seMonthsSinceWritten" HorizontalAlignment="Left"
+                                      IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                        		      Value="{Binding MonthsSinceWritten, Mode=TwoWay}" />
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Months Since Accessed">
+                        <dxe:SpinEdit x:Name="seMonthsSinceAccessed" HorizontalAlignment="Left"
+                                      IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                        		      Value="{Binding MonthsSinceAccessed, Mode=TwoWay}" />
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutGroup View="Group" Orientation="Vertical" >
+                    <dxlc:LayoutItem Label="Default Color" HorizontalAlignment="Right">
+                        <dxe:PopupColorEdit 
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                                        Color="{Binding DefaultColor, Mode=TwoWay}"
+                                        DisplayMode="Color">
+                        </dxe:PopupColorEdit>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Created Color" HorizontalAlignment="Right">
+                        <dxe:PopupColorEdit 
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                                        Color="{Binding CreatedColor, Mode=TwoWay}"
+                                        DisplayMode="Color">
+                        </dxe:PopupColorEdit>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Written Color" HorizontalAlignment="Right">
+                        <dxe:PopupColorEdit 
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                                        Color="{Binding WrittenColor, Mode=TwoWay}" 
+                                        DisplayMode="Color">
+                        </dxe:PopupColorEdit>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Accessed Color" HorizontalAlignment="Right">
+                        <dxe:PopupColorEdit
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceColorCodeDates}"
+                                        Color="{Binding AccessedColor, Mode=TwoWay}" 
+                                        DisplayMode="Color">
+                        </dxe:PopupColorEdit>
+                    </dxlc:LayoutItem>
+                </dxlc:LayoutGroup>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup Header="SharePoint Information"
+                View="GroupBox" Orientation="Vertical" 
+                VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                IsCollapsible="True"  IsCollapsed="False">
+
+                <dxlc:LayoutGroup View="Group" Orientation="Horizontal" >
+                    
+                    <dxlc:LayoutItem HorizontalAlignment="Left">
+                        <dxe:CheckEdit x:Name="ceIllegalCharacters"
+                            Content="Check for Illegal Characters" 
+                            IsChecked="False"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Illegal Characters Color" HorizontalAlignment="Right">
+                        <dxe:PopupColorEdit HorizontalAlignment="Right" Width="100"
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceIllegalCharacters}"
+                                        Color="{Binding IllegalCharacterColors, Mode=TwoWay}" >
+                        </dxe:PopupColorEdit>
+                    </dxlc:LayoutItem>
+                    
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutItem Label="Illegal Folder Characters" LabelHorizontalAlignment="Right" Margin="20,0,0,0">
+                    <dxe:TextEdit x:Name="teIllegalFolderCharacters" 
+                                Text="{Binding IllegalFolderCharacters}"
+                            	ToolTip="{Binding IllegalFolderCharactersToolTip }"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutItem Label="Illegal File Characters" LabelHorizontalAlignment="Right" Margin="20,0,0,0">
+                    <dxe:TextEdit x:Name="teIllegalFileCharacters" 
+                                Text="{Binding IllegalFileCharacters}"
+                            	ToolTip="{Binding IllegalFileCharactersToolTip }"/>
+                </dxlc:LayoutItem>
+
+                <dxlc:LayoutGroup View="Group" Orientation="Horizontal" >
+                    
+                    <dxlc:LayoutItem HorizontalAlignment="Left">
+                        <dxe:CheckEdit x:Name="ceCheckPathLength"
+                            Content="Check Path Length" 
+                            IsChecked="False"/>
+                    </dxlc:LayoutItem>
+
+                    <dxlc:LayoutItem Label="Illegal Path Length Color" HorizontalAlignment="Right">
+                        <dxe:PopupColorEdit HorizontalAlignment="Right" Width="100"
+                                        IsEnabled="{Binding IsEnabled, ElementName=ceCheckPathLength}"
+                                        Color="{Binding IllegalPathLengthColor, Mode=TwoWay}" >
+                        </dxe:PopupColorEdit>
+                    </dxlc:LayoutItem>
+                    
+                </dxlc:LayoutGroup>
+
+                <dxlc:LayoutItem Label="Maximum File Name Length" Margin="20,0,0,0">
+                    <dxe:TextEdit x:Name="teMaxPathLength" HorizontalAlignment="Left"
+                                Text="{Binding MaxPathLength}"
+                            	ToolTip="{Binding MaxPathLengthToolTip }"/>
+                </dxlc:LayoutItem>
+
+            </dxlc:LayoutGroup>
+
+            <dxlc:LayoutGroup HorizontalAlignment="Right">
+
+                <dxlc:LayoutItem>
+                    <Button x:Name="btnCancel" 
+			        Content="Cancel" 
+                    ToolTip="TCancel ToolTip"
+                    HorizontalAlignment="Right"
+                    Foreground="Red"
+                    BorderBrush="Red"
+                    Click="btnCancel_Click"  />
+                </dxlc:LayoutItem>
+
+                <!--<dxlc:LayoutItem>
+                    <Button x:Name="btnCreateFolderMap" 
+			        Content="Create Folder Map" 
+                    ToolTip="Table Info ToolTip"
+                    HorizontalAlignment="Right"
+                    Background="#FF85F585"
+                    Click="btnCreateFolderMap_Click" />
+                </dxlc:LayoutItem>-->
+                
+                <!-- Second form uses CommandParameter -->
+                <dxlc:LayoutItem>
+                    <Button 
+                		Command="{Binding CreateFolderMapCommand }"
+                		Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }"
+                		ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" />
+                </dxlc:LayoutItem>
+                <!-- <dxlc:LayoutItem> -->
+                    <!-- <Button -->
+                        <!-- Command="{Binding CreateFolderMapCommand}" -->
+                        <!-- CommandParameter="{Binding CreateFolderMapCommandParameter}" -->
+                        <!-- Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }" -->
+                        <!-- ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" /> -->
+                        <!-- <Button.Background> -->
+                            <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
+                        <!-- </Button.Background> -->
+                <!-- </dxlc:LayoutItem> -->
+                
+            </dxlc:LayoutGroup>
+
+        </dxlc:LayoutControl>
+
+    </DockPanel>
+
+</vncmvvm:ViewBase>

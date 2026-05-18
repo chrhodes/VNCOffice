@@ -9,27 +9,27 @@ namespace VNCExcelToolsApplication
     {
         new public const string LOG_CATEGORY = "VNCExcelToolsApplication";
 
-        public const string cCONFIG_FILE = @"C:\temp\VNCExcelTools.xml";
+        public const string cCONFIG_FILE = @"C:\temp\VNCExcelToolsApplication.xml";
 
-        public static Events.ExcelAppEvents AppEvents;
-        public static Events.AddInApplicationEvents AddInApplicationEvents;
+        public static Events.ExcelAppEvents? AppEvents;
+        public static Events.AddInApplicationEvents? AddInApplicationEvents;
 
         public static MSExcel.Application? ExcelApplication { get; set; }
 
-        //// NOTE(crhodes)
-        //// Add new VNC.Core.Information? InformationXXX
-        //// for other Assemblies that are used as part of the application.
-        ////
-        //// Initialize GetAndSetInformation() in AddInApplication.cs
-        ////
-        //// Extend Views\AppVersionInfo.xaml as needed
-        ////  Add new properties
-        ////  Update InitializeViewModel()
-
-        //// NOTE(crhodes)
-        //// If we want this we have to set it from VNCExcelTools.ThisAddIn_Startup
+        // NOTE(crhodes)
+        // If we want this we have to set it from VNCExcelTools.ThisAddIn_Startup
 
         public static VNC.Core.Information? InformationVNCExcelTools;
+
+        // NOTE(crhodes)
+        // Add new VNC.Core.Information? InformationXXX
+        // for other Assemblies that are used as part of the application.
+        //
+        // Initialize GetAndSetInformation() in AddInApplication.cs
+        //
+        // Extend Views\AppVersionInfo.xaml as needed
+        //  Add new properties
+        //  Update InitializeViewModel()
 
         public static VNC.Core.Information? InformationVNCExcelToolsApplication;
         public static VNC.Core.Information? InformationVNCExcelToolsApplicationCore;
@@ -40,10 +40,10 @@ namespace VNCExcelToolsApplication
         public static VNC.Core.Information? InformationVNCWpfPresentation;
         public static VNC.Core.Information? InformationVNCWpfPresentationDx;
 
-        public static IContainerProvider Container;
+        public static IContainerProvider? Container;
 
         public static IEventAggregator EventAggregator = new EventAggregator();
-        public static VNCExcelToolsApplication.Bootstrapper ApplicationBootstrapper;
+        public static VNCExcelToolsApplication.Bootstrapper? ApplicationBootstrapper;
 
         internal const int DEFAULT_WINDOW_WIDTH_LARGE = 1800;
         internal const int DEFAULT_WINDOW_HEIGHT_LARGE = 1200;

@@ -25,8 +25,8 @@ namespace VNCExcelToolsApplication.Actions
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,
                 //(CommandCockpitViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpitViewModel))
-                //(FolderMap)Common.ApplicationBootstrapper.Container.Resolve(typeof(FolderMap))
-                new FolderMap()
+                (FolderMap)Common.ApplicationBootstrapper.Container.Resolve(typeof(FolderMap))
+            //new FolderMap()
             );
         }      
     }

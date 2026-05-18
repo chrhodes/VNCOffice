@@ -11,7 +11,11 @@ using Prism.Events;
 using VNC;
 using VNC.Core.Events;
 using VNC.Core.Mvvm;
+using VNC.Core.Presentation;
 using VNC.Core.Services;
+using VNC.WPF.Presentation.Views;
+
+using VNCExcelToolsApplication.Presentation.Views;
 
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
@@ -152,16 +156,12 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
         #region CreateFolderMap Command
 
-        public DelegateCommand? CreateFolderMapCommand { get; set; }
-        // If using CommandParameter, figure out TYPE here and above
-        // and remove above declaration
-        //public DelegateCommand<TYPE>? CreateFolderMapCommand { get; set; }
-
         // If displaying UserControl
-        // public static WindowHost _CreateFolderMapHost = null;
+        public static WindowHost _CreateFolderMapHost = null;
 
-        // If using CommandParameter, figure out TYPE here
-        //public TYPE CreateFolderMapCommandParameter;
+        // If using CommandParameter, figure out TYPE here and above
+        //public DelegateCommand<TYPE>? CreateFolderMapCommand { get; set; }
+        public DelegateCommand? CreateFolderMapCommand { get; set; }
 
         public string CreateFolderMapContent { get; set; } = "CreateFolderMap";
         public string CreateFolderMapToolTip { get; set; } = "CreateFolderMap ToolTip";
@@ -189,17 +189,18 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // If launching a UserControl
 
-            // if (_CreateFolderMapHost is null) _CreateFolderMapHost = new WindowHost();
-            // var userControl = new USERCONTROL();
+            if (_CreateFolderMapHost is null) _CreateFolderMapHost = new WindowHost();
+            //var userControl = new CreateFolderMap();
+            var userControl = (CreateFolderMap)Common.ApplicationBootstrapper.Container.Resolve(typeof(CreateFolderMap));
 
-            // _loggingConfigurationHost.DisplayUserControlInHost(
-            //     "TITLE GOES HERE",
-            //     //Common.DEFAULT_WINDOW_WIDTH,
-            //     //Common.DEFAULT_WINDOW_HEIGHT,
-            //     (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
-            //     (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
-            //     ShowWindowMode.Modeless_Show,
-            //     userControl);
+            _CreateFolderMapHost.DisplayUserControlInHost(
+                "Create Folder Map",
+                //Common.DEFAULT_WINDOW_WIDTH,
+                //Common.DEFAULT_WINDOW_HEIGHT,
+                (Int32)userControl.Width + Common.WINDOW_HOSTING_USER_CONTROL_WIDTH_PAD,
+                (Int32)userControl.Height + Common.WINDOW_HOSTING_USER_CONTROL_HEIGHT_PAD,
+                ShowWindowMode.Modal_ShowDialog,
+                userControl);
 
             // Uncomment this if you are telling someone else to handle this
 

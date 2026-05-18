@@ -23,7 +23,11 @@ namespace VNCExcelToolsApplication.Modules
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
+            containerRegistry.Register<IFolderMapViewModel, FolderMapViewModel>();
+            containerRegistry.RegisterSingleton<IFolderMap, FolderMap>();
 
+            containerRegistry.Register<ICreateFolderMapViewModel, CreateFolderMapViewModel>();
+            containerRegistry.RegisterSingleton<ICreateFolderMap, CreateFolderMap>();
             //Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 

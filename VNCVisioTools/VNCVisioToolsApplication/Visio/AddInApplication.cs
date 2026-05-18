@@ -64,28 +64,28 @@ namespace VNCVisioToolsApplication.Visio
 
             // Get Information about ourselves
 
-            var VNCVisioToolsApplicationAssembly = Assembly.GetExecutingAssembly();
+            var VNCVisioToolsApplication_Assembly = Assembly.GetExecutingAssembly();
 
-            if (VNCVisioToolsApplicationAssembly != null)
+            if (VNCVisioToolsApplication_Assembly != null)
             {
-                var VNCVisioToolsApplicationAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-                    .GetVersionInfo(VNCVisioToolsApplicationAssembly.Location);
+                var VNCVisioToolsApplication_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCVisioToolsApplication_Assembly.Location);
 
                 Common.InformationVNCVisioToolsApplication = Common.GetInformation(
-                    VNCVisioToolsApplicationAssembly,
-                    VNCVisioToolsApplicationAssemblyFileVersionInfo);
+                    VNCVisioToolsApplication_Assembly,
+                    VNCVisioToolsApplication_AssemblyFileVersionInfo);
             }
 
-            var VNCVisioToolsApplicationCoreAssembly = Assembly.GetAssembly(typeof(VNCVisioToolsApplication.Core.RegionNames));
+            var VNCVisioToolsApplicationCore_Assembly = Assembly.GetAssembly(typeof(VNCVisioToolsApplication.Core.RegionNames));
 
-            if (VNCVisioToolsApplicationCoreAssembly is not null)
+            if (VNCVisioToolsApplicationCore_Assembly is not null)
             {
-                var VNCVisioToolsApplicationCoreAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-                        .GetVersionInfo(VNCVisioToolsApplicationCoreAssembly.Location);
+                var VNCVisioToolsApplicationCore_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo(VNCVisioToolsApplicationCore_Assembly.Location);
 
                 Common.InformationVNCVisioToolsApplicationCore = Common.GetInformation(
-                    VNCVisioToolsApplicationCoreAssembly,
-                    VNCVisioToolsApplicationCoreAssemblyFileVersionInfo);
+                    VNCVisioToolsApplicationCore_Assembly,
+                    VNCVisioToolsApplicationCore_AssemblyFileVersionInfo);
             }           
 
             // Add Information about the other assemblies in our application
@@ -100,52 +100,52 @@ namespace VNCVisioToolsApplication.Visio
             // Extend Views\AppVersionInfo.xaml as needed
             // Update Views\AppVersionInfo.xaml.cs InitializeViewModel()
 
-            var VNCVisioVSTOAddInAssembly = Assembly.GetAssembly(typeof(VNC.VSTOAddIn.Visio.Common));
+            var VNCVSTOAddInVisio_Assembly = Assembly.GetAssembly(typeof(VNC.VSTOAddIn.Visio.Common));
 
-            if (VNCVisioVSTOAddInAssembly is not null)
+            if (VNCVSTOAddInVisio_Assembly is not null)
             {
-                var VNCVisioVSTOAddInAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-                    .GetVersionInfo(VNCVisioVSTOAddInAssembly.Location);
+                var VNCVisioVSTOAddIn_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCVSTOAddInVisio_Assembly.Location);
 
-                Common.InformationVNCVisioVSTOAddIn = Common.GetInformation(
-                    VNCVisioVSTOAddInAssembly,
-                    VNCVisioVSTOAddInAssemblyFileVersionInfo);
+                Common.InformationVNCVSTOAddInVisio = Common.GetInformation(
+                    VNCVSTOAddInVisio_Assembly,
+                    VNCVisioVSTOAddIn_AssemblyFileVersionInfo);
             }
 
-            var VNCVSTOAddInAssembly = Assembly.GetAssembly(typeof(VNC.VSTOAddIn.Common));
+            var VNCVSTOAddIn_Assembly = Assembly.GetAssembly(typeof(VNC.VSTOAddIn.Common));
 
-            if (VNCVSTOAddInAssembly is not null)
+            if (VNCVSTOAddIn_Assembly is not null)
             {
-                var VNCVSTOAddInAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-                    .GetVersionInfo(VNCVSTOAddInAssembly.Location);
+                var VNCVSTOAddIn_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCVSTOAddIn_Assembly.Location);
 
                 Common.InformationVNCVSTOAddIn = Common.GetInformation(
-                    VNCVSTOAddInAssembly,
-                    VNCVSTOAddInAssemblyFileVersionInfo);
+                    VNCVSTOAddIn_Assembly,
+                    VNCVSTOAddIn_AssemblyFileVersionInfo);
             }
 
-            var VNCWpfPresentationAssembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Common));
+            var VNCWpfPresentation_Assembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Common));
 
-            if (VNCWpfPresentationAssembly is not null)
+            if (VNCWpfPresentation_Assembly is not null)
             {
-                var VNCWpfPresentationAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-                    .GetVersionInfo(VNCWpfPresentationAssembly.Location);
+                var VNCWpfPresentation_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                    .GetVersionInfo(VNCWpfPresentation_Assembly.Location);
 
                 Common.InformationVNCWpfPresentation = Common.GetInformation(
-                    VNCWpfPresentationAssembly,
-                    VNCWpfPresentationAssemblyFileVersionInfo);
+                    VNCWpfPresentation_Assembly,
+                    VNCWpfPresentation_AssemblyFileVersionInfo);
             }
 
-            var VNCWpfPresentationDxAssembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Dx.Common));
+            var VNCWpfPresentationDx_Assembly = Assembly.GetAssembly(typeof(VNC.WPF.Presentation.Dx.Common));
 
-            if (VNCWpfPresentationDxAssembly is not null)
+            if (VNCWpfPresentationDx_Assembly is not null)
             {
-                var VNCWpfPresentationDxAssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-                        .GetVersionInfo(VNCWpfPresentationDxAssembly.Location);
+                var VNCWpfPresentationDx_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
+                        .GetVersionInfo(VNCWpfPresentationDx_Assembly.Location);
 
                 Common.InformationVNCWpfPresentationDx = Common.GetInformation(
-                    VNCWpfPresentationDxAssembly,
-                    VNCWpfPresentationDxAssemblyFileVersionInfo);
+                    VNCWpfPresentationDx_Assembly,
+                    VNCWpfPresentationDx_AssemblyFileVersionInfo);
             }
             
 

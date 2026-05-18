@@ -18,10 +18,9 @@ namespace VNCExcelToolsApplication.Excel
 
         public static void InitializeApplication()
         {
-            Int64 startTicks;
-            startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-
-            startTicks = Common.WriteToDebugWindow("InitializeWPFApplication()", true);
+            Int64 startTicks = 0;
+            Common.WriteToDebugWindow("InitializeApplication()", true);
+            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
@@ -38,8 +37,8 @@ namespace VNCExcelToolsApplication.Excel
 
             InitializePrism();
 
-            Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-            Common.WriteToDebugWindow("InitializeWPFApplication()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("InitializeApplication()-Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         /// <summary>
@@ -64,19 +63,7 @@ namespace VNCExcelToolsApplication.Excel
 
             // Get Information about ourselves
 
-            //var VNCExcelTools_Assembly = Assembly.GetExecutingAssembly();
-
-            //if (VNCExcelTools_Assembly != null)
-            //{
-            //    var VNCExcelTools_AssemblyFileVersionInfo = System.Diagnostics.FileVersionInfo
-            //        .GetVersionInfo(VNCExcelTools_Assembly.Location);
-
-            //    Common.InformationVNCExcelTools = Common.GetInformation(
-            //        VNCExcelTools_Assembly,
-            //        VNCExcelTools_AssemblyFileVersionInfo);
-            //}
-
-            var VNCExcelToolsApplication_Assembly = Assembly.GetAssembly(typeof(VNCExcelToolsApplication.Common));
+            var VNCExcelToolsApplication_Assembly = Assembly.GetExecutingAssembly();
 
             if (VNCExcelToolsApplication_Assembly is not null)
             {

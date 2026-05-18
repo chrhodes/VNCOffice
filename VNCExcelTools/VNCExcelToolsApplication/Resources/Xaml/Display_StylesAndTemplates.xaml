@@ -56,6 +56,7 @@
     <SolidColorBrush x:Key="StepEBackground" Color="#D0E0D0" />
 
     <SolidColorBrush x:Key="FolderMapBackground" Color="#00FF00" />
+    <SolidColorBrush x:Key="CreateFolderMapBackground" Color="#8080FF" />
 
     <!-- These are used by SimpleWPFApp -->
         <!-- And can be removed if not used. -->

@@ -108,7 +108,8 @@ namespace VNCVisioToolsApplication.Presentation.Views
             spVNCVisioToolsApplicationCore.DataContext = Common.InformationVNCVisioToolsApplicationCore;
 
             spVNCVSTOAddIn.DataContext = Common.InformationVNCVSTOAddIn;
-            spVNCVisioVSTOAddIn.DataContext = Common.InformationVNCVisioVSTOAddIn;
+            spVNCVisioVSTOAddIn.DataContext = Common.InformationVNCVSTOAddInVisio;
+
             spVNCWpfPresentation.DataContext = Common.InformationVNCWpfPresentation;
             spVNCWpfPresentationDx.DataContext = Common.InformationVNCWpfPresentationDx;
 
@@ -133,21 +134,7 @@ namespace VNCVisioToolsApplication.Presentation.Views
 
         #region Fields and Properties (none)
 
-        //public Information InformationApplication
-        //{
-        //    get;
-        //    set;
-        //}
-        //public Information InformationApplicationCore
-        //{
-        //    get;
-        //    set;
-        //}
 
-        ////TODO(crhodes)
-        //// Add additional Information InformationXXX for other assemblies
-
-        //public Information InformationVNCCore { get; set; }
 
         #endregion
 

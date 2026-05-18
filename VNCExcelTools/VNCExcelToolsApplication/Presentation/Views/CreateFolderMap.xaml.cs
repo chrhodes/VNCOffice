@@ -1,19 +1,28 @@
 ﻿using System;
 using System.Linq;
+using System.Windows;
+
+using DevExpress.Xpf.Docking;
 
 using VNC;
-using VNC.Core;
 using VNC.Core.Mvvm;
+using VNC.WPF.Presentation.Dx.Views;
 
 using VNCExcelToolsApplication.Presentation.ViewModels;
 
 namespace VNCExcelToolsApplication.Presentation.Views
 {
-    public partial class AppVersionInfo : ViewBase, IInstanceCountV
+    public partial class CreateFolderMap : ViewBase, ICreateFolderMap, IInstanceCountV
     {
+        #region Fields (none)
+
+
+
+        #endregion
+
         #region Constructors, Initialization, and Load
 
-        public AppVersionInfo()
+        public CreateFolderMap()
         {
             Int64 startTicks = 0;
             if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
@@ -26,25 +35,31 @@ namespace VNCExcelToolsApplication.Presentation.Views
 
             // If View First with ViewModel in Xaml
 
-            // ViewModel = (IAppVersionInfoViewModel)DataContext;
+            // ViewModel = (ICreateFolderMapViewModel)DataContext;
 
             // Can create directly
 
-            // ViewModel = new AppVersionInfoViewModel();
+            // ViewModel = CreateFolderMapViewModel();
+
+            // ViewModel = new CreateFolderMapViewModel(
+            // Common.EventAggregator,
+            // (DialogService)Common.Container.Resolve(typeof(DialogService)));
 
             // Can use ourselves for everything
 
-            //DataContext = this;
+            // DataContext = this;
+
+            // If no DataContext is set,
+            // DataContext will come from parent.
 
             InitializeView();
 
             if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
-        public AppVersionInfo(IAppVersionInfoViewModel viewModel)
+        public CreateFolderMap(ICreateFolderMapViewModel viewModel)
         {
-            Int64 startTicks = 0;
-            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()}", Common.LOG_CATEGORY);
+            Int64 startTicks = Log.CONSTRUCTOR($"Enter viewModel({viewModel.GetType()}", Common.LOG_CATEGORY);
 
             InstanceCountVP++;
 
@@ -67,53 +82,20 @@ namespace VNCExcelToolsApplication.Presentation.Views
 
             // Store information about the View, DataContext, and ViewModel
             // for the DeveloperInfo control. Useful for debugging binding issues
-            // Set the DataContext to us.
 
             ViewType = this.GetType().ToString().Split('.').Last();
             ViewModelType = ViewModel?.GetType().ToString().Split('.').Last();
             ViewDataContextType = this.DataContext?.GetType().ToString().Split('.').Last();
+
+            // Set the DataContext to us.
             spDeveloperInfo.DataContext = this;
 
             // TODO(crhodes)
             // Put things here that initialize the View
-            // Hook event handlers, etc.
+            // Hook EventHandlers, etc.
 
 
             // Establish any additional DataContext(s) to things held in this View
-
-            // This gives us access to the ViewModelBase
-            // which contains the Assembly and Runtime Information we need
-            //
-            // NB. This steps on the ViewModel = viewModel above.
-            // Need to think through this if we put anything in AppVersionInfoViewModel
-
-            // TODO(crhodes)
-            // Maybe give a name to the control that contains everything.
-
-            // HACK(crhodes)
-            // Figure out what to do here as there is no current shell in an AddIn
-
-            //InformationApplication = Common.InformationApplication;
-            //InformationApplicationCore = Common.InformationApplicationCore;
-
-            ////TODO(crhodes)
-            //// Add additional Information InformationXXX for other assemblies
-
-            //InformationVNCCore = Common.InformationVNCCore;
-
-            spVNCExcelTools.DataContext = Common.InformationVNCExcelTools;
-            lblRunTimeVersion.DataContext = Common.InformationVNCExcelTools;
-
-            spVNCExcelToolsApplication.DataContext = Common.InformationVNCExcelToolsApplication;
-            spVNCExcelToolsApplicationCore.DataContext = Common.InformationVNCExcelToolsApplicationCore;
-
-            spVNCVSTOAddIn.DataContext = Common.InformationVNCExcelTools;
-            spVNCVSTOAddInExcel.DataContext = Common.InformationVNCVSTOAddInExcel;
-
-            spVNCWpfPresentation.DataContext = Common.InformationVNCWpfPresentation;
-            spVNCWpfPresentationDx.DataContext = Common.InformationVNCWpfPresentationDx;
-
-            spVNCCore.DataContext = Common.InformationVNCCore;
 
             if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
@@ -132,7 +114,7 @@ namespace VNCExcelToolsApplication.Presentation.Views
 
         #endregion
 
-        #region Fields and Properties (none)
+        #region Properties (none)
 
 
 
@@ -170,22 +152,28 @@ namespace VNCExcelToolsApplication.Presentation.Views
 
         #region IInstanceCountV
 
-        private static int _instanceCountV;
+        private static Int32 _instanceCountV;
 
-        public int InstanceCountV
+        public Int32 InstanceCountV
         {
             get => _instanceCountV;
             set => _instanceCountV = value;
         }
 
-        private static int _instanceCountVP;
+        private static Int32 _instanceCountVP;
 
-        public int InstanceCountVP
+        public Int32 InstanceCountVP
         {
             get => _instanceCountVP;
             set => _instanceCountVP = value;
         }
 
         #endregion
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            var host = Window.GetWindow(this);    
+            host?.Close();
+        }
     }
 }

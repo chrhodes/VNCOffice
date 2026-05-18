@@ -11,10 +11,15 @@ namespace VNCVisioToolsApplication
 
         public const string cCONFIG_FILE = @"C:\temp\VNCVisioToolsApplication.xml";
 
-        public static Events.VisioAppEvents AppEvents;
-        public static Events.AddInApplicationEvents AddInApplicationEvents;
+        public static Events.VisioAppEvents? AppEvents;
+        public static Events.AddInApplicationEvents? AddInApplicationEvents;
 
-        public static MSVisio.Application VisioApplication { get; set; }
+        public static MSVisio.Application? VisioApplication { get; set; }
+
+        // NOTE(crhodes)
+        // If we want this we have to set it from VNCVisioTools.ThisAddIn_Startup
+
+        public static VNC.Core.Information? InformationVNCVisioTools;
 
         // NOTE(crhodes)
         // Add new VNC.Core.Information? InformationXXX
@@ -26,22 +31,22 @@ namespace VNCVisioToolsApplication
         //  Add new properties
         //  Update InitializeViewModel()
 
-        public static VNC.Core.Information? InformationVNCVisioTools;
         public static VNC.Core.Information? InformationVNCVisioToolsApplication;
         public static VNC.Core.Information? InformationVNCVisioToolsApplicationCore;
 
-        public static VNC.Core.Information? InformationVNCVisioVSTOAddIn;
+        public static VNC.Core.Information? InformationVNCVSTOAddInVisio;
         public static VNC.Core.Information? InformationVNCVSTOAddIn;
+
         public static VNC.Core.Information? InformationVNCWpfPresentation;
         public static VNC.Core.Information? InformationVNCWpfPresentationDx;
 
         // NOTE(crhodes)
         // If we want this we have to set it from VNCVisioTools.ThisAddIn_Startup
 
-        public static IContainerProvider Container;
+        public static IContainerProvider? Container;
 
         public static IEventAggregator EventAggregator = new EventAggregator();
-        public static VNCVisioToolsApplication.Bootstrapper ApplicationBootstrapper;
+        public static VNCVisioToolsApplication.Bootstrapper? ApplicationBootstrapper;
 
         internal const int DEFAULT_WINDOW_WIDTH_LARGE = 1800;
         internal const int DEFAULT_WINDOW_HEIGHT_LARGE = 1200;

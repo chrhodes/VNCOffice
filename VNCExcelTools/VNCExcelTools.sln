@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.14.37216.2
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11806.211 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.VSTOAddin.Excel", "..\VNC.VSTOAddIn.Excel\VNC.VSTOAddin.Excel.csproj", "{55B0E6F7-F0F0-4370-563D-494B80D48F31}"
 EndProject
@@ -17,8 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		Graph1.dgml = Graph1.dgml
 		VNC.VSTOAddIn.Excel.dgml = VNC.VSTOAddIn.Excel.dgml
-		VNCExcelTools.dgml = VNCExcelTools.dgml
 		VNCExcelTools-Big Picture.dgml = VNCExcelTools-Big Picture.dgml
+		VNCExcelTools.dgml = VNCExcelTools.dgml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Legacy", "Legacy", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
@@ -42,6 +42,7 @@ Global
 		{6B20F08C-746F-855B-EAAB-7D1913E3F28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B20F08C-746F-855B-EAAB-7D1913E3F28B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A29A8CE7-050B-4A76-81C3-574BF65E95D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E9564ACA-CEA7-1F1A-6561-2DE490FBB20F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -56,7 +57,6 @@ Global
 		{6696A283-4598-4152-B931-25E6F7530392}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6696A283-4598-4152-B931-25E6F7530392}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
