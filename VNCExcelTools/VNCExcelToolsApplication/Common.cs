@@ -5,7 +5,7 @@ using MSExcel = Microsoft.Office.Interop.Excel;
 
 namespace VNCExcelToolsApplication
 {
-    public class Common : VNC.VSTOAddIn.Common
+    public class Common : VNC.VSTOAddIn.Excel.Common
     {
         new public const string LOG_CATEGORY = "VNCExcelToolsApplication";
 
@@ -14,7 +14,7 @@ namespace VNCExcelToolsApplication
         public static Events.ExcelAppEvents? AppEvents;
         public static Events.AddInApplicationEvents? AddInApplicationEvents;
 
-        public static MSExcel.Application? ExcelApplication { get; set; }
+        //public static MSExcel.Application? ExcelApplication { get; set; }
 
         // NOTE(crhodes)
         // If we want this we have to set it from VNCExcelTools.ThisAddIn_Startup

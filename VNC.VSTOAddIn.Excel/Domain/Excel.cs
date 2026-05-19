@@ -100,7 +100,9 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public const int cStartHour = 8;
         // and after this are highlighted.
         public const int cEndHour = 20;
-        
+
+        // FIX(crhodes)
+        // Not sure this is going to be set.  Need to pick one place to hold this.  I think Commmon.ExcelApplication
         public static Microsoft.Office.Interop.Excel.Application? ExcelApplication
         {
             get;
@@ -110,6 +112,9 @@ namespace VNC.VSTOAddIn.Excel.Domain
         #region Main Function Routines
 
         #region AddColumns
+
+        // FIXME(crhodes)
+        // Why does this call a deprecated method?
 
         public static void AddColumnToSheet(
             Worksheet ws,
@@ -266,25 +271,38 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 // I converted headerFormat.Font.Name to a string using .ToString() and then used string.Equals for the comparison.
                 // This avoids the dynamic binder and works in all.NET versions,
                 // ensuring type safety and compatibility with your project configuration.
+                // N.B. Put original code back in as we have put Microsoft.CSharp back in
+                // and it is more readable.
 
-                if (!string.Equals(headerFormat.Font.Name.ToString(), cDefaultFontName, StringComparison.Ordinal))
+                if (!headerFormat.Font.Name.Equals(cDefaultFontName))
                 {
-                    //Range currentColumn = (Range)ws.Columns[column];
-                    Range? currentColumn = ws.Columns[column] as Range;
+                    Range currentColumn = (Range)ws.Columns[column];
 
-                    if (currentColumn is not null)
-                    { 
-                        // Assume we want the whole column to change
-                        currentColumn.Font.Name = headerFormat.Font.Name;
-                        currentColumn.Font.Size = headerFormat.Font.Size;
-                    }
+                    // Assume we want the whole column to change
+                    currentColumn.Font.Name = headerFormat.Font.Name;
+                    currentColumn.Font.Size = headerFormat.Font.Size;
                 }
+
+                //if (!string.Equals(headerFormat.Font.Name.ToString(), cDefaultFontName, StringComparison.Ordinal))
+                //{
+                //    //Range currentColumn = (Range)ws.Columns[column];
+                //    Range? currentColumn = ws.Columns[column] as Range;
+
+                //    if (currentColumn is not null)
+                //    { 
+                //        // Assume we want the whole column to change
+                //        currentColumn.Font.Name = headerFormat.Font.Name;
+                //        currentColumn.Font.Size = headerFormat.Font.Size;
+                //    }
+                //}
             }
 
             if (headerFormat == null)
             {
                 //h/*eaderFormat = insertAt.;*/
             }
+
+            //AddColumnHeaderToSheetX((Range)ws.Cells[row, column], columnWidth, headerTitle, headerFormat);
 
             Range? rng = ws.Cells[row, column] as Range;
 
@@ -324,6 +342,8 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 //h/*eaderFormat = insertAt.;*/
             }
 
+            //AddColumnHeaderToSheetX((Range)ws.Cells[row, column], columnWidth, headerTitle, headerFormat);
+
             Range? rng = ws.Cells[row, column] as Range;
 
             if (rng is not null)
@@ -339,7 +359,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static void AddCommentToCell(
             Range rng,
             string text,
-            CellFormatSpecification cellFormatSpecification = null)
+            CellFormatSpecification? cellFormatSpecification = null)
         {
             rng.AddComment(text);
 
@@ -359,10 +379,9 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static void AddCommentToCell(
             Worksheet ws, int column, int row,
             string text,
-            CellFormatSpecification cellFormatSpecification = null)
+            CellFormatSpecification? cellFormatSpecification = null)
         {
             //Range rng = (Range)ws.Cells[row, column];
-
             Range? rng = ws.Cells[row, column] as Range;
 
             if (rng is not null)
@@ -409,7 +428,6 @@ namespace VNC.VSTOAddIn.Excel.Domain
             CellFormatSpecification? cellFormat = null)
         {
             //Range rng = (Range)ws.Cells[row, column];
-
             Range? rng = ws.Cells[row, column] as Range;
 
             AddContentToCell(rng, text, cellFormat);
@@ -473,7 +491,6 @@ namespace VNC.VSTOAddIn.Excel.Domain
             CellFormatSpecification? contentFormat = null)
         {
             //Range rng = (Range)ws.Cells[row, column];
-
             Range? rng = ws.Cells[row, column] as Range;
 
             if (rng != null)
@@ -481,8 +498,6 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 AddLabeledInfoX(rng, title, info, columnWidth, lableLocation, orientation, titleFormat, contentFormat);
             }
         }
-
-
 
         public static void AddLabeledInfo(
             XlLocation insertAt,
@@ -663,6 +678,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
         {
             try
             {
+                //Office.DocumentProperties prps = (Office.DocumentProperties)ExcelApplication.ActiveWorkbook.CustomDocumentProperties;
                 Office.DocumentProperties? prps = ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
 
                 if (prps != null)
@@ -686,6 +702,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
             try
             {
+                //prps = (Office.DocumentProperties)ExcelApplication.ActiveWorkbook.CustomDocumentProperties;
                 prps = ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
             }
             catch (Exception ex)
@@ -745,6 +762,9 @@ namespace VNC.VSTOAddIn.Excel.Domain
         //{
         //    AddinHelper.Common.WriteToWatchWindow(string.Format("{0}", outputLine));
         //}
+
+        // REVIEW(crhodes)
+        // Not sure these are needed.  Compare with what is in Common
 
         public static long DisplayInWatchWindow(string outputLine, [CallerMemberName] string callingMember = "")
         {
@@ -859,16 +879,23 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
             if (!string.IsNullOrEmpty(beforeSheetName))
             {
+                //((Worksheet)wb.Sheets[sourceSheetName]).Copy(Before: wb.Sheets[beforeSheetName]);
                 sourceSheet?.Copy(Before: (object)wb.Sheets[beforeSheetName]);
             }
             else if (!string.IsNullOrEmpty(afterSheetName))
             {
+                //((Worksheet)wb.Sheets[sourceSheetName]).Copy(After: wb.Sheets[afterSheetName]);
                 sourceSheet?.Copy(After: (object)wb.Sheets[afterSheetName]);
             }
             else
             {
+                //((Worksheet)wb.Sheets[sourceSheetName]).Copy();
                 sourceSheet?.Copy();
             }
+
+            //((Worksheet)wb.ActiveSheet).Name = destinationSheetName;
+
+            //return (Worksheet)wb.ActiveSheet;
 
             Worksheet? newSheet = wb.ActiveSheet as Worksheet;
 
@@ -894,6 +921,8 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
         public static string EmptyWorkbook(string strWorksheetName, bool blnCreateNew)
         {
+            // REVIEW(crhodes)
+            // I think once we figure out ExcelApplication we won't need this check.
             if (ExcelApplication is null)
             {
                 throw new InvalidOperationException("ExcelApplication is not initialized.");
@@ -950,32 +979,46 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
             try
             {
-                searchRange = searchWorksheet.get_Range((object)searchWorksheet.Cells[currentRow, 1], (object)searchWorksheet.Cells[currentRow, lastColSpecial]);
+                searchRange = searchWorksheet.Range[searchWorksheet.Cells[currentRow, 1], searchWorksheet.Cells[currentRow, lastColSpecial]];
 
-                // You got this error because the code was using a direct property access or method call on a COM object(like searchRange.Find(...))
-                // and then immediately accessing .Column on the result, assuming it is a Range.
-                // If the result is not a Range, or if the cast is not explicit, C# tries to use the dynamic runtime binder,
-                // which is not available unless you reference Microsoft.CSharp and target .NET Framework.
-                // This might be happening because your project targets.NET Core or.NET 5+ and does not reference Microsoft.CSharp,
-                // or you are not using the dynamic keyword.The direct property access triggers the missing runtime binder error.
-                // Here's how I fixed the code: I explicitly cast the result of searchRange.Find(...) to Range using as Range,
-                // and then checked for null before accessing the .Column property.
-                // This avoids the dynamic binder and works in all .NET versions, ensuring type safety and compatibility with your project configuration.
-                
-                Range? foundCell = searchRange.Find("*",
-                    After: (object)searchWorksheet.Cells[currentRow, lastColSpecial],
-                    SearchOrder: XlSearchOrder.xlByRows,
-                    SearchDirection: XlSearchDirection.xlNext) as Range;
-
-                if (foundCell != null)
-                {
-                    columnNumber = foundCell.Column;
-                }
+                columnNumber = searchRange.Find("*",
+                After: searchWorksheet.Cells[currentRow, lastColSpecial],
+                SearchOrder: XlSearchOrder.xlByRows,
+                SearchDirection: XlSearchDirection.xlNext).Column;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+
+            //try
+            //{
+            //    searchRange = searchWorksheet.get_Range((object)searchWorksheet.Cells[currentRow, 1], (object)searchWorksheet.Cells[currentRow, lastColSpecial]);
+
+            //    // You got this error because the code was using a direct property access or method call on a COM object(like searchRange.Find(...))
+            //    // and then immediately accessing .Column on the result, assuming it is a Range.
+            //    // If the result is not a Range, or if the cast is not explicit, C# tries to use the dynamic runtime binder,
+            //    // which is not available unless you reference Microsoft.CSharp and target .NET Framework.
+            //    // This might be happening because your project targets.NET Core or.NET 5+ and does not reference Microsoft.CSharp,
+            //    // or you are not using the dynamic keyword.The direct property access triggers the missing runtime binder error.
+            //    // Here's how I fixed the code: I explicitly cast the result of searchRange.Find(...) to Range using as Range,
+            //    // and then checked for null before accessing the .Column property.
+            //    // This avoids the dynamic binder and works in all .NET versions, ensuring type safety and compatibility with your project configuration.
+
+            //    Range? foundCell = searchRange.Find("*",
+            //        After: (object)searchWorksheet.Cells[currentRow, lastColSpecial],
+            //        SearchOrder: XlSearchOrder.xlByRows,
+            //        SearchDirection: XlSearchDirection.xlNext) as Range;
+
+            //    if (foundCell != null)
+            //    {
+            //        columnNumber = foundCell.Column;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
 
             return columnNumber;
         }
@@ -983,28 +1026,18 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static int FindFirst_PopulatedRow_InColumn(Range searchFromCell)
         {
             Worksheet searchWorksheet = searchFromCell.Worksheet;
-            Range? searchRange = default;
+            Range currentColumnRange = default(Range);
             int rowNumber = 0;
             int currentColumn = searchFromCell.Column;
             int lastRowSpecial = searchFromCell.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
 
             try
             {
-                //currentColumnRange = (Range)searchWorksheet.Columns.Item[searchFromCell.Column];
-                searchRange = searchWorksheet.Columns.Item[searchFromCell.Column] as Range;
-
-                if (searchRange is not null)
-                {
-                    Range? foundCell = searchRange.Find("*",
-                        After: (object)searchWorksheet.Cells[lastRowSpecial, currentColumn],
-                        SearchOrder: XlSearchOrder.xlByColumns,
-                        SearchDirection: XlSearchDirection.xlNext) as Range;
-
-                    if (foundCell != null)
-                    {
-                         rowNumber = foundCell.Row;
-                    }
-                }
+                currentColumnRange = (Range)searchWorksheet.Columns.Item[searchFromCell.Column];
+                rowNumber = currentColumnRange.Find("*",
+                    After: searchWorksheet.Cells[lastRowSpecial, currentColumn],
+                    SearchOrder: XlSearchOrder.xlByColumns,
+                    SearchDirection: XlSearchDirection.xlNext).Row;
             }
             catch (Exception ex)
             {
@@ -1017,33 +1050,19 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static int FindLast_PopulatedColumn_InRow(Range searchFromCell)
         {
             Worksheet searchWorksheet = searchFromCell.Worksheet;
-            Range? searchRange = default;
+            Range searchRange = default(Range);
             int columnNumber = searchFromCell.Column;
             int currentRow = searchFromCell.Row;
             int lastColSpecial = searchFromCell.SpecialCells(XlCellType.xlCellTypeLastCell).Column;
 
             try
             {
-                // You got this error because the code uses the indexer property Range[...] on a COM object,
-                // which in C# requires the dynamic runtime binder.
-                // This binder is not available unless you target .NET Framework and reference Microsoft.CSharp.
-                // This might be happening because your project targets.NET Core or.NET 5 + and does not reference Microsoft.CSharp,
-                // or you are not using the dynamic keyword.The direct use of the indexer triggers the missing runtime binder error.
-                // Here's how I fixed the code: I replaced the indexer property with the explicit get_Range method,
-                // which is available on the COM interop interface and does not require the dynamic runtime binder.
-                // This approach is compatible with all .NET versions and avoids the error.
-                //searchRange = searchWorksheet.Range[searchWorksheet.Cells[currentRow, 1], searchWorksheet.Cells[currentRow, lastColSpecial]];
-                searchRange = searchWorksheet.get_Range((object)searchWorksheet.Cells[currentRow, 1], (object)searchWorksheet.Cells[currentRow, lastColSpecial]);
+                searchRange = searchWorksheet.Range[searchWorksheet.Cells[currentRow, 1], searchWorksheet.Cells[currentRow, lastColSpecial]];
 
-                Range? foundCell = searchRange.Find("*",
-                    After: (object)searchWorksheet.Cells[currentRow, 1],
+                columnNumber = searchRange.Find("*",
+                    After: searchWorksheet.Cells[currentRow, 1],
                     SearchOrder: XlSearchOrder.xlByRows,
-                    SearchDirection: XlSearchDirection.xlPrevious) as Range;
-
-                if (foundCell != null)
-                {
-                    columnNumber = foundCell.Column;
-                }
+                    SearchDirection: XlSearchDirection.xlPrevious).Column;
             }
             catch (Exception ex)
             {
@@ -1056,27 +1075,17 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static int FindLast_PopulatedRow_InColumn(Range searchFromCell)
         {
             Worksheet searchWorksheet = searchFromCell.Worksheet;
-            Range? searchRange = default;
+            Range currentColumnRange = default(Range);
             int lastRow = 0;
             int currentColumn = searchFromCell.Column;
 
             try
             {
-                //currentColumnRange = (Range)searchWorksheet.Columns.Item[searchFromCell.Column];
-                searchRange = searchWorksheet.Columns.Item[searchFromCell.Column] as Range;
-
-                if (searchRange is not null)
-                {
-                    Range? foundCell = searchRange.Find("*",
-                        After: (object)searchWorksheet.Cells[1, currentColumn],
-                        SearchOrder: XlSearchOrder.xlByColumns,
-                        SearchDirection: XlSearchDirection.xlPrevious) as Range;
-
-                    if (foundCell != null)
-                    {                         
-                        lastRow = foundCell.Row;
-                    }
-                }
+                currentColumnRange = (Range)searchWorksheet.Columns.Item[searchFromCell.Column];
+                lastRow = currentColumnRange.Find("*",
+                    After: searchWorksheet.Cells[1, currentColumn],
+                    SearchOrder: XlSearchOrder.xlByColumns,
+                    SearchDirection: XlSearchDirection.xlPrevious).Row;
             }
             catch (Exception ex)
             {
@@ -1086,23 +1095,15 @@ namespace VNC.VSTOAddIn.Excel.Domain
             return lastRow;
         }
 
-//        You got this error because the code was using direct property access or method calls on COM objects(like Range.Find) and then immediately accessing properties(like.Row or .Column) without casting the result to Range.This triggers the C# dynamic runtime binder, which is not available unless you reference Microsoft.CSharp and target .NET Framework.
-//This might be happening because your project targets.NET Core or.NET 5+ and does not reference Microsoft.CSharp, or you are not using the dynamic keyword.The direct property access triggers the missing runtime binder error.
-//Here's how I fixed the code: I explicitly cast the result of Find to Range using as Range, and then checked for null before accessing its properties. This avoids the dynamic binder and works in all .NET versions, ensuring type safety and compatibility with your project configuration.
 
         public static int FindNext_PopulatedColumn_InRow(Range searchFromCell)
         {
             int columnNumber = 0;
-            Range? nextMatch = null;
+            Range nextMatch;
 
             try
             {
                 nextMatch = searchFromCell.Find("*", SearchOrder: XlSearchOrder.xlByRows, SearchDirection: XlSearchDirection.xlNext);
-
-                if (nextMatch == null)
-                {
-                    return searchFromCell.Column;
-                }
 
                 if (nextMatch.Row != searchFromCell.Row)
                 {
@@ -1127,16 +1128,11 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static int FindNext_PopulatedRow_InColumn(Range searchFromCell)
         {
             int rowNumber = 0;
-            Range? nextMatch = null;
+            Range nextMatch;
 
             try
             {
                 nextMatch = searchFromCell.Find("*", SearchOrder: XlSearchOrder.xlByColumns, SearchDirection: XlSearchDirection.xlNext);
-
-                if (nextMatch == null)
-                {
-                    return searchFromCell.Row;
-                }
 
                 if (nextMatch.Column != searchFromCell.Column)
                 {
@@ -1162,16 +1158,11 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static int FindPrevious_PopulatedColumn_InRow(Range searchFromCell)
         {
             int columnNumber = 0;
-            Range? nextMatch = null;
+            Range nextMatch;
 
             try
             {
                 nextMatch = searchFromCell.Find("*", SearchOrder: XlSearchOrder.xlByRows, SearchDirection: XlSearchDirection.xlPrevious);
-
-                if (nextMatch == null)
-                {
-                    return searchFromCell.Column;
-                }
 
                 if (nextMatch.Row != searchFromCell.Row)
                 {
@@ -1196,16 +1187,11 @@ namespace VNC.VSTOAddIn.Excel.Domain
         public static int FindPrevious_PopulatedRow_InColumn(Range searchFromCell)
         {
             int rowNumber = 0;
-            Range? nextMatch = null;
+            Range nextMatch;
 
             try
             {
                 nextMatch = searchFromCell.Find("*", SearchOrder: XlSearchOrder.xlByColumns, SearchDirection: XlSearchDirection.xlPrevious);
-
-                if (nextMatch == null)
-                {
-                    return searchFromCell.Row;
-                }
 
                 if (nextMatch.Column != searchFromCell.Column)
                 {
@@ -1356,12 +1342,61 @@ namespace VNC.VSTOAddIn.Excel.Domain
             return columnName;
         }
 
+        public static int GetEndOfSectionDown(int startRow, int startCol, int lastPopulatedRow, int initialColumn)
+        {
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+
+            int functionReturnValue = 0;
+            int matchingRow = 0;
+
+            // Search down for a matching cell
+            matchingRow = ((Range)activeSheet.Cells[startRow, startCol]).End[XlDirection.xlDown].Row;
+
+            if (startCol == initialColumn)
+            //if (startCol == _INITIAL_COL)
+            {
+                // We have back'd all the way back to the first column.
+                // Return either the next matching cell down or the last populated row on the sheet.
+
+                if (matchingRow < lastPopulatedRow)
+                {
+                    // Section ends on the row prior to the match.
+                    functionReturnValue = matchingRow - 1;
+                }
+                else
+                {
+                    // Return end of populated section
+                    functionReturnValue = lastPopulatedRow;
+                }
+            }
+            else
+            {
+                if (matchingRow <= lastPopulatedRow)
+                {
+                    // Back up one column and search down for a populated cell.
+                    // Treat row prior to matching row as new end.
+                    functionReturnValue = GetEndOfSectionDown(startRow, startCol - 1, matchingRow - 1, initialColumn);
+                }
+                else
+                {
+                    // Back up one column and search down for a populated cell.
+                    // Treat end of worksheet as end.
+                    functionReturnValue = GetEndOfSectionDown(startRow, startCol - 1, lastPopulatedRow, initialColumn);
+                }
+            }
+
+            return functionReturnValue;
+        }
+
         public static void GroupAndHideColumns(Worksheet ws, int startingColumn, int endingColumn, bool hide)
         {
             string startLetter = GetExcelColumnName(startingColumn);
             string endLetter = GetExcelColumnName(endingColumn);
 
             string groupRange = string.Format("{0}:{1}", startLetter, endLetter);
+
+            //((Range)ws.Columns[groupRange]).Group();
+            //((Range)ws.Columns[groupRange]).Hidden = hide;
 
             Range? rng = ws.Columns[groupRange] as Range;
 
@@ -1516,7 +1551,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
         //
         // CreateDummyData
         //
-        // Populate the range with some sample data. Used for testing and debuging.
+        // Populate the range with some sample data. Used for testing and debugging.
         //
         //----------------------------------------------------------------------
         public static void CreateDummyData(Range dataRange)
@@ -1576,8 +1611,6 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
             return currentMode;
         }
-
-
 
         // Do this with regular expressions.
 

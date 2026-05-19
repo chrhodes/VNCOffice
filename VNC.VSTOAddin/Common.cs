@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Windows;
 
 namespace VNC.VSTOAddIn
 {
@@ -53,25 +52,25 @@ namespace VNC.VSTOAddIn
             }
         }
 
-        public static long WriteToWatchWindow(string message)
-        {
-            if (DeveloperMode)
-            {
-                WatchWindow.AddOutputLine(message);
-            }
+        //public static long WriteToWatchWindow(string message)
+        //{
+        //    if (DeveloperMode)
+        //    {
+        //        WatchWindow.AddOutputLine(message);
+        //    }
 
-            return Stopwatch.GetTimestamp();
-        }
+        //    return Stopwatch.GetTimestamp();
+        //}
 
-        public static long WriteToWatchWindow(string message, long startTicks)
-        {
-            if (DeveloperMode)
-            {
-                WatchWindow.AddOutputLine(message + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
-            }
+        //public static long WriteToWatchWindow(string message, long startTicks)
+        //{
+        //    if (DeveloperMode)
+        //    {
+        //        WatchWindow.AddOutputLine(message + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
+        //    }
 
-            return Stopwatch.GetTimestamp();
-        }
+        //    return Stopwatch.GetTimestamp();
+        //}
 
         public static long WriteToDebugWindow(string message, Boolean force = false)
         {

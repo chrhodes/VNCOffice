@@ -1,20 +1,22 @@
 ﻿using System;
-using System.Data;
-using System.Diagnostics;
 using System.Windows;
 
-using Prism.Regions;
+using VNC.VSTOAddIn.Excel.Domain;
+
+using MSExcel = Microsoft.Office.Interop.Excel;
 
 namespace VNC.VSTOAddIn.Excel
 {
     public class Common : VNC.VSTOAddIn.Common
     {
         new public const string LOG_CATEGORY = "VNCVSTOAddInExcel";
-        public static Visibility DeveloperUIMode
-        {
-            get;
-            set;
-        }
+
+        // NOTE(crhodes)
+        // This is set in VNCVSTOAddInExcel.ThisAddIn_Startup. 
+        // It allows access to the Excel Application object without having to pass it around as a parameter.
+        // It is only available from Globals in the top level VSTO AddIn, e.g. VNCExcelTools.
+
+        public static MSExcel.Application? ExcelApplication { get; set; }
 
         // All of this came from VNC.ExcelHelper.
         // We need to decide what we want to keep and what we want to remove.

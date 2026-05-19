@@ -946,51 +946,51 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             }
         }
 
-        public int GetEndOfSectionDown(int startRow, int startCol, int lastPopulatedRow, int initialColumn)
-        {
-            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+        //public int GetEndOfSectionDown(int startRow, int startCol, int lastPopulatedRow, int initialColumn)
+        //{
+        //    Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
 
-            int functionReturnValue = 0;
-            int matchingRow = 0;
+        //    int functionReturnValue = 0;
+        //    int matchingRow = 0;
 
-            // Search down for a matching cell
-            matchingRow = ((Range)activeSheet.Cells[startRow, startCol]).End[XlDirection.xlDown].Row;
+        //    // Search down for a matching cell
+        //    matchingRow = ((Range)activeSheet.Cells[startRow, startCol]).End[XlDirection.xlDown].Row;
 
-            if (startCol == initialColumn)
-            //if (startCol == _INITIAL_COL)
-            {
-                // We have back'd all the way back to the first column.
-                // Return either the next matching cell down or the last populated row on the sheet.
+        //    if (startCol == initialColumn)
+        //    //if (startCol == _INITIAL_COL)
+        //    {
+        //        // We have back'd all the way back to the first column.
+        //        // Return either the next matching cell down or the last populated row on the sheet.
 
-                if (matchingRow < lastPopulatedRow)
-                {
-                    // Section ends on the row prior to the match.
-                    functionReturnValue = matchingRow - 1;
-                }
-                else
-                {
-                    // Return end of populated section
-                    functionReturnValue = lastPopulatedRow;
-                }
-            }
-            else
-            {
-                if (matchingRow <= lastPopulatedRow)
-                {
-                    // Back up one column and search down for a populated cell.
-                    // Treat row prior to matching row as new end.
-                    functionReturnValue = GetEndOfSectionDown(startRow, startCol - 1, matchingRow - 1, initialColumn);
-                }
-                else
-                {
-                    // Back up one column and search down for a populated cell.
-                    // Treat end of worksheet as end.
-                    functionReturnValue = GetEndOfSectionDown(startRow, startCol - 1, lastPopulatedRow, initialColumn);
-                }
-            }
+        //        if (matchingRow < lastPopulatedRow)
+        //        {
+        //            // Section ends on the row prior to the match.
+        //            functionReturnValue = matchingRow - 1;
+        //        }
+        //        else
+        //        {
+        //            // Return end of populated section
+        //            functionReturnValue = lastPopulatedRow;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (matchingRow <= lastPopulatedRow)
+        //        {
+        //            // Back up one column and search down for a populated cell.
+        //            // Treat row prior to matching row as new end.
+        //            functionReturnValue = GetEndOfSectionDown(startRow, startCol - 1, matchingRow - 1, initialColumn);
+        //        }
+        //        else
+        //        {
+        //            // Back up one column and search down for a populated cell.
+        //            // Treat end of worksheet as end.
+        //            functionReturnValue = GetEndOfSectionDown(startRow, startCol - 1, lastPopulatedRow, initialColumn);
+        //        }
+        //    }
 
-            return functionReturnValue;
-        }
+        //    return functionReturnValue;
+        //}
 
         // Why does this use ref parameters
         private void ListFiles(

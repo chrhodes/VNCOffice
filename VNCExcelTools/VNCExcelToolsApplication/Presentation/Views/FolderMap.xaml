@@ -86,7 +86,11 @@
                     <Button 
             		    Command="{Binding CreateFolderMapCommand }"
             		    Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }"
-            		    ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" />
+            		    ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" >
+                        <Button.Background>
+                            <ImageBrush ImageSource="\Resources\Images\folder_map.bmp"  />
+                        </Button.Background>
+                    </Button>
                     <!-- <dxlc:LayoutItem> -->
                     <!-- <Button -->
                     <!-- Command="{Binding CreateFolderMapCommand}" -->
@@ -104,17 +108,22 @@
                         <Button 
                 		    Command="{Binding GroupDownCommand }"
                 		    Content="{Binding GroupDownContent, FallbackValue='GroupDown' }"
-                		    ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" />
+                		    ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\group_down.bmp"  />
+                            </Button.Background>
+                        </Button>
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                     <!-- <Button -->
                     <!-- Command="{Binding GroupDownCommand}" -->
                     <!-- CommandParameter="{Binding GroupDownCommandParameter}" -->
                     <!-- Content="{Binding GroupDownContent, FallbackValue='GroupDown' }" -->
-                    <!-- ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" /> -->
+                    <!-- ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" > -->
                     <!-- <Button.Background> -->
                     <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
                     <!-- </Button.Background> -->
+                    <!--</Button>-->
                     <!-- </dxlc:LayoutItem> -->
                     
                     <!-- Second form uses CommandParameter -->
@@ -122,17 +131,22 @@
                         <Button 
                     		Command="{Binding GroupDownAllCommand }"
                     		Content="{Binding GroupDownAllContent, FallbackValue='GroupDownAll' }"
-                    		ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }" />
+                    		ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }">
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\group_down_all.bmp"  /> 
+                            </Button.Background>
+                        </Button>
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                         <!-- <Button -->
                             <!-- Command="{Binding GroupDownAllCommand}" -->
                             <!-- CommandParameter="{Binding GroupDownAllCommandParameter}" -->
                             <!-- Content="{Binding GroupDownAllContent, FallbackValue='GroupDownAll' }" -->
-                            <!-- ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }" /> -->
+                            <!-- ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }" > -->
                             <!-- <Button.Background> -->
                                 <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
                             <!-- </Button.Background> -->
+                        <!--</Button>-->
                     <!-- </dxlc:LayoutItem> -->
                     
                     <!-- Second form uses CommandParameter -->
@@ -140,23 +154,23 @@
                         <Button 
                     		Command="{Binding UngroupSelectionCommand }"
                     		Content="{Binding UngroupSelectionContent, FallbackValue='UngroupSelection' }"
-                    		ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }" />
+                    		ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\ungroup_selection.bmp"  />
+                            </Button.Background>
+                        </Button>
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                         <!-- <Button -->
                             <!-- Command="{Binding UngroupSelectionCommand}" -->
                             <!-- CommandParameter="{Binding UngroupSelectionCommandParameter}" -->
                             <!-- Content="{Binding UngroupSelectionContent, FallbackValue='UngroupSelection' }" -->
-                            <!-- ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }" /> -->
+                            <!-- ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }" > -->
                             <!-- <Button.Background> -->
                                 <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
                             <!-- </Button.Background> -->
+                        <!--</Button>-->
                     <!-- </dxlc:LayoutItem> -->
-                    
-
-         
-                                        
-
 
                 </dxlc:LayoutGroup>
 
@@ -169,7 +183,11 @@
                         <Button 
                     		Command="{Binding SearchUpCommand }"
                     		Content="{Binding SearchUpContent, FallbackValue='SearchUp' }"
-                    		ToolTip="{Binding SearchUpToolTip, FallbackValue='SearchUp ToolTip' }" />
+                    		ToolTip="{Binding SearchUpToolTip, FallbackValue='SearchUp ToolTip' }" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\search_up.bmp"  />
+                            </Button.Background>
+                        </Button>
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                     <!-- <Button -->
@@ -186,7 +204,11 @@
                         <Button 
                     		Command="{Binding SearchDownCommand }"
                     		Content="{Binding SearchDownContent, FallbackValue='SearchDown' }"
-                    		ToolTip="{Binding SearchDownToolTip, FallbackValue='SearchDown ToolTip' }" />
+                    		ToolTip="{Binding SearchDownToolTip, FallbackValue='SearchDown ToolTip' }" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\search_down.bmp"  />
+                            </Button.Background>
+                        </Button>
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                     <!-- <Button -->
@@ -203,7 +225,11 @@
                         <Button 
                     		Command="{Binding SearchLeftCommand }"
                     		Content="{Binding SearchLeftContent, FallbackValue='SearchLeft' }"
-                    		ToolTip="{Binding SearchLeftToolTip, FallbackValue='SearchLeft ToolTip' }" />
+                    		ToolTip="{Binding SearchLeftToolTip, FallbackValue='SearchLeft ToolTip' }" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\search_left.bmp"  />
+                            </Button.Background>
+                        </Button>
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                         <!-- <Button -->
@@ -221,7 +247,11 @@
                         <Button 
                     		Command="{Binding SearchRightCommand }"
                     		Content="{Binding SearchRightContent, FallbackValue='SearchRight' }"
-                    		ToolTip="{Binding SearchRightToolTip, FallbackValue='SearchRight ToolTip' }" />
+                    		ToolTip="{Binding SearchRightToolTip, FallbackValue='SearchRight ToolTip' }" >
+                            <Button.Background>
+                                <ImageBrush ImageSource="\Resources\Images\search_right.bmp"  />
+                            </Button.Background>
+                        </Button>
                     </dxlc:LayoutItem>
                     <!-- <dxlc:LayoutItem> -->
                     <!-- <Button -->
@@ -234,10 +264,6 @@
                     <!-- </Button.Background> -->
                     <!-- </dxlc:LayoutItem> -->
                     <!-- Second form uses CommandParameter -->
-                    
-
-
-
 
                 </DockPanel>
 

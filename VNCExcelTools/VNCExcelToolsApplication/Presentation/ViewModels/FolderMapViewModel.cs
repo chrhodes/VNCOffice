@@ -2,7 +2,10 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+
+using Microsoft.Office.Interop.Excel;
 
 using Prism.Commands;
 using Prism.Dialogs;
@@ -26,6 +29,8 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         #region Fields (none)
 
 
+
+        private const string _ERROR_EMPTY_CELL = "Cell is empty.  Must select a populated starting cell first.";
 
         #endregion
 
@@ -103,7 +108,13 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
         #region Enums (none)
 
-
+        public enum SearchDirection : Int32
+        {
+            Left = 1,
+            Up = 2,
+            Right = 3,
+            Down = 4,
+        }
 
         #endregion
 
@@ -278,6 +289,37 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+            Range activeCell = Common.ExcelApplication.ActiveCell;
+
+            int currentRow;
+            int currentColumn;
+            int lastPopulatedRow;
+            int lastPopulatedColumn;
+            int endRowOfSection;
+
+            if (activeCell.Value == null)
+            {
+                MessageBox.Show(_ERROR_EMPTY_CELL);
+            }
+            else
+            {
+                // Get the last populated cell on the worksheet
+
+                lastPopulatedRow = activeCell.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
+                lastPopulatedColumn = activeCell.SpecialCells(XlCellType.xlCellTypeLastCell).Column;
+
+                // Save where we currently are located
+                currentRow = activeCell.Row;
+                currentColumn = activeCell.Column;
+
+                endRowOfSection = VNC.VSTOAddIn.Excel.Domain.Excel.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
+                ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Group();
+
+                //activeSheet.Cells[endRowOfSection, startColumn].Select();
+                ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Hidden = true;
+            }
+
             // If launching a UserControl
 
             // if (_GroupDownHost is null) _GroupDownHost = new WindowHost();
@@ -367,6 +409,49 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             Message = "Cool, you called GroupDownAll";
 
             PublishStatusMessage(Message);
+
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+            Range activeCell = Common.ExcelApplication.ActiveCell;
+
+            int currentRow = activeCell.Row;
+            int currentColumn = activeCell.Column;
+
+            int lastPopulatedRow;
+            int lastPopulatedColumn;
+            int endRowOfSection;
+
+            if (activeCell.Value == null)
+            {
+                MessageBox.Show(_ERROR_EMPTY_CELL);
+            }
+            else
+            {
+                // Get the last populated cell on the worksheet
+
+                lastPopulatedRow = activeCell.SpecialCells(XlCellType.xlCellTypeLastCell).Row;
+                lastPopulatedColumn = activeCell.SpecialCells(XlCellType.xlCellTypeLastCell).Column;
+
+                while (currentRow < lastPopulatedRow)
+                {
+                    endRowOfSection = VNC.VSTOAddIn.Excel.Domain.Excel.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
+                    ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Group();
+                    ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Hidden = true;
+
+                    // Move to the next possible row to collapse.  
+                    currentRow = endRowOfSection + 1;
+
+                    // Keep going if next row does not have an empty cell or past end of data.
+                    while (((Range)activeSheet.Cells[currentRow + 1, currentColumn]).Value != null)
+                    {
+                        if (currentRow >= lastPopulatedRow)
+                        {
+                            break;
+                        }
+
+                        currentRow++;
+                    }
+                }
+            }
 
             // If launching a UserControl
 
@@ -548,6 +633,14 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+            Range activeCell = Common.ExcelApplication.ActiveCell;
+
+            int matchRow = activeCell.Row;
+            int matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedColumn_InRow(activeCell);
+
+            ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
+
             // If launching a UserControl
 
             // if (_SearchLeftHost is null) _SearchLeftHost = new WindowHost();
@@ -637,6 +730,14 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             Message = "Cool, you called SearchRight";
 
             PublishStatusMessage(Message);
+
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+            Range activeCell = Common.ExcelApplication.ActiveCell;
+
+            int matchRow = activeCell.Row;
+            int matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedColumn_InRow(activeCell);
+
+            ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
 
             // If launching a UserControl
 
@@ -728,6 +829,14 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+            Range activeCell = Common.ExcelApplication.ActiveCell;
+
+            int matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedRow_InColumn(activeCell);
+            int matchColumn = activeCell.Column;
+
+            ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
+
             // If launching a UserControl
 
             // if (_SearchUpHost is null) _SearchUpHost = new WindowHost();
@@ -818,6 +927,14 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             PublishStatusMessage(Message);
 
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+            Range activeCell = Common.ExcelApplication.ActiveCell;
+
+            int matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedRow_InColumn(activeCell);
+            int matchColumn = activeCell.Column;
+
+            ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
+
             // If launching a UserControl
 
             // if (_SearchDownHost is null) _SearchDownHost = new WindowHost();
@@ -881,7 +998,41 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
         #region Private Methods (none)
 
+        private void SearchForPopulatedCell(SearchDirection searchDirection)
+        {
+            Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
+            Range activeCell = (Range)Common.ExcelApplication.ActiveCell;
 
+            Int32 matchRow = 0;
+            Int32 matchColumn = 0;
+
+            switch (searchDirection)
+            {
+                case SearchDirection.Left:
+                    matchRow = activeCell.Row;
+                    matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedColumn_InRow(activeCell);
+                    break;
+
+                case SearchDirection.Up:
+                    matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedRow_InColumn(activeCell);
+                    matchColumn = activeCell.Column;
+                    break;
+
+                case SearchDirection.Right:
+                    matchRow = activeCell.Row;
+                    matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedColumn_InRow(activeCell);
+                    break;
+
+                case SearchDirection.Down:
+                    matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedRow_InColumn(activeCell);
+                    matchColumn = activeCell.Column;
+                    break;
+            }
+
+
+
+            ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
+        }
 
         #endregion
 

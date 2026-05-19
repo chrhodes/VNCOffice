@@ -43,7 +43,7 @@ namespace VNCExcelTools
             // NOTE(crhodes)
             // Added this so it is available to the VNC.VSTOAddIn.Excel.  Perhaps it should be in Common.
 
-            VNC.VSTOAddIn.Excel.Domain.Excel.ExcelApplication = Globals.ThisAddIn.Application;
+            //VNC.VSTOAddIn.Excel.Domain.Excel.ExcelApplication = Globals.ThisAddIn.Application;
 
             // NOTE(crhodes)
             // Initialize the AddInApplication.

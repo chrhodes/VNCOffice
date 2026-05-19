@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.6.11806.211 stable
+VisualStudioVersion = 18.6.11806.211
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.VSTOAddin.Excel", "..\VNC.VSTOAddIn.Excel\VNC.VSTOAddin.Excel.csproj", "{55B0E6F7-F0F0-4370-563D-494B80D48F31}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportTools_Excel", "..\Legacy\SupportTools_Excel\SupportTools_Excel\SupportTools_Excel.csproj", "{6696A283-4598-4152-B931-25E6F7530392}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.ExcelHelper", "..\Legacy\VNC.ExcelHelper\VNC.ExcelHelper.csproj", "{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.AddinHelper-Legacy", "..\Legacy\VNC.AddinHelper-Legacy\VNC.AddinHelper-Legacy.csproj", "{CC4BFC58-8086-176D-E2C0-9934BB1CBE89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC4BFC58-8086-176D-E2C0-9934BB1CBE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4BFC58-8086-176D-E2C0-9934BB1CBE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4BFC58-8086-176D-E2C0-9934BB1CBE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4BFC58-8086-176D-E2C0-9934BB1CBE89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +72,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6696A283-4598-4152-B931-25E6F7530392} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{BF3E37AA-BCEE-3828-95BC-F7DDD3608486} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{CC4BFC58-8086-176D-E2C0-9934BB1CBE89} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07300C61-1782-40D5-91E4-A48953BA639F}
