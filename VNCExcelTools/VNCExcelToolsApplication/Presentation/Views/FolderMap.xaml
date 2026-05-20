@@ -34,7 +34,7 @@
 
     Background="{StaticResource FolderMapBackground}"
 
-    d:DesignWidth="600" d:DesignHeight="150"
+    d:DesignWidth="300" d:DesignHeight="250"
     d:DesignStyle="{StaticResource vncDesignStyleUC}"
 
     SizeChanged="thisControl_SizeChanged"
@@ -78,114 +78,144 @@
 
         <vncviews:DeveloperUIInfo x:Name="spDeveloperInfo" DockPanel.Dock="Bottom"/>
 
-        <DockPanel VerticalAlignment="Top">
-
-            <dxlc:LayoutGroup View="Group" Orientation="Vertical" DockPanel.Dock="Left" >
-                <dxlc:LayoutItem>
-                    <!-- Second form uses CommandParameter -->
-                    <Button 
+        <!--<DockPanel VerticalAlignment="Top">-->
+        <dxlc:LayoutGroup View="Group" Orientation="Vertical" >
+            
+            <dxlc:LayoutItem>
+                <!-- Second form uses CommandParameter -->
+                <Button 
             		    Command="{Binding CreateFolderMapCommand }"
-            		    Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }"
             		    ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" >
-                        <Button.Background>
-                            <ImageBrush ImageSource="\Resources\Images\folder_map.bmp"  />
-                        </Button.Background>
-                    </Button>
-                    <!-- <dxlc:LayoutItem> -->
-                    <!-- <Button -->
-                    <!-- Command="{Binding CreateFolderMapCommand}" -->
-                    <!-- CommandParameter="{Binding CreateFolderMapCommandParameter}" -->
-                    <!-- Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }" -->
-                    <!-- ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" /> -->
-                    <!-- <Button.Background> -->
-                    <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
-                    <!-- </Button.Background> -->
-                    <!-- </dxlc:LayoutItem> -->
-                </dxlc:LayoutItem>
-                <dxlc:LayoutGroup View="Group" Orientation="Horizontal" >
-                    <!-- Second form uses CommandParameter -->
-                    <dxlc:LayoutItem>
-                        <Button 
-                		    Command="{Binding GroupDownCommand }"
-                		    Content="{Binding GroupDownContent, FallbackValue='GroupDown' }"
-                		    ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" >
-                            <Button.Background>
-                                <ImageBrush ImageSource="\Resources\Images\group_down.bmp"  />
-                            </Button.Background>
-                        </Button>
-                    </dxlc:LayoutItem>
-                    <!-- <dxlc:LayoutItem> -->
-                    <!-- <Button -->
-                    <!-- Command="{Binding GroupDownCommand}" -->
-                    <!-- CommandParameter="{Binding GroupDownCommandParameter}" -->
-                    <!-- Content="{Binding GroupDownContent, FallbackValue='GroupDown' }" -->
-                    <!-- ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" > -->
-                    <!-- <Button.Background> -->
-                    <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
-                    <!-- </Button.Background> -->
-                    <!--</Button>-->
-                    <!-- </dxlc:LayoutItem> -->
-                    
-                    <!-- Second form uses CommandParameter -->
-                    <dxlc:LayoutItem>
-                        <Button 
-                    		Command="{Binding GroupDownAllCommand }"
-                    		Content="{Binding GroupDownAllContent, FallbackValue='GroupDownAll' }"
-                    		ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }">
-                            <Button.Background>
-                                <ImageBrush ImageSource="\Resources\Images\group_down_all.bmp"  /> 
-                            </Button.Background>
-                        </Button>
-                    </dxlc:LayoutItem>
-                    <!-- <dxlc:LayoutItem> -->
+                    <StackPanel Orientation="Horizontal" Margin="-10,0,-10,0">
+                        <TextBlock Text="Create Folder Map" Padding="0,0,10,0" VerticalAlignment="Center" />
+                        <Image Source="/VNCExcelToolsApplication;component/Resources/Images/folder_map.bmp" Margin="20,0,0,0" />
+                    </StackPanel>
+                    <!--<Button.Background>
+                            -->
+                    <!--This Works-->
+                    <!--
+                            <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/folder_map.bmp"  />
+                            -->
+                    <!--This does not-->
+                    <!--<ImageBrush ImageSource="\Resources\Images\folder_map.bmp"  />-->
+                    <!--<ImageBrush ImageSource="folder_map"  />-->
+                    <!--
+                        </Button.Background>-->
+                </Button>
+                <!-- <dxlc:LayoutItem> -->
+                <!-- <Button -->
+                <!-- Command="{Binding CreateFolderMapCommand}" -->
+                <!-- CommandParameter="{Binding CreateFolderMapCommandParameter}" -->
+                <!-- Content="{Binding CreateFolderMapContent, FallbackValue='CreateFolderMap' }" -->
+                <!-- ToolTip="{Binding CreateFolderMapToolTip, FallbackValue='CreateFolderMap ToolTip' }" /> -->
+                <!-- <Button.Background> -->
+                <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
+                <!-- </Button.Background> -->
+                <!-- </dxlc:LayoutItem> -->
+            </dxlc:LayoutItem>
+            
+            <dxlc:LayoutGroup View="Group" Orientation="Horizontal" >
+                <dxlc:LayoutGroup View="Group" Orientation="Vertical" DockPanel.Dock="Left" >
+
+
+
+                    <TextBlock Text="Group Folders"  Width="100" 
+                                       HorizontalAlignment="Center" VerticalAlignment="Top"
+                                       TextWrapping="Wrap" TextAlignment="Center"/>
+
+                    <dxlc:LayoutGroup View="Group" Orientation="Horizontal"  >
+                        <!-- Second form uses CommandParameter -->
+                        <dxlc:LayoutItem>
+                            <Button 
+                		        Command="{Binding GroupDownCommand }"
+                		        ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }"
+                                Height="32" Width="32">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/group_down.bmp"  />
+                                    <!--<ImageBrush  ImageSource="\Resources\Images\group_down.bmp"  />-->
+                                </Button.Background>
+                            </Button>
+                        </dxlc:LayoutItem>
+                        <!-- <dxlc:LayoutItem> -->
                         <!-- <Button -->
-                            <!-- Command="{Binding GroupDownAllCommand}" -->
-                            <!-- CommandParameter="{Binding GroupDownAllCommandParameter}" -->
-                            <!-- Content="{Binding GroupDownAllContent, FallbackValue='GroupDownAll' }" -->
-                            <!-- ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }" > -->
-                            <!-- <Button.Background> -->
-                                <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
-                            <!-- </Button.Background> -->
+                        <!-- Command="{Binding GroupDownCommand}" -->
+                        <!-- CommandParameter="{Binding GroupDownCommandParameter}" -->
+                        <!-- Content="{Binding GroupDownContent, FallbackValue='GroupDown' }" -->
+                        <!-- ToolTip="{Binding GroupDownToolTip, FallbackValue='GroupDown ToolTip' }" > -->
+                        <!-- <Button.Background> -->
+                        <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
+                        <!-- </Button.Background> -->
                         <!--</Button>-->
-                    <!-- </dxlc:LayoutItem> -->
-                    
-                    <!-- Second form uses CommandParameter -->
-                    <dxlc:LayoutItem>
-                        <Button 
-                    		Command="{Binding UngroupSelectionCommand }"
-                    		Content="{Binding UngroupSelectionContent, FallbackValue='UngroupSelection' }"
-                    		ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }" >
-                            <Button.Background>
-                                <ImageBrush ImageSource="\Resources\Images\ungroup_selection.bmp"  />
-                            </Button.Background>
-                        </Button>
-                    </dxlc:LayoutItem>
-                    <!-- <dxlc:LayoutItem> -->
+                        <!-- </dxlc:LayoutItem> -->
+
+                        <!-- Second form uses CommandParameter -->
+                        <dxlc:LayoutItem>
+                            <Button 
+                    		    Command="{Binding GroupDownAllCommand }"
+                    		    ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }"
+                                Height="32" Width="32">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/group_down_all.bmp"  />
+                                    <!--<ImageBrush ImageSource="\Resources\Images\group_down_all.bmp"  />-->
+                                </Button.Background>
+                            </Button>
+                        </dxlc:LayoutItem>
+                        <!-- <dxlc:LayoutItem> -->
                         <!-- <Button -->
-                            <!-- Command="{Binding UngroupSelectionCommand}" -->
-                            <!-- CommandParameter="{Binding UngroupSelectionCommandParameter}" -->
-                            <!-- Content="{Binding UngroupSelectionContent, FallbackValue='UngroupSelection' }" -->
-                            <!-- ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }" > -->
-                            <!-- <Button.Background> -->
-                                <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
-                            <!-- </Button.Background> -->
+                        <!-- Command="{Binding GroupDownAllCommand}" -->
+                        <!-- CommandParameter="{Binding GroupDownAllCommandParameter}" -->
+                        <!-- Content="{Binding GroupDownAllContent, FallbackValue='GroupDownAll' }" -->
+                        <!-- ToolTip="{Binding GroupDownAllToolTip, FallbackValue='GroupDownAll ToolTip' }" > -->
+                        <!-- <Button.Background> -->
+                        <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
+                        <!-- </Button.Background> -->
                         <!--</Button>-->
-                    <!-- </dxlc:LayoutItem> -->
+                        <!-- </dxlc:LayoutItem> -->
+
+                        <!-- Second form uses CommandParameter -->
+                        <dxlc:LayoutItem>
+                            <Button 
+                    		    Command="{Binding UngroupSelectionCommand }"
+                    		    ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }"
+                                Height="32" Width="32">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/ungroup_selection.bmp"  />
+                                    <!--<ImageBrush ImageSource="\Resources\Images\ungroup_selection.bmp"  />-->
+                                </Button.Background>
+                            </Button>
+                        </dxlc:LayoutItem>
+                        <!-- <dxlc:LayoutItem> -->
+                        <!-- <Button -->
+                        <!-- Command="{Binding UngroupSelectionCommand}" -->
+                        <!-- CommandParameter="{Binding UngroupSelectionCommandParameter}" -->
+                        <!-- Content="{Binding UngroupSelectionContent, FallbackValue='UngroupSelection' }" -->
+                        <!-- ToolTip="{Binding UngroupSelectionToolTip, FallbackValue='UngroupSelection ToolTip' }" > -->
+                        <!-- <Button.Background> -->
+                        <!-- <ImageBrush ImageSource="\Resources\Images\VNCDeveloperMotivation.png"  /> -->
+                        <!-- </Button.Background> -->
+                        <!--</Button>-->
+                        <!-- </dxlc:LayoutItem> -->
+
+                    </dxlc:LayoutGroup>
 
                 </dxlc:LayoutGroup>
-
-            </dxlc:LayoutGroup>
-            
-            <dxlc:LayoutGroup View="Group" Orientation="Vertical" >
                 
-                <DockPanel>
+             
+            <dxlc:LayoutGroup View="Group" Orientation="Vertical" HorizontalAlignment="Left" Width="100" Height="130" Margin="5" >
+
+                <TextBlock Text="Search for Populated Cell"  Width="100"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               TextWrapping="Wrap" TextAlignment="Center"/>
+                
+                <DockPanel VerticalAlignment="Bottom">
                     <dxlc:LayoutItem DockPanel.Dock="Top" HorizontalAlignment="Center">
                         <Button 
                     		Command="{Binding SearchUpCommand }"
-                    		Content="{Binding SearchUpContent, FallbackValue='SearchUp' }"
-                    		ToolTip="{Binding SearchUpToolTip, FallbackValue='SearchUp ToolTip' }" >
+                    		ToolTip="{Binding SearchUpToolTip, FallbackValue='SearchUp ToolTip' }"
+                            Height="32" Width="32">
                             <Button.Background>
-                                <ImageBrush ImageSource="\Resources\Images\search_up.bmp"  />
+                                <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/search_up.bmp"  />
+                                <!--<ImageBrush ImageSource="\Resources\Images\search_up.bmp"  />-->
                             </Button.Background>
                         </Button>
                     </dxlc:LayoutItem>
@@ -203,10 +233,11 @@
                     <dxlc:LayoutItem DockPanel.Dock="Bottom" HorizontalAlignment="Center">
                         <Button 
                     		Command="{Binding SearchDownCommand }"
-                    		Content="{Binding SearchDownContent, FallbackValue='SearchDown' }"
-                    		ToolTip="{Binding SearchDownToolTip, FallbackValue='SearchDown ToolTip' }" >
+                    		ToolTip="{Binding SearchDownToolTip, FallbackValue='SearchDown ToolTip' }"
+                            Height="32" Width="32">
                             <Button.Background>
-                                <ImageBrush ImageSource="\Resources\Images\search_down.bmp"  />
+                                <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/search_down.bmp"  />
+                                <!--<ImageBrush ImageSource="\Resources\Images\search_down.bmp"  />-->
                             </Button.Background>
                         </Button>
                     </dxlc:LayoutItem>
@@ -221,13 +252,14 @@
                     <!-- </Button.Background> -->
                     <!-- </dxlc:LayoutItem> -->
                     <!-- Second form uses CommandParameter -->
-                    <dxlc:LayoutItem DockPanel.Dock="Left" HorizontalAlignment="Left">
+                    <dxlc:LayoutItem DockPanel.Dock="Left" >
                         <Button 
                     		Command="{Binding SearchLeftCommand }"
-                    		Content="{Binding SearchLeftContent, FallbackValue='SearchLeft' }"
-                    		ToolTip="{Binding SearchLeftToolTip, FallbackValue='SearchLeft ToolTip' }" >
+                    		ToolTip="{Binding SearchLeftToolTip, FallbackValue='SearchLeft ToolTip' }"
+                            Height="32" Width="32">
                             <Button.Background>
-                                <ImageBrush ImageSource="\Resources\Images\search_left.bmp"  />
+                                <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/search_left.bmp"  />
+                                <!--<ImageBrush ImageSource="\Resources\Images\search_left.bmp"  />-->
                             </Button.Background>
                         </Button>
                     </dxlc:LayoutItem>
@@ -243,13 +275,14 @@
                     <!-- </dxlc:LayoutItem> -->
                     <!-- Second form uses CommandParameter -->
                     
-                    <dxlc:LayoutItem DockPanel.Dock="Right" HorizontalAlignment="Right">
+                    <dxlc:LayoutItem DockPanel.Dock="Right" HorizontalAlignment="Right" >
                         <Button 
                     		Command="{Binding SearchRightCommand }"
-                    		Content="{Binding SearchRightContent, FallbackValue='SearchRight' }"
-                    		ToolTip="{Binding SearchRightToolTip, FallbackValue='SearchRight ToolTip' }" >
+                    		ToolTip="{Binding SearchRightToolTip, FallbackValue='SearchRight ToolTip' }"
+                            Height="32" Width="32">
                             <Button.Background>
-                                <ImageBrush ImageSource="\Resources\Images\search_right.bmp"  />
+                                <ImageBrush ImageSource="/VNCExcelToolsApplication;component/Resources/Images/search_right.bmp"  />
+                                <!--<ImageBrush ImageSource="\Resources\Images\search_right.bmp"  />-->
                             </Button.Background>
                         </Button>
                     </dxlc:LayoutItem>
@@ -264,13 +297,21 @@
                     <!-- </Button.Background> -->
                     <!-- </dxlc:LayoutItem> -->
                     <!-- Second form uses CommandParameter -->
+                    <!--<TextBlock Text="Search for Populated Cell"  
+                               HorizontalAlignment="Center" VerticalAlignment="Center"
+                               TextWrapping="Wrap" TextAlignment="Center"/>-->
 
                 </DockPanel>
 
+            </dxlc:LayoutGroup>               
             </dxlc:LayoutGroup>
+            
+        </dxlc:LayoutGroup>
+
+
 
         </DockPanel>
 
-    </DockPanel>
+    <!--</DockPanel>-->
 
 </vncmvvm:ViewBase>

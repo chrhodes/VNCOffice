@@ -10,7 +10,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.18</FileVersion>
+        <FileVersion>2026.05.19</FileVersion>
         <Description>VNC VSTO AddIn Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>

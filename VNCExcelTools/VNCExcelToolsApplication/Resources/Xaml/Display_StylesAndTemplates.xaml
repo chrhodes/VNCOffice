@@ -58,6 +58,9 @@
     <SolidColorBrush x:Key="FolderMapBackground" Color="#00FF00" />
     <SolidColorBrush x:Key="CreateFolderMapBackground" Color="#8080FF" />
 
+    <SolidColorBrush x:Key="TestExcelLoggingBackground" Color="#00FF00" />
+    <SolidColorBrush x:Key="LoggingConfigurationBackground" Color="#00FF00" />
+
     <!-- These are used by SimpleWPFApp -->
         <!-- And can be removed if not used. -->
 

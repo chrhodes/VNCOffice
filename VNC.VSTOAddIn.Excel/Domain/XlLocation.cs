@@ -9,6 +9,8 @@ using Microsoft.Office.Interop.Excel;
 
 using Unity;
 
+using XlHelper = VNC.VSTOAddIn.Excel.Helper;
+
 namespace VNC.VSTOAddIn.Excel.Domain
 {
     public class XlLocation
@@ -192,7 +194,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this);
+                Common.WriteToWatchWindow(this);
             }
 
             // nextRange is currently where new output should be.
@@ -221,7 +223,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this);
+                Common.WriteToWatchWindow(this);
             }
 
             // currentRange is currently where it should be.
@@ -249,7 +251,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this);
+                Common.WriteToWatchWindow(this);
             }
 
             // nextRange is currently where new output should be.
@@ -283,7 +285,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this);
+                Common.WriteToWatchWindow(this);
             }
 
             Range rngOutput = nextRange.Offset[0, ColumnOffset++];
@@ -309,7 +311,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             Range rngOutput = nextRange.Offset[RowOffset++, 0];
@@ -336,7 +338,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // currentRange is currently where it should be.
@@ -368,7 +370,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // nextRange is currently where new output should be.
@@ -404,7 +406,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // HACK(crhodes)
@@ -426,7 +428,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             ColumnOffset = column;
@@ -439,7 +441,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             Worksheet ws = nextRange.Worksheet;
@@ -478,7 +480,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // TODO(crhodes):
@@ -496,7 +498,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // TODO(crhodes):
@@ -532,16 +534,16 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             if (orientVertical)
             {
-                Excel.GroupAndHideRows(workSheet, GroupStartRow, GroupEndRow, hide);
+                XlHelper.GroupAndHideRows(workSheet, GroupStartRow, GroupEndRow, hide);
             }
             else
             {
-                Excel.GroupAndHideColumns(workSheet, GroupStartColumn, GroupEndColumn, hide);
+                XlHelper.GroupAndHideColumns(workSheet, GroupStartColumn, GroupEndColumn, hide);
             }
         }
 
@@ -552,7 +554,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // TODO(crhodes):
@@ -579,7 +581,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // TODO(crhodes):
@@ -594,7 +596,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
             StackFrame frame = new StackFrame(1);
             MethodBase caller = frame.GetMethod();
 
-            Excel.DisplayInWatchWindow(this, caller.Name);
+            Common.WriteToWatchWindow(this, caller.Name);
 
             // currentRange is already where it should be.
             //Range rngOutput = currentRange;
@@ -610,14 +612,14 @@ namespace VNC.VSTOAddIn.Excel.Domain
             return nextRange;
         }
 
-        public void MarkStart(Excel.MarkType type = Excel.MarkType.None)
+        public void MarkStart(XlHelper.MarkType type = XlHelper.MarkType.None)
         {
             if (Common.DisplayXlLocationUpdates)
             {
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             // TODO(crhodes)
@@ -633,25 +635,25 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
             switch (type)
             {
-                case Excel.MarkType.None:
+                case XlHelper.MarkType.None:
                     MarkStartRow = nextRange.Row;
                     MarkStartColumn = nextRange.Column;
 
                     break;
 
-                case Excel.MarkType.Group:
+                case XlHelper.MarkType.Group:
                     GroupStartRow = nextRange.Row;
                     GroupStartColumn = nextRange.Column;
 
                     break;
 
-                case Excel.MarkType.Table:
+                case XlHelper.MarkType.Table:
                     TableStartRow = nextRange.Row;
                     TableStartColumn = nextRange.Column;
 
                     break;
 
-                case Excel.MarkType.GroupTable:
+                case XlHelper.MarkType.GroupTable:
                     GroupStartRow = nextRange.Row;
                     GroupStartColumn = nextRange.Column;
                     TableStartRow = nextRange.Row;
@@ -660,28 +662,28 @@ namespace VNC.VSTOAddIn.Excel.Domain
                     break;
             }
 
-            Excel.DisplayInWatchWindow(this, "End");
+            Common.WriteToWatchWindow(this, "End");
         }
 
-        public void MarkEnd(Excel.MarkType type = Excel.MarkType.None, string tableName = null)
+        public void MarkEnd(XlHelper.MarkType type = XlHelper.MarkType.None, string tableName = null)
         {
             if (Common.DisplayXlLocationUpdates)
             {
                 StackFrame frame = new StackFrame(1);
                 MethodBase caller = frame.GetMethod();
 
-                Excel.DisplayInWatchWindow(this, caller.Name);
+                Common.WriteToWatchWindow(this, caller.Name);
             }
 
             switch (type)
             {
-                case Excel.MarkType.None:
+                case XlHelper.MarkType.None:
                     MarkEndRow = nextRange.Row + RowsAdded;
                     MarkEndColumn = nextRange.Column + ColumnsAdded;
 
                     break;
 
-                case Excel.MarkType.Group:
+                case XlHelper.MarkType.Group:
                     GroupEndRow = nextRange.Row + RowOffset - 1;
                     GroupEndColumn = nextRange.Column + ColumnOffsetMax;
 
@@ -694,7 +696,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
                     break;
 
-                case Excel.MarkType.Table:
+                case XlHelper.MarkType.Table:
                     TableEndRow = nextRange.Row + RowOffset - 1;
                     //TableEndColumn = currentRange.Column + ColumnOffset - 1;
                     TableEndColumn = nextRange.Column + ColumnOffsetMax - 1;
@@ -707,7 +709,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
 
                     break;
 
-                case Excel.MarkType.GroupTable:
+                case XlHelper.MarkType.GroupTable:
                     GroupEndRow = nextRange.Row + RowOffset - 1;
                     GroupEndColumn = nextRange.Column + ColumnOffsetMax;
 
@@ -731,7 +733,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
                     break;
             }
 
-            Excel.DisplayInWatchWindow(this, "End");
+            Common.WriteToWatchWindow(this, "End");
 
         }
 
@@ -901,7 +903,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
             return cellFormatSpecification;
         }
 
-        public CellFormatSpecification CreateCellFormat(string name, int fontSize, Excel.MakeBold makeBold)
+        public CellFormatSpecification CreateCellFormat(string name, int fontSize, XlHelper.MakeBold makeBold)
         {
             CellFormatSpecification cellFormatSpecification = new CellFormatSpecification(name);
 
@@ -913,7 +915,7 @@ namespace VNC.VSTOAddIn.Excel.Domain
             return cellFormatSpecification;
         }
 
-        public CellFormatSpecification CreateCellFormat(string name, int fontSize, Excel.MakeBold makeBold, XlOrientation orientation)
+        public CellFormatSpecification CreateCellFormat(string name, int fontSize, XlHelper.MakeBold makeBold, XlOrientation orientation)
         {
             CellFormatSpecification cellFormatSpecification = new CellFormatSpecification(name);
 

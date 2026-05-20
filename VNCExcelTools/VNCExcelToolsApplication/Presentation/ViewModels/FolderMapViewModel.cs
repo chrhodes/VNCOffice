@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -12,15 +9,13 @@ using Prism.Dialogs;
 using Prism.Events;
 
 using VNC;
-using VNC.Core.Events;
 using VNC.Core.Mvvm;
 using VNC.Core.Presentation;
-using VNC.Core.Services;
 using VNC.WPF.Presentation.Views;
 
 using VNCExcelToolsApplication.Presentation.Views;
 
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
+using XlHelper = VNC.VSTOAddIn.Excel.Helper;
 
 namespace VNCExcelToolsApplication.Presentation.ViewModels
 {
@@ -313,7 +308,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
                 currentRow = activeCell.Row;
                 currentColumn = activeCell.Column;
 
-                endRowOfSection = VNC.VSTOAddIn.Excel.Domain.Excel.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
+                endRowOfSection = XlHelper.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
                 ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Group();
 
                 //activeSheet.Cells[endRowOfSection, startColumn].Select();
@@ -433,7 +428,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
                 while (currentRow < lastPopulatedRow)
                 {
-                    endRowOfSection = VNC.VSTOAddIn.Excel.Domain.Excel.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
+                    endRowOfSection = XlHelper.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
                     ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Group();
                     ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Hidden = true;
 
@@ -637,7 +632,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             Range activeCell = Common.ExcelApplication.ActiveCell;
 
             int matchRow = activeCell.Row;
-            int matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedColumn_InRow(activeCell);
+            int matchColumn = XlHelper.FindPrevious_PopulatedColumn_InRow(activeCell);
 
             ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
 
@@ -735,7 +730,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             Range activeCell = Common.ExcelApplication.ActiveCell;
 
             int matchRow = activeCell.Row;
-            int matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedColumn_InRow(activeCell);
+            int matchColumn = XlHelper.FindNext_PopulatedColumn_InRow(activeCell);
 
             ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
 
@@ -832,7 +827,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
             Range activeCell = Common.ExcelApplication.ActiveCell;
 
-            int matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedRow_InColumn(activeCell);
+            int matchRow = XlHelper.FindPrevious_PopulatedRow_InColumn(activeCell);
             int matchColumn = activeCell.Column;
 
             ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
@@ -930,7 +925,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             Worksheet activeSheet = (Worksheet)Common.ExcelApplication.ActiveSheet;
             Range activeCell = Common.ExcelApplication.ActiveCell;
 
-            int matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedRow_InColumn(activeCell);
+            int matchRow = XlHelper.FindNext_PopulatedRow_InColumn(activeCell);
             int matchColumn = activeCell.Column;
 
             ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();
@@ -1010,25 +1005,24 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             {
                 case SearchDirection.Left:
                     matchRow = activeCell.Row;
-                    matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedColumn_InRow(activeCell);
+                    matchColumn = XlHelper.FindPrevious_PopulatedColumn_InRow(activeCell);
                     break;
 
                 case SearchDirection.Up:
-                    matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindPrevious_PopulatedRow_InColumn(activeCell);
+                    matchRow = XlHelper.FindPrevious_PopulatedRow_InColumn(activeCell);
                     matchColumn = activeCell.Column;
                     break;
 
                 case SearchDirection.Right:
                     matchRow = activeCell.Row;
-                    matchColumn = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedColumn_InRow(activeCell);
+                    matchColumn = XlHelper.FindNext_PopulatedColumn_InRow(activeCell);
                     break;
 
                 case SearchDirection.Down:
-                    matchRow = VNC.VSTOAddIn.Excel.Domain.Excel.FindNext_PopulatedRow_InColumn(activeCell);
+                    matchRow = XlHelper.FindNext_PopulatedRow_InColumn(activeCell);
                     matchColumn = activeCell.Column;
                     break;
             }
-
 
 
             ((Range)activeSheet.Cells[matchRow, matchColumn]).Select();

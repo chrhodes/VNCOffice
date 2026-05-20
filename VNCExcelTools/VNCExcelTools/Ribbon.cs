@@ -19,6 +19,8 @@ namespace VNCExcelTools
             : base(Globals.Factory.GetRibbonFactory())
         {
             InitializeComponent();
+            var workingDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var appDir = System.AppDomain.CurrentDomain.BaseDirectory;
 #if DEBUG
             Common.InitializeLogging(debugConfig: true);
 #else
@@ -44,6 +46,7 @@ namespace VNCExcelTools
             Common.WriteToDebugWindow("Ribbon_Load()", true);
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
+
 
     }
 }

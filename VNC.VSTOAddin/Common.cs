@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace VNC.VSTOAddIn
 {
@@ -52,25 +53,32 @@ namespace VNC.VSTOAddIn
             }
         }
 
-        //public static long WriteToWatchWindow(string message)
-        //{
-        //    if (DeveloperMode)
-        //    {
-        //        WatchWindow.AddOutputLine(message);
-        //    }
+        // TODO(crhodes)
+        // Based on how these are called, seems like the WatchWindow is for "watching" the XlLocation stuff
+        // and the DebugWindow is for general debugging.
+        // Looks like we started to use CallerMemberName to identify the calling member in the WatchWindow
+        // but not in the DebugWindow.
+        // We should probably be consistent and use CallerMemberName in both places.
+        public static long WriteToWatchWindow(string message, [CallerMemberName] string callingMember = "")
+        {
+            if (DeveloperMode)
+            {
+                WatchWindow.AddOutputLine($"{callingMember}: {message}");
+            }
 
-        //    return Stopwatch.GetTimestamp();
-        //}
+            return Stopwatch.GetTimestamp();
+        }
 
-        //public static long WriteToWatchWindow(string message, long startTicks)
-        //{
-        //    if (DeveloperMode)
-        //    {
-        //        WatchWindow.AddOutputLine(message + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
-        //    }
+        public static long WriteToWatchWindow(string message, long startTicks, [CallerMemberName] string callingMember = "")
+        {
+            if (DeveloperMode)
+            {
+                WatchWindow.AddOutputLine($"{callingMember}: {message}"
+                    + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
+            }
 
-        //    return Stopwatch.GetTimestamp();
-        //}
+            return Stopwatch.GetTimestamp();
+        }
 
         public static long WriteToDebugWindow(string message, Boolean force = false)
         {

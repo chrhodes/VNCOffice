@@ -180,6 +180,34 @@ namespace VNCExcelTools
             }
         }
 
+        private void btnTestExcelLoggin_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_CustomUI.TestExcelLogging();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        private void btnLoggingConfiguration_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_CustomUI.LoggingConfiguration();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
         private void rcbUILaunchApproaches_Click(object sender, RibbonControlEventArgs e)
         {
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);

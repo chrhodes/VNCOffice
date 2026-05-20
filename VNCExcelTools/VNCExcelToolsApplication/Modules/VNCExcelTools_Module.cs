@@ -28,6 +28,13 @@ namespace VNCExcelToolsApplication.Modules
 
             containerRegistry.Register<ICreateFolderMapViewModel, CreateFolderMapViewModel>();
             containerRegistry.RegisterSingleton<ICreateFolderMap, CreateFolderMap>();
+
+            //containerRegistry.Register<ILoggingConfigurationViewModel, LoggingConfigurationViewModel>();
+            //containerRegistry.RegisterSingleton<ILoggingConfiguration, LoggingConfiguration>();
+
+            containerRegistry.Register<ITestExcelLoggingViewModel, TestExcelLoggingViewModel>();
+            containerRegistry.RegisterSingleton<ITestExcelLogging, TestExcelLogging>();
+
             //Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -37,6 +44,9 @@ namespace VNCExcelToolsApplication.Modules
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
 
             var regionManager = containerProvider.Resolve<IRegionManager>();
+
+            regionManager.RegisterViewWithRegion(RegionNames.VNCLoggingConfigRegion, typeof(VNC.WPF.Presentation.Dx.Views.VNCLoggingConfig));
+            regionManager.RegisterViewWithRegion(RegionNames.VNCCoreLoggingConfigRegion, typeof(VNC.WPF.Presentation.Dx.Views.VNCCoreLoggingConfig));
 
             // NOTE(crhodes)
             // This is for PrismRegionTest.xaml
