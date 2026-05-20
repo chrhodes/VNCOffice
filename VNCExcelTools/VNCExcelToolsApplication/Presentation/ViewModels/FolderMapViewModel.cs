@@ -23,7 +23,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
     {
         #region Fields (none)
 
-
+        private const int _INITIAL_COL = 11;
 
         private const string _ERROR_EMPTY_CELL = "Cell is empty.  Must select a populated starting cell first.";
 
@@ -308,7 +308,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
                 currentRow = activeCell.Row;
                 currentColumn = activeCell.Column;
 
-                endRowOfSection = XlHelper.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
+                endRowOfSection = XlHelper.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, _INITIAL_COL);
                 ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Group();
 
                 //activeSheet.Cells[endRowOfSection, startColumn].Select();
@@ -428,7 +428,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
                 while (currentRow < lastPopulatedRow)
                 {
-                    endRowOfSection = XlHelper.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, currentColumn);
+                    endRowOfSection = XlHelper.GetEndOfSectionDown(currentRow, currentColumn, lastPopulatedRow, _INITIAL_COL);
                     ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Group();
                     ((Range)activeSheet.Rows[currentRow + 1 + ":" + endRowOfSection]).Hidden = true;
 

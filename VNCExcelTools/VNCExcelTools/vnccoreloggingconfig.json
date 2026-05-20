@@ -30,6 +30,7 @@
   /* Arch9000 */  "Constructor": false,
   /* Arch9004 */  "Core": false,
   /* Arch9001 */  "Event": false,
+  /* Arch9101 */  "EventLow": false,
   /* Arch9002 */  "EventHandler": false,
   /* Arch9102 */  "EventHandlerLow": false,
   /* Arch9005 */  "Module": false,

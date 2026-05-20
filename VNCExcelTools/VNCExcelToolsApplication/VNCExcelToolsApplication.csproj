@@ -9,7 +9,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.19</FileVersion>
+        <FileVersion>2026.05.20</FileVersion>
         <Description>VNCExcelToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -17,7 +17,7 @@
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
     </PropertyGroup>
 
-    <ItemGroup>
+    <!--<ItemGroup>
       <None Remove="Resources\Images\add_footer.bmp" />
       <None Remove="Resources\Images\add_header.bmp" />
       <None Remove="Resources\Images\Auto-Debug-System_icon.gif" />
@@ -39,90 +39,90 @@
       <None Remove="Resources\Images\unprotect_sheets.bmp" />
       <None Remove="Resources\Images\WatchWindow.bmp" />
       <None Remove="Resources\Images\WatchWindow.gif" />
-    </ItemGroup>
+    </ItemGroup>-->
 
     <ItemGroup>
-      <Resource Include="Resources\Images\add_footer.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\add_header.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\Auto-Debug-System_icon.gif">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\Chart.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\DebugWindow.gif">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\FilterEditor.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\folder_map.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\format_landscape.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\format_portrait.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\group_down.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\group_down_all.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\protect_sheets.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\search_down.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\search_left.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\search_right.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\search_up.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\table_of_contents.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\ungroup_selection.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\unprotect_sheets.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\WatchWindow.bmp">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <Resource Include="Resources\Images\WatchWindow.gif">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
+        <Resource Include="Resources\Images\add_footer.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\add_header.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\Auto-Debug-System_icon.gif">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\Chart.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\DebugWindow.gif">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\FilterEditor.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\folder_map.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\format_landscape.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\format_portrait.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\group_down.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\group_down_all.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\protect_sheets.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\search_down.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\search_left.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\search_right.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\search_up.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\table_of_contents.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\ungroup_selection.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\unprotect_sheets.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\WatchWindow.bmp">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <Resource Include="Resources\Images\WatchWindow.gif">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
     </ItemGroup>
 
     <!-- This is for NuGet Packages -->
 
     <!-- <PropertyGroup> -->
-        <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild> -->
-        <!-- <PackageVersion>1.0.0</PackageVersion> -->
-        <!-- <PackageLicenseFile>LICENSE</PackageLicenseFile> -->
-        <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
-        <!-- <PackageProjectUrl>https://github.com/chrhodes/vncoffice</PackageProjectUrl> -->
-        <!-- <RepositoryUrl>https://github.com/chrhodes/vncoffice</RepositoryUrl> -->
-        <!-- <RepositoryType>Git</RepositoryType> -->
-        <!-- <PackageTags></PackageTags> -->
-        <!-- <PackageIcon>VNC.png</PackageIcon> -->
-        <!-- <Authors>Christopher Rhodes</Authors> -->
-        <!-- <Company>VNC</Company> -->
-        <!-- <Copyright>Copyright © VNC 2026</Copyright> -->
-        <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
+    <!-- <GeneratePackageOnBuild>true</GeneratePackageOnBuild> -->
+    <!-- <PackageVersion>1.0.0</PackageVersion> -->
+    <!-- <PackageLicenseFile>LICENSE</PackageLicenseFile> -->
+    <!-- <PackageReadmeFile>README.md</PackageReadmeFile> -->
+    <!-- <PackageProjectUrl>https://github.com/chrhodes/vncoffice</PackageProjectUrl> -->
+    <!-- <RepositoryUrl>https://github.com/chrhodes/vncoffice</RepositoryUrl> -->
+    <!-- <RepositoryType>Git</RepositoryType> -->
+    <!-- <PackageTags></PackageTags> -->
+    <!-- <PackageIcon>VNC.png</PackageIcon> -->
+    <!-- <Authors>Christopher Rhodes</Authors> -->
+    <!-- <Company>VNC</Company> -->
+    <!-- <Copyright>Copyright © VNC 2026</Copyright> -->
+    <!-- <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance> -->
     <!-- </PropertyGroup>     -->
 
     <!--<ItemGroup>
@@ -140,58 +140,56 @@
         </None>
     </ItemGroup>-->
 
+    <ItemGroup>
+        <Reference Include="Microsoft.Office.Interop.Excel">
+            <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Excel.dll</HintPath>
+        </Reference>
+        <Reference Include="PresentationFramework" />
+        <Reference Include="stdole">
+            <HintPath>C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\stdole.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows.Forms" />
+        <Reference Include="WindowsBase" />
+    </ItemGroup>
 
+    <!--<ItemGroup>
+        <Reference Include="PresentationFramework" />
+        <Reference Include="System.Windows.Forms" />
+        <Reference Include="WindowsBase" />
+    </ItemGroup>-->
 
-  <ItemGroup>
-    <PackageReference Include="VNC.UIApproaches" Version="1.1.0" />
-    <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.4.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <!-- Workaround for https://github.com/dotnet/wpf/issues/2648#issuecomment-635674683 -->
+        <Reference Include="System.Web" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Compile Update="Properties\Resources.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
 
-   <ItemGroup>
-       <Reference Include="Microsoft.Office.Interop.Excel">
-           <HintPath>C:\Program Files (x86)\Microsoft Visual Studio\Shared\Visual Studio Tools for Office\PIA\Office15\Microsoft.Office.Interop.Excel.dll</HintPath>
-       </Reference>
-       <Reference Include="PresentationFramework" />
-       <Reference Include="stdole">
-           <HintPath>C:\Program Files (x86)\Microsoft.NET\Primary Interop Assemblies\stdole.dll</HintPath>
-       </Reference>
-       <Reference Include="System.Windows.Forms" />
-       <Reference Include="WindowsBase" />
-   </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Properties\Resources.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Resources\Icons\ExcelAddin.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\Icons\VNCDeveloperMotivation.ico">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+    <ItemGroup>
+        <None Update="Resources\Icons\ExcelAddin.ico">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Update="Resources\Icons\VNCDeveloperMotivation.ico">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
         <!-- Uncomment next line to switch to ProjectReference(s) -->
-         <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>  
+        <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>
     </PropertyGroup>
 
     <Choose>
@@ -200,30 +198,34 @@
                 <ProjectReference Include="..\VNCExcelToolsApplication.Core\VNCExcelToolsApplication.Core.csproj" />
                 <ProjectReference Include="..\..\VNC.VSTOAddin.Excel\VNC.VSTOAddIn.Excel.csproj" />
                 <!--<ProjectReference Include="..\..\VNCOffice\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />-->
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.UIApproaches\VNC.UIApproaches.csproj" />
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.WPF.Presentation.Dx\VNC.WPF.Presentation.Dx.csproj" />
             </ItemGroup>
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
-              <ItemGroup>
+            <ItemGroup>
                 <PackageReference Include="VNCExcelToolsApplication.Core" Version="1.0.0" />
                 <PackageReference Include="VNC.VSTOAddIn.Excel" Version="1.0.0" />
                 <!--<PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" />-->
-              </ItemGroup>
+                <PackageReference Include="VNC.UIApproaches" Version="1.1.0" />
+                <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.4.0" />
+            </ItemGroup>
         </When>
     </Choose>
 
     <!-- <Choose> -->
-        <!-- <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
-            <!-- <ItemGroup> -->
-                <!-- <ProjectReference Include="..\..\VNCOffice\VNC.VSTOAddin.Excel\VNC.VSTOAddIn.Excel.csproj" /> -->
-                <!--<ProjectReference Include="..\..\VNCOffice\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />-->
-            <!-- </ItemGroup> -->
-        <!-- </When> -->
-        <!-- <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
-              <!-- <ItemGroup> -->
-                <!-- <PackageReference Include="VNC.VSTOAddIn.Excel" Version="1.0.0" /> -->
-                <!--<PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" />-->
-              <!-- </ItemGroup> -->
-        <!-- </When> -->
+    <!-- <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+    <!-- <ItemGroup> -->
+    <!-- <ProjectReference Include="..\..\VNCOffice\VNC.VSTOAddin.Excel\VNC.VSTOAddIn.Excel.csproj" /> -->
+    <!--<ProjectReference Include="..\..\VNCOffice\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />-->
+    <!-- </ItemGroup> -->
+    <!-- </When> -->
+    <!-- <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
+    <!-- <ItemGroup> -->
+    <!-- <PackageReference Include="VNC.VSTOAddIn.Excel" Version="1.0.0" /> -->
+    <!--<PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" />-->
+    <!-- </ItemGroup> -->
+    <!-- </When> -->
     <!-- </Choose> -->
 
     <!--This updates the file version to the current date.-->

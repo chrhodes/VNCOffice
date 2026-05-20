@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -20,7 +21,12 @@ namespace VNCExcelTools
         {
             InitializeComponent();
             var workingDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var appDir = System.AppDomain.CurrentDomain.BaseDirectory;
+            var currentDirectory = Directory.GetCurrentDirectory();
+            var appDomainDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
+            Common.WriteToDebugWindow($"Ribbon()", true);
+            Common.WriteToDebugWindow($" - Working   Directory: {workingDirectory}", true);
+            Common.WriteToDebugWindow($" - Current   Directory: {currentDirectory}", true);
+            Common.WriteToDebugWindow($" - AppDomain Directory: {appDomainDirectory}", true);
 #if DEBUG
             Common.InitializeLogging(debugConfig: true);
 #else
