@@ -8,7 +8,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.15</FileVersion>
+        <FileVersion>2026.05.20</FileVersion>
         <Description>Core Elements for VNCVisioToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -63,7 +63,7 @@
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
       <!-- Uncoment next line to switch to ProjectReference(s) -->
-      <!-- <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants> -->
+       <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>
     </PropertyGroup>
 
     <Choose>
@@ -78,9 +78,9 @@
             </ItemGroup>
         </When>
     </Choose>
-    
+
     <!--Keep a copy as Visual Studio will remove things when doing Release builds.-->
-    
+
     <!-- <Choose> -->
         <!-- <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
             <!-- <ItemGroup> -->

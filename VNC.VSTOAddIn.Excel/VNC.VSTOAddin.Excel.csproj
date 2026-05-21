@@ -35,7 +35,7 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
     </PropertyGroup>-->
-    
+
     <ItemGroup>
       <COMReference Include="Microsoft.Office.Interop.Excel">
         <WrapperTool>tlbimp</WrapperTool>
@@ -49,7 +49,10 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="LICENSE" />
+        <None Include="LICENSE">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
         <None Include="README.md">
             <Pack>True</Pack>
             <PackagePath></PackagePath>
@@ -64,7 +67,7 @@
         <Compile Remove="Domain\Excel.cs" />
         <Compile Remove="Domain\XlData.cs" />
     </ItemGroup>
-    
+
     <!--If put XlData.cs back in, uncomment the following line-->
     <ItemGroup>
       <PackageReference Include="ExcelDataReader.DataSet" Version="3.8.0" />

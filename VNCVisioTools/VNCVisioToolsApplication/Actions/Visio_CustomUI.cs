@@ -14,6 +14,9 @@ namespace VNCVisioToolsApplication.Actions
 {
     public class Visio_CustomUI
     {
+
+        #region CommandCockpit
+
         public static DxThemedWindowHost commandCockpitHost = null;
 
         public static void CommandCockpit()
@@ -43,6 +46,10 @@ namespace VNCVisioToolsApplication.Actions
         //    );
         //}
 
+        #endregion
+
+        #region DuplictaePage
+
         public static DxThemedWindowHost duplicatePageHost = null;
 
         public static void DuplicatePage()
@@ -56,6 +63,10 @@ namespace VNCVisioToolsApplication.Actions
             ShowWindowMode.Modeless_Show,
             new Presentation.Views.DuplicatePage(new DuplicatePageViewModel()));
         }
+
+        #endregion
+
+        #region RenamePages
 
         public static DxThemedWindowHost renamePagesHost = null;
 
@@ -71,6 +82,10 @@ namespace VNCVisioToolsApplication.Actions
             );
         }
 
+        #endregion
+
+        #region MovePages
+
         public static DxThemedWindowHost movePagesHost = null;
 
         public static void MovePages()
@@ -85,6 +100,10 @@ namespace VNCVisioToolsApplication.Actions
             );
         }
 
+        #endregion
+
+        #region EditControlRows
+
         public static DxThemedWindowHost editControlRowsHost = null;
 
         public static void EditControlRows()
@@ -97,6 +116,10 @@ namespace VNCVisioToolsApplication.Actions
                 ShowWindowMode.Modeless_Show,
                 new Presentation.Views.EditControlRows(new EditControlRowsViewModel()));
         }
+
+        #endregion
+
+        #region EditParagraph
 
         public static DxThemedWindowHost editParagraphHost = null;
 
@@ -111,6 +134,10 @@ namespace VNCVisioToolsApplication.Actions
                 new Presentation.Views.EditParagraph(new EditParagraphViewModel()));
         }
 
+        #endregion
+
+        #region EditControlPoints
+
         public static DxThemedWindowHost editControlPointsHost = null;
 
         public static void EditControlPoints()
@@ -124,6 +151,10 @@ namespace VNCVisioToolsApplication.Actions
                 new EditControlPoints());
         }
 
+        #endregion
+
+        #region EditText
+
         public static DxThemedWindowHost editTextHost = null;
 
         public static void EditText()
@@ -136,6 +167,10 @@ namespace VNCVisioToolsApplication.Actions
                 ShowWindowMode.Modeless_Show,
                 new EditText(new EditTextViewModel()));
         }
+
+        #endregion
+
+        #region CustomUI_Car
 
         public static DxThemedWindowHost carMainHost = null;
 
@@ -154,5 +189,47 @@ namespace VNCVisioToolsApplication.Actions
             //    (Explore.Presentation.Views.CarMain)Common.ApplicationBootstrapper.Container.Resolve(typeof(Explore.Presentation.Views.CarMain))
             //);
         }
+
+        #endregion
+
+        #region TestVisioLogging
+
+        public static DxThemedWindowHost TestVisioLoggingHost = null;
+
+        public static void TestVisioLogging()
+        {
+            if (TestVisioLoggingHost is null) TestVisioLoggingHost = new DxThemedWindowHost(Common.EventAggregator);
+
+            TestVisioLoggingHost.DisplayUserControlInHost(
+                "Folder Map",
+                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                ShowWindowMode.Modeless_Show,
+                //(CommandCockpitViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpitViewModel))
+                (TestVisioLogging)Common.ApplicationBootstrapper.Container.Resolve(typeof(TestVisioLogging))
+            //new TestVisioLogging()
+            );
+        }
+
+        #endregion
+
+        #region LoggingConfiguration
+
+        public static DxThemedWindowHost LoggingConfigurationHost = null;
+
+        public static void LoggingConfiguration()
+        {
+            if (LoggingConfigurationHost is null) LoggingConfigurationHost = new DxThemedWindowHost(Common.EventAggregator);
+
+            LoggingConfigurationHost.DisplayUserControlInHost(
+                "Folder Map",
+                Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
+                ShowWindowMode.Modeless_Show,
+                //(CommandCockpitViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpitViewModel))
+                //(LoggingConfiguration)Common.ApplicationBootstrapper.Container.Resolve(typeof(LoggingConfiguration))
+                new VNCLoggingConfigMain()
+            );
+        }
+
+        #endregion
     }
 }

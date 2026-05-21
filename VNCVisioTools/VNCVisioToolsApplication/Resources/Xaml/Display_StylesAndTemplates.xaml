@@ -54,7 +54,10 @@
     <SolidColorBrush x:Key="StepCBackground" Color="#D0E0D0" />
     <SolidColorBrush x:Key="StepDBackground" Color="#D0E0D0" />
     <SolidColorBrush x:Key="StepEBackground" Color="#D0E0D0" />
-    
+
+    <SolidColorBrush x:Key="TestVisioLoggingBackground" Color="#00FF00" />
+    <SolidColorBrush x:Key="LoggingConfigurationBackground" Color="#00FF00" />
+
         <!-- These are used by SimpleWPFApp -->
         <!-- And can be removed if not used. -->
 
@@ -62,14 +65,14 @@
     <!-- <SolidColorBrush x:Key="CombinedNavigationBackground" Color="#90FFFF" /> -->
 
     <!-- These are used by  -->
-    
+
     <!-- <SolidColorBrush x:Key="Background" Color="#00FF00" /> -->
     <!-- <SolidColorBrush x:Key="NavigationBackground" Color="#90FF90" /> -->
     <!-- <SolidColorBrush x:Key="DetailBackground" Color="#A0FFA0" /> -->
-    <!-- <SolidColorBrush x:Key="MeetingDetailBackground" Color="#F0C040" /> -->    
+    <!-- <SolidColorBrush x:Key="MeetingDetailBackground" Color="#F0C040" /> -->
 
     <!-- These are used by  -->
-    
+
     <!-- <SolidColorBrush x:Key="Background" Color="#F0E040" /> -->
     <!-- <SolidColorBrush x:Key="DetailBackground" Color="#F0E040" /> -->
 

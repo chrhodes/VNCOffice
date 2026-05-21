@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 using Microsoft.Office.Tools.Ribbon;
@@ -27,9 +24,21 @@ namespace VNCExcelTools
             Common.WriteToDebugWindow($" - Working   Directory: {workingDirectory}", true);
             Common.WriteToDebugWindow($" - Current   Directory: {currentDirectory}", true);
             Common.WriteToDebugWindow($" - AppDomain Directory: {appDomainDirectory}", true);
+
+            currentDirectory = @"C:\temp";
 #if DEBUG
-            Common.InitializeLogging(debugConfig: true);
+            Common.InitializeLogging(new VNC.Core.LoggingConfiguration(
+                configFilePath: currentDirectory, configFile: "vncloggingconfig-debug.json",  isDebugConfig: true));
+
+            Common.InitializeCoreLogging(new VNC.Core.LoggingConfiguration(
+                configFilePath: currentDirectory, configFile: "vnccoreloggingconfig-debug.json", isDebugConfig: true));
+            //Common.InitializeLogging(debugConfig: true);
 #else
+            Common.InitializeLogging(new VNC.Core.LoggingConfiguration(
+                configFilePath: currentDirectory, configFile: "vncloggingconfig.json",  isDebugConfig: false));
+
+            Common.InitializeCoreLogging(new VNC.Core.LoggingConfiguration(
+                configFilePath: currentDirectory, configFile: "vnccoreloggingconfig.json", isDebugConfig: false));
             //Common.InitializeLogging();
 #endif
             Int64 startTicks = 0;

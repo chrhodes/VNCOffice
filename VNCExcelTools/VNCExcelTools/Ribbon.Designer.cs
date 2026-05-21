@@ -47,12 +47,12 @@
             this.rgDebug = this.Factory.CreateRibbonGroup();
             this.btnDebugWindow = this.Factory.CreateRibbonButton();
             this.btnWatchWindow = this.Factory.CreateRibbonButton();
+            this.btnLoggingConfiguration = this.Factory.CreateRibbonButton();
             this.rcbEnableAppEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDisplayEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDisplayChattyEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbToggleDeveloperUIMode = this.Factory.CreateRibbonCheckBox();
-            this.btnLoggingConfiguration = this.Factory.CreateRibbonButton();
-            this.btnTestExcelLoggin = this.Factory.CreateRibbonButton();
+            this.btnTestExcelLogging = this.Factory.CreateRibbonButton();
             this.rcbUILaunchApproaches = this.Factory.CreateRibbonCheckBox();
             this.grpHelp = this.Factory.CreateRibbonGroup();
             this.btnDisplayAddInInfo = this.Factory.CreateRibbonButton();
@@ -163,7 +163,7 @@
             this.rgDebug.Items.Add(this.rcbDisplayEvents);
             this.rgDebug.Items.Add(this.rcbDisplayChattyEvents);
             this.rgDebug.Items.Add(this.rcbToggleDeveloperUIMode);
-            this.rgDebug.Items.Add(this.btnTestExcelLoggin);
+            this.rgDebug.Items.Add(this.btnTestExcelLogging);
             this.rgDebug.Items.Add(this.rcbUILaunchApproaches);
             this.rgDebug.Label = "Debug";
             this.rgDebug.Name = "rgDebug";
@@ -186,6 +186,16 @@
             this.btnWatchWindow.Name = "btnWatchWindow";
             this.btnWatchWindow.ShowImage = true;
             this.btnWatchWindow.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnWatchWindow_Click);
+            // 
+            // btnLoggingConfiguration
+            // 
+            this.btnLoggingConfiguration.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btnLoggingConfiguration.Image = ((System.Drawing.Image)(resources.GetObject("btnLoggingConfiguration.Image")));
+            this.btnLoggingConfiguration.Label = "Logging Configuration";
+            this.btnLoggingConfiguration.Name = "btnLoggingConfiguration";
+            this.btnLoggingConfiguration.ShowImage = true;
+            this.btnLoggingConfiguration.SuperTip = "Configure VNC Logging Levels";
+            this.btnLoggingConfiguration.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLoggingConfiguration_Click);
             // 
             // rcbEnableAppEvents
             // 
@@ -211,22 +221,12 @@
             this.rcbToggleDeveloperUIMode.Name = "rcbToggleDeveloperUIMode";
             this.rcbToggleDeveloperUIMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbToggleDeveloperUIMode_Click);
             // 
-            // btnLoggingConfiguration
+            // btnTestExcelLogging
             // 
-            this.btnLoggingConfiguration.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.btnLoggingConfiguration.Image = ((System.Drawing.Image)(resources.GetObject("btnLoggingConfiguration.Image")));
-            this.btnLoggingConfiguration.Label = "Logging Configuration";
-            this.btnLoggingConfiguration.Name = "btnLoggingConfiguration";
-            this.btnLoggingConfiguration.ShowImage = true;
-            this.btnLoggingConfiguration.SuperTip = "Configure VNC Logging Levels";
-            this.btnLoggingConfiguration.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLoggingConfiguration_Click);
-            // 
-            // btnTestExcelLoggin
-            // 
-            this.btnTestExcelLoggin.Label = "Test Excel Logging";
-            this.btnTestExcelLoggin.Name = "btnTestExcelLoggin";
-            this.btnTestExcelLoggin.SuperTip = "Test Debug and Watch Logging";
-            this.btnTestExcelLoggin.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTestExcelLoggin_Click);
+            this.btnTestExcelLogging.Label = "Test Excel Logging";
+            this.btnTestExcelLogging.Name = "btnTestExcelLogging";
+            this.btnTestExcelLogging.SuperTip = "Test Debug and Watch Logging";
+            this.btnTestExcelLogging.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTestExcelLoggin_Click);
             // 
             // rcbUILaunchApproaches
             // 
@@ -488,7 +488,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddFooter;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgUtilities;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnFolderMap;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnTestExcelLoggin;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnTestExcelLogging;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnLoggingConfiguration;
     }
 

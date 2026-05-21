@@ -168,7 +168,7 @@ namespace VNCExcelTools
         {
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             // TODO(crhodes)
-            // This is for changing the visibility of MVVM stuff. 
+            // This is for changing the visibility of MVVM stuff.
 
             try
             {
@@ -180,7 +180,7 @@ namespace VNCExcelTools
             }
         }
 
-        private void btnTestExcelLoggin_Click(object sender, RibbonControlEventArgs e)
+        private void btnTestExcelLogging_Click(object sender, RibbonControlEventArgs e)
         {
             if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 

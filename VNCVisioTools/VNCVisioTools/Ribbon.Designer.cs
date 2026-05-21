@@ -42,6 +42,7 @@
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl6 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl7 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl8 = this.Factory.CreateRibbonDropDownItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ribbon));
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.rtVisioAddInTemplate = this.Factory.CreateRibbonTab();
@@ -113,6 +114,7 @@
             this.rgDebug = this.Factory.CreateRibbonGroup();
             this.btnDebugWindow = this.Factory.CreateRibbonButton();
             this.btnWatchWindow = this.Factory.CreateRibbonButton();
+            this.btnLoggingConfiguration = this.Factory.CreateRibbonButton();
             this.rcbEnableAppEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDisplayEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDisplayChattyEvents = this.Factory.CreateRibbonCheckBox();
@@ -142,6 +144,7 @@
             this.btnVNC_MVVM_VB1st = this.Factory.CreateRibbonButton();
             this.btnVNC_MVVM_VC11st = this.Factory.CreateRibbonButton();
             this.btnVNC_MVVM_VC21st = this.Factory.CreateRibbonButton();
+            this.btnTestVisioLogging = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.rtVisioAddInTemplate.SuspendLayout();
             this.rgDocumentActions.SuspendLayout();
@@ -712,10 +715,12 @@
             // 
             this.rgDebug.Items.Add(this.btnDebugWindow);
             this.rgDebug.Items.Add(this.btnWatchWindow);
+            this.rgDebug.Items.Add(this.btnLoggingConfiguration);
             this.rgDebug.Items.Add(this.rcbEnableAppEvents);
             this.rgDebug.Items.Add(this.rcbDisplayEvents);
             this.rgDebug.Items.Add(this.rcbDisplayChattyEvents);
             this.rgDebug.Items.Add(this.rcbDeveloperUIMode);
+            this.rgDebug.Items.Add(this.btnTestVisioLogging);
             this.rgDebug.Items.Add(this.rcbUILaunchApproaches);
             this.rgDebug.Label = "Debug";
             this.rgDebug.Name = "rgDebug";
@@ -738,6 +743,16 @@
             this.btnWatchWindow.Name = "btnWatchWindow";
             this.btnWatchWindow.ShowImage = true;
             this.btnWatchWindow.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnWatchWindow_Click);
+            // 
+            // btnLoggingConfiguration
+            // 
+            this.btnLoggingConfiguration.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btnLoggingConfiguration.Image = ((System.Drawing.Image)(resources.GetObject("btnLoggingConfiguration.Image")));
+            this.btnLoggingConfiguration.Label = "Logging Configuration";
+            this.btnLoggingConfiguration.Name = "btnLoggingConfiguration";
+            this.btnLoggingConfiguration.ShowImage = true;
+            this.btnLoggingConfiguration.SuperTip = "Configure VNC Logging Levels";
+            this.btnLoggingConfiguration.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLoggingConfiguration_Click);
             // 
             // rcbEnableAppEvents
             // 
@@ -949,6 +964,13 @@
             this.btnVNC_MVVM_VC21st.SuperTip = "ViewC2 has no parameterless constructor and is not Registered with DI";
             this.btnVNC_MVVM_VC21st.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VC21st_Click);
             // 
+            // btnTestVisioLogging
+            // 
+            this.btnTestVisioLogging.Label = "Test Visio Logging";
+            this.btnTestVisioLogging.Name = "btnTestVisioLogging";
+            this.btnTestVisioLogging.SuperTip = "Test Debug and Watch Logging";
+            this.btnTestVisioLogging.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTestVisioLogging_Click);
+            // 
             // Ribbon
             // 
             this.Name = "Ribbon";
@@ -1091,6 +1113,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonCheckBox rcbUILaunchApproaches;
         internal Microsoft.Office.Tools.Ribbon.RibbonTab rtUILaunchApproaches;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddBackgroundPages;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnLoggingConfiguration;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnTestVisioLogging;
     }
 
     partial class ThisRibbonCollection
