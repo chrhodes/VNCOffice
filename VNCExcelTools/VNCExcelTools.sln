@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.UIApproaches", "..\..\V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.Logging", "..\..\VNCDevelopment\VNC.Logging\VNC.Logging\VNC.Logging.csproj", "{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VNC.AssemblyHelper", "..\..\VNCDevelopment\VNC.AssemblyHelper\VNC.AssembyHelper\VNC.AssemblyHelper.csproj", "{C1C222AD-F070-84DD-C40F-676D00A6DB2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1C222AD-F070-84DD-C40F-676D00A6DB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1C222AD-F070-84DD-C40F-676D00A6DB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1C222AD-F070-84DD-C40F-676D00A6DB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1C222AD-F070-84DD-C40F-676D00A6DB2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +114,7 @@ Global
 		{2D38B0AA-4AC9-AA52-37BD-B2059C565A6F} = {49F1C46C-D57D-4107-9F71-57A585A96537}
 		{CDAB2DFD-BB78-656F-4600-274C1D85B21D} = {49F1C46C-D57D-4107-9F71-57A585A96537}
 		{1396838B-1E2A-A2F4-BB0F-3E3848FE4C2A} = {49F1C46C-D57D-4107-9F71-57A585A96537}
+		{C1C222AD-F070-84DD-C40F-676D00A6DB2A} = {49F1C46C-D57D-4107-9F71-57A585A96537}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07300C61-1782-40D5-91E4-A48953BA639F}

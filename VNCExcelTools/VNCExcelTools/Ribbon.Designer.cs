@@ -226,7 +226,7 @@
             this.btnTestExcelLogging.Label = "Test Excel Logging";
             this.btnTestExcelLogging.Name = "btnTestExcelLogging";
             this.btnTestExcelLogging.SuperTip = "Test Debug and Watch Logging";
-            this.btnTestExcelLogging.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTestExcelLoggin_Click);
+            this.btnTestExcelLogging.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTestExcelLogging_Click);
             // 
             // rcbUILaunchApproaches
             // 

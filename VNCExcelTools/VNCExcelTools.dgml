@@ -123,7 +123,7 @@
     <Node Id="@43" Category="CodeSchema_Class" Bounds="114.009716486399,-1143.95574098188,99.0100000000001,25" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="76" Group="Collapsed" Label="Ribbon" />
     <Node Id="@45" Category="CodeSchema_Class" Bounds="-745.341116846934,-742.700740981876,1669.71166666667,421.72" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="25" Group="Expanded" Label="ThisAddIn" />
     <Node Id="@46" Category="CodeSchema_Class" Bounds="-0.971950180267868,-1200.64324098188,172.973333333333,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsGeneratedCode="True" CodeSchemaProperty_IsInternal="True" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="ThisRibbonCollection" />
-    <Node Id="@47" Category="CodeSchema_Type" CodeSchemaProperty_IsExternal="True" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="VNCLoggingConfig" UseManualLocation="True" />
+    <Node Id="@47" Category="CodeSchema_Type" CodeSchemaProperty_IsExternal="True" DelayedChildNodesState="Incomplete" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="ConfigurationSettings" UseManualLocation="True" />
     <Node Id="@49" Category="CodeSchema_Method" CodeSchemaProperty_IsExternal="True" DelayedCrossGroupLinksState="Fetched" Label="set_ExcelApplication" />
     <Node Id="@50" Category="CodeSchema_Method" CodeSchemaProperty_IsExternal="True" DelayedCrossGroupLinksState="Fetched" Label="set_ExcelApplication" UseManualLocation="True" />
     <Node Id="@51" Category="CodeSchema_Method" CodeSchemaProperty_IsExternal="True" DelayedCrossGroupLinksState="Fetched" Label="set_ExcelApplication" UseManualLocation="True" />
@@ -746,7 +746,7 @@
     <Alias n="44" Id="Type=ThisAddIn" />
     <Alias n="45" Id="(@11 @21 @44)" />
     <Alias n="46" Id="(@11 @21 Type=ThisRibbonCollection)" />
-    <Alias n="47" Id="(@1 Namespace=VNC.Core Type=VNCLoggingConfig)" />
+    <Alias n="47" Id="(@1 Namespace=VNC.Core Type=ConfigurationSettings)" />
     <Alias n="48" Id="Member=(Name=set_ExcelApplication OverloadingParameters=[@32])" />
     <Alias n="49" Id="(@9 @25 Type=AddInApplicationEvents @48)" />
     <Alias n="50" Id="(@9 Namespace=VNCExcelToolsApplication @33 @48)" />
@@ -838,7 +838,7 @@
     <Alias n="136" Id="(@11 @21 @44 Member=EndInitialization)" />
     <Alias n="137" Id="(@11 @21 @39 Member=Factory)" />
     <Alias n="138" Id="(@11 @21 @44 Member=FinishInitialization)" />
-    <Alias n="139" Id="(@1 Namespace=VNC.Core Type=VNCLoggingConfig Member=get_ApplicationStart)" />
+    <Alias n="139" Id="(@1 Namespace=VNC.Core Type=ConfigurationSettings Member=get_ApplicationStart)" />
     <Alias n="140" Id="(@11 @21 @39 Member=get_ThisAddIn)" />
     <Alias n="141" Id="(@11 @21 @44 Member=GetAssemblyInfo)" />
     <Alias n="142" Id="(@11 @21 @42 Member=group1)" />

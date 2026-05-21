@@ -9,7 +9,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.20</FileVersion>
+        <FileVersion>2026.05.21</FileVersion>
         <Description>VNCExcelToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -162,7 +162,7 @@
         <!-- Workaround for https://github.com/dotnet/wpf/issues/2648#issuecomment-635674683 -->
         <Reference Include="System.Web" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <Compile Update="Properties\Resources.Designer.cs">
             <DesignTime>True</DesignTime>
@@ -208,7 +208,7 @@
                 <PackageReference Include="VNC.VSTOAddIn.Excel" Version="1.0.0" />
                 <!--<PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" />-->
                 <PackageReference Include="VNC.UIApproaches" Version="1.1.0" />
-                <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.4.0" />
+                <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.5.0" />
             </ItemGroup>
         </When>
     </Choose>

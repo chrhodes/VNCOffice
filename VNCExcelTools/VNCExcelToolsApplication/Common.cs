@@ -1,6 +1,8 @@
 ﻿using Prism.Events;
 using Prism.Ioc;
 
+using VNC.Core.Assembly;
+
 using MSExcel = Microsoft.Office.Interop.Excel;
 
 namespace VNCExcelToolsApplication
@@ -19,7 +21,7 @@ namespace VNCExcelToolsApplication
         // NOTE(crhodes)
         // If we want this we have to set it from VNCExcelTools.ThisAddIn_Startup
 
-        public static VNC.Core.Information? InformationVNCExcelTools;
+        public static Information? InformationVNCExcelTools;
 
         // NOTE(crhodes)
         // Add new VNC.Core.Information? InformationXXX
@@ -31,14 +33,14 @@ namespace VNCExcelToolsApplication
         //  Add new properties
         //  Update InitializeViewModel()
 
-        public static VNC.Core.Information? InformationVNCExcelToolsApplication;
-        public static VNC.Core.Information? InformationVNCExcelToolsApplicationCore;
+        public static Information? InformationVNCExcelToolsApplication;
+        public static Information? InformationVNCExcelToolsApplicationCore;
 
-        public static VNC.Core.Information? InformationVNCVSTOAddInExcel;
-        public static VNC.Core.Information? InformationVNCVSTOAddIn;
+        public static Information? InformationVNCVSTOAddInExcel;
+        public static Information? InformationVNCVSTOAddIn;
 
-        public static VNC.Core.Information? InformationVNCWpfPresentation;
-        public static VNC.Core.Information? InformationVNCWpfPresentationDx;
+        public static Information? InformationVNCWpfPresentation;
+        public static Information? InformationVNCWpfPresentationDx;
 
         public static IContainerProvider? Container;
 
