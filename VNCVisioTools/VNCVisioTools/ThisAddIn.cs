@@ -13,7 +13,7 @@ namespace VNCVisioTools
         {
             Int64 startTicks;
             startTicks = Common.WriteToDebugWindow("ThisAddIn_Startup()", true);
-            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter", Common.LOG_CATEGORY);            
+            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter", Common.LOG_CATEGORY);
 
             GetAssemblyInfo();
 
@@ -53,7 +53,7 @@ namespace VNCVisioTools
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
             Common.WriteToDebugWindow("ThisAddIn_Shutdown()", true);
-            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Enter/Exit()", Common.LOG_CATEGORY);            
+            if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Enter/Exit()", Common.LOG_CATEGORY);
         }
 
         private void InitializeRibbonUI()

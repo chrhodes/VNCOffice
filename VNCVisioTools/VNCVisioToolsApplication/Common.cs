@@ -3,6 +3,8 @@ using Prism.Ioc;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
 
+using VNC.Core.Assembly;
+
 namespace VNCVisioToolsApplication
 {
     public class Common : VNC.VSTOAddIn.Common
@@ -19,10 +21,10 @@ namespace VNCVisioToolsApplication
         // NOTE(crhodes)
         // If we want this we have to set it from VNCVisioTools.ThisAddIn_Startup
 
-        public static VNC.Core.Information? InformationVNCVisioTools;
+        public static Information? InformationVNCVisioTools;
 
         // NOTE(crhodes)
-        // Add new VNC.Core.Information? InformationXXX
+        // Add new Information? InformationXXX
         // for other Assemblies that are used as part of the application.
         //
         // Initialize GetAndSetInformation() in AddInApplication.cs 
@@ -31,14 +33,14 @@ namespace VNCVisioToolsApplication
         //  Add new properties
         //  Update InitializeViewModel()
 
-        public static VNC.Core.Information? InformationVNCVisioToolsApplication;
-        public static VNC.Core.Information? InformationVNCVisioToolsApplicationCore;
+        public static Information? InformationVNCVisioToolsApplication;
+        public static Information? InformationVNCVisioToolsApplicationCore;
 
-        public static VNC.Core.Information? InformationVNCVSTOAddInVisio;
-        public static VNC.Core.Information? InformationVNCVSTOAddIn;
+        public static Information? InformationVNCVSTOAddInVisio;
+        public static Information? InformationVNCVSTOAddIn;
 
-        public static VNC.Core.Information? InformationVNCWpfPresentation;
-        public static VNC.Core.Information? InformationVNCWpfPresentationDx;
+        public static Information? InformationVNCWpfPresentation;
+        public static Information? InformationVNCWpfPresentationDx;
 
         // NOTE(crhodes)
         // If we want this we have to set it from VNCVisioTools.ThisAddIn_Startup

@@ -28,17 +28,17 @@ namespace VNCVisioTools
 
             currentDirectory = @"C:\temp";
 #if DEBUG
-            Common.InitializeLogging(new VNC.Core.LoggingConfiguration(
+            Common.InitializeLogging(new VNC.Core.Logging.Configuration(
                 configFilePath: currentDirectory, configFile: "vncloggingconfig-debug.json", isDebugConfig: true));
 
-            Common.InitializeCoreLogging(new VNC.Core.LoggingConfiguration(
+            Common.InitializeCoreLogging(new VNC.Core.Logging.Configuration(
                 configFilePath: currentDirectory, configFile: "vnccoreloggingconfig-debug.json", isDebugConfig: true));
             //Common.InitializeLogging(debugConfig: true);
 #else
-            Common.InitializeLogging(new VNC.Core.LoggingConfiguration(
-                configFilePath: currentDirectory, configFile: "vncloggingconfig.json",  isDebugConfig: false));
+            Common.InitializeLogging(new VNC.Core.Logging.Configuration(
+                configFilePath: currentDirectory, configFile: "ConfigurationSettings.json",  isDebugConfig: false));
 
-            Common.InitializeCoreLogging(new VNC.Core.LoggingConfiguration(
+            Common.InitializeCoreLogging(new VNC.Core.ConfigurationSettings(
                 configFilePath: currentDirectory, configFile: "vnccoreloggingconfig.json", isDebugConfig: false));
             //Common.InitializeLogging();
 #endif
