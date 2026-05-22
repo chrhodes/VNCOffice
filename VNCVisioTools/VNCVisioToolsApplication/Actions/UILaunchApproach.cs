@@ -21,7 +21,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void ThemedWindowHostModal()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (themedWindowHostModal is null) themedWindowHostModal = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -35,7 +35,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void ThemedWindowHostModeless()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (themedWindowHostModeless is null) themedWindowHostModeless = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -49,7 +49,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DxWindowHost()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (dxWindowHost is null) dxWindowHost = new DxWindowHost();
 
@@ -63,7 +63,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void WindowHostLocal()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (windowHostLocal is null) windowHostLocal = new WindowHost(Common.EventAggregator);
 
@@ -77,15 +77,14 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void WindowHostVNC()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             ShowEmptyHost(windowHostVNC, "WindowHost (VNC)", ShowWindowMode.Modeless_Show);
         }
 
         private static void ShowEmptyHost(Window host, string title, ShowWindowMode mode)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
-            //long startTicks = Log.PRESENTATION("Enter", Common.LOG_CATEGORY);
+            Common.WriteToDebugWindow("");
 
             if (host is null)
             {
@@ -125,7 +124,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void LaunchCylon()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (cylonHost is null) cylonHost = new WindowHost(Common.EventAggregator);
 
@@ -140,7 +139,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void LaunchCylon2()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (cylonHost2 is null) cylonHost2 = new WindowHost(Common.EventAggregator);
 
@@ -155,7 +154,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DxLayoutControl()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (dxLayoutControlHost is null) dxLayoutControlHost = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -170,7 +169,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DxDockLayoutControl()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (dxDockLayoutControlHost is null) dxDockLayoutControlHost = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -185,7 +184,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DxDockLayoutManagerControl()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (dxDockLayoutManagerControlHost is null) dxDockLayoutManagerControlHost = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -200,7 +199,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void PrismRegionTest()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (prismRegionTestHost is null) prismRegionTestHost = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -219,7 +218,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void VNC_MVVM_VAVM1st()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (vncMVVM_VAVM1st_Host is null) vncMVVM_VAVM1st_Host = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -245,7 +244,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void VNC_MVVM_VA1st()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (vncMVVM_VA_Host is null) vncMVVM_VA_Host = new DxThemedWindowHost(Common.EventAggregator);
             // NOTE(crhodes)
@@ -265,7 +264,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void VNC_MVVM_VAVM1stDI()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (vncMVVM_VAVMDI_Host is null) vncMVVM_VAVMDI_Host = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -285,7 +284,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void VNC_MVVM_VB1st()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (vncMVVM_VB_Host is null) vncMVVM_VB_Host = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -305,7 +304,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void VNC_MVVM_VC11st()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (vncMVVM_VC1_Host is null) vncMVVM_VC1_Host = new DxThemedWindowHost(Common.EventAggregator);
 
@@ -326,7 +325,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void VNC_MVVM_VC21st()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (vncMVVM_VC2_Host is null) vncMVVM_VC2_Host = new DxThemedWindowHost(Common.EventAggregator);
 

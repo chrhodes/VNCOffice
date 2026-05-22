@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 using Prism.Ioc;
 using Prism.Modularity;
@@ -21,7 +22,9 @@ namespace VNCExcelToolsApplication.Modules
         // 01
         public void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("Enter", true);
+            if (Common.VNCLogging.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             containerRegistry.Register<IFolderMapViewModel, FolderMapViewModel>();
             containerRegistry.RegisterSingleton<IFolderMap, FolderMap>();
@@ -35,13 +38,16 @@ namespace VNCExcelToolsApplication.Modules
             containerRegistry.Register<ITestExcelLoggingViewModel, TestExcelLoggingViewModel>();
             containerRegistry.RegisterSingleton<ITestExcelLogging, TestExcelLogging>();
 
-            //Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
+            if (Common.VNCLogging.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // 02
         public void OnInitialized(IContainerProvider containerProvider)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("Enter", true);
+            if (Common.VNCLogging.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             var regionManager = containerProvider.Resolve<IRegionManager>();
 
@@ -57,7 +63,8 @@ namespace VNCExcelToolsApplication.Modules
 
             // regionManager.RegisterViewWithRegion(RegionNames.EditParagraphRegion, typeof(EditParagraph));
 
-            //Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
+            if (Common.VNCLogging.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
     }
 }

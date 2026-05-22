@@ -20,6 +20,8 @@ namespace VNCExcelToolsApplication.Actions
 
         public static void FolderMap()
         {
+            Common.WriteToDebugWindow("");
+
             if (folderMapHost is null) folderMapHost = new DxThemedWindowHost(Common.EventAggregator);
 
             folderMapHost.DisplayUserControlInHost(
@@ -40,6 +42,8 @@ namespace VNCExcelToolsApplication.Actions
 
         public static void TestExcelLogging()
         {
+            Common.WriteToDebugWindow("");
+
             if (TestExcelLoggingHost is null) TestExcelLoggingHost = new DxThemedWindowHost(Common.EventAggregator);
 
             TestExcelLoggingHost.DisplayUserControlInHost(
@@ -60,6 +64,8 @@ namespace VNCExcelToolsApplication.Actions
 
         public static void LoggingConfiguration()
         {
+            Common.WriteToDebugWindow("");
+
             if (LoggingConfigurationHost is null) LoggingConfigurationHost = new DxThemedWindowHost(Common.EventAggregator);
 
             LoggingConfigurationHost.DisplayUserControlInHost(

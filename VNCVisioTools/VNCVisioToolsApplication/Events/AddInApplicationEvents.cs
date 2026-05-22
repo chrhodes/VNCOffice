@@ -78,7 +78,7 @@ namespace VNCVisioToolsApplication.Events
             }
             catch (Exception ex)
             {
-                //Log.Error(ex, Common.LOG_CATEGORY);
+                //Log.ERROR(ex, Common.LOG_ERROR);
             }
         }
 
@@ -240,7 +240,7 @@ namespace VNCVisioToolsApplication.Events
             catch (Exception ex)
             {
                 Common.WriteToDebugWindow($"ex:>{ex}<");
-                Log.ERROR(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_ERROR);
             }
         }
     }

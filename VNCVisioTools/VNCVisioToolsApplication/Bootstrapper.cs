@@ -23,8 +23,8 @@ namespace VNCVisioToolsApplication
         protected override IContainerExtension CreateContainerExtension()
         {
             Int64 startTicks = 0;
-            Common.WriteToDebugWindow("CreateContainerExtension()", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);           
+            Common.WriteToDebugWindow("Enter/Exit", true);
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
 
             return new UnityContainerExtension();
         }
@@ -34,7 +34,7 @@ namespace VNCVisioToolsApplication
         protected override IModuleCatalog CreateModuleCatalog()
         {
             Int64 startTicks = 0;
-            Common.WriteToDebugWindow("CreateModuleCatalog()", true);
+            Common.WriteToDebugWindow("Enter/Exit", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
 
              return new ConfigurationModuleCatalog();
@@ -45,7 +45,7 @@ namespace VNCVisioToolsApplication
         protected override void RegisterRequiredTypes(IContainerRegistry containerRegistry)
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("RegisterRequiredTypes()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
 
             // Registers all types that are required by Prism to function with the container.
@@ -54,7 +54,7 @@ namespace VNCVisioToolsApplication
 
             //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
 
-            Common.WriteToDebugWindow("RegisterRequiredTypes()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -63,7 +63,7 @@ namespace VNCVisioToolsApplication
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("RegisterTypes()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             // Used to register types with the container that will be used by your application.
@@ -81,7 +81,7 @@ namespace VNCVisioToolsApplication
 
             //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
 
-            Common.WriteToDebugWindow("RegisterTypes()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -91,7 +91,7 @@ namespace VNCVisioToolsApplication
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("ConfigureModuleCatalog()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             moduleCatalog.AddModule(typeof(VNCVisioToolsApplicationModule));
@@ -105,7 +105,7 @@ namespace VNCVisioToolsApplication
 
             base.ConfigureModuleCatalog(moduleCatalog);
 
-            Common.WriteToDebugWindow("ConfigureModuleCatalog()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -114,13 +114,13 @@ namespace VNCVisioToolsApplication
         protected override void ConfigureRegionAdapterMappings(RegionAdapterMappings regionAdapterMappings)
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("ConfigureRegionAdapterMappings()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             base.ConfigureRegionAdapterMappings(regionAdapterMappings);
             regionAdapterMappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
 
-            Common.WriteToDebugWindow("ConfigureRegionAdapterMappings()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -128,12 +128,12 @@ namespace VNCVisioToolsApplication
         protected override void ConfigureDefaultRegionBehaviors(IRegionBehaviorFactory regionBehaviors)
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("ConfigureDefaultRegionBehaviors()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             base.ConfigureDefaultRegionBehaviors(regionBehaviors);
 
-            Common.WriteToDebugWindow("ConfigureDefaultRegionBehaviors()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -142,11 +142,12 @@ namespace VNCVisioToolsApplication
         protected override DependencyObject CreateShell()
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("CreateShell()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             Common.Container = Container;
-            
+
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
 
             return null;

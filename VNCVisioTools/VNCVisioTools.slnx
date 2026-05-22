@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/VNCDevelopment/">
+    <Project Path="../../VNCDevelopment/VNC.Core/VNC.Core.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.Logging/VNC.Logging/VNC.Logging.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.UIApproaches/VNC.UIApproaches.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation.Dx/VNC.WPF.Presentation.Dx.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation/VNC.WPF.Presentation.csproj" />
+  </Folder>
+  <Project Path="../VNC.VSTOAddin.Visio/VNC.VSTOAddIn.Visio.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="../VNC.VSTOAddin/VNC.VSTOAddin.csproj">
+    <Build Solution="Debug|*" Project="false" />
+  </Project>
+  <Project Path="VNCVisioTools/VNCVisioTools.csproj" Id="a985cc14-8a73-4977-94e8-6e1653737a5a" />
+  <Project Path="VNCVisioToolsApplication.Core/VNCVisioToolsApplication.Core.csproj" />
+  <Project Path="VNCVisioToolsApplication/VNCVisioToolsApplication.csproj" />
+</Solution>

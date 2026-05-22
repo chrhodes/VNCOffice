@@ -12,9 +12,9 @@ namespace VNC.VSTOAddIn
     /// This class can be used in two ways.  If calling this from a commandBar, modify
     /// the Private Const as needed and then create an instance of this class in the code
     /// that loads the command bars.
-    /// 
+    ///
     /// If calling this from a Ribbon Event handler, call the ActionNameGoesHere method directly.
-    /// 
+    ///
     /// Rename the ActionNameGoesHere Method and provide code that does something useful.
     /// </remarks>
     public class AddInInfo     {
@@ -27,6 +27,7 @@ namespace VNC.VSTOAddIn
         private const string _CAPTION = "AddInInfo";
         private const string _TOOL_TIP_TEXT = "Click for AddInInfo";
         private const string _DESCRIPTION = "AddInInfo does ...";
+
         #endregion
 
         #region "Public Methods"
@@ -34,7 +35,7 @@ namespace VNC.VSTOAddIn
         public static void DisplayInfo()
         {
             //AssemblyHelper.AssemblyInformation info = new AssemblyHelper.AssemblyInformation(System.Reflection.Assembly.GetExecutingAssembly());
-            VNC.AssemblyHelper.AssemblyInformation info = new VNC.AssemblyHelper.AssemblyInformation(System.Reflection.Assembly.GetCallingAssembly());
+            VNC.Core.Assembly.AssemblyInformation info = new VNC.Core.Assembly.AssemblyInformation(System.Reflection.Assembly.GetCallingAssembly());
             MessageBox.Show(info.ToString());
         }
 

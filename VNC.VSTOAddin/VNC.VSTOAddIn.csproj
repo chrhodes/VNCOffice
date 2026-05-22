@@ -10,7 +10,7 @@
         <VersionPrefix>1.1.0</VersionPrefix>
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.21</FileVersion>
+        <FileVersion>2026.05.22</FileVersion>
         <Description>VNC VSTO AddIn Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -35,7 +35,11 @@
         <Copyright>Copyright © VNC 2025-2026</Copyright>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
-    </PropertyGroup>   
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="AddInInfo.cs" />
+    </ItemGroup>   
 
     <ItemGroup>
         <None Include="LICENSE">
@@ -50,10 +54,6 @@
             <Pack>True</Pack>
             <PackagePath></PackagePath>
         </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="VNC.AssemblyHelper" Version="3.4.0" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">

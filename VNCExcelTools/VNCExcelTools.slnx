@@ -1,0 +1,34 @@
+<Solution>
+  <Folder Name="/Legacy/">
+    <Project Path="../Legacy/SupportTools_Excel/SupportTools_Excel/SupportTools_Excel.csproj">
+      <Build Solution="Debug|*" Project="false" />
+    </Project>
+    <Project Path="../Legacy/VNC.AddinHelper-Legacy/VNC.AddinHelper-Legacy.csproj">
+      <Build Solution="Debug|*" Project="false" />
+    </Project>
+    <Project Path="../Legacy/VNC.ExcelHelper/VNC.ExcelHelper.csproj">
+      <Build Solution="Debug|*" Project="false" />
+    </Project>
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Graph1.dgml" />
+    <File Path="VNC.VSTOAddIn.Excel.dgml" />
+    <File Path="VNCExcelTools-Big Picture.dgml" />
+    <File Path="VNCExcelTools.dgml" />
+  </Folder>
+  <Folder Name="/VNCDevelopment/">
+    <Project Path="../../VNCDevelopment/VNC.AssemblyHelper/VNC.AssembyHelper/VNC.AssemblyHelper.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.Core/VNC.Core.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.Logging/VNC.Logging/VNC.Logging.csproj">
+      <Build Solution="Debug|*" Project="false" />
+    </Project>
+    <Project Path="../../VNCDevelopment/VNC.UIApproaches/VNC.UIApproaches.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation.Dx/VNC.WPF.Presentation.Dx.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation/VNC.WPF.Presentation.csproj" />
+  </Folder>
+  <Project Path="../VNC.VSTOAddIn.Excel/VNC.VSTOAddin.Excel.csproj" />
+  <Project Path="../VNC.VSTOAddin/VNC.VSTOAddIn.csproj" />
+  <Project Path="VNCExcelTools/VNCExcelTools.csproj" />
+  <Project Path="VNCExcelToolsApplication.Core/VNCExcelToolsApplication.Core.csproj" />
+  <Project Path="VNCExcelToolsApplication/VNCExcelToolsApplication.csproj" />
+</Solution>

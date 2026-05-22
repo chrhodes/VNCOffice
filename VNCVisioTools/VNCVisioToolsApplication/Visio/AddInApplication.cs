@@ -19,8 +19,8 @@ namespace VNCVisioToolsApplication.Visio
         public static void InitializeApplication()
         {
             Int64 startTicks = 0;
-            Common.WriteToDebugWindow("InitializeApplication()", true);
-            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);      
+            Common.WriteToDebugWindow("Enter", true);
+            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
@@ -37,7 +37,7 @@ namespace VNCVisioToolsApplication.Visio
 
             InitializePrism();
 
-            Common.WriteToDebugWindow("InitializeApplication()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -51,7 +51,7 @@ namespace VNCVisioToolsApplication.Visio
         private static void GetAndSetInformation()
         {
             Int64 startTicks = 0;
-            Common.WriteToDebugWindow("GetAndSetInformation()", true);
+            Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             // Get Information about VNC.Core
@@ -86,17 +86,17 @@ namespace VNCVisioToolsApplication.Visio
                 Common.InformationVNCVisioToolsApplicationCore = Common.GetInformation(
                     VNCVisioToolsApplicationCore_Assembly,
                     VNCVisioToolsApplicationCore_AssemblyFileVersionInfo);
-            }           
+            }
 
             // Add Information about the other assemblies in our application
 
             // TODO(crhodes)
             // Gather VNC.Core.Information InformationXXX
-            // for other Assemblies that should provide Info 
+            // for other Assemblies that should provide Info
             // listed in VNCVisioToolsApplication.Common
             //
             // Use GAI
-            // 
+            //
             // Extend Views\AppVersionInfo.xaml as needed
             // Update Views\AppVersionInfo.xaml.cs InitializeViewModel()
 
@@ -147,15 +147,15 @@ namespace VNCVisioToolsApplication.Visio
                     VNCWpfPresentationDx_Assembly,
                     VNCWpfPresentationDx_AssemblyFileVersionInfo);
             }
-            
 
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void CreateXamlApplication()
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("CreateXamlApplication()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             try
@@ -199,15 +199,15 @@ namespace VNCVisioToolsApplication.Visio
                 Common.DeveloperMode = false;
             }
 
-            Common.WriteToDebugWindow("CreateXamlApplication()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void InitializePrism()
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("InitializePrism()", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);            
+            startTicks = Common.WriteToDebugWindow("Enter", true);
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             Common.ApplicationBootstrapper = new Bootstrapper();
             Common.ApplicationBootstrapper.Run();
@@ -216,7 +216,7 @@ namespace VNCVisioToolsApplication.Visio
             Visio_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
             Visio_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
-            Common.WriteToDebugWindow("InitializePrism()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 

@@ -221,12 +221,12 @@ namespace VNCVisioToolsApplication.Actions
 
             AutoSizePageOn(page);
         }
-        
+
         public static void AutoSizePageOn(MSVisio.Page page)
         {
             page.AutoSize = true;
         }
-        
+
         public static void CreateActivityPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] args)
         {
             string pageLevel = null;
@@ -267,7 +267,7 @@ namespace VNCVisioToolsApplication.Actions
             //activeShape.CellsSRC[(short)MSVisio.VisSectionIndices.visSectionHyperlink, 0, 2].Formula = newPageName;
 
 
-            // TODO(crhodes): 
+            // TODO(crhodes):
             // Add User Section data depending on pageLevel argument, e.g. L0, L1, L2, ...
 
             switch (pageLevel)
@@ -444,12 +444,17 @@ namespace VNCVisioToolsApplication.Actions
                 MethodBase.GetCurrentMethod().Name,
                 prefix, delimiter, backgroundPageName));
 
+            Common.WriteToWatchWindow(string.Format(" prefix:>{1}< delimiter:>{2}< backgroundPageName:>{3}<",
+                MethodBase.GetCurrentMethod().Name,
+                prefix, delimiter, backgroundPageName));
+
             try
             {
                 // Current shape contains text for new page name.
                 MSVisio.Page activePage = app.ActivePage;
                 MSVisio.Shape activeShape = app.ActivePage.Shapes[shape];
                 Common.WriteToDebugWindow(string.Format("  Shape(Name:>{0}< Text:>{1}< Characters:>{2}<", activeShape.Name, activeShape.Text, activeShape.Characters.TextAsString));
+                Common.WriteToWatchWindow(string.Format("  Shape(Name:>{0}< Text:>{1}< Characters:>{2}<", activeShape.Name, activeShape.Text, activeShape.Characters.TextAsString));
 
                 string shapePageName = "Error-PageNameNotProvided";
 
@@ -464,7 +469,14 @@ namespace VNCVisioToolsApplication.Actions
                     shapePageName = activeShape.Characters.TextAsString;
                 }
 
-                string newPageName = string.Format("{0}{1}{2}", prefix, delimiter, shapePageName);
+                string hyperLinkPrefix = "";
+
+                if (activeShape.CellExistsU["Prop.HyperLinkPrefix", 0] != 0)
+                {
+                    hyperLinkPrefix = activeShape.CellsU["Prop.HyperLinkPrefix"].ResultStrU[MSVisio.VisUnitCodes.visUnitsString];
+                }
+
+                string newPageName = string.Format("{0}{1}{3}{2}", prefix, delimiter, shapePageName, hyperLinkPrefix);
 
                 MSVisio.Page newPage = CreatePage(newPageName, backgroundPageName);
 
@@ -526,7 +538,7 @@ namespace VNCVisioToolsApplication.Actions
                 // Or add a property to Shape.
 
                 VNCVisioAddIn.Helpers.LoadStencil(app, "Page Shapes.vssx");
-                MSVisio.Master headerMaster = app.Documents[@"Page Shapes.vssx"].Masters[@"18pt Header"];
+                MSVisio.Master headerMaster = app.Documents[@"Page Shapes.vssx"].Masters[@"Sizeable Page Header"];
 
                 newPage.Drop(headerMaster, 5.5, 8.0625);
 
@@ -798,7 +810,7 @@ namespace VNCVisioToolsApplication.Actions
                 newPage.Name = page.Name;
                 newPage.Paste();
 
-                // Add navigation links from target document - 
+                // Add navigation links from target document -
                 //  will automatically remove current ones from source document
 
                 AddNavigationLinks(newPage);
@@ -1118,7 +1130,7 @@ namespace VNCVisioToolsApplication.Actions
         // This method has become a mess.  It supports two versions of Color Pickers and has been altered by use of a "mode" argument.
         // May want to have two routines to keep the code simpler.  For now leave as is.
         // Main difference is in what comes in the propColorS and UserColorS variables.
-        // 
+        //
         // No mode passed, e.g. UpdateGroupNameShapes
         //  User picks a color by name and an index looks up the RGB value
         //
@@ -1220,7 +1232,7 @@ namespace VNCVisioToolsApplication.Actions
                     {
                         if (colorSelectorGroupName.Equals(groupName))
                         {
-                            //    var isSelectorTool = shape.CellExists["User.IsPageName", 0]; // 0 is Local and Inherited, 1 is Local only 
+                            //    var isSelectorTool = shape.CellExists["User.IsPageName", 0]; // 0 is Local and Inherited, 1 is Local only
                             isSelectorTool = pageShape.CellExistsU["User.IsSelectorTool", 0];
 
                             // Not all Shapes with GroupName have the isSelectorTool user property, e.g. the Color Selector Shape!
@@ -1334,7 +1346,7 @@ namespace VNCVisioToolsApplication.Actions
 
                 try
                 {
-                    var hasColorTags = pageShape.CellExistsU["User.HasColorTags", 0];    // 0 is Local and Inherited, 1 is Local only 
+                    var hasColorTags = pageShape.CellExistsU["User.HasColorTags", 0];    // 0 is Local and Inherited, 1 is Local only
 
                     Common.WriteToDebugWindow(string.Format("shape {0}  hasColorTags:{1})",
                         pageShape.Name, hasColorTags));

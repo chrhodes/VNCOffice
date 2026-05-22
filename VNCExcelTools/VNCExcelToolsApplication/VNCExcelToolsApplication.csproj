@@ -9,7 +9,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.21</FileVersion>
+        <FileVersion>2026.05.22</FileVersion>
         <Description>VNCExcelToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>

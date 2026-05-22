@@ -119,7 +119,7 @@ namespace VNC.VSTOAddIn.Visio.Domain
             }
             catch (Exception ex)
             {
-                Log.ERROR(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_ERROR);
             }
         }
 
@@ -153,7 +153,7 @@ namespace VNC.VSTOAddIn.Visio.Domain
             }
             catch (Exception ex)
             {
-                Log.ERROR(ex, Common.LOG_CATEGORY);
+                Log.ERROR(ex, Common.LOG_ERROR);
             }
         }
 
@@ -175,7 +175,7 @@ namespace VNC.VSTOAddIn.Visio.Domain
                 }
                 catch (Exception ex)
                 {
-                    Log.ERROR(ex, Common.LOG_CATEGORY);
+                    Log.ERROR(ex, Common.LOG_ERROR);
                 }
             }
         }

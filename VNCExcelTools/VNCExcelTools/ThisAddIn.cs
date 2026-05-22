@@ -12,7 +12,7 @@ namespace VNCExcelTools
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             Int64 startTicks;
-            startTicks = Common.WriteToDebugWindow("ThisAddIn_Startup()", true);
+            startTicks = Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter", Common.LOG_CATEGORY);
 
             GetAssemblyInfo();
@@ -51,20 +51,20 @@ namespace VNCExcelTools
 
             AddInApplication.InitializeApplication();
 
-            Common.WriteToDebugWindow("ThisAddIn_Startup() Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationStart) Log.APPLICATION_START("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
-            Common.WriteToDebugWindow("ThisAddIn_Shutdown()", true);
+            Common.WriteToDebugWindow("Enter/Exit", true);
             if (Common.VNCLogging.ApplicationEnd) Log.APPLICATION_END("Enter/Exit()", Common.LOG_CATEGORY);
         }
 
         private void InitializeRibbonUI()
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("InitializeRibbonUI()", true);
+            startTicks = Common.WriteToDebugWindow("", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             Globals.Ribbons.Ribbon.rgDebug.Visible = Common.DeveloperMode = false;
@@ -72,21 +72,21 @@ namespace VNCExcelTools
 
             // NOTE(crhodes)
             // No need to display during normal operation.
-            // More for understanding what Visio is doing during development.
+            // More for understanding what Excel is doing during development.
 
             Globals.Ribbons.Ribbon.rcbEnableAppEvents.Checked = Common.EnableAppEvents = false;
 
             Globals.Ribbons.Ribbon.rcbDisplayEvents.Checked = Common.DisplayEvents = false;
             Globals.Ribbons.Ribbon.rcbDisplayChattyEvents.Checked = Common.DisplayChattyEvents = false;
 
-            Common.WriteToDebugWindow("InitializeRibbonUI()", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void GetAssemblyInfo()
         {
             Int64 startTicks = 0;
-            startTicks = Common.WriteToDebugWindow("GetAssemblyInfo()", true);
+            startTicks = Common.WriteToDebugWindow("", true);
             if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             // Get Information about ourselves
@@ -103,7 +103,7 @@ namespace VNCExcelTools
                     VNCExcelToolsAssemblyFileVersionInfo);
             }
 
-            Common.WriteToDebugWindow("GetAssemblyInfo() Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -117,7 +117,7 @@ namespace VNCExcelTools
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
-        
+
         #endregion
     }
 }

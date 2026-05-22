@@ -80,21 +80,21 @@ namespace VNC.VSTOAddIn
             return Stopwatch.GetTimestamp();
         }
 
-        public static long WriteToDebugWindow(string message, Boolean force = false)
+        public static long WriteToDebugWindow(string message, Boolean force = false, [CallerMemberName] string callingMember = "")
         {
             if (DeveloperMode || force)
             {
-                DebugWindow.AddOutputLine(message);
+                DebugWindow.AddOutputLine($"{callingMember}: {message}");
             }
 
             return Stopwatch.GetTimestamp();
         }
 
-        public static long WriteToDebugWindow(string message, long startTicks, Boolean force = false)
+        public static long WriteToDebugWindow(string message, long startTicks, Boolean force = false, [CallerMemberName] string callingMember = "")
         {
             if (DeveloperMode || force)
             {
-                DebugWindow.AddOutputLine(message + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
+                DebugWindow.AddOutputLine($"{callingMember}: {message}" + "-" + (double)(Stopwatch.GetTimestamp() - startTicks) / (double)Stopwatch.Frequency);
             }
 
             return Stopwatch.GetTimestamp();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Threading;
 
@@ -18,32 +19,37 @@ namespace VNCVisioTools
         {
             InitializeComponent();
 
+            Common.WriteToDebugWindow("Ribbon()", true);
+
             var workingDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             var currentDirectory = Directory.GetCurrentDirectory();
             var appDomainDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
-            Common.WriteToDebugWindow($"Ribbon()", true);
+
             Common.WriteToDebugWindow($" - Working   Directory: {workingDirectory}", true);
             Common.WriteToDebugWindow($" - Current   Directory: {currentDirectory}", true);
-            Common.WriteToDebugWindow($" - AppDomain Directory: {appDomainDirectory}", true);
+            Common.WriteToDebugWindow($" - AppDomain Directory(true): {appDomainDirectory}", true);
 
-            currentDirectory = @"C:\temp";
+            string loggingConfigurationPath = GetAppSetting("LoggingConfigurationPath");
+
+            loggingConfigurationPath = string.IsNullOrEmpty(loggingConfigurationPath) ? currentDirectory : loggingConfigurationPath;
+
 #if DEBUG
             Common.InitializeLogging(new VNC.Core.Logging.Configuration(
-                configFilePath: currentDirectory, configFile: "vncloggingconfig-debug.json", isDebugConfig: true));
+                configFilePath: loggingConfigurationPath, configFile: "vncloggingconfig-debug.json", isDebugConfig: true));
 
             Common.InitializeCoreLogging(new VNC.Core.Logging.Configuration(
-                configFilePath: currentDirectory, configFile: "vnccoreloggingconfig-debug.json", isDebugConfig: true));
+                configFilePath: loggingConfigurationPath, configFile: "vnccoreloggingconfig-debug.json", isDebugConfig: true));
             //Common.InitializeLogging(debugConfig: true);
 #else
             Common.InitializeLogging(new VNC.Core.Logging.Configuration(
-                configFilePath: currentDirectory, configFile: "ConfigurationSettings.json",  isDebugConfig: false));
+                configFilePath: loggingConfigurationPath, configFile: "ConfigurationSettings.json",  isDebugConfig: false));
 
             Common.InitializeCoreLogging(new VNC.Core.ConfigurationSettings(
-                configFilePath: currentDirectory, configFile: "vnccoreloggingconfig.json", isDebugConfig: false));
+                configFilePath: loggingConfigurationPath, configFile: "vnccoreloggingconfig.json", isDebugConfig: false));
             //Common.InitializeLogging();
 #endif
             Int64 startTicks = 0;
-            Common.WriteToDebugWindow("Ribbon()", true);
+
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Initialize SignalR", Common.LOG_CATEGORY);
 
             // NOTE(crhodes)
@@ -56,10 +62,24 @@ namespace VNCVisioTools
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
 
+        private string GetAppSetting(string key)
+        {
+            string rawValue = ConfigurationManager.AppSettings[key];
+            string settingValue = string.IsNullOrEmpty(rawValue) ? string.Empty : Environment.ExpandEnvironmentVariables(rawValue);
+
+            if (string.IsNullOrEmpty(settingValue))
+            {
+                Common.WriteToDebugWindow($"Did not find setting for key: {key}  Check app.config", true);
+                Log.ERROR($"Did not find setting for key: {key}  Check app.config", Common.LOG_ERROR);
+            }
+
+            return settingValue;
+        }
+
         private void Ribbon_Load(object sender, RibbonUIEventArgs e)
         {
             Int64 startTicks = 0;
-            Common.WriteToDebugWindow("Ribbon_Load()", true);
+            Common.WriteToDebugWindow("Enter/Exit", true);
             if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
 

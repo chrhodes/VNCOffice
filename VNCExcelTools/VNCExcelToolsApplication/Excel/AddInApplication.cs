@@ -19,7 +19,7 @@ namespace VNCExcelToolsApplication.Excel
         public static void InitializeApplication()
         {
             Int64 startTicks = 0;
-            Common.WriteToDebugWindow("InitializeApplication()", true);
+            Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
@@ -37,7 +37,7 @@ namespace VNCExcelToolsApplication.Excel
 
             InitializePrism();
 
-            Common.WriteToDebugWindow("InitializeApplication()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
@@ -51,6 +51,7 @@ namespace VNCExcelToolsApplication.Excel
         private static void GetAndSetInformation()
         {
             Int64 startTicks = 0;
+            Common.WriteToDebugWindow("Enter", true);
             if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             // Get Information about VNC.Core
@@ -91,11 +92,11 @@ namespace VNCExcelToolsApplication.Excel
 
             // TODO(crhodes)
             // Gather VNC.Core.Information InformationXXX
-            // for other Assemblies that should provide Info 
+            // for other Assemblies that should provide Info
             // listed in VNCExcelTools.Common
             //
             // Use GAI
-            // 
+            //
             // Extend Views\AppVersionInfo.xaml as needed
             // Update Views\AppVersionInfo.xaml.cs InitializeViewModel()
 
@@ -147,15 +148,15 @@ namespace VNCExcelToolsApplication.Excel
                     VNCWpfPresentationDx_AssemblyFileVersionInfo);
             }
 
-
+            Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void CreateXamlApplication()
         {
-            //Int64 startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
-
-            Int64 startTicks = Common.WriteToDebugWindow("CreateXamlApplication()", true);
+            Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("Enter", true);
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             try
             {
@@ -198,13 +199,15 @@ namespace VNCExcelToolsApplication.Excel
                 Common.DeveloperMode = false;
             }
 
-            //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
-            Common.WriteToDebugWindow("CreateXamlApplication()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void InitializePrism()
         {
-            Int64 startTicks = Common.WriteToDebugWindow("InitializePrism()", true);
+            Int64 startTicks = 0;
+            startTicks = Common.WriteToDebugWindow("Enter", true);
+            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             Common.ApplicationBootstrapper = new Bootstrapper();
             Common.ApplicationBootstrapper.Run();
@@ -213,7 +216,8 @@ namespace VNCExcelToolsApplication.Excel
             Excel_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
             Excel_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
-            Common.WriteToDebugWindow("InitializePrism()-Exit", startTicks, true);
+            Common.WriteToDebugWindow("Exit", startTicks, true);
+            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void UnLoadXamlApplicationResources()
