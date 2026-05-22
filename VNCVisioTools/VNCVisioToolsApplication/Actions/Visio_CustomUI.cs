@@ -21,6 +21,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CommandCockpit()
         {
+            Common.WriteToDebugWindow("");
+
             if (commandCockpitHost is null) commandCockpitHost = new DxThemedWindowHost(Common.EventAggregator);
 
             commandCockpitHost.DisplayUserControlInHost(
@@ -54,6 +56,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DuplicatePage()
         {
+            Common.WriteToDebugWindow("");
+
             if (duplicatePageHost is null) duplicatePageHost = new DxThemedWindowHost(Common.EventAggregator);
 
             duplicatePageHost.DisplayUserControlInHost(
@@ -72,6 +76,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void RenamePages()
         {
+            Common.WriteToDebugWindow("");
+
             if (renamePagesHost is null) renamePagesHost = new DxThemedWindowHost(Common.EventAggregator);
 
             renamePagesHost.DisplayUserControlInHost(
@@ -90,6 +96,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void MovePages()
         {
+            Common.WriteToDebugWindow("");
+
             if (movePagesHost is null) movePagesHost = new DxThemedWindowHost(Common.EventAggregator);
 
             movePagesHost.DisplayUserControlInHost(
@@ -108,6 +116,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void EditControlRows()
         {
+            Common.WriteToDebugWindow("");
+
             if (editControlRowsHost is null) editControlRowsHost = new DxThemedWindowHost(Common.EventAggregator);
 
             editControlRowsHost.DisplayUserControlInHost(
@@ -125,6 +135,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void EditParagraph()
         {
+            Common.WriteToDebugWindow("");
+
             if (editParagraphHost is null) editParagraphHost = new DxThemedWindowHost(Common.EventAggregator);
 
             editParagraphHost.DisplayUserControlInHost(
@@ -142,6 +154,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void EditControlPoints()
         {
+            Common.WriteToDebugWindow("");
+
             if (editControlPointsHost is null) editControlPointsHost = new DxThemedWindowHost(Common.EventAggregator);
 
             editControlPointsHost.DisplayUserControlInHost(
@@ -159,6 +173,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void EditText()
         {
+            Common.WriteToDebugWindow("");
+
             if (editTextHost is null) editTextHost = new DxThemedWindowHost(Common.EventAggregator);
 
             editTextHost.DisplayUserControlInHost(
@@ -176,7 +192,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CustomUI_Car()
         {
-            Common.WriteToDebugWindow("CustomUI_Car() - Not Implemented", true);
+            Common.WriteToDebugWindow("Not Implemented", true);
             // TODO(crhodes)
             // Decide if want to keep this
 
@@ -198,6 +214,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void TestVisioLogging()
         {
+            Common.WriteToDebugWindow("");
+
             if (TestVisioLoggingHost is null) TestVisioLoggingHost = new DxThemedWindowHost(Common.EventAggregator);
 
             TestVisioLoggingHost.DisplayUserControlInHost(
@@ -218,10 +236,12 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void LoggingConfiguration()
         {
+            Common.WriteToDebugWindow("");
+
             if (LoggingConfigurationHost is null) LoggingConfigurationHost = new DxThemedWindowHost(Common.EventAggregator);
 
             LoggingConfigurationHost.DisplayUserControlInHost(
-                "Folder Map",
+                "Logging Configuration",
                 Common.DEFAULT_WINDOW_WIDTH, Common.DEFAULT_WINDOW_HEIGHT,
                 ShowWindowMode.Modeless_Show,
                 //(CommandCockpitViewModel)Common.ApplicationBootstrapper.Container.Resolve(typeof(CommandCockpitViewModel))

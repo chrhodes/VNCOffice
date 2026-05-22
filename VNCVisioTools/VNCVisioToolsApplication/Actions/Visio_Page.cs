@@ -27,16 +27,18 @@ namespace VNCVisioToolsApplication.Actions
             RemovalName = 2
         }
 
+        #endregion
+
+        #region Public Methods
+
         // Replace all occurrences of:
         // Common.WriteToDebugWindow(string.Format("{0}()", MethodBase.GetCurrentMethod().Name));
         // with:
-        // Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+        // Common.WriteToDebugWindow("");
 
         public static void AddDefaultLayers()
         {
-            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
-
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -47,7 +49,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddDefaultLayers(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}({page.NameU})");
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             if (page == null)
             {
@@ -88,7 +90,7 @@ namespace VNCVisioToolsApplication.Actions
         }
 
         public static MSVisio.Layer AddLayer(MSVisio.Page page,
-                    string layerName,
+            string layerName,
             string layerVisible = "1",
             string layerPrint = "1",
             string layerActive = "0",
@@ -96,6 +98,8 @@ namespace VNCVisioToolsApplication.Actions
             string layerSnap = "1",
             string layerGlue = "1")
         {
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
+
             MSVisio.Layer layer = null;
 
             try
@@ -141,7 +145,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddNavigationLinks(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}({page.NameU})");
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             if ((page.Background != 0) || (page.NameU == "Navigation Links"))
             {
@@ -193,9 +197,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AutoSizePageOff()
         {
-            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
-
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -206,14 +208,14 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AutoSizePageOff(MSVisio.Page page)
         {
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
+
             page.AutoSize = false;
         }
 
         public static void AutoSizePageOn()
         {
-            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
-
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -224,11 +226,15 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AutoSizePageOn(MSVisio.Page page)
         {
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
+
             page.AutoSize = true;
         }
 
         public static void CreateActivityPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] args)
         {
+            Common.WriteToDebugWindow("");
+
             string pageLevel = null;
             string backgroundPageName = null;
 
@@ -293,6 +299,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreateArtifactPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] args)
         {
+            Common.WriteToDebugWindow("");
+
             string pageLevel = null;
             string backgroundPageName = null;
 
@@ -335,11 +343,15 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreateDefaultLayersPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
         {
+            Common.WriteToDebugWindow("");
+
             MSVisio.Page newPage = CreatePage(pageName: "Default Layers", backgroundPageName: "", isBackground: 1);
         }
 
         public static void CreateMetricPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, String[] args)
         {
+            Common.WriteToDebugWindow("");
+
             string arg0 = null;
             string backgroundPageName = null;
 
@@ -378,11 +390,15 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreateNavigationLinksPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
         {
+            Common.WriteToDebugWindow("");
+
             MSVisio.Page newPage = CreatePage(pageName: "Navigation Links", backgroundPageName: "", isBackground: 1);
         }
 
         public static MSVisio.Page CreatePage(string pageName, string backgroundPageName, short isBackground = 0)
         {
+            Common.WriteToDebugWindow("");
+
             Common.WriteToDebugWindow(string.Format("{0}() Page:{1}  Background:{2}",
                 MethodBase.GetCurrentMethod().Name,
                 pageName, backgroundPageName));
@@ -420,11 +436,15 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreatePageBasePage(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
         {
+            Common.WriteToDebugWindow("");
+
             MSVisio.Page newPage = CreatePage(pageName: "Page Base", backgroundPageName: "", isBackground: 1);
         }
 
         public static void CreatePageForShape(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] args)
         {
+            Common.WriteToDebugWindow("");
+
             string prefix = null;
             string delimiter = null;
             string backgroundPageName = null;
@@ -559,6 +579,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreateRolePage(MSVisio.Application app, string doc, string page, string shape, string shapeu, String[] args)
         {
+            Common.WriteToDebugWindow("");
+
             string roleSource = null;
             string backgroundPageName = null;
 
@@ -597,6 +619,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreateToolPage(MSVisio.Application app, string doc, string page, string shape, string shapeu, String[] args)
         {
+            Common.WriteToDebugWindow("");
+
             string arg0 = null;
             string backgroundPageName = null;
 
@@ -634,6 +658,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DeleteLayer(MSVisio.Page page, string layerName, short deleteShapes)
         {
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
+
             // TODO(crhodes)
             // may want to pass in a forceUnlock flag defaulted to 0
 
@@ -675,7 +701,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DeleteLayers(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name} Name:>{page.Name}< NameU:>{page.NameU}<");
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             try
             {
@@ -705,7 +731,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayInfo(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -762,7 +788,7 @@ namespace VNCVisioToolsApplication.Actions
         {
             Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}(layer:{layerName} show:{show})");
 
-            Common.WriteToDebugWindow(page.NameU);
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             foreach (MSVisio.Layer layer in page.Layers)
             {
@@ -776,8 +802,7 @@ namespace VNCVisioToolsApplication.Actions
         }
         public static void LockLayer(string layerName)
         {
-            Common.WriteToDebugWindow(string.Format("{0}()",
-                MethodBase.GetCurrentMethod().Name));
+            Common.WriteToDebugWindow("");
 
             MSVisio.Layer layer = Common.VisioApplication.ActivePage.Layers[layerName];
 
@@ -786,8 +811,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void MovePage(MSVisio.Page page, string targetDocument)
         {
-            Common.WriteToDebugWindow(string.Format("{0}()",
-                MethodBase.GetCurrentMethod().Name));
+            Common.WriteToDebugWindow(""); Common.WriteToDebugWindow("");
+
             MSVisio.Application app = page.Application;
             MSVisio.Document doc = page.Document;
             string currentDocument = doc.Name;
@@ -832,8 +857,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void PageChanged(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
-                MethodBase.GetCurrentMethod().Name, page.Name, page.NameU));
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             SyncPageNames(page);
             UpdatePageNameShapes(page);
@@ -841,7 +865,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void PrintPage()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             try
             {
@@ -859,7 +883,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void RemoveLayers()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -870,8 +894,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void SavePage(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
-                MethodBase.GetCurrentMethod().Name, page.Name, page.NameU));
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -928,10 +951,9 @@ namespace VNCVisioToolsApplication.Actions
 
         }
 
-        //End Sub
         public static void SyncPageNames()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -944,8 +966,7 @@ namespace VNCVisioToolsApplication.Actions
         //    ActiveDocument.DiagramServicesEnabled = DiagramServices
         public static void SyncPageNames(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
-                MethodBase.GetCurrentMethod().Name, page.Name, page.NameU));
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             try
             {
@@ -966,8 +987,7 @@ namespace VNCVisioToolsApplication.Actions
         //    Application.ActivePage.Name = "QMS RDL <DataSources>"
         public static void ToggleLayerLock(MSVisio.Application app, string doc, string page, string shape, string shapeu)
         {
-            Common.WriteToDebugWindow(string.Format("{0})",
-                MethodBase.GetCurrentMethod().Name));
+            Common.WriteToDebugWindow("");
 
             MSVisio.Shape activeShape = app.ActivePage.Shapes[shape];
             string layerName = activeShape.CellsU["Prop.Layer"].ResultStrU[0];
@@ -994,8 +1014,7 @@ namespace VNCVisioToolsApplication.Actions
         //    Application.ActiveWindow.Page.Paste
         public static void ToggleLayerPrint(MSVisio.Application app, string doc, string page, string shape, string shapeu)
         {
-            Common.WriteToDebugWindow(string.Format("{0})",
-                MethodBase.GetCurrentMethod().Name));
+            Common.WriteToDebugWindow("");
 
             MSVisio.Shape activeShape = app.ActivePage.Shapes[shape];
             string layerName = activeShape.CellsU["Prop.Layer"].ResultStrU[0];
@@ -1021,6 +1040,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void ToggleLayerSetting(MSVisio.Page activePage, MSVisio.Shape activeShape, MSVisio.VisCellIndices visCell)
         {
+            Common.WriteToDebugWindow("");
+
             string layerName = activeShape.CellsU["Prop.Layer"].ResultStrU[0];
 
             foreach (MSVisio.Layer layer in activePage.Layers)
@@ -1074,7 +1095,7 @@ namespace VNCVisioToolsApplication.Actions
         //    Application.EndUndoScope UndoScopeID1, True
         public static void ToggleLayerVisibility(MSVisio.Application app, string doc, string page, string shape, string shapeu)
         {
-            Common.WriteToDebugWindow($"{MethodInfo.GetCurrentMethod().Name}");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Shape activeShape = app.ActivePage.Shapes[shape];
             MSVisio.Page activePage = app.ActivePage;
@@ -1103,8 +1124,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void UnlockLayer(string layerName)
         {
-            Common.WriteToDebugWindow(string.Format("{0}()",
-                MethodBase.GetCurrentMethod().Name));
+            Common.WriteToDebugWindow("");
 
             MSVisio.Layer layer = Common.VisioApplication.ActivePage.Layers[layerName];
 
@@ -1139,6 +1159,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void UpdateGroupNameShapes(MSVisio.Application app, string doc, string page, string shape, string shapeu, String[] args)
         {
+            Common.WriteToDebugWindow("");
+
             string mode = null;
 
             if (args.Count() != 1)
@@ -1266,6 +1288,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void UpdateHasColorTagsShapes(MSVisio.Application app, string doc, string page, string shape, string shapeu, String[] args)
         {
+            Common.WriteToDebugWindow("");
+
             int levels = 0;
 
             if (args.Count() != 1)
@@ -1392,8 +1416,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void UpdateLayer(MSVisio.Application app, string doc, string page, string shape, string shapeu)
         {
-            Common.WriteToDebugWindow(string.Format("{0})",
-                MethodBase.GetCurrentMethod().Name));
+            Common.WriteToDebugWindow("");
 
             MSVisio.Shape activeShape = app.ActivePage.Shapes[shape];
             string layerName = activeShape.CellsU["Prop.Layer"].ResultStrU[0];
@@ -1431,8 +1454,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void UpdatePageNameShapes(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
-                MethodBase.GetCurrentMethod().Name, page.Name, page.NameU));
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             foreach (MSVisio.Shape shape in page.Shapes)
             {
@@ -1446,8 +1468,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static List<MSVisio.Shape> GetLayerNameShapes(MSVisio.Page page, LayerNameType nameType = LayerNameType.AllNames)
         {
-            Common.WriteToDebugWindow(string.Format("{0}({1})",
-                MethodBase.GetCurrentMethod().Name, page.NameU));
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             List<MSVisio.Shape> layerNames = new List<MSVisio.Shape>();
 
@@ -1491,8 +1512,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static List<MSVisio.Shape> GetNavigationLinks(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow(string.Format("{0}({1})",
-                MethodBase.GetCurrentMethod().Name, page.NameU));
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             List<MSVisio.Shape> navigationLinks = new List<MSVisio.Shape>();
 
@@ -1508,6 +1528,8 @@ namespace VNCVisioToolsApplication.Actions
 
         private static string GetPageSaveName(MSVisio.Page page)
         {
+            Common.WriteToDebugWindow("");
+
             string pageName = VNCVisioAddIn.Helpers.SafePageName(page.NameU);
             string documentName = VNCVisioAddIn.Helpers.SafeFileName(page.Application.ActiveDocument.Name);
 
@@ -1521,8 +1543,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static void RemoveNavigationLinks(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow(string.Format("{0} Name:>{1}< NameU:>{2}<",
-                MethodBase.GetCurrentMethod().Name, page.Name, page.NameU));
+            Common.WriteToDebugWindow($"Name:>{page.Name}< NameU:>{page.NameU}<");
 
             List<MSVisio.Shape> navigationLinks = GetNavigationLinks(page);
 

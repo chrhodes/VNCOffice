@@ -44,7 +44,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayAddInInfo()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (_aboutHost is null) _aboutHost = new WindowHost(Common.EventAggregator);
 
@@ -76,8 +76,6 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayInfo()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
-
             MSVisio.Application app = Common.VisioApplication;
 
             StringBuilder sb = new StringBuilder();
@@ -129,7 +127,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static MSVisio.Document GetActiveDocument()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -138,7 +136,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static List<MSVisio.Document> GetOpenDocuments()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -154,7 +152,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void LayerManager()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}(TODO: Not Implemented)");
+            Common.WriteToDebugWindow($"(TODO: Not Implemented)");
 
             // TODO(CHR): Launch WPF Layer Manager Window
         }

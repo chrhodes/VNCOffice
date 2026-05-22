@@ -679,7 +679,7 @@ namespace VNC.VSTOAddIn.Visio
             string shapeShdwType = null, string shapeShdwObliqueAngle = null, string shapeShdwScaleFactor = null,
             string shapeShdwBlur = null, string shapeShdwShow = null)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             // This Section always exists, so just set values
 
@@ -733,7 +733,7 @@ namespace VNC.VSTOAddIn.Visio
                 string flipX = null, string flipY = null, string locPinX = null, string locPinY = null,
                 string angle = null, string resizeMode = null)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             // This Section always exists, so just set values
 

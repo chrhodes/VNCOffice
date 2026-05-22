@@ -38,7 +38,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void Add_IDandTextSupport_ToSelection()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -52,7 +52,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void Add_IDSupport_ToSelection()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -66,7 +66,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void Add_TextControl_ToSelection()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -80,7 +80,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void Add_User_IsPageName()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -128,6 +128,8 @@ namespace VNCVisioToolsApplication.Actions
         // All string.Format replaced with string interpolation
         public static void AddColorSupportToSelection()
         {
+            Common.WriteToDebugWindow("");
+
             MSVisio.Application app = Common.VisioApplication;
 
             MSVisio.Selection selection = app.ActiveWindow.Selection;
@@ -140,6 +142,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddHyperLink(MSVisio.Shape shape, string pageName)
         {
+            Common.WriteToDebugWindow("");
+
             try
             {
                 MSVisio.Hyperlink hlink = shape.Hyperlinks.Add();
@@ -153,6 +157,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddHyperlinkToPage_FromShapeText()
         {
+            Common.WriteToDebugWindow("");
+
             MSVisio.Application app = Common.VisioApplication;
 
             MSVisio.Selection selection = app.ActiveWindow.Selection;
@@ -166,7 +172,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void ClearConnectionPoints(string tag)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -182,7 +188,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayInfo(MSVisio.Shape shape)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             var isPageName = shape.CellExists["User.IsPageName", 0];
 
@@ -196,7 +202,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void GatherInfo()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -214,7 +220,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void HandleShapeAdded(MSVisio.Shape shape)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
+
             var isPageName = shape.CellExists["User.IsPageName", 0];
 
             if (isPageName != 0)
@@ -253,19 +260,17 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void ListInvocationsInMethod(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
         {
-
-
+            Common.WriteToDebugWindow("Not Implemented");
         }
 
         public static void ListMethodsInClass(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
         {
-
-
+            Common.WriteToDebugWindow("Not Implemented");
         }
-        
+
         public static void MakeLinkableMaster()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -279,7 +284,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void MoveToBackgroundLayer()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Page currentPage = app.ActivePage;
@@ -316,7 +321,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void SetMargins(string points)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -349,7 +354,7 @@ namespace VNCVisioToolsApplication.Actions
 
         internal static void Add_ConnectionPoints(List<VNCVisioAddIn.Domain.ConnectionPointRow> connectionPoints)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -366,7 +371,7 @@ namespace VNCVisioToolsApplication.Actions
         static void Add_Connection_Row(MSVisio.Shape shape,
             VNCVisioAddIn.Domain.ConnectionPointRow connectionPoint)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             short sectionConnectionPts = (short)MSVisio.VisSectionIndices.visSectionConnectionPts;
             short tagConnectionPts = (short)MSVisio.VisRowTags.visTagCnnctPt;
@@ -419,7 +424,8 @@ namespace VNCVisioToolsApplication.Actions
 
         static void Add_ConnectionPoints(MSVisio.Shape shape, List<VNCVisioAddIn.Domain.ConnectionPointRow> connectionPoints)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
+
             // TODO(crhodes)
             // Add a remove Connection Points method to clear things out.
 
@@ -438,7 +444,7 @@ namespace VNCVisioToolsApplication.Actions
 
         static void Clear_ConnectionPoints(MSVisio.Shape shape, string tag)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             short sectionConnection = (short)MSVisio.VisSectionIndices.visSectionConnectionPts;
 
@@ -508,7 +514,7 @@ namespace VNCVisioToolsApplication.Actions
         }
         private static void MakeLinkableMaster(MSVisio.Shape shape)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             try
             {
@@ -575,14 +581,14 @@ namespace VNCVisioToolsApplication.Actions
                 Common.WriteToDebugWindow(ex.ToString(), force:true);
             }
         }
-        
+
         #endregion
 
         #region Private Methods
 
         private static void Add_ColorSupport(MSVisio.Shape shape)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
             // Have to add these in the right order as there are some dependencies
 
             string value = string.Empty;
@@ -603,7 +609,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static void Add_IDandTextSupport(MSVisio.Shape shape)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             VNCVisioAddIn.Helpers.Validate_Prop_SectionExists(shape);
 
@@ -633,7 +639,7 @@ namespace VNCVisioToolsApplication.Actions
         }
         private static void Add_IDSupport(MSVisio.Shape shape)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             VNCVisioAddIn.Helpers.Validate_Prop_SectionExists(shape);
 
@@ -644,12 +650,12 @@ namespace VNCVisioToolsApplication.Actions
         }
 
         // TODO(crhodes):
-        // This section should be reviewed and if appropriate lifted out into the ShapeEditor 
+        // This section should be reviewed and if appropriate lifted out into the ShapeEditor
         // and associated configuration file
 
         private static void Add_TextTransformControl(MSVisio.Shape shape)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             VNCVisioAddIn.Helpers.Populate_Controls_Section(shape,
                 "Width*0.5",
@@ -682,7 +688,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static void SetAllMargins(MSVisio.Shape shape, string points)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             //VNCVisioAddIn.Domain.TextBlockFormat.Validate_TextBlockFormat_SectionExists(shape);
 
@@ -691,7 +697,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static void SetMargins(MSVisio.Shape shape, string leftPoints, string topPoints, string rightPoints, string bottomPoints)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             //VNCVisioAddIn.Domain.TextBlockFormat.Validate_TextBlockFormat_SectionExists(shape);
 
@@ -704,13 +710,13 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void MoveToBackgroundLayer(MSVisio.Application app, string doc, string page, string shape, string shapeu)
         {
-
+            Common.WriteToDebugWindow("Not Implemented");
 
         }
 
         public static void UpdateTextSections(VNCVisioAddIn.Domain.TextBlockFormatRow textBlockFormat)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -724,12 +730,14 @@ namespace VNCVisioToolsApplication.Actions
             }
         }
 
-  
+
 
         #endregion
 
         public static bool HasTextTransformSection(MSVisio.Shape shape)
         {
+            Common.WriteToDebugWindow("");
+
             bool result = false;
 
             MSVisio.Section section = shape.Section[(short)MSVisio.VisSectionIndices.visSectionObject];
@@ -740,6 +748,8 @@ namespace VNCVisioToolsApplication.Actions
 
         internal static ObservableCollection<VNCVisioAddIn.Domain.ConnectionPointRow> Get_ConnectionPointRows(MSVisio.Shape shape)
         {
+            Common.WriteToDebugWindow("");
+
             var rows = new ObservableCollection<VNCVisioAddIn.Domain.ConnectionPointRow>();
 
             MSVisio.Section section = shape.Section[(short)MSVisio.VisSectionIndices.visSectionConnectionPts];

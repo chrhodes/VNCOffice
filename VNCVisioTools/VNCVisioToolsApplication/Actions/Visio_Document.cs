@@ -49,7 +49,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddArchitectureBasePages()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -141,6 +141,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddBackgroundPages()
         {
+            Common.WriteToDebugWindow("");
+
             Visio_Page.CreatePage(pageName: "Navigation Links", backgroundPageName: "", isBackground: 1);
             Visio_Page.CreatePage(pageName: "Page Base", backgroundPageName: "", isBackground: 1);
             Visio_Page.CreatePage(pageName: "Default Layers", backgroundPageName: "", isBackground: 1);
@@ -148,7 +150,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddDefaultLayers()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -172,7 +174,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddFooter()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -212,7 +214,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddHeader()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -250,7 +252,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AddNavigationLinks()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             int undoScope = Common.VisioApplication.BeginUndoScope("AddNavigationLinks");
 
@@ -268,7 +270,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AutoSizePagesOff()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             int undoScope = Common.VisioApplication.BeginUndoScope("AutoSizePagesOff");
 
@@ -286,7 +288,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void AutoSizePagesOn()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             int undoScope = Common.VisioApplication.BeginUndoScope("AutoSizePagesOn");
 
@@ -304,6 +306,8 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreatePluralSightCourseFileFromShape(MSVisio.Application app, string doc, string page, string shape, string shapeu, string[] array)
         {
+            Common.WriteToDebugWindow("");
+
             int i = 0;
 
             MSVisio.Page currentPage = app.ActivePage;
@@ -350,7 +354,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void CreateTableOfContents()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Page pageTOC = CreateTOCPage();
 
@@ -392,7 +396,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static MSVisio.Page CreateTOCPage()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Page page = null;
 
@@ -426,7 +430,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DeletePages()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -449,7 +453,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayInfo()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -547,7 +551,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void DisplayPageNames()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -570,7 +574,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static List<MSVisio.Shape> GetNavigationLinks()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             List<MSVisio.Shape> navLinks = new List<MSVisio.Shape>();
 
@@ -586,7 +590,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void MovePages(string targetDocument)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -608,7 +612,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void PrintPages()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             try
             {
@@ -646,7 +650,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void RemoveLayers()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -660,9 +664,7 @@ namespace VNCVisioToolsApplication.Actions
         public static void RenamePages(string searchExpression, string replacementExpression,
             RegexOptions regexOptions = RegexOptions.None)
         {
-            VNC.Log.TRACE("", Common.LOG_CATEGORY, 0);
-
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -688,7 +690,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void SavePages()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
             MSVisio.Document doc = app.ActiveDocument;
@@ -710,7 +712,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void SortAllPages()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -764,7 +766,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void SyncPageNames()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -790,7 +792,7 @@ namespace VNCVisioToolsApplication.Actions
 
         public static void UpdatePageNameShapes()
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             MSVisio.Application app = Common.VisioApplication;
 
@@ -806,10 +808,9 @@ namespace VNCVisioToolsApplication.Actions
 
         #region Private Methods
 
-
         private static void AddPageLinkToTOCPage(MSVisio.Page pageTOC, MSVisio.Page page, double xLoc, double yLoc)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             int undoScope = Common.VisioApplication.BeginUndoScope("AddPageLinkToTOCPage");
 
@@ -830,7 +831,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static void AddTOCLinkToPage(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             if (page.Background != 0)
             {
@@ -873,7 +874,7 @@ namespace VNCVisioToolsApplication.Actions
 
         private static void ClearPage(MSVisio.Page page)
         {
-            Common.WriteToDebugWindow($"{MethodBase.GetCurrentMethod().Name}()");
+            Common.WriteToDebugWindow("");
 
             try
             {
