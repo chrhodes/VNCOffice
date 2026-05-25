@@ -24,7 +24,7 @@ namespace VNCExcelToolsApplication.Presentation.Views
         public FolderMap()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountV++;
 
@@ -53,7 +53,7 @@ namespace VNCExcelToolsApplication.Presentation.Views
 
             InitializeView();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         public FolderMap(IFolderMapViewModel viewModel)
@@ -71,13 +71,13 @@ namespace VNCExcelToolsApplication.Presentation.Views
 
             InitializeView();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.Constructor) Log.CONSTRUCTOR("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeView()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ViewLow) startTicks = Log.VIEW_LOW("Enter", Common.LOG_CATEGORY);
 
             // Store information about the View, DataContext, and ViewModel
             // for the DeveloperInfo control. Useful for debugging binding issues
@@ -96,7 +96,7 @@ namespace VNCExcelToolsApplication.Presentation.Views
 
             // Establish any additional DataContext(s) to things held in this View
 
-            if (Common.VNCLogging.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ViewLow) Log.VIEW_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion

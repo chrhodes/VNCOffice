@@ -27,7 +27,7 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             Common.WriteToDebugWindow("Enter/Exit", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
 
             return new UnityContainerExtension();
 
@@ -40,7 +40,7 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             Common.WriteToDebugWindow("Enter/Exit", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
 
              return new ConfigurationModuleCatalog();
         }
@@ -51,7 +51,7 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter/Exit", Common.LOG_CATEGORY);
 
             // Registers all types that are required by Prism to function with the container.
 
@@ -60,7 +60,7 @@ namespace VNCExcelToolsApplication
             //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // Step 4 - Register Types to be used
@@ -69,7 +69,7 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             // Used to register types with the container that will be used by your application.
 
@@ -87,7 +87,7 @@ namespace VNCExcelToolsApplication
             //Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // Step 5 - Configure the catalog of modules
@@ -97,7 +97,7 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             moduleCatalog.AddModule(typeof(VNCExcelToolsApplicationModule));
 
@@ -111,7 +111,7 @@ namespace VNCExcelToolsApplication
             base.ConfigureModuleCatalog(moduleCatalog);
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // Step 6 - Configure the RegionAdapters if any custom ones have been created
@@ -120,13 +120,13 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             base.ConfigureRegionAdapterMappings(regionAdapterMappings);
             regionAdapterMappings.RegisterMapping(typeof(StackPanel), Container.Resolve<StackPanelRegionAdapter>());
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // Step 7 - Configure any Region Behaviors
@@ -134,12 +134,12 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             base.ConfigureDefaultRegionBehaviors(regionBehaviors);
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // Step 8 - Create the Shell that will hold the modules in designated regions.
@@ -148,12 +148,12 @@ namespace VNCExcelToolsApplication
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             Common.Container = Container;
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
 
             return null;
             //return Container.Resolve<Views.MainWindow>();

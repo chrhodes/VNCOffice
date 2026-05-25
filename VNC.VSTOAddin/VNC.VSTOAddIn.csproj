@@ -10,7 +10,7 @@
         <VersionPrefix>1.1.0</VersionPrefix>
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.22</FileVersion>
+        <FileVersion>2026.05.25</FileVersion>
         <Description>VNC VSTO AddIn Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -39,7 +39,7 @@
 
     <ItemGroup>
       <Compile Remove="AddInInfo.cs" />
-    </ItemGroup>   
+    </ItemGroup>
 
     <ItemGroup>
         <None Include="LICENSE">
@@ -86,7 +86,7 @@
                 <PackageReference Include="VNC.Core" Version="3.2.0" />
             </ItemGroup>
         </When>
-    </Choose>-->    
+    </Choose>-->
 
     <ItemGroup>
       <Reference Include="PresentationCore" />
@@ -110,8 +110,8 @@
 
     <!--This updates any existing VNC NuGet package.-->
 
-    <!--<Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)'=='Release'">
-        <Exec Command="powershell.exe -File &quot;$(ProjectDir)\Execute-PostBuild.ps1&quot;  $(ProjectFileName) $(TargetName) $(PackageVersion)" />
-    </Target>-->    
+    <Target Name="MyPack" AfterTargets="Pack" Condition="'$(Configuration)'=='Release'">
+        <Exec Command="powershell.exe -File B:\bin\PowerShell\Update-VNCNuGetPackage.ps1 $(MSBuildProjectDirectory) $(AssemblyName) $(PackageVersion) -v" />
+    </Target>
 
 </Project>

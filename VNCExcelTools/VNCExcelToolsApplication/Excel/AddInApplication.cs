@@ -20,7 +20,7 @@ namespace VNCExcelToolsApplication.Excel
         {
             Int64 startTicks = 0;
             Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             //Common.CurrentUser = new WindowsPrincipal(WindowsIdentity.GetCurrent());
 
@@ -28,8 +28,8 @@ namespace VNCExcelToolsApplication.Excel
             //// We need to update VNC.Core as VNCCoreLogging and VNCLogging are null
             //// We started initializing them in 3.0+
 
-            //VNC.Core.Common.VNCCoreLogging = new VNC.Core.VNCLoggingConfig();
-            //VNC.Core.Common.VNCLogging = new VNC.Core.VNCLoggingConfig();
+            //VNC.Core.Common.VNCCoreLogLevel = new VNC.Core.VNCLoggingConfig();
+            //VNC.Core.Common.VNCLogLevel = new VNC.Core.VNCLoggingConfig();
 
             GetAndSetInformation();
 
@@ -38,7 +38,7 @@ namespace VNCExcelToolsApplication.Excel
             InitializePrism();
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace VNCExcelToolsApplication.Excel
         {
             Int64 startTicks = 0;
             Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitialize) startTicks = Log.APPLICATION_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             // Get Information about VNC.Core
 
@@ -149,14 +149,14 @@ namespace VNCExcelToolsApplication.Excel
             }
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitialize) Log.APPLICATION_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void CreateXamlApplication()
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             try
             {
@@ -200,14 +200,14 @@ namespace VNCExcelToolsApplication.Excel
             }
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private static void InitializePrism()
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) startTicks = Log.APPLICATION_INITIALIZE_LOW("Enter", Common.LOG_CATEGORY);
 
             Common.ApplicationBootstrapper = new Bootstrapper();
             Common.ApplicationBootstrapper.Run();
@@ -217,7 +217,7 @@ namespace VNCExcelToolsApplication.Excel
             Excel_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private void UnLoadXamlApplicationResources()

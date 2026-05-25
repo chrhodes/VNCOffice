@@ -24,12 +24,12 @@ namespace VNCVisioToolsApplication.Modules
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             containerRegistry.Register<IViewCViewModel, ViewCViewModel>();
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // 02
@@ -37,7 +37,7 @@ namespace VNCVisioToolsApplication.Modules
         {
             Int64 startTicks = 0;
             startTicks = Common.WriteToDebugWindow("Enter", true);
-            if (Common.VNCLogging.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ModuleInitialize) startTicks = Log.MODULE_INITIALIZE("Enter", Common.LOG_CATEGORY);
 
             var regionManager = containerProvider.Resolve<IRegionManager>();
 
@@ -51,7 +51,7 @@ namespace VNCVisioToolsApplication.Modules
             regionManager.RegisterViewWithRegion(RegionNames.EditParagraphRegion, typeof(EditParagraph));
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
-            if (Common.VNCLogging.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ModuleInitialize) Log.MODULE_INITIALIZE("Exit", Common.LOG_CATEGORY, startTicks);
         }
     }
 }

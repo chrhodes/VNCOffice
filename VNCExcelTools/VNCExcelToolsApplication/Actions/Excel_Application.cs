@@ -110,11 +110,11 @@ namespace VNCExcelToolsApplication.Actions
         private static void PublishDeveloperMode(Boolean developerMode)
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.Event) startTicks = Log.EVENT("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.Event) startTicks = Log.EVENT("Enter", Common.LOG_CATEGORY);
 
             developerModeEvent.Publish(developerMode);
 
-            if (Common.VNCLogging.Event) Log.EVENT("Enter", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.Event) Log.EVENT("Enter", Common.LOG_CATEGORY, startTicks);
         }
     }
 }

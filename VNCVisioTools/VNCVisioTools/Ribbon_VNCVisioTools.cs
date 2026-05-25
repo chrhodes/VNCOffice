@@ -21,7 +21,7 @@ namespace VNCVisioTools
 
         private void btnAddDefaultLayers_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             
             try
             {
@@ -35,7 +35,7 @@ namespace VNCVisioTools
 
         private void btnAddFooter_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -49,7 +49,7 @@ namespace VNCVisioTools
 
         private void btnAddHeader_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -63,7 +63,7 @@ namespace VNCVisioTools
 
         private void btnAddNavigationLinks_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -77,7 +77,7 @@ namespace VNCVisioTools
 
         private void btnAddTableOfContents_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -91,7 +91,7 @@ namespace VNCVisioTools
 
         private void btnAllPageOff_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -110,7 +110,7 @@ namespace VNCVisioTools
 
         private void btnAllPageOn_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -129,7 +129,7 @@ namespace VNCVisioTools
 
         private void btnAutoSizePagesOff_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -143,7 +143,7 @@ namespace VNCVisioTools
 
         private void btnAutoSizePagesOn_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -157,7 +157,7 @@ namespace VNCVisioTools
 
         private void btnDeletePages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -171,7 +171,7 @@ namespace VNCVisioTools
 
         private void btnDisplayPageNames_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -185,7 +185,7 @@ namespace VNCVisioTools
 
         private void btnGetApplicationInfo_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -199,7 +199,7 @@ namespace VNCVisioTools
 
         private void btnGetDocumentInfo_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -213,7 +213,7 @@ namespace VNCVisioTools
 
         private void btnGetStencilInfo_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -227,7 +227,7 @@ namespace VNCVisioTools
 
         private void btnLayerManager_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             // TODO(crhodes)
             // Do we have a new LayerManager?
@@ -235,7 +235,7 @@ namespace VNCVisioTools
 
         private void btnLoadLayers_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -249,7 +249,7 @@ namespace VNCVisioTools
 
         private void btnPrintPages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -263,7 +263,7 @@ namespace VNCVisioTools
 
         private void btnRemoveLayers_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -277,7 +277,7 @@ namespace VNCVisioTools
 
         private void btnSavePages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -291,7 +291,7 @@ namespace VNCVisioTools
 
         private void btnSortAllPages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -305,7 +305,7 @@ namespace VNCVisioTools
 
         private void btnSyncPageNames_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -319,7 +319,7 @@ namespace VNCVisioTools
 
         private void btnUpdatePageNameShapes_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -337,7 +337,7 @@ namespace VNCVisioTools
 
         private void btnAddNavLinks_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -351,7 +351,7 @@ namespace VNCVisioTools
 
         private void btnAutoSizePageOff_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -365,7 +365,7 @@ namespace VNCVisioTools
 
         private void btnAutoSizePageOn_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -379,7 +379,7 @@ namespace VNCVisioTools
 
         private void btnGetPageInfo_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -394,7 +394,7 @@ namespace VNCVisioTools
         private void btnPrintPage_Click(object sender, RibbonControlEventArgs e)
         {
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             try
             {
                 Visio_Page.PrintPage();
@@ -407,7 +407,7 @@ namespace VNCVisioTools
 
         private void btnSavePage_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -421,7 +421,7 @@ namespace VNCVisioTools
 
         private void btnSyncPageNamesPage_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -436,7 +436,7 @@ namespace VNCVisioTools
         private void btnUpdatePageNameShapesPage_Click(object sender, RibbonControlEventArgs e)
         {
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             try
             {
                 Visio_Page.UpdatePageNameShapes(Globals.ThisAddIn.Application.ActivePage);
@@ -453,7 +453,7 @@ namespace VNCVisioTools
 
         private void btnAddDefaultLayers_Page_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -467,7 +467,7 @@ namespace VNCVisioTools
 
         private void btnLockBackground_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -481,7 +481,7 @@ namespace VNCVisioTools
 
         private void btnPageOff_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -500,7 +500,7 @@ namespace VNCVisioTools
 
         private void btnPageOn_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -519,7 +519,7 @@ namespace VNCVisioTools
 
         private void btnRemoveLayers_Page_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -533,7 +533,7 @@ namespace VNCVisioTools
 
         private void btnUnlockBackground_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -551,7 +551,7 @@ namespace VNCVisioTools
 
         private void btn0PtMargins_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -565,7 +565,7 @@ namespace VNCVisioTools
 
         private void btn1PtMargins_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -579,7 +579,7 @@ namespace VNCVisioTools
 
         private void btn2PtMargins_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -593,7 +593,7 @@ namespace VNCVisioTools
 
         private void btnAddColorSupport_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -607,7 +607,7 @@ namespace VNCVisioTools
 
         private void btnAddHyperLink_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -621,7 +621,7 @@ namespace VNCVisioTools
 
         private void btnAddIDAndTextSupport_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -635,7 +635,7 @@ namespace VNCVisioTools
 
         private void btnAddIDSupport_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -649,7 +649,7 @@ namespace VNCVisioTools
 
         private void btnAddIsPageName_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -663,7 +663,7 @@ namespace VNCVisioTools
 
         private void btnAddTextControl_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -677,7 +677,7 @@ namespace VNCVisioTools
 
         private void btnGetShapeInfo_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -691,7 +691,7 @@ namespace VNCVisioTools
 
         private void btnMakeLinkableMaster_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -705,7 +705,7 @@ namespace VNCVisioTools
 
         private void btnMoveToBackgroundLayer_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -723,7 +723,7 @@ namespace VNCVisioTools
 
         private void btnCommandCockpit_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -737,14 +737,14 @@ namespace VNCVisioTools
 
         private void btnLinq2Excel_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             //Visio_CustomUI.Linq2Excel();
         }
 
         private void btnDuplicatePage_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -758,7 +758,7 @@ namespace VNCVisioTools
 
         private void btnRenamePages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -772,7 +772,7 @@ namespace VNCVisioTools
 
         private void btnMovePages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -786,7 +786,7 @@ namespace VNCVisioTools
 
         private void btnEditControlRows_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -800,7 +800,7 @@ namespace VNCVisioTools
 
         private void btnEditParagraph_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -814,7 +814,7 @@ namespace VNCVisioTools
 
         private void btnEditControlPoints_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -828,7 +828,7 @@ namespace VNCVisioTools
 
         private void btnEditText_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -842,7 +842,7 @@ namespace VNCVisioTools
 
         private void btnCustomUI_Car_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -860,7 +860,7 @@ namespace VNCVisioTools
 
         private void btnAddArchitectureBasePages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -874,7 +874,7 @@ namespace VNCVisioTools
 
         private void btnAddBackgroundPages_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -892,7 +892,7 @@ namespace VNCVisioTools
 
         private void btnDisplayAddInInfo_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             // NOTE(crhodes)
             // This is for the old approach
             //VNC.VSTOAddIn.AddInInfo.DisplayInfo();
@@ -912,7 +912,7 @@ namespace VNCVisioTools
 
         private void btnToggleDeveloperMode_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             VNC.VSTOAddIn.Common.DeveloperMode = !VNC.VSTOAddIn.Common.DeveloperMode;
             Globals.Ribbons.Ribbon.rgDebug.Visible = VNC.VSTOAddIn.Common.DeveloperMode;
         }
@@ -923,31 +923,31 @@ namespace VNCVisioTools
 
         private void btnDebugWindow_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             VNC.VSTOAddIn.Common.DebugWindow.Visible = !VNC.VSTOAddIn.Common.DebugWindow.Visible;
         }
 
         private void btnWatchWindow_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             VNC.VSTOAddIn.Common.WatchWindow.Visible = !VNC.VSTOAddIn.Common.WatchWindow.Visible;
         }
 
         private void rcbDisplayChattyEvents_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             Common.DisplayChattyEvents = rcbDisplayChattyEvents.Checked;
         }
 
         private void rcbDisplayEvents_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             VNCVisioToolsApplication.Common.DisplayEvents = rcbDisplayEvents.Checked;
         }
 
         private void rcbEnableAppEvents_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             Common.EnableAppEvents = rcbEnableAppEvents.Checked;
 
             if (Common.EnableAppEvents)
@@ -972,7 +972,7 @@ namespace VNCVisioTools
 
         private void rcbToggleDeveloperUIMode_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // This is for changing the visibility of MVVM stuff. 
 
@@ -988,7 +988,7 @@ namespace VNCVisioTools
 
         private void btnTestVisioLogging_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -1002,7 +1002,7 @@ namespace VNCVisioTools
 
         private void btnLoggingConfiguration_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -1016,7 +1016,7 @@ namespace VNCVisioTools
 
         private void rcbUILaunchApproaches_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             Globals.Ribbons.Ribbon.rtUILaunchApproaches.Visible = Globals.Ribbons.Ribbon.rcbUILaunchApproaches.Checked;
         }

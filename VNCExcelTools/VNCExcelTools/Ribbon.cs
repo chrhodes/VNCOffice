@@ -34,24 +34,24 @@ namespace VNCExcelTools
             loggingConfigurationPath = string.IsNullOrEmpty(loggingConfigurationPath) ? currentDirectory : loggingConfigurationPath;
 
 #if DEBUG
-            Common.InitializeLogging(new VNC.Core.Logging.Configuration(
-                configFilePath: loggingConfigurationPath, configFile: "vncloggingconfig-debug.json", isDebugConfig: true));
+            Common.InitializeLogging(new VNC.Core.Logging.LogLevelConfiguration(
+                filePath: loggingConfigurationPath, fileName: "vncloggingconfig-debug.json", isDebugConfig: true));
 
-            Common.InitializeCoreLogging(new VNC.Core.Logging.Configuration(
-                configFilePath: loggingConfigurationPath, configFile: "vnccoreloggingconfig-debug.json", isDebugConfig: true));
+            Common.InitializeCoreLogging(new VNC.Core.Logging.LogLevelConfiguration(
+                filePath: loggingConfigurationPath, fileName: "vnccoreloggingconfig-debug.json", isDebugConfig: true));
             //Common.InitializeLogging(debugConfig: true);
 #else
-            Common.InitializeLogging(new VNC.Core.Logging.Configuration(
-                configFilePath: loggingConfigurationPath, configFile: "ConfigurationSettings.json",  isDebugConfig: false));
+            Common.InitializeLogging(new VNC.Core.Logging.LogLevelConfiguration(
+                filePath: loggingConfigurationPath, fileName: "ConfigurationSettings.json",  isDebugConfig: false));
 
-            Common.InitializeCoreLogging(new VNC.Core.ConfigurationSettings(
-                configFilePath: loggingConfigurationPath, configFile: "vnccoreloggingconfig.json", isDebugConfig: false));
+            Common.InitializeCoreLogging(new VNC.Core.Logging.LogLevelConfiguration(
+                filePath: loggingConfigurationPath, fileName: "vnccoreloggingconfig.json", isDebugConfig: false));
             //Common.InitializeLogging();
 #endif
 
             Int64 startTicks = 0;
 
-            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Initialize SignalR", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationStart) startTicks = Log.APPLICATION_START("Initialize SignalR", Common.LOG_CATEGORY);
 
             // NOTE(crhodes)
             // If don't delay a bit here, the SignalR logging infrastructure does not initialize quickly enough
@@ -60,7 +60,7 @@ namespace VNCExcelTools
 
             Thread.Sleep(250);
 
-            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
 
         private string GetAppSetting(string key)
@@ -81,7 +81,7 @@ namespace VNCExcelTools
         {
             Int64 startTicks = 0;
             Common.WriteToDebugWindow("Enter/Exit", true);
-            if (Common.VNCLogging.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ApplicationStart) startTicks = Log.APPLICATION_START("Enter/Exit", Common.LOG_CATEGORY);
         }
 
 

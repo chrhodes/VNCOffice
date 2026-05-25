@@ -9,7 +9,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.22</FileVersion>
+        <FileVersion>2026.05.25</FileVersion>
         <Description>VNCVisioToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -87,6 +87,10 @@
         <Reference Include="System.Web" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\VNCVisioToolsApplication.Core\VNCVisioToolsApplication.Core.csproj" />
+    </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
         <!-- Uncoment next line to switch to ProjectReference(s) -->
         <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>
@@ -95,7 +99,6 @@
     <Choose>
         <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <ProjectReference Include="..\VNCVisioToolsApplication.Core\VNCVisioToolsApplication.Core.csproj" />
                 <ProjectReference Include="..\..\VNC.VSTOAddin.Visio\VNC.VSTOAddIn.Visio.csproj" />
                 <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddin.csproj" />
                 <ProjectReference Include="..\..\..\VNCDevelopment\VNC.UIApproaches\VNC.UIApproaches.csproj" />
@@ -104,29 +107,34 @@
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <PackageReference Include="VNCVisioToolsApplication.Core" Version="1.0.0" />
                 <PackageReference Include="VNC.VSTOAddIn.Visio" Version="1.0.0" />
-                <PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" />
+                <PackageReference Include="VNC.VSTOAddIn" Version="1.1.0" />
                 <PackageReference Include="VNC.UIApproaches" Version="1.1.0" />
-                <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.4.0" />
+                <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.5.0" />
             </ItemGroup>
         </When>
     </Choose>
 
-    <!-- <Choose> -->
-    <!-- <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
-    <!-- <ItemGroup> -->
-    <!-- <ProjectReference Include="..\..\..\..\VNCOffice\VNC.Visio.VSTOAddin\VNC.VSTOAddIn.Visio.csproj" /> -->
-    <!-- <ProjectReference Include="..\..\..\..\VNCOffice\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" /> -->
-    <!-- </ItemGroup> -->
-    <!-- </When> -->
-    <!-- <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'"> -->
-    <!-- <ItemGroup> -->
-    <!-- <PackageReference Include="VNC.VSTOAddIn.Visio" Version="1.0.0" /> -->
-    <!-- <PackageReference Include="VNC.VSTOAddIn" Version="1.0.0" /> -->
-    <!-- </ItemGroup>  -->
-    <!-- </When> -->
-    <!-- </Choose> -->
+    <!--Keep a copy as Visual Studio will remove things when doing Release builds.-->
+
+    <!--<Choose>
+        <When Condition="'$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <ProjectReference Include="..\..\VNC.VSTOAddin.Visio\VNC.VSTOAddIn.Visio.csproj" />
+                <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddin.csproj" />
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.UIApproaches\VNC.UIApproaches.csproj" />
+                <ProjectReference Include="..\..\..\VNCDevelopment\VNC.WPF.Presentation.Dx\VNC.WPF.Presentation.Dx.csproj" />
+            </ItemGroup>
+        </When>
+        <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
+            <ItemGroup>
+                <PackageReference Include="VNC.VSTOAddIn.Visio" Version="1.0.0" />
+                <PackageReference Include="VNC.VSTOAddIn" Version="1.1.0" />
+                <PackageReference Include="VNC.UIApproaches" Version="1.1.0" />
+                <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.5.0" />
+            </ItemGroup>
+        </When>
+    </Choose>-->
 
     <!--This updates the file version to the current date.-->
     <!--Only run for one TargetFramework.  No need to run twice. Update TargetFramework as needed.-->

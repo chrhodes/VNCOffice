@@ -36,7 +36,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             IDialogService dialogService) : base(eventAggregator, dialogService)
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.Constructor) startTicks = Log.CONSTRUCTOR("Enter", Common.LOG_CATEGORY);
 
             InstanceCountVM++;
 
@@ -45,13 +45,13 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             InitializeViewModel();
 
-            if (Common.VNCLogging.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.Constructor) Log.CONSTRUCTOR($"Exit VM:{InstanceCountVM}", Common.LOG_CATEGORY, startTicks);
         }
 
         private void InitializeViewModel()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.ViewModelLow) startTicks = Log.VIEWMODEL_LOW("Enter", Common.LOG_CATEGORY);
 
             // NOTE(crhodes)
             // Put things here that initialize the ViewModel
@@ -96,7 +96,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
             // and remove above declaration
             //SearchLeftCommand = new DelegateCommand<TYPE>(SearchLeft, SearchLeftCanExecute);
 
-            if (Common.VNCLogging.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.ViewModelLow) Log.VIEWMODEL_LOW("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         #endregion
@@ -146,11 +146,11 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         private void SayHello()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
 
             Message = "Hello";
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         private bool SayHelloCanExecute()
@@ -185,7 +185,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void CreateFolderMap()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -233,7 +233,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above
@@ -276,7 +276,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void GroupDown()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -354,7 +354,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above
@@ -397,7 +397,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void GroupDownAll()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -487,7 +487,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above
@@ -530,7 +530,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void UngroupSelection()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -577,7 +577,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above
@@ -620,7 +620,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void SearchLeft()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -675,7 +675,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above
@@ -718,7 +718,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void SearchRight()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -773,7 +773,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above
@@ -816,7 +816,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void SearchUp()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -871,7 +871,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above
@@ -914,7 +914,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
         public void SearchDown()
         {
             Int64 startTicks = 0;
-            if (Common.VNCLogging.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) startTicks = Log.EVENT_HANDLER("Enter", Common.LOG_CATEGORY);
             // TODO(crhodes)
             // Do something amazing.
 
@@ -969,7 +969,7 @@ namespace VNCExcelToolsApplication.Presentation.ViewModels
 
             // End Cut Five
 
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("Exit", Common.LOG_CATEGORY, startTicks);
         }
 
         // If using CommandParameter, figure out TYPE and fix above

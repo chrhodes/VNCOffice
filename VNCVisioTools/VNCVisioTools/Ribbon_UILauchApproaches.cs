@@ -19,7 +19,7 @@ namespace VNCVisioTools
 
         private void btnThemedWindowHostModal_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -33,7 +33,7 @@ namespace VNCVisioTools
 
         private void btnThemedWindowHostModeless_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -47,7 +47,7 @@ namespace VNCVisioTools
 
         private void btnDxWindowHost_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -61,7 +61,7 @@ namespace VNCVisioTools
 
         private void btnWindowHostLocal_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -75,7 +75,7 @@ namespace VNCVisioTools
 
         private void btnWindowHostVNC_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -98,7 +98,7 @@ namespace VNCVisioTools
 
         private void btnLaunchCylon_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -112,7 +112,7 @@ namespace VNCVisioTools
 
         private void btnLaunchCylon2_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -126,7 +126,7 @@ namespace VNCVisioTools
 
         private void btnDxLayoutControl_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -140,7 +140,7 @@ namespace VNCVisioTools
 
         private void btnDxDockLayoutControl_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -154,7 +154,7 @@ namespace VNCVisioTools
 
         private void btnDxDockLayoutManagerControl_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -168,7 +168,7 @@ namespace VNCVisioTools
 
         private void btnPrismRegionTest_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -186,7 +186,7 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VAVM1st_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -200,7 +200,7 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VA1st_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -214,7 +214,7 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VAVM1stDI_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -228,7 +228,7 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VB1st_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -242,7 +242,7 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VC11st_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
@@ -256,7 +256,7 @@ namespace VNCVisioTools
 
         private void btnVNC_MVVM_VC21st_Click(object sender, RibbonControlEventArgs e)
         {
-            if (Common.VNCLogging.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
