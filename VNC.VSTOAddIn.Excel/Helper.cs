@@ -101,11 +101,11 @@ namespace VNC.VSTOAddIn.Excel
 
         // FIX(crhodes)
         // Not sure this is going to be set.  Need to pick one place to hold this.  I think Commmon.ExcelApplication
-        public static Microsoft.Office.Interop.Excel.Application? ExcelApplication
-        {
-            get;
-            set;
-        }
+        //public static Microsoft.Office.Interop.Excel.Application? ExcelApplication
+        //{
+        //    get;
+        //    set;
+        //}
 
         #region Main Function Routines
 
@@ -287,7 +287,7 @@ namespace VNC.VSTOAddIn.Excel
                 //    Range? currentColumn = ws.Columns[column] as Range;
 
                 //    if (currentColumn is not null)
-                //    { 
+                //    {
                 //        // Assume we want the whole column to change
                 //        currentColumn.Font.Name = headerFormat.Font.Name;
                 //        currentColumn.Font.Size = headerFormat.Font.Size;
@@ -644,10 +644,10 @@ namespace VNC.VSTOAddIn.Excel
         {
             // Don't bother trying to save current if no open workbooks.
 
-            if (ExcelApplication?.Workbooks.Count > 0)
+            if (Common.ExcelApplication?.Workbooks.Count > 0)
             {
-                PriorCalculationState = ExcelApplication.Calculation;
-                ExcelApplication.Calculation = XlCalculation.xlCalculationManual;
+                PriorCalculationState = Common.ExcelApplication.Calculation;
+                Common.ExcelApplication.Calculation = XlCalculation.xlCalculationManual;
             }
             else
             {
@@ -659,15 +659,15 @@ namespace VNC.VSTOAddIn.Excel
 
         public static void CalculationsOn(bool force = false)
         {
-            if (ExcelApplication is not null)
+            if (Common.ExcelApplication is not null)
             {
                 if (force)
                 {
-                    ExcelApplication.Calculation = XlCalculation.xlCalculationAutomatic;
+                    Common.ExcelApplication.Calculation = XlCalculation.xlCalculationAutomatic;
                 }
                 else
                 {
-                    ExcelApplication.Calculation = PriorCalculationState;
+                    Common.ExcelApplication.Calculation = PriorCalculationState;
                 }
             }
         }
@@ -677,7 +677,7 @@ namespace VNC.VSTOAddIn.Excel
             try
             {
                 //Office.DocumentProperties prps = (Office.DocumentProperties)ExcelApplication.ActiveWorkbook.CustomDocumentProperties;
-                Office.DocumentProperties? prps = ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
+                Office.DocumentProperties? prps = Common.ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
 
                 if (prps != null)
                 {
@@ -701,7 +701,7 @@ namespace VNC.VSTOAddIn.Excel
             try
             {
                 //prps = (Office.DocumentProperties)ExcelApplication.ActiveWorkbook.CustomDocumentProperties;
-                prps = ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
+                prps = Common.ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
             }
             catch (Exception ex)
             {
@@ -723,7 +723,7 @@ namespace VNC.VSTOAddIn.Excel
             }
             else
             {
-                prps = ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
+                prps = Common.ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
                 prps?["HasCustomTableOfContents"]?.Delete();
             }
         }
@@ -732,22 +732,22 @@ namespace VNC.VSTOAddIn.Excel
         {
             bool priorState = false;
 
-            priorState = ExcelApplication?.DisplayAlerts ?? false;
+            priorState = Common.ExcelApplication?.DisplayAlerts ?? false;
 
-            if (ExcelApplication is not null)
+            if (Common.ExcelApplication is not null)
             {
                 if (prompt)
                 {
-                    ExcelApplication.DisplayAlerts = true;
+                    Common.ExcelApplication.DisplayAlerts = true;
                     ws.Delete();
                 }
                 else
                 {
-                    ExcelApplication.DisplayAlerts = false;
+                    Common.ExcelApplication.DisplayAlerts = false;
                     ws.Delete();
                 }
 
-                ExcelApplication.DisplayAlerts = priorState;
+                Common.ExcelApplication.DisplayAlerts = priorState;
             }
         }
 
@@ -861,7 +861,7 @@ namespace VNC.VSTOAddIn.Excel
         public static Worksheet DuplicateWorksheet(string sourceSheetName, string destinationSheetName,
             string beforeSheetName = "", string afterSheetName = "")
         {
-            Workbook? wb = ExcelApplication?.ActiveWorkbook;
+            Workbook? wb = Common.ExcelApplication?.ActiveWorkbook;
 
             foreach (Worksheet ws in wb.Worksheets)
             {
@@ -921,7 +921,7 @@ namespace VNC.VSTOAddIn.Excel
         {
             // REVIEW(crhodes)
             // I think once we figure out ExcelApplication we won't need this check.
-            if (ExcelApplication is null)
+            if (Common.ExcelApplication is null)
             {
                 throw new InvalidOperationException("ExcelApplication is not initialized.");
             }
@@ -931,9 +931,9 @@ namespace VNC.VSTOAddIn.Excel
 
             if (true == blnCreateNew)
             {
-                ExcelApplication.Workbooks.Add();
+                Common.ExcelApplication.Workbooks.Add();
                 // Keep the name so we don't have to worry about what name is given.
-                Worksheet? activeSheet = ExcelApplication?.ActiveSheet as Worksheet;
+                Worksheet? activeSheet = Common.ExcelApplication?.ActiveSheet as Worksheet;
 
                 strKeepName = activeSheet?.Name;
             }
@@ -943,11 +943,11 @@ namespace VNC.VSTOAddIn.Excel
             }
 
             // Yes, delete the damn things!
-            ExcelApplication.DisplayAlerts = false;
+            Common.ExcelApplication.DisplayAlerts = false;
 
             // Remove all other worksheets
 
-            foreach (Worksheet ws in ExcelApplication.ActiveWorkbook.Sheets)
+            foreach (Worksheet ws in Common.ExcelApplication.ActiveWorkbook.Sheets)
             {
                 if (strKeepName != ws.Name)
                 {
@@ -955,9 +955,9 @@ namespace VNC.VSTOAddIn.Excel
                 }
             }
 
-            ExcelApplication.DisplayAlerts = true;
+            Common.ExcelApplication.DisplayAlerts = true;
 
-            Worksheet? activeSheetFinal = ExcelApplication?.ActiveSheet as Worksheet;
+            Worksheet? activeSheetFinal = Common.ExcelApplication?.ActiveSheet as Worksheet;
 
             if (activeSheetFinal != null)
             {
@@ -1428,7 +1428,7 @@ namespace VNC.VSTOAddIn.Excel
 
             try
             {
-                prps = ExcelApplication.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
+                prps = Common.ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
                 prp = prps?["HasCustomFooter"];
 
                 // If the property exists we don't really care about the value
@@ -1448,7 +1448,7 @@ namespace VNC.VSTOAddIn.Excel
 
             try
             {
-                prps = ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
+                prps = Common.ExcelApplication?.ActiveWorkbook.CustomDocumentProperties as Office.DocumentProperties;
                 prp = prps?["HasCustomTableOfContents"];
 
                 // If the property exists we don't really care about the value
@@ -1473,7 +1473,7 @@ namespace VNC.VSTOAddIn.Excel
         /// <returns></returns>
         public static Worksheet NewWorksheet(String sheetName, String beforeSheetName = "", String afterSheetName = "")
         {
-            Workbook? wb = ExcelApplication?.ActiveWorkbook;
+            Workbook? wb = Common.ExcelApplication?.ActiveWorkbook;
             Worksheet? newWs;
 
             if (wb == null)
@@ -1628,16 +1628,16 @@ namespace VNC.VSTOAddIn.Excel
         {
             if (false == DisplayScreenUpdates)
             {
-                if (ExcelApplication.Workbooks.Count > 0)
+                if (Common.ExcelApplication.Workbooks.Count > 0)
                 {
-                    PriorScreenUpdatingState = ExcelApplication.ScreenUpdating;
-                    ExcelApplication.ScreenUpdating = false;
+                    PriorScreenUpdatingState = Common.ExcelApplication.ScreenUpdating;
+                    Common.ExcelApplication.ScreenUpdating = false;
                 }
                 else
                 {
                     // Assume the intent is to run with screen updates on.
                     PriorScreenUpdatingState = true;
-                    ExcelApplication.ScreenUpdating = false;
+                    Common.ExcelApplication.ScreenUpdating = false;
                 }
             }
         }
@@ -1646,11 +1646,11 @@ namespace VNC.VSTOAddIn.Excel
         {
             if (force)
             {
-                ExcelApplication.ScreenUpdating = true;
+                Common.ExcelApplication.ScreenUpdating = true;
             }
             else
             {
-                ExcelApplication.ScreenUpdating = PriorScreenUpdatingState;
+                Common.ExcelApplication.ScreenUpdating = PriorScreenUpdatingState;
             }
         }
 
@@ -1710,7 +1710,7 @@ namespace VNC.VSTOAddIn.Excel
                 else
                 {
                     // TODO(crhodes)
-                    // Why is this null?              
+                    // Why is this null?
                 }
 
                 targetRange.Orientation = formatSpec.Orientation;
@@ -1726,7 +1726,7 @@ namespace VNC.VSTOAddIn.Excel
 
         public static void ZapPageBreaks()
         {
-            foreach (Worksheet ws in ExcelApplication.ActiveWorkbook.Sheets)
+            foreach (Worksheet ws in Common.ExcelApplication.ActiveWorkbook.Sheets)
             {
                 ws.PageSetup.PrintArea = "";
 

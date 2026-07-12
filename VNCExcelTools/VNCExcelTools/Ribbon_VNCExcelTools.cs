@@ -20,13 +20,13 @@ namespace VNCExcelTools
 
         #region Document Action Events
 
-        private void btnAddFooter_Click(object sender, RibbonControlEventArgs e)
+        private void btnAddFooterAllPages_Click(object sender, RibbonControlEventArgs e)
         {
             if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
-                //Excel_Document.AddFooter();
+                Excel_PageFormatting.AddFooterAllPages();
             }
             catch (Exception ex)
             {
@@ -34,13 +34,13 @@ namespace VNCExcelTools
             }
         }
 
-        private void btnAddHeader_Click(object sender, RibbonControlEventArgs e)
+        private void btnAddHeaderAllPages_Click(object sender, RibbonControlEventArgs e)
         {
             if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
 
             try
             {
-                //Excel_Document.AddHeader();
+                Excel_PageFormatting.AddHeaderAllPages();
             }
             catch (Exception ex)
             {
@@ -54,7 +54,35 @@ namespace VNCExcelTools
 
             try
             {
-                //Excel_Document.AddTableOfContents();
+                Excel_Workbook.AddTableOfContents();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        private void btnLockAllWorksheets_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_Workbook.LockAllWorksheets();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        private void btnUnlockAllWorksheets_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_Workbook.UnlockAllWorksheets();
             }
             catch (Exception ex)
             {
@@ -63,6 +91,98 @@ namespace VNCExcelTools
         }
 
         #endregion Document Actions Events
+
+        #region Workbook Action Events
+
+        private void btnUnlockWorksheet_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_Worksheet.UnlockWorksheet();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        private void btnLockWorksheet_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_Worksheet.LockWorksheet();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        #endregion
+
+        #region Page Events
+
+        private void btnAllLandscape_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_PageFormatting.AllLandscape();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        private void btnLandscape_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_PageFormatting.Landscape();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        private void btnAllPortrait_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_PageFormatting.AllPortrait();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        private void btnPortrait_Click(object sender, RibbonControlEventArgs e)
+        {
+            if (Common.VNCLogLevel.EventHandler) Log.EVENT_HANDLER("", Common.LOG_CATEGORY);
+
+            try
+            {
+                Excel_PageFormatting.Portrait();
+            }
+            catch (Exception ex)
+            {
+                Common.WriteToDebugWindow(ex.Message, force: true);
+            }
+        }
+
+        #endregion
 
         #region Utilities Events
 

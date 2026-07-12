@@ -10,7 +10,7 @@
         <VersionPrefix>1.1.0</VersionPrefix>
         <VersionSuffix>Release</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.25</FileVersion>
+        <FileVersion>2026.07.12</FileVersion>
         <Description>VNC VSTO AddIn Helper</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -58,7 +58,7 @@
 
     <PropertyGroup Condition="'$(Configuration)'=='Debug'">
         <!-- Uncoment next line to switch to ProjectReference(s) -->
-        <DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>
+        <!--<DefineConstants>$(DefineConstants);VNCPROJECTREF</DefineConstants>-->
     </PropertyGroup>
 
     <Choose>

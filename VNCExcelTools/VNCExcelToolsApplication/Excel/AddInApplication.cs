@@ -213,8 +213,8 @@ namespace VNCExcelToolsApplication.Excel
             Common.ApplicationBootstrapper.Run();
 
             Common.EventAggregator = (IEventAggregator)Common.Container.Resolve(typeof(IEventAggregator));
-            Excel_Application.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
-            Excel_Application.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
+            Excel_Worksheet.statusMessageEvent = Common.EventAggregator.GetEvent<StatusMessageEvent>();
+            Excel_Worksheet.developerModeEvent = Common.EventAggregator.GetEvent<DeveloperModeEvent>();
 
             Common.WriteToDebugWindow("Exit", startTicks, true);
             if (Common.VNCLogLevel.ApplicationInitializeLow) Log.APPLICATION_INITIALIZE_LOW("Exit", Common.LOG_CATEGORY, startTicks);

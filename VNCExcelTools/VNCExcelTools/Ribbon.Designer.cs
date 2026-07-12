@@ -38,10 +38,22 @@
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.rtVNCExcelTools = this.Factory.CreateRibbonTab();
-            this.rgDocumentActions = this.Factory.CreateRibbonGroup();
+            this.rgWorkbookActions = this.Factory.CreateRibbonGroup();
             this.btnAddTableOfContents = this.Factory.CreateRibbonButton();
-            this.btnAddHeader = this.Factory.CreateRibbonButton();
-            this.btnAddFooter = this.Factory.CreateRibbonButton();
+            this.btnLockAllWorksheets = this.Factory.CreateRibbonButton();
+            this.btnUnlockAllWorksheets = this.Factory.CreateRibbonButton();
+            this.rgWorksheetActions = this.Factory.CreateRibbonGroup();
+            this.btnLockWorksheet = this.Factory.CreateRibbonButton();
+            this.btnUnlockWorksheet = this.Factory.CreateRibbonButton();
+            this.button2 = this.Factory.CreateRibbonButton();
+            this.rgPageActions = this.Factory.CreateRibbonGroup();
+            this.btnAddHeaderAllPages = this.Factory.CreateRibbonButton();
+            this.btnAllLandscape = this.Factory.CreateRibbonButton();
+            this.btnLandscape = this.Factory.CreateRibbonButton();
+            this.btnAddFooterAllPages = this.Factory.CreateRibbonButton();
+            this.btnAllPortrait = this.Factory.CreateRibbonButton();
+            this.btnPortrait = this.Factory.CreateRibbonButton();
+            this.button3 = this.Factory.CreateRibbonButton();
             this.rgUtilities = this.Factory.CreateRibbonGroup();
             this.btnFolderMap = this.Factory.CreateRibbonButton();
             this.rgDebug = this.Factory.CreateRibbonGroup();
@@ -80,7 +92,9 @@
             this.btnVNC_MVVM_VC21st = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.rtVNCExcelTools.SuspendLayout();
-            this.rgDocumentActions.SuspendLayout();
+            this.rgWorkbookActions.SuspendLayout();
+            this.rgWorksheetActions.SuspendLayout();
+            this.rgPageActions.SuspendLayout();
             this.rgUtilities.SuspendLayout();
             this.rgDebug.SuspendLayout();
             this.grpHelp.SuspendLayout();
@@ -104,20 +118,22 @@
             // 
             // rtVNCExcelTools
             // 
-            this.rtVNCExcelTools.Groups.Add(this.rgDocumentActions);
+            this.rtVNCExcelTools.Groups.Add(this.rgWorkbookActions);
+            this.rtVNCExcelTools.Groups.Add(this.rgWorksheetActions);
+            this.rtVNCExcelTools.Groups.Add(this.rgPageActions);
             this.rtVNCExcelTools.Groups.Add(this.rgUtilities);
             this.rtVNCExcelTools.Groups.Add(this.rgDebug);
             this.rtVNCExcelTools.Groups.Add(this.grpHelp);
             this.rtVNCExcelTools.Label = "VNCExcelTools";
             this.rtVNCExcelTools.Name = "rtVNCExcelTools";
             // 
-            // rgDocumentActions
+            // rgWorkbookActions
             // 
-            this.rgDocumentActions.Items.Add(this.btnAddTableOfContents);
-            this.rgDocumentActions.Items.Add(this.btnAddHeader);
-            this.rgDocumentActions.Items.Add(this.btnAddFooter);
-            this.rgDocumentActions.Label = "Document Actions";
-            this.rgDocumentActions.Name = "rgDocumentActions";
+            this.rgWorkbookActions.Items.Add(this.btnAddTableOfContents);
+            this.rgWorkbookActions.Items.Add(this.btnLockAllWorksheets);
+            this.rgWorkbookActions.Items.Add(this.btnUnlockAllWorksheets);
+            this.rgWorkbookActions.Label = "Workbook Actions";
+            this.rgWorkbookActions.Name = "rgWorkbookActions";
             // 
             // btnAddTableOfContents
             // 
@@ -127,19 +143,105 @@
             this.btnAddTableOfContents.SuperTip = "Add Table of Contents Page containing link shapes to all pages";
             this.btnAddTableOfContents.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddTableOfContents_Click);
             // 
-            // btnAddHeader
+            // btnLockAllWorksheets
             // 
-            this.btnAddHeader.Label = "+ Header";
-            this.btnAddHeader.Name = "btnAddHeader";
-            this.btnAddHeader.ScreenTip = "Add Header to all Pages";
-            this.btnAddHeader.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddHeader_Click);
+            this.btnLockAllWorksheets.Label = "Lock All Worksheets";
+            this.btnLockAllWorksheets.Name = "btnLockAllWorksheets";
+            this.btnLockAllWorksheets.ScreenTip = "Lock All Worksheets";
+            this.btnLockAllWorksheets.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLockAllWorksheets_Click);
             // 
-            // btnAddFooter
+            // btnUnlockAllWorksheets
             // 
-            this.btnAddFooter.Label = "+ Footer";
-            this.btnAddFooter.Name = "btnAddFooter";
-            this.btnAddFooter.ScreenTip = "Add Footer to all Pages";
-            this.btnAddFooter.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddFooter_Click);
+            this.btnUnlockAllWorksheets.Label = "Unlock All Worksheets";
+            this.btnUnlockAllWorksheets.Name = "btnUnlockAllWorksheets";
+            this.btnUnlockAllWorksheets.ScreenTip = "Unlock All Worksheets";
+            this.btnUnlockAllWorksheets.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnUnlockAllWorksheets_Click);
+            // 
+            // rgWorksheetActions
+            // 
+            this.rgWorksheetActions.Items.Add(this.btnLockWorksheet);
+            this.rgWorksheetActions.Items.Add(this.btnUnlockWorksheet);
+            this.rgWorksheetActions.Items.Add(this.button2);
+            this.rgWorksheetActions.Label = "Worksheet Actions";
+            this.rgWorksheetActions.Name = "rgWorksheetActions";
+            // 
+            // btnLockWorksheet
+            // 
+            this.btnLockWorksheet.Label = "Lock Worksheet";
+            this.btnLockWorksheet.Name = "btnLockWorksheet";
+            this.btnLockWorksheet.ScreenTip = "Lock Current Worksheet";
+            this.btnLockWorksheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLockWorksheet_Click);
+            // 
+            // btnUnlockWorksheet
+            // 
+            this.btnUnlockWorksheet.Label = "Unlock Worksheet";
+            this.btnUnlockWorksheet.Name = "btnUnlockWorksheet";
+            this.btnUnlockWorksheet.ScreenTip = "Unlock Current Worksheet";
+            this.btnUnlockWorksheet.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnUnlockWorksheet_Click);
+            // 
+            // button2
+            // 
+            this.button2.Label = "";
+            this.button2.Name = "button2";
+            // 
+            // rgPageActions
+            // 
+            this.rgPageActions.Items.Add(this.btnAddHeaderAllPages);
+            this.rgPageActions.Items.Add(this.btnAllLandscape);
+            this.rgPageActions.Items.Add(this.btnLandscape);
+            this.rgPageActions.Items.Add(this.btnAddFooterAllPages);
+            this.rgPageActions.Items.Add(this.btnAllPortrait);
+            this.rgPageActions.Items.Add(this.btnPortrait);
+            this.rgPageActions.Items.Add(this.button3);
+            this.rgPageActions.Label = "Page Actions";
+            this.rgPageActions.Name = "rgPageActions";
+            // 
+            // btnAddHeaderAllPages
+            // 
+            this.btnAddHeaderAllPages.Label = "+ Header";
+            this.btnAddHeaderAllPages.Name = "btnAddHeaderAllPages";
+            this.btnAddHeaderAllPages.ScreenTip = "Add Header to All Pages";
+            this.btnAddHeaderAllPages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddHeaderAllPages_Click);
+            // 
+            // btnAllLandscape
+            // 
+            this.btnAllLandscape.Label = "All Landscape";
+            this.btnAllLandscape.Name = "btnAllLandscape";
+            this.btnAllLandscape.ScreenTip = "All Landscape";
+            this.btnAllLandscape.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAllLandscape_Click);
+            // 
+            // btnLandscape
+            // 
+            this.btnLandscape.Label = "Landscape";
+            this.btnLandscape.Name = "btnLandscape";
+            this.btnLandscape.ScreenTip = "Landscape Orientation";
+            this.btnLandscape.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnLandscape_Click);
+            // 
+            // btnAddFooterAllPages
+            // 
+            this.btnAddFooterAllPages.Label = "+ Footer";
+            this.btnAddFooterAllPages.Name = "btnAddFooterAllPages";
+            this.btnAddFooterAllPages.ScreenTip = "Add Footer to all Pages";
+            this.btnAddFooterAllPages.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAddFooterAllPages_Click);
+            // 
+            // btnAllPortrait
+            // 
+            this.btnAllPortrait.Label = "All Portrait";
+            this.btnAllPortrait.Name = "btnAllPortrait";
+            this.btnAllPortrait.ScreenTip = "All Pages Portrait";
+            this.btnAllPortrait.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAllPortrait_Click);
+            // 
+            // btnPortrait
+            // 
+            this.btnPortrait.Label = "Portrait";
+            this.btnPortrait.Name = "btnPortrait";
+            this.btnPortrait.ScreenTip = "Portrait Orientation";
+            this.btnPortrait.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnPortrait_Click);
+            // 
+            // button3
+            // 
+            this.button3.Label = "";
+            this.button3.Name = "button3";
             // 
             // rgUtilities
             // 
@@ -425,8 +527,12 @@
             this.tab1.PerformLayout();
             this.rtVNCExcelTools.ResumeLayout(false);
             this.rtVNCExcelTools.PerformLayout();
-            this.rgDocumentActions.ResumeLayout(false);
-            this.rgDocumentActions.PerformLayout();
+            this.rgWorkbookActions.ResumeLayout(false);
+            this.rgWorkbookActions.PerformLayout();
+            this.rgWorksheetActions.ResumeLayout(false);
+            this.rgWorksheetActions.PerformLayout();
+            this.rgPageActions.ResumeLayout(false);
+            this.rgPageActions.PerformLayout();
             this.rgUtilities.ResumeLayout(false);
             this.rgUtilities.PerformLayout();
             this.rgDebug.ResumeLayout(false);
@@ -482,14 +588,26 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVNC_MVVM_VB1st;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVNC_MVVM_VC11st;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVNC_MVVM_VC21st;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgDocumentActions;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgWorkbookActions;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddTableOfContents;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddHeader;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddFooter;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAllLandscape;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddFooterAllPages;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgUtilities;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnFolderMap;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnTestExcelLogging;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnLoggingConfiguration;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgWorksheetActions;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnLockAllWorksheets;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnUnlockAllWorksheets;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnUnlockWorksheet;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnLockWorksheet;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup rgPageActions;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button3;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnLandscape;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAllPortrait;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnPortrait;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAddHeaderAllPages;
     }
 
     partial class ThisRibbonCollection
