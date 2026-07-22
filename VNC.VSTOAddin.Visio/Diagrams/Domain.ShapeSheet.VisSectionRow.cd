@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ActionRow">
+    <Position X="0.5" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAQAAACAAACIACQAAAAIgCAAAAAIAAEACAQ=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\ActionRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ActionTagRow">
+    <Position X="5" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAQgAAAAABCAACRAAAAAAAAAACAAAAAAaAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\ActionTagRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.CharacterRow">
+    <Position X="0.5" Y="5.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AECAYAAAAAAAkQAwBAIAASCAAACAAAAABAAAgAACAAE=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\CharacterRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ConnectionPointRow">
+    <Position X="5" Y="5.75" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAQAwpAEAYAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\ConnectionPointRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ControlsRow">
+    <Position X="0.5" Y="11.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAQAAAAAAAAACAAACQGwAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\ControlsRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.FillGradientStopRow">
+    <Position X="5" Y="12.5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAgAAAAACAAAAgAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\FillGradientStopRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.GeometryRow">
+    <Position X="0.5" Y="15.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAApAEAYAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\GeometryRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.HyperlinkRow">
+    <Position X="5" Y="15.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAIAAAgAABAAABAICQAAAAAACACAAAAAAEAAAE=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\HyperlinkRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.LayerRow">
+    <Position X="0.5" Y="20.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AEAQAAgAAAAAAAAAABAAACQAAACAAAAoAAAAgAAEAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\LayerRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.LineGradientStopRow">
+    <Position X="5" Y="20.75" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAgAAAAACQAAAgAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\LineGradientStopRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ParagraphRow">
+    <Position X="0.5" Y="24" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAAAAAAAAAQAAAAAGAAAAABAAAQAAAAAgCyAAI=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\ParagraphRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ScratchRow">
+    <Position X="5.25" Y="25.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAApAEAYAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\ScratchRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ShapeDataRow">
+    <Position X="0.5" Y="28.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAEAAAAAAAAAAAACSAAAgAQCAEAQAgABEAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\ShapeDataRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.TabsRow">
+    <Position X="5.25" Y="28.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAgAAAAADYAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\TabsRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.TextFieldRow">
+    <Position X="0.5" Y="32.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAACAAAAAAAAACQAAAgAAAAEAAAgAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\TextFieldRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.UserDefinedCellRow">
+    <Position X="5" Y="33" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionRows\UserDefinedCellRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

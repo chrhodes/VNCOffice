@@ -2,7 +2,7 @@
 
 using Prism.Commands;
 
-using VNCVisioToolsApplication.Presentation.ModelWrappers;
+//using VNCVisioToolsApplication.Presentation.ModelWrappers;
 
 using MSVisio = Microsoft.Office.Interop.Visio;
 

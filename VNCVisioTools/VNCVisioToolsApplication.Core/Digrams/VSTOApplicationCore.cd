@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNCVisioToolsApplication.Core.ApplicationCommands">
+    <Position X="3.5" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAgA=</HashCode>
+      <FileName>ApplicationCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Core.GlobalCommands">
+    <Position X="3.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GlobalCommands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Core.RegionNames">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAACAAAAAAAABAAAAQIAAAAAAAAAAAA=</HashCode>
+      <FileName>RegionNames.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

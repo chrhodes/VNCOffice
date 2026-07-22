@@ -1,13 +1,13 @@
 <Solution>
   <Folder Name="/Legacy/">
     <Project Path="../Legacy/SupportTools_Excel/SupportTools_Excel/SupportTools_Excel.csproj" Id="6696a283-4598-4152-b931-25e6f7530392">
-      <Build Solution="Debug|*" Project="false" />
+      <Build Project="false" />
     </Project>
     <Project Path="../Legacy/VNC.AddinHelper-Legacy/VNC.AddinHelper-Legacy.csproj">
-      <Build Solution="Debug|*" Project="false" />
+      <Build Project="false" />
     </Project>
     <Project Path="../Legacy/VNC.ExcelHelper/VNC.ExcelHelper.csproj">
-      <Build Solution="Debug|*" Project="false" />
+      <Build Project="false" />
     </Project>
   </Folder>
   <Folder Name="/Solution Items/">
@@ -17,17 +17,31 @@
     <File Path="VNCExcelTools.dgml" />
   </Folder>
   <Folder Name="/VNCDevelopment/">
-    <Project Path="../../VNCDevelopment/VNC.AssemblyHelper/VNC.AssembyHelper/VNC.AssemblyHelper.csproj" />
-    <Project Path="../../VNCDevelopment/VNC.Core/VNC.Core.csproj" />
-    <Project Path="../../VNCDevelopment/VNC.Logging/VNC.Logging/VNC.Logging.csproj">
-      <Build Solution="Debug|*" Project="false" />
+    <Project Path="../../VNCDevelopment/VNC.AssemblyHelper/VNC.AssembyHelper/VNC.AssemblyHelper.csproj">
+      <Build Solution="Release|*" Project="false" />
     </Project>
-    <Project Path="../../VNCDevelopment/VNC.UIApproaches/VNC.UIApproaches.csproj" />
-    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation.Dx/VNC.WPF.Presentation.Dx.csproj" />
-    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation/VNC.WPF.Presentation.csproj" />
+    <Project Path="../../VNCDevelopment/VNC.Core/VNC.Core.csproj">
+      <Build Solution="Release|*" Project="false" />
+    </Project>
+    <Project Path="../../VNCDevelopment/VNC.Logging/VNC.Logging/VNC.Logging.csproj">
+      <Build Project="false" />
+    </Project>
+    <Project Path="../../VNCDevelopment/VNC.UIApproaches/VNC.UIApproaches.csproj">
+      <Build Solution="Release|*" Project="false" />
+    </Project>
+    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation.Dx/VNC.WPF.Presentation.Dx.csproj">
+      <Build Solution="Release|*" Project="false" />
+    </Project>
+    <Project Path="../../VNCDevelopment/VNC.WPF.Presentation/VNC.WPF.Presentation.csproj">
+      <Build Solution="Release|*" Project="false" />
+    </Project>
   </Folder>
-  <Project Path="../VNC.VSTOAddIn.Excel/VNC.VSTOAddin.Excel.csproj" />
-  <Project Path="../VNC.VSTOAddin/VNC.VSTOAddIn.csproj" />
+  <Project Path="../VNC.VSTOAddIn.Excel/VNC.VSTOAddin.Excel.csproj">
+    <Build Solution="Release|*" Project="false" />
+  </Project>
+  <Project Path="../VNC.VSTOAddin/VNC.VSTOAddIn.csproj">
+    <Build Solution="Release|*" Project="false" />
+  </Project>
   <Project Path="VNCExcelTools/VNCExcelTools.csproj" Id="a29a8ce7-050b-4a76-81c3-574bf65e95d0" />
   <Project Path="VNCExcelToolsApplication.Core/VNCExcelToolsApplication.Core.csproj" />
   <Project Path="VNCExcelToolsApplication/VNCExcelToolsApplication.csproj" />

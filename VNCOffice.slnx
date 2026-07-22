@@ -26,13 +26,30 @@
     <Project Path="Legacy/SupportTools_Excel/SupportTools_Excel.Infrastructure/SupportTools_Excel.Core.csproj">
       <BuildType Solution="All|*" Project="Debug" />
       <Build Solution="Debug|Any CPU" Project="false" />
+      <Build Solution="Release|Any CPU" Project="false" />
     </Project>
     <Project Path="Legacy/SupportTools_Excel/SupportTools_Excel/SupportTools_Excel.csproj" Id="6696a283-4598-4152-b931-25e6f7530392">
       <Build Solution="Debug|Any CPU" Project="false" />
+      <Build Solution="Release|Any CPU" Project="false" />
+    </Project>
+    <Project Path="Legacy/SupportTools_Visio/SupportTools_Visio.Core/SupportTools_Visio.Core.csproj" Id="bb1193ec-4836-4850-a4c4-0cd639ec39f5">
+      <BuildType Solution="All|*" Project="Debug" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+      <Build Solution="Debug|Any CPU" Project="false" />
+      <Build Solution="Release|Any CPU" Project="false" />
+    </Project>
+    <Project Path="Legacy/SupportTools_Visio/SupportTools_Visio/SupportTools_Visio.csproj" Id="3c3897de-f23c-435b-acb2-242d72a1e74f">
+      <BuildType Solution="All|*" Project="Debug" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|x86" Project="x86" />
+      <Build Solution="Debug|Any CPU" Project="false" />
+      <Build Solution="Release|Any CPU" Project="false" />
     </Project>
     <Project Path="Legacy/VNC.ExcelHelper/VNC.ExcelHelper.csproj">
       <BuildType Solution="All|*" Project="Debug" />
       <Build Solution="Debug|Any CPU" Project="false" />
+      <Build Solution="Release|Any CPU" Project="false" />
     </Project>
   </Folder>
   <Folder Name="/Visio/">
@@ -63,6 +80,7 @@
     </Project>
     <Project Path="../VNCDevelopment/VNC.WPF.Presentation.Dx/VNC.WPF.Presentation.Dx.csproj">
       <BuildType Solution="All|*" Project="Debug" />
+      <Build Solution="Debug|Any CPU" Project="false" />
     </Project>
     <Project Path="../VNCDevelopment/VNC.WPF.Presentation/VNC.WPF.Presentation.csproj">
       <BuildType Solution="All|*" Project="Debug" />

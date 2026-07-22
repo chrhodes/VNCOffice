@@ -164,7 +164,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\VNC.VSTOAddin\VNC.VSTOAddIn.csproj" />
         <ProjectReference Include="..\VNCExcelToolsApplication.Core\VNCExcelToolsApplication.Core.csproj" />
     </ItemGroup>
 
@@ -184,9 +183,9 @@
         </When>
         <When Condition="'!$(DefineConstants.Contains(VNCPROJECTREF))'">
             <ItemGroup>
-                <PackageReference Include="VNC.VSTOAddIn.Excel" Version="1.0.0" />
+                <PackageReference Include="VNC.VSTOAddIn.Excel" Version="1.1.0" />
                 <PackageReference Include="VNC.VSTOAddIn" Version="1.1.0" />
-                <PackageReference Include="VNC.UIApproaches" Version="1.1.0" />
+                <PackageReference Include="VNC.UIApproaches" Version="1.2.0" />
                 <PackageReference Include="VNC.WPF.Presentation.Dx" Version="3.5.0" />
             </ItemGroup>
         </When>

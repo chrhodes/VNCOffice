@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNCVisioToolsApplication.Bootstrapper">
+    <Position X="4.75" Y="3.25" Width="6" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAACAAEAgBIAAAAAAAAAAAAABEAAAAAAAAAAA=</HashCode>
+      <FileName>Bootstrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Common">
+    <Position X="0.5" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>ACkAIAQBAAAEAAACIJAEAAAAAIAKQAQAgABAAAEgAAk=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Visio.AddInApplication">
+    <Position X="4.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AUAAAIAAAAABAAAAAAAQAAAAAAAAAgAAAAAIAAAAAAA=</HashCode>
+      <FileName>Visio\AddInApplication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Modules.VNCVisioToolsApplicationModule">
+    <Position X="11.25" Y="3.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECAAAAAAAAAA=</HashCode>
+      <FileName>Modules\VNCVisioToolsApplicationModule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

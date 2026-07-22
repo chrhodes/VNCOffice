@@ -9,7 +9,7 @@
         <VersionPrefix>1.0.0</VersionPrefix>
         <VersionSuffix>Development</VersionSuffix>
         <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
-        <FileVersion>2026.05.25</FileVersion>
+        <FileVersion>2026.07.21</FileVersion>
         <Description>VNCVisioToolsApplication</Description>
         <LangVersion>12.0</LangVersion>
         <Nullable>enable</Nullable>
@@ -67,6 +67,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="Presentation\ModelWrappers\" />
         <Folder Include="Presentation\Views\UserControls\" />
     </ItemGroup>
 

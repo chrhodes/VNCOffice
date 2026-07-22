@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNCVisioToolsApplication.Events.AddInApplicationEvents">
+    <Position X="0.5" Y="0.5" Width="6" />
+    <TypeIdentifier>
+      <HashCode>CAAAQAAAABAAAAQAAAAAAAAAAAAAAAAAAABBAAAAIAA=</HashCode>
+      <FileName>Events\AddInApplicationEvents.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Events.VisioAppEvents">
+    <Position X="7.25" Y="0.5" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>1j0/iZsNnNiDEG/jS7OBe0X726duft3NVH5cjoKV+Do=</HashCode>
+      <FileName>Events\VisioAppEvents.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

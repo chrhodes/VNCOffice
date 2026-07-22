@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNCVisioToolsApplication.Presentation.Presentation.ModelWrappers.CatWrapper">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Presentation\ModelWrappers\CatWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ModelWrappers.DuplicatePageWrapper">
+    <Position X="3.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Presentation\ModelWrappers\DuplicatePageWrapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.Converters.SelectedItemsToVisioCommandWrapperConverter">
+    <Position X="13.5" Y="0.5" Width="6.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAgAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Presentation\Converters\SelectedItemsToVisioCommandWrapperConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.Converters.XElementToStringConverter">
+    <Position X="7.25" Y="0.5" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentation\Converters\XElementToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using Prism.Commands;
-using VNCVisioToolsApplication.Presentation.ModelWrappers;
+//using VNCVisioToolsApplication.Presentation.ModelWrappers;
 using VNC;
 using VNC.Core.Mvvm;
 

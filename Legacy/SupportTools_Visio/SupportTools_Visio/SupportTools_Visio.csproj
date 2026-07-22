@@ -228,7 +228,7 @@
     can be found.
   -->
   <ItemGroup>
-    <Compile Include="Actions\PageLayout.cs" />
+    <Compile Include="Actions\AZDOPageLayout.cs" />
     <Compile Include="Application\PrismApp.cs" />
     <Compile Include="Domain\OffsetDirection.cs" />
     <Compile Include="Domain\QueryWorkItemInfoShape.cs" />

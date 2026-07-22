@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.AboutViewModel" Collapsed="true">
+    <Position X="2.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAgAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\AboutViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.CommandCockpitViewModel" Collapsed="true">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MMEAsgEDAIAQEI0ooiAAABEQAEAJAAGQEQBQIGhAgIA=</HashCode>
+      <FileName>Presentation\ViewModels\CommandCockpitViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.DuplicatePageViewModel" Collapsed="true">
+    <Position X="8.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQEAEEBCAAAAAMgAAAAgAASQAsAIAAMABIIgAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\DuplicatePageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.EditControlRowsViewModel" Collapsed="true">
+    <Position X="11.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAUkAAAAAAAAAAgAAAAAAABAAIAQAAAACAiAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\EditControlRowsViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.EditParagraphViewModel" Collapsed="true">
+    <Position X="15.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAUgAAAAAAAAAAgAAAAAAABAAAQQAAAACAgAIAABA=</HashCode>
+      <FileName>Presentation\ViewModels\EditParagraphViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.EditTextViewModel" Collapsed="true">
+    <Position X="18.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EACQEAAABAACAAAQgAAAAAAAAAAIAgIAAAAAIAAAEAA=</HashCode>
+      <FileName>Presentation\ViewModels\EditTextViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.ItemInfo" Collapsed="true">
+    <Position X="20.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\ItemInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.MovePageViewModel" Collapsed="true">
+    <Position X="21.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAEAAAYAAAAAAAgAIAAAAAAAAIQAAAEAAgICAABQA=</HashCode>
+      <FileName>Presentation\ViewModels\MovePageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.RenamePageViewModel" Collapsed="true">
+    <Position X="7.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAMAAAAAAAAAAAgCAAAAAAAAAIAAAAEAAAIAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\RenamePageViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.TestVisioLoggingViewModel" Collapsed="true">
+    <Position X="10.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAMAAAAAAAAAAAgCAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\TestVisioLoggingViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.ViewAViewModel" Collapsed="true">
+    <Position X="14" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAIAAAgAAAAAAAAAAIAAAAEAAAIAQAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\ViewAViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.ViewBViewModel" Collapsed="true">
+    <Position X="16" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAIAAAgAAAAAAAAAAIAAAAEAAAIAQAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\ViewBViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="VNCVisioToolsApplication.Presentation.ViewModels.ViewCViewModel" Collapsed="true">
+    <Position X="17.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAAAAAIAAAgAAAAAAAAAAIAAAAEAAAIAQAAAA=</HashCode>
+      <FileName>Presentation\ViewModels\ViewCViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

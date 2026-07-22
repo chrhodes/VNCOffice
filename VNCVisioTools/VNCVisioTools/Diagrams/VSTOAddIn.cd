@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNCVisioTools.Ribbon">
+    <Position X="7.25" Y="1.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>UdlQKgnfWfbmpzv6hcmhGpbOexVce+T3MK1uc+GiMaU=</HashCode>
+      <FileName>Ribbon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioTools.ThisRibbonCollection">
+    <Position X="13.5" Y="4" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioTools.Common">
+    <Position X="14.75" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioTools.ThisAddIn">
+    <Position X="19.5" Y="5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>QAAwAACQCBAIEQAAAQAAgBgAAAAAABAQAAoAIAAAACg=</HashCode>
+      <FileName>ThisAddIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioTools.Globals">
+    <Position X="13.5" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>EAgAgAAAAAAAAAAAIAAAAAAAAAAAAAAAAAACAAAAgAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioTools.Properties.Resources">
+    <Position X="20.5" Y="1.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQABEAAAAQAAAAAAAAAAAAAAAIE=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNCVisioTools.Properties.Settings">
+    <Position X="18" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

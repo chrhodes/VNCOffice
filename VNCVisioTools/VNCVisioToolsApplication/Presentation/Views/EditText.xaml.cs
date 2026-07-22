@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 using Prism.Commands;
 using DevExpress.Mvvm.POCO;
-using VNCVisioToolsApplication.Presentation.ModelWrappers;
+//using VNCVisioToolsApplication.Presentation.ModelWrappers;
 using VNCVisioToolsApplication.Presentation.ViewModels;
 
 using VNC;

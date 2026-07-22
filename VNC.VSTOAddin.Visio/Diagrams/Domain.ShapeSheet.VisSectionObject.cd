@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.AdditionalEffectPropertiesRow">
+    <Position X="0.5" Y="0.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>kRACAEAAAAAEQAAACAAAACAAAAAAAMAAAAAAEABAAEA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\AdditionalEffectPropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.AlignmentRow">
+    <Position X="6.5" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAEAAAAAAAAgAECAEAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\AlignmentRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.BevelPropertiesRow">
+    <Position X="10.75" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AACSAAAkCAIQAAAAAAAAAiAEAAAAAAAAAQABCAAAAAE=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\BevelPropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ChangeShapeBehaviorRow">
+    <Position X="0.5" Y="6" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAACAAAAAACAQAACAAAABAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\ChangeShapeBehaviorRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.DocumentPropertiesRow">
+    <Position X="6" Y="6" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAIAAAAEAAAAAAQISAAgAAAAAAAAAgQAAABAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\DocumentPropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.EventsRow">
+    <Position X="11.25" Y="6" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACQACEAAAAAACAAAAAAAAAAEAgAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\EventsRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.FillFormatRow">
+    <Position X="0.5" Y="10" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>BAyCAAAFABAAgEAAQCAAAaAAAEAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\FillFormatRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.GlueInfoRow">
+    <Position X="5" Y="10" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAAAAAAACAAggAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\GlueInfoRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.GradientPropertiesRow">
+    <Position X="9" Y="10" Width="4.75" />
+    <TypeIdentifier>
+      <HashCode>ABCCAAACAAIAAAAAAAAAACAAAAAAAAAEAAAAIAAAgAE=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\GradientPropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.GroupPropertiesRow">
+    <Position X="0.5" Y="15.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAABAAACAAAEAAAAAAAAABACQAgAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\GroupPropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ImagePropertiesRow">
+    <Position X="5.5" Y="15.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAAAAAAACAAAAiAAAAAAAAAAAgBAMA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\ImagePropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.LayerMembershipRow">
+    <Position X="10.5" Y="15.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\LayerMembershipRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.LineFormatRow">
+    <Position X="0.5" Y="18.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AQICAAAAEAAAAAAAAAQAEKAAAAAIAAAAAAEAgAgAIAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\LineFormatRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.MiscellaneousRow">
+    <Position X="5.25" Y="18.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>CIAKAAAEAAAgAAAAAAABACCABAAAACAEAgAQAIARAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\MiscellaneousRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.OneDEndPointsRow">
+    <Position X="10" Y="18.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAwAAAAAAAAAAACAAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\OneDEndPointsRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.PageLayoutRow">
+    <Position X="0.5" Y="28.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAQCAQABRBAAIAAAgAQEADkABwAAIB4CEAAAAABACAw=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\PageLayoutRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.PagePropertiesRow">
+    <Position X="5" Y="28.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAAIACgAAAQDAIQAAAAAAREAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\PagePropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.PrintPropertiesRow">
+    <Position X="0.5" Y="36" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>ACACQAAAAAAAAAAoGAIAACAAAgAAACACAAAAAAQBAAQ=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\PrintPropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ProtectionRow">
+    <Position X="7" Y="36.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>BIACAASiAAgAARAAAAABACAACBANBAABAAQAQEAAQAQ=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\ProtectionRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.QuickStyleRow">
+    <Position X="0.5" Y="44" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AABCAIAAAAACAAwAAAAAACAYAAAAAQAAAAAAAAAAACA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\QuickStyleRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.RulerAndGridRow">
+    <Position X="6.75" Y="43.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAACBAAwAAogEAAAQAAAACAAABAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\RulerAndGridRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ShapeLayoutRow">
+    <Position X="0.5" Y="48.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAQAAAAAAAAAAAACgAAAABKBGABhAAAhIAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\ShapeLayoutRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ShapeTransformRow">
+    <Position X="5" Y="48.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAABAAAAwAgAAAAAGAAAAAAAACAAEADAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\ShapeTransformRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.TextBlockFormatRow">
+    <Position X="0.5" Y="53.75" Width="7" />
+    <TypeIdentifier>
+      <HashCode>AACCBAAAAAABIAgIAAAgACAAACAAAAAABAgAAgAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\TextBlockFormatRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.TextTransformRow">
+    <Position X="7.75" Y="53.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AABCAAQAAAAAAAAAAAAAACAAAAAwAAQAAAAAABgAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\TextTransformRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ThemePropertiesRow">
+    <Position X="0.5" Y="58.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>QAACAAAAAADAAAAAAEAAACAAAAAAAAAAAAkAQAAAgAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\ThemePropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ThreeDRotationPropertiesRow">
+    <Position X="5.5" Y="58.25" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAGAAAgAAAAAAAAAACAAAAAAAAAACAAAAAABAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\VisSectionObject\ThreeDRotationPropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

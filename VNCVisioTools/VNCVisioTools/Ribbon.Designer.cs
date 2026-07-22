@@ -119,6 +119,7 @@
             this.rcbDisplayEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDisplayChattyEvents = this.Factory.CreateRibbonCheckBox();
             this.rcbDeveloperUIMode = this.Factory.CreateRibbonCheckBox();
+            this.btnTestVisioLogging = this.Factory.CreateRibbonButton();
             this.rcbUILaunchApproaches = this.Factory.CreateRibbonCheckBox();
             this.grpHelp = this.Factory.CreateRibbonGroup();
             this.btnDisplayAddInInfo = this.Factory.CreateRibbonButton();
@@ -144,7 +145,6 @@
             this.btnVNC_MVVM_VB1st = this.Factory.CreateRibbonButton();
             this.btnVNC_MVVM_VC11st = this.Factory.CreateRibbonButton();
             this.btnVNC_MVVM_VC21st = this.Factory.CreateRibbonButton();
-            this.btnTestVisioLogging = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.rtVisioAddInTemplate.SuspendLayout();
             this.rgDocumentActions.SuspendLayout();
@@ -778,6 +778,13 @@
             this.rcbDeveloperUIMode.Name = "rcbDeveloperUIMode";
             this.rcbDeveloperUIMode.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.rcbToggleDeveloperUIMode_Click);
             // 
+            // btnTestVisioLogging
+            // 
+            this.btnTestVisioLogging.Label = "Test Visio Logging";
+            this.btnTestVisioLogging.Name = "btnTestVisioLogging";
+            this.btnTestVisioLogging.SuperTip = "Test Debug and Watch Logging";
+            this.btnTestVisioLogging.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTestVisioLogging_Click);
+            // 
             // rcbUILaunchApproaches
             // 
             this.rcbUILaunchApproaches.Label = "UILaunchApproaches";
@@ -963,13 +970,6 @@
             this.btnVNC_MVVM_VC21st.Name = "btnVNC_MVVM_VC21st";
             this.btnVNC_MVVM_VC21st.SuperTip = "ViewC2 has no parameterless constructor and is not Registered with DI";
             this.btnVNC_MVVM_VC21st.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnVNC_MVVM_VC21st_Click);
-            // 
-            // btnTestVisioLogging
-            // 
-            this.btnTestVisioLogging.Label = "Test Visio Logging";
-            this.btnTestVisioLogging.Name = "btnTestVisioLogging";
-            this.btnTestVisioLogging.SuperTip = "Test Debug and Watch Logging";
-            this.btnTestVisioLogging.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnTestVisioLogging_Click);
             // 
             // Ribbon
             // 

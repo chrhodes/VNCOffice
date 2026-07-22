@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.ShapeSheet.AnnotationRow">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\AnnotationRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.NewButton">
+    <Position X="0.5" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\NewButton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VNC.VSTOAddIn.Visio.Domain.StylePropertiesRow">
+    <Position X="0.5" Y="5.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAACAACAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeSheet\StylePropertiesRow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="VNC.VSTOAddIn.Visio.Domain.ShapeType">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAQAACAAAAAAAAAAAAAAAACBAAAAAAAAAA=</HashCode>
+      <FileName>Domain\ShapeType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

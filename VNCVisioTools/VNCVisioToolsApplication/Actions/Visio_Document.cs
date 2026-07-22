@@ -207,7 +207,7 @@ namespace VNCVisioToolsApplication.Actions
 
             doc.HeaderFooterFont = font;
 
-            doc.FooterMargin[MSVisio.VisUnitCodes.visInches] = 0.13;
+            doc.FooterMargin[MSVisio.VisUnitCodes.visInches] = 0.14;
 
             Common.VisioApplication.EndUndoScope(undoScope, true);
         }
